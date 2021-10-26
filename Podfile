@@ -13,6 +13,8 @@ target 'Haloto' do
   pod 'FLEX'
   pod 'Shimmer', '~> 1.0'
   pod 'Kingfisher'
+  pod 'Toast-Swift', '~> 4.0.1'
+  pod 'SwifterSwift'
 
 
 end

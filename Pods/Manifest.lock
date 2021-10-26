@@ -29,6 +29,31 @@ PODS:
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
   - Shimmer (1.0.2)
+  - SwifterSwift (5.2.0):
+    - SwifterSwift/AppKit (= 5.2.0)
+    - SwifterSwift/CoreAnimation (= 5.2.0)
+    - SwifterSwift/CoreGraphics (= 5.2.0)
+    - SwifterSwift/CoreLocation (= 5.2.0)
+    - SwifterSwift/Dispatch (= 5.2.0)
+    - SwifterSwift/Foundation (= 5.2.0)
+    - SwifterSwift/MapKit (= 5.2.0)
+    - SwifterSwift/SceneKit (= 5.2.0)
+    - SwifterSwift/SpriteKit (= 5.2.0)
+    - SwifterSwift/StoreKit (= 5.2.0)
+    - SwifterSwift/SwiftStdlib (= 5.2.0)
+    - SwifterSwift/UIKit (= 5.2.0)
+  - SwifterSwift/AppKit (5.2.0)
+  - SwifterSwift/CoreAnimation (5.2.0)
+  - SwifterSwift/CoreGraphics (5.2.0)
+  - SwifterSwift/CoreLocation (5.2.0)
+  - SwifterSwift/Dispatch (5.2.0)
+  - SwifterSwift/Foundation (5.2.0)
+  - SwifterSwift/MapKit (5.2.0)
+  - SwifterSwift/SceneKit (5.2.0)
+  - SwifterSwift/SpriteKit (5.2.0)
+  - SwifterSwift/StoreKit (5.2.0)
+  - SwifterSwift/SwiftStdlib (5.2.0)
+  - SwifterSwift/UIKit (5.2.0)
   - Texture (3.0.0):
     - Texture/AssetsLibrary (= 3.0.0)
     - Texture/Core (= 3.0.0)
@@ -49,6 +74,7 @@ PODS:
     - Texture/Core
   - Texture/Video (3.0.0):
     - Texture/Core
+  - Toast-Swift (4.0.1)
 
 DEPENDENCIES:
   - FLEX
@@ -57,7 +83,9 @@ DEPENDENCIES:
   - RxCocoa
   - RxSwift
   - Shimmer (~> 1.0)
+  - SwifterSwift
   - Texture
+  - Toast-Swift (~> 4.0.1)
 
 SPEC REPOS:
   trunk:
@@ -72,7 +100,9 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - Shimmer
+    - SwifterSwift
     - Texture
+    - Toast-Swift
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
@@ -86,8 +116,10 @@ SPEC CHECKSUMS:
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
+  SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   Texture: 2f109e937850d94d1d07232041c9c7313ccddb81
+  Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
 
-PODFILE CHECKSUM: ebfe028a1cd24915d2113a5d2107906c62bb5abc
+PODFILE CHECKSUM: b28f0f7471eb6c5f9b3c3fb7944a6873f9450cca
 
 COCOAPODS: 1.11.2
