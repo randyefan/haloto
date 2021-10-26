@@ -1,6 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-Haloto/Pods-Haloto-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/FLEX/FLEX.framework
+${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
 ${BUILT_PRODUCTS_DIR}/Moya/Moya.framework
 ${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework
 ${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework

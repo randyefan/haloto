@@ -12,7 +12,7 @@ target 'Haloto' do
   pod 'Moya/RxSwift'
   pod 'FLEX'
   pod 'Shimmer', '~> 1.0'
-  pod 'Kingfisher', '~> 7.0'
+  pod 'Kingfisher'
 
 
 end
