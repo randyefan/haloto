@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A98054C3BCB4172202E2944 /* Pods_Haloto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F03C20F8EBBC9AAD640B6450 /* Pods_Haloto.framework */; };
 		618802EB2727C5F3003F4C6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618802EA2727C5F3003F4C6F /* AppDelegate.swift */; };
 		618802ED2727C5F3003F4C6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618802EC2727C5F3003F4C6F /* SceneDelegate.swift */; };
 		618802EF2727C5F3003F4C6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618802EE2727C5F3003F4C6F /* ViewController.swift */; };
@@ -24,6 +25,9 @@
 		618802F32727C5F4003F4C6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		618802F62727C5F4003F4C6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		618802F82727C5F4003F4C6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6321AB19B406E3C6D8113147 /* Pods-Haloto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haloto.debug.xcconfig"; path = "Target Support Files/Pods-Haloto/Pods-Haloto.debug.xcconfig"; sourceTree = "<group>"; };
+		EAD4CC2E05A1F047B179A199 /* Pods-Haloto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haloto.release.xcconfig"; path = "Target Support Files/Pods-Haloto/Pods-Haloto.release.xcconfig"; sourceTree = "<group>"; };
+		F03C20F8EBBC9AAD640B6450 /* Pods_Haloto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haloto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A98054C3BCB4172202E2944 /* Pods_Haloto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2534BF5F373A076B107087B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F03C20F8EBBC9AAD640B6450 /* Pods_Haloto.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		618802DE2727C5F3003F4C6F = {
 			isa = PBXGroup;
 			children = (
 				618802E92727C5F3003F4C6F /* Haloto */,
 				618802E82727C5F3003F4C6F /* Products */,
+				683AB1584554E2C607A43AE9 /* Pods */,
+				2534BF5F373A076B107087B5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,16 @@
 			path = Haloto;
 			sourceTree = "<group>";
 		};
+		683AB1584554E2C607A43AE9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6321AB19B406E3C6D8113147 /* Pods-Haloto.debug.xcconfig */,
+				EAD4CC2E05A1F047B179A199 /* Pods-Haloto.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 618802FB2727C5F4003F4C6F /* Build configuration list for PBXNativeTarget "Haloto" */;
 			buildPhases = (
+				B3BD58AF454FC130DA87F59C /* [CP] Check Pods Manifest.lock */,
 				618802E32727C5F3003F4C6F /* Sources */,
 				618802E42727C5F3003F4C6F /* Frameworks */,
 				618802E52727C5F3003F4C6F /* Resources */,
+				49B5B779C71471D756B10A7B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		49B5B779C71471D756B10A7B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Haloto/Pods-Haloto-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Haloto/Pods-Haloto-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Haloto/Pods-Haloto-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3BD58AF454FC130DA87F59C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Haloto-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		618802E32727C5F3003F4C6F /* Sources */ = {
@@ -284,6 +353,7 @@
 		};
 		618802FC2727C5F4003F4C6F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6321AB19B406E3C6D8113147 /* Pods-Haloto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,6 +382,7 @@
 		};
 		618802FD2727C5F4003F4C6F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAD4CC2E05A1F047B179A199 /* Pods-Haloto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
