@@ -19,7 +19,6 @@
 		6128447A2727EC5300D060AC /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844792727EC5300D060AC /* NetworkProvider.swift */; };
 		6128447D2727EEBF00D060AC /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128447C2727EEBF00D060AC /* ExampleViewController.swift */; };
 		6128449E2727F89600D060AC /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128449D2727F89600D060AC /* Extension+UIViewController.swift */; };
-		612844A02727F93300D060AC /* Extension+UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128449F2727F93300D060AC /* Extension+UITabBarController.swift */; };
 		618802EB2727C5F3003F4C6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618802EA2727C5F3003F4C6F /* AppDelegate.swift */; };
 		618802ED2727C5F3003F4C6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618802EC2727C5F3003F4C6F /* SceneDelegate.swift */; };
 		618802F42727C5F4003F4C6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 618802F32727C5F4003F4C6F /* Assets.xcassets */; };
@@ -38,7 +37,6 @@
 		612844792727EC5300D060AC /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		6128447C2727EEBF00D060AC /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		6128449D2727F89600D060AC /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
-		6128449F2727F93300D060AC /* Extension+UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITabBarController.swift"; sourceTree = "<group>"; };
 		618802E72727C5F3003F4C6F /* Haloto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Haloto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		618802EA2727C5F3003F4C6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		618802EC2727C5F3003F4C6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 				612844722727EB8C00D060AC /* Extension+ObservableType.swift */,
 				612844772727EBF300D060AC /* Extension+Result.swift */,
 				6128449D2727F89600D060AC /* Extension+UIViewController.swift */,
-				6128449F2727F93300D060AC /* Extension+UITabBarController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -328,7 +325,6 @@
 				618802ED2727C5F3003F4C6F /* SceneDelegate.swift in Sources */,
 				612844712727EB6C00D060AC /* Extension+UIColor.swift in Sources */,
 				6128446F2727EB3D00D060AC /* Extension+String.swift in Sources */,
-				612844A02727F93300D060AC /* Extension+UITabBarController.swift in Sources */,
 				6128447D2727EEBF00D060AC /* ExampleViewController.swift in Sources */,
 				6128446D2727EAAF00D060AC /* Extension+UIView.swift in Sources */,
 				612844762727EBCE00D060AC /* NetworkError.swift in Sources */,
