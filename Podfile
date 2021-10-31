@@ -15,6 +15,7 @@ target 'Haloto' do
   pod 'Kingfisher'
   pod 'Toast-Swift', '~> 4.0.1'
   pod 'SwifterSwift'
+  pod 'Moya/RxSwift'
 
 
 end
