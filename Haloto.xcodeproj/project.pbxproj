@@ -7,23 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A98054C3BCB4172202E2944 /* Pods_Haloto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F03C20F8EBBC9AAD640B6450 /* Pods_Haloto.framework */; };
+		612844652727E8C100D060AC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844642727E8C100D060AC /* Constant.swift */; };
+		6128446B2727EA1700D060AC /* CommonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128446A2727EA1700D060AC /* CommonHelper.swift */; };
+		6128446D2727EAAF00D060AC /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128446C2727EAAF00D060AC /* Extension+UIView.swift */; };
+		6128446F2727EB3D00D060AC /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128446E2727EB3D00D060AC /* Extension+String.swift */; };
+		612844712727EB6C00D060AC /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844702727EB6C00D060AC /* Extension+UIColor.swift */; };
+		612844732727EB8C00D060AC /* Extension+ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844722727EB8C00D060AC /* Extension+ObservableType.swift */; };
+		612844762727EBCE00D060AC /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844752727EBCE00D060AC /* NetworkError.swift */; };
+		612844782727EBF300D060AC /* Extension+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844772727EBF300D060AC /* Extension+Result.swift */; };
+		6128447A2727EC5300D060AC /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844792727EC5300D060AC /* NetworkProvider.swift */; };
+		6128447D2727EEBF00D060AC /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128447C2727EEBF00D060AC /* ExampleViewController.swift */; };
+		6128449E2727F89600D060AC /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128449D2727F89600D060AC /* Extension+UIViewController.swift */; };
 		618802EB2727C5F3003F4C6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618802EA2727C5F3003F4C6F /* AppDelegate.swift */; };
 		618802ED2727C5F3003F4C6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618802EC2727C5F3003F4C6F /* SceneDelegate.swift */; };
-		618802EF2727C5F3003F4C6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618802EE2727C5F3003F4C6F /* ViewController.swift */; };
-		618802F22727C5F3003F4C6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 618802F02727C5F3003F4C6F /* Main.storyboard */; };
 		618802F42727C5F4003F4C6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 618802F32727C5F4003F4C6F /* Assets.xcassets */; };
 		618802F72727C5F4003F4C6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 618802F52727C5F4003F4C6F /* LaunchScreen.storyboard */; };
+		61F8ACCF272D547E00B24015 /* ImagePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8ACCE272D547E00B24015 /* ImagePickerHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		612844642727E8C100D060AC /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		6128446A2727EA1700D060AC /* CommonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
+		6128446C2727EAAF00D060AC /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
+		6128446E2727EB3D00D060AC /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
+		612844702727EB6C00D060AC /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		612844722727EB8C00D060AC /* Extension+ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ObservableType.swift"; sourceTree = "<group>"; };
+		612844752727EBCE00D060AC /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		612844772727EBF300D060AC /* Extension+Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Result.swift"; sourceTree = "<group>"; };
+		612844792727EC5300D060AC /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		6128447C2727EEBF00D060AC /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
+		6128449D2727F89600D060AC /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		618802E72727C5F3003F4C6F /* Haloto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Haloto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		618802EA2727C5F3003F4C6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		618802EC2727C5F3003F4C6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		618802EE2727C5F3003F4C6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		618802F12727C5F3003F4C6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		618802F32727C5F4003F4C6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		618802F62727C5F4003F4C6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		618802F82727C5F4003F4C6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61F8ACCE272D547E00B24015 /* ImagePickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerHelper.swift; sourceTree = "<group>"; };
+		6321AB19B406E3C6D8113147 /* Pods-Haloto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haloto.debug.xcconfig"; path = "Target Support Files/Pods-Haloto/Pods-Haloto.debug.xcconfig"; sourceTree = "<group>"; };
+		EAD4CC2E05A1F047B179A199 /* Pods-Haloto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haloto.release.xcconfig"; path = "Target Support Files/Pods-Haloto/Pods-Haloto.release.xcconfig"; sourceTree = "<group>"; };
+		F03C20F8EBBC9AAD640B6450 /* Pods_Haloto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haloto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +55,130 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A98054C3BCB4172202E2944 /* Pods_Haloto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2534BF5F373A076B107087B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F03C20F8EBBC9AAD640B6450 /* Pods_Haloto.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6128445E2727E6CB00D060AC /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				6128447B2727EE8100D060AC /* Example */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		6128445F2727E6D000D060AC /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				612844692727E9EB00D060AC /* Helper */,
+				612844672727E9B700D060AC /* Manager */,
+				612844662727E99A00D060AC /* Extensions */,
+				612844632727E8B500D060AC /* Constant */,
+				612844622727E87500D060AC /* Resources */,
+				612844612727E83600D060AC /* App */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		612844612727E83600D060AC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				618802EA2727C5F3003F4C6F /* AppDelegate.swift */,
+				618802EC2727C5F3003F4C6F /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		612844622727E87500D060AC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				618802F32727C5F4003F4C6F /* Assets.xcassets */,
+				618802F52727C5F4003F4C6F /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		612844632727E8B500D060AC /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				612844642727E8C100D060AC /* Constant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		612844662727E99A00D060AC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6128446C2727EAAF00D060AC /* Extension+UIView.swift */,
+				6128446E2727EB3D00D060AC /* Extension+String.swift */,
+				612844702727EB6C00D060AC /* Extension+UIColor.swift */,
+				612844722727EB8C00D060AC /* Extension+ObservableType.swift */,
+				612844772727EBF300D060AC /* Extension+Result.swift */,
+				6128449D2727F89600D060AC /* Extension+UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		612844672727E9B700D060AC /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				612844682727E9BB00D060AC /* Network Manager */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		612844682727E9BB00D060AC /* Network Manager */ = {
+			isa = PBXGroup;
+			children = (
+				612844742727EBB800D060AC /* Error */,
+				612844792727EC5300D060AC /* NetworkProvider.swift */,
+			);
+			path = "Network Manager";
+			sourceTree = "<group>";
+		};
+		612844692727E9EB00D060AC /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				6128446A2727EA1700D060AC /* CommonHelper.swift */,
+				61F8ACCE272D547E00B24015 /* ImagePickerHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		612844742727EBB800D060AC /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				612844752727EBCE00D060AC /* NetworkError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		6128447B2727EE8100D060AC /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				6128447C2727EEBF00D060AC /* ExampleViewController.swift */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
 		618802DE2727C5F3003F4C6F = {
 			isa = PBXGroup;
 			children = (
 				618802E92727C5F3003F4C6F /* Haloto */,
 				618802E82727C5F3003F4C6F /* Products */,
+				683AB1584554E2C607A43AE9 /* Pods */,
+				2534BF5F373A076B107087B5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +193,20 @@
 		618802E92727C5F3003F4C6F /* Haloto */ = {
 			isa = PBXGroup;
 			children = (
-				618802EA2727C5F3003F4C6F /* AppDelegate.swift */,
-				618802EC2727C5F3003F4C6F /* SceneDelegate.swift */,
-				618802EE2727C5F3003F4C6F /* ViewController.swift */,
-				618802F02727C5F3003F4C6F /* Main.storyboard */,
-				618802F32727C5F4003F4C6F /* Assets.xcassets */,
-				618802F52727C5F4003F4C6F /* LaunchScreen.storyboard */,
+				6128445E2727E6CB00D060AC /* Module */,
+				6128445F2727E6D000D060AC /* Vendor */,
 				618802F82727C5F4003F4C6F /* Info.plist */,
 			);
 			path = Haloto;
+			sourceTree = "<group>";
+		};
+		683AB1584554E2C607A43AE9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6321AB19B406E3C6D8113147 /* Pods-Haloto.debug.xcconfig */,
+				EAD4CC2E05A1F047B179A199 /* Pods-Haloto.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +216,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 618802FB2727C5F4003F4C6F /* Build configuration list for PBXNativeTarget "Haloto" */;
 			buildPhases = (
+				B3BD58AF454FC130DA87F59C /* [CP] Check Pods Manifest.lock */,
 				618802E32727C5F3003F4C6F /* Sources */,
 				618802E42727C5F3003F4C6F /* Frameworks */,
 				618802E52727C5F3003F4C6F /* Resources */,
+				49B5B779C71471D756B10A7B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,34 +271,78 @@
 			files = (
 				618802F72727C5F4003F4C6F /* LaunchScreen.storyboard in Resources */,
 				618802F42727C5F4003F4C6F /* Assets.xcassets in Resources */,
-				618802F22727C5F3003F4C6F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		49B5B779C71471D756B10A7B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Haloto/Pods-Haloto-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Haloto/Pods-Haloto-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Haloto/Pods-Haloto-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3BD58AF454FC130DA87F59C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Haloto-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		618802E32727C5F3003F4C6F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				618802EF2727C5F3003F4C6F /* ViewController.swift in Sources */,
+				612844732727EB8C00D060AC /* Extension+ObservableType.swift in Sources */,
 				618802EB2727C5F3003F4C6F /* AppDelegate.swift in Sources */,
 				618802ED2727C5F3003F4C6F /* SceneDelegate.swift in Sources */,
+				612844712727EB6C00D060AC /* Extension+UIColor.swift in Sources */,
+				6128446F2727EB3D00D060AC /* Extension+String.swift in Sources */,
+				6128447D2727EEBF00D060AC /* ExampleViewController.swift in Sources */,
+				6128446D2727EAAF00D060AC /* Extension+UIView.swift in Sources */,
+				612844762727EBCE00D060AC /* NetworkError.swift in Sources */,
+				6128449E2727F89600D060AC /* Extension+UIViewController.swift in Sources */,
+				6128447A2727EC5300D060AC /* NetworkProvider.swift in Sources */,
+				6128446B2727EA1700D060AC /* CommonHelper.swift in Sources */,
+				61F8ACCF272D547E00B24015 /* ImagePickerHelper.swift in Sources */,
+				612844782727EBF300D060AC /* Extension+Result.swift in Sources */,
+				612844652727E8C100D060AC /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		618802F02727C5F3003F4C6F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				618802F12727C5F3003F4C6F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		618802F52727C5F4003F4C6F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -284,6 +472,7 @@
 		};
 		618802FC2727C5F4003F4C6F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6321AB19B406E3C6D8113147 /* Pods-Haloto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -294,7 +483,7 @@
 				INFOPLIST_FILE = Haloto/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -312,6 +501,7 @@
 		};
 		618802FD2727C5F4003F4C6F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAD4CC2E05A1F047B179A199 /* Pods-Haloto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -322,7 +512,7 @@
 				INFOPLIST_FILE = Haloto/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
