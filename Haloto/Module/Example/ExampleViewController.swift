@@ -26,4 +26,5 @@ class ExampleViewController: ASDKViewController<ASDisplayNode> {
         super.viewDidLoad()
         node.backgroundColor = .blue
     }
+    // test smart commit
 }
