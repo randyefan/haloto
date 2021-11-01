@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		21512EB4272FAF6C00DB482F /* MaintenanceHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21512EB3272FAF6C00DB482F /* MaintenanceHistoryCell.swift */; };
 		21512EB8272FB6DB00DB482F /* MaintenanceHistoryDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21512EB7272FB6DB00DB482F /* MaintenanceHistoryDescription.swift */; };
+		21512EBC2730150D00DB482F /* UpcomingMaintenanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21512EBB2730150D00DB482F /* UpcomingMaintenanceCell.swift */; };
+		21512EBE2730290900DB482F /* UpcomingMaintenanceDescriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21512EBD2730290900DB482F /* UpcomingMaintenanceDescriptions.swift */; };
 		4A98054C3BCB4172202E2944 /* Pods_Haloto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F03C20F8EBBC9AAD640B6450 /* Pods_Haloto.framework */; };
 		612844652727E8C100D060AC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844642727E8C100D060AC /* Constant.swift */; };
 		6128446B2727EA1700D060AC /* CommonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128446A2727EA1700D060AC /* CommonHelper.swift */; };
@@ -31,6 +33,8 @@
 /* Begin PBXFileReference section */
 		21512EB3272FAF6C00DB482F /* MaintenanceHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MaintenanceHistoryCell.swift; path = "Table View/MaintenanceHistory/MaintenanceHistoryCell.swift"; sourceTree = SOURCE_ROOT; };
 		21512EB7272FB6DB00DB482F /* MaintenanceHistoryDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MaintenanceHistoryDescription.swift; path = "Table View/MaintenanceHistory/Components/MaintenanceHistoryDescription.swift"; sourceTree = SOURCE_ROOT; };
+		21512EBB2730150D00DB482F /* UpcomingMaintenanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UpcomingMaintenanceCell.swift; path = "Table View/UpcomingMaintenance/UpcomingMaintenanceCell.swift"; sourceTree = SOURCE_ROOT; };
+		21512EBD2730290900DB482F /* UpcomingMaintenanceDescriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UpcomingMaintenanceDescriptions.swift; path = "Table View/UpcomingMaintenance/Components/UpcomingMaintenanceDescriptions.swift"; sourceTree = SOURCE_ROOT; };
 		612844642727E8C100D060AC /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		6128446A2727EA1700D060AC /* CommonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
 		6128446C2727EAAF00D060AC /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
@@ -81,6 +85,30 @@
 				21512EB7272FB6DB00DB482F /* MaintenanceHistoryDescription.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		21512EB9273012E700DB482F /* UpcomingMaintenance */ = {
+			isa = PBXGroup;
+			children = (
+				21512EBB2730150D00DB482F /* UpcomingMaintenanceCell.swift */,
+				21512EBA2730130A00DB482F /* Components */,
+			);
+			path = UpcomingMaintenance;
+			sourceTree = "<group>";
+		};
+		21512EBA2730130A00DB482F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				21512EBD2730290900DB482F /* UpcomingMaintenanceDescriptions.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		21512EBF2730320000DB482F /* Node */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Node;
 			sourceTree = "<group>";
 		};
 		2534BF5F373A076B107087B5 /* Frameworks */ = {
@@ -225,6 +253,7 @@
 		61C679E1272F8CB8003AFE3F /* Reusable View */ = {
 			isa = PBXGroup;
 			children = (
+				21512EBF2730320000DB482F /* Node */,
 				61C679E3272F8CD7003AFE3F /* Pop Up */,
 				61C679E2272F8CC5003AFE3F /* Cell */,
 			);
@@ -250,6 +279,7 @@
 		61C679E4272F8CF9003AFE3F /* Table View */ = {
 			isa = PBXGroup;
 			children = (
+				21512EB9273012E700DB482F /* UpcomingMaintenance */,
 				21512EB5272FB57900DB482F /* MaintenanceHistory */,
 			);
 			path = "Table View";
@@ -391,8 +421,10 @@
 				612844712727EB6C00D060AC /* Extension+UIColor.swift in Sources */,
 				6128446F2727EB3D00D060AC /* Extension+String.swift in Sources */,
 				6128447D2727EEBF00D060AC /* ExampleViewController.swift in Sources */,
+				21512EBE2730290900DB482F /* UpcomingMaintenanceDescriptions.swift in Sources */,
 				6128446D2727EAAF00D060AC /* Extension+UIView.swift in Sources */,
 				612844762727EBCE00D060AC /* NetworkError.swift in Sources */,
+				21512EBC2730150D00DB482F /* UpcomingMaintenanceCell.swift in Sources */,
 				6128449E2727F89600D060AC /* Extension+UIViewController.swift in Sources */,
 				6128447A2727EC5300D060AC /* NetworkProvider.swift in Sources */,
 				21512EB4272FAF6C00DB482F /* MaintenanceHistoryCell.swift in Sources */,

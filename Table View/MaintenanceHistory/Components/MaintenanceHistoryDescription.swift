@@ -28,15 +28,20 @@ class MaintenanceHistoryDescription: ASDisplayNode{
     }()
     
     override init() {
-        odometerNode.attributedText = NSAttributedString(string: "10.000 km Service", attributes: [.font: UIFont.systemFont(ofSize: 14, weight: .bold)])
+        odometerNode.attributedText = NSAttributedString(string: "10.000 km Service",
+                                                         attributes: [.font: UIFont.systemFont(ofSize: 14, weight: .bold)])
         
         timeBadgeNode = ASImageNode()
         timeBadgeNode?.image = UIImage(named: "timeBadge")
-        dateNode.attributedText = NSAttributedString(string: "2 Aug 2021", attributes: [.font: UIFont.systemFont(ofSize: 12)])
+        
+        dateNode.attributedText = NSAttributedString(string: "2 Aug 2021",
+                                                     attributes: [.font: UIFont.systemFont(ofSize: 12)])
         
         locationBadgeNode = ASImageNode()
         locationBadgeNode?.image = UIImage(named: "locationBadge")
-        workshopNameNode.attributedText = NSAttributedString(string: "Bengkel Gembira", attributes: [.font: UIFont.systemFont(ofSize: 12)])
+        
+        workshopNameNode.attributedText = NSAttributedString(string: "Bengkel Gembira",
+                                                             attributes: [.font: UIFont.systemFont(ofSize: 12)])
         
         super.init()
         automaticallyManagesSubnodes = true

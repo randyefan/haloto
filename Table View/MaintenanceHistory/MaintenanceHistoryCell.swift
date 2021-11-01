@@ -16,7 +16,7 @@ class MaintenanceHistoryCell: ASDisplayNode{
 //        return node
 //    }()
     
-    let backgroundNode: ASDisplayNode
+    private let backgroundNode: ASDisplayNode
     
     private let descriptionNode: MaintenanceHistoryDescription
     
