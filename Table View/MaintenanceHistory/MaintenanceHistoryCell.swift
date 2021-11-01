@@ -50,6 +50,6 @@ class MaintenanceHistoryCell: ASDisplayNode{
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let stack = ASStackLayoutSpec(direction: .horizontal, spacing: 8, justifyContent: .start, alignItems: .start, children: [backgroundNode, descriptionNode])
         
-        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 20, left: 8, bottom: 20, right: 8), child: stack)
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 20, left: 5, bottom: 20, right: .infinity), child: stack)
     }
 }

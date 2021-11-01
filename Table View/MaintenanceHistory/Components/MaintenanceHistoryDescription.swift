@@ -44,11 +44,11 @@ class MaintenanceHistoryDescription: ASDisplayNode{
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         
-//        let timeAndDateStack = ASStackLayoutSpec(direction: .horizontal, spacing: 4, justifyContent: .start, alignItems: .start, children: [timeBadgeNode, dateNode].compactMap({$0}))
-//
-//        let locationAndWorkshopStack = ASStackLayoutSpec(direction: .horizontal, spacing: 4, justifyContent: .start, alignItems: .start, children: [locationBadgeNode, workshopNameNode].compactMap({$0}))
+        let timeAndDateStack = ASStackLayoutSpec(direction: .horizontal, spacing: 8, justifyContent: .start, alignItems: .start, children: [timeBadgeNode, dateNode].compactMap({$0}))
+
+        let locationAndWorkshopStack = ASStackLayoutSpec(direction: .horizontal, spacing: 8, justifyContent: .start, alignItems: .start, children: [locationBadgeNode, workshopNameNode].compactMap({$0}))
         
-        let stack = ASStackLayoutSpec(direction: .horizontal, spacing: 6, justifyContent: .start, alignItems: .start, children: [timeBadgeNode, dateNode, locationBadgeNode, workshopNameNode].compactMap({$0}))
+        let stack = ASStackLayoutSpec(direction: .horizontal, spacing: 17, justifyContent: .start, alignItems: .start, children: [timeAndDateStack, locationAndWorkshopStack].compactMap({$0}))
 
         return ASStackLayoutSpec(direction: .vertical, spacing: 8, justifyContent: .start, alignItems: .start, children: [odometerNode, stack])
     }
