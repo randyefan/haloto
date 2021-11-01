@@ -81,6 +81,7 @@
 		6128445F2727E6D000D060AC /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				61C679E1272F8CB8003AFE3F /* Reusable View */,
 				612844692727E9EB00D060AC /* Helper */,
 				612844672727E9B700D060AC /* Manager */,
 				612844662727E99A00D060AC /* Extensions */,
@@ -198,6 +199,45 @@
 				618802F82727C5F4003F4C6F /* Info.plist */,
 			);
 			path = Haloto;
+			sourceTree = "<group>";
+		};
+		61C679E1272F8CB8003AFE3F /* Reusable View */ = {
+			isa = PBXGroup;
+			children = (
+				61C679E3272F8CD7003AFE3F /* Pop Up */,
+				61C679E2272F8CC5003AFE3F /* Cell */,
+			);
+			path = "Reusable View";
+			sourceTree = "<group>";
+		};
+		61C679E2272F8CC5003AFE3F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				61C679E5272F8D02003AFE3F /* Collection View */,
+				61C679E4272F8CF9003AFE3F /* Table View */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		61C679E3272F8CD7003AFE3F /* Pop Up */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Pop Up";
+			sourceTree = "<group>";
+		};
+		61C679E4272F8CF9003AFE3F /* Table View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Table View";
+			sourceTree = "<group>";
+		};
+		61C679E5272F8D02003AFE3F /* Collection View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Collection View";
 			sourceTree = "<group>";
 		};
 		683AB1584554E2C607A43AE9 /* Pods */ = {
