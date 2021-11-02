@@ -7,26 +7,20 @@
 
 import AsyncDisplayKit
 
-class MaintenanceHistoryCell: ASDisplayNode{
+class MaintenanceHistoryCell: ASCellNode{
     
-//    private let maintenanceHistoryImage: ASImageNode = {
-//        let node = ASImageNode()
-//        node.style.preferredSize = CGSize(width: 48, height: 48)
-//        node.cornerRadius = 14
-//        return node
-//    }()
-    
-    let backgroundNode: ASDisplayNode
+    private let maintenanceHistoryImage: ASImageNode?
     
     private let descriptionNode: MaintenanceHistoryDescription
     
     override init() {
-        backgroundNode = ASDisplayNode()
-        backgroundNode.style.preferredSize = CGSize(width: 48, height: 48)
-        backgroundNode.backgroundColor = .lightGray
-        backgroundNode.cornerRadius = 25
+        maintenanceHistoryImage = ASImageNode()
+        maintenanceHistoryImage?.image = UIImage(named: "struckImage")
+        maintenanceHistoryImage?.style.preferredSize = CGSize(width: 48, height: 48)
+        maintenanceHistoryImage?.cornerRadius = 25
         
         descriptionNode = MaintenanceHistoryDescription()
+        
         super.init()
         automaticallyManagesSubnodes = true
         backgroundColor = .white
@@ -48,7 +42,7 @@ class MaintenanceHistoryCell: ASDisplayNode{
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        let stack = ASStackLayoutSpec(direction: .horizontal, spacing: 8, justifyContent: .start, alignItems: .start, children: [backgroundNode, descriptionNode])
+        let stack = ASStackLayoutSpec(direction: .horizontal, spacing: 8, justifyContent: .start, alignItems: .start, children: [maintenanceHistoryImage, descriptionNode].compactMap({$0}))
         
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 20, left: 5, bottom: 20, right: .infinity), child: stack)
     }

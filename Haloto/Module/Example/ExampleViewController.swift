@@ -14,17 +14,6 @@ class ExampleViewController: ASDKViewController<ASDisplayNode> {
     
     override init() {
         super.init(node: ASDisplayNode())
-        node.automaticallyManagesSubnodes = true
-        node.backgroundColor = .white
-        
-        let maintenanceCell = MaintenanceHistoryCell()
-
-        node.layoutSpecBlock = { _, _ in
-            return ASInsetLayoutSpec(
-                insets: UIEdgeInsets(top: 50, left: 26, bottom: .infinity, right: 26),
-                child: maintenanceCell
-            )
-        }
     }
     
     required init?(coder: NSCoder) {
@@ -33,8 +22,8 @@ class ExampleViewController: ASDKViewController<ASDisplayNode> {
 
     // MARK: - ViewController Lifecycle
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        node.backgroundColor = .blue
-//    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        node.backgroundColor = .blue
+    }
 }
