@@ -25,7 +25,6 @@
 		6134E6AB2732D3FB002E7526 /* CellContentListPopUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6134E6AA2732D3FB002E7526 /* CellContentListPopUpNode.swift */; };
 		6134E6AF2732D420002E7526 /* CellSelectedListPopUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6134E6AE2732D420002E7526 /* CellSelectedListPopUpNode.swift */; };
 		6172733B27312EB900DF8F5E /* ListPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172733A27312EB900DF8F5E /* ListPopupViewController.swift */; };
-		6172733E2731303D00DF8F5E /* ListPopUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172733D2731303D00DF8F5E /* ListPopUpNode.swift */; };
 		617F6ED72732726E002EBD85 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F6ED62732726E002EBD85 /* Model.swift */; };
 		618802EB2727C5F3003F4C6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618802EA2727C5F3003F4C6F /* AppDelegate.swift */; };
 		618802ED2727C5F3003F4C6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618802EC2727C5F3003F4C6F /* SceneDelegate.swift */; };
@@ -60,7 +59,6 @@
 		6134E6AA2732D3FB002E7526 /* CellContentListPopUpNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellContentListPopUpNode.swift; sourceTree = "<group>"; };
 		6134E6AE2732D420002E7526 /* CellSelectedListPopUpNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSelectedListPopUpNode.swift; sourceTree = "<group>"; };
 		6172733A27312EB900DF8F5E /* ListPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPopupViewController.swift; sourceTree = "<group>"; };
-		6172733D2731303D00DF8F5E /* ListPopUpNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPopUpNode.swift; sourceTree = "<group>"; };
 		617F6ED62732726E002EBD85 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		618802E72727C5F3003F4C6F /* Haloto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Haloto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		618802EA2727C5F3003F4C6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 				6134E6A92732D3D6002E7526 /* Cell */,
 				6172733C27312FCF00DF8F5E /* Header */,
 				6172733A27312EB900DF8F5E /* ListPopupViewController.swift */,
-				6172733D2731303D00DF8F5E /* ListPopUpNode.swift */,
 			);
 			path = "List Popup";
 			sourceTree = "<group>";
@@ -492,7 +489,6 @@
 				6128446F2727EB3D00D060AC /* Extension+String.swift in Sources */,
 				6128447D2727EEBF00D060AC /* ExampleViewController.swift in Sources */,
 				6128446D2727EAAF00D060AC /* Extension+UIView.swift in Sources */,
-				6172733E2731303D00DF8F5E /* ListPopUpNode.swift in Sources */,
 				612844762727EBCE00D060AC /* NetworkError.swift in Sources */,
 				611726DD2731598F00FC2445 /* HeaderListPopUpNode.swift in Sources */,
 				6128449E2727F89600D060AC /* Extension+UIViewController.swift in Sources */,
