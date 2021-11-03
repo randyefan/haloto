@@ -52,8 +52,8 @@ class UpcomingMaintenanceDescription: ASCellNode {
                                       alignItems: .start,
                                       children: [titleNode, subTitleNode])
 
-        return ASStackLayoutSpec(direction: .vertical, spacing: 10, justifyContent: .start, alignItems: .start, children: [stack, dateNode])
+        let finalStack =  ASStackLayoutSpec(direction: .vertical, spacing: 10, justifyContent: .start, alignItems: .start, children: [stack, dateNode])
         
-        
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16), child: finalStack)
     }
 }

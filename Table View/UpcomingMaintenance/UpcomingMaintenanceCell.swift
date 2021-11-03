@@ -46,6 +46,8 @@ class UpcomingMaintenanceCell: ASCellNode {
                                                  alpha: 1.0)
 
         upcomingMaintenanceDescription = UpcomingMaintenanceDescription()
+        upcomingMaintenanceDescription.style.width = ASDimension(unit: .fraction, value: 1)
+        upcomingMaintenanceDescription.style.flexShrink = 1
 
         super.init()
         automaticallyManagesSubnodes = true
@@ -66,6 +68,7 @@ class UpcomingMaintenanceCell: ASCellNode {
         let stack = ASStackLayoutSpec(direction: .vertical, spacing: -5, justifyContent: .center, alignItems: .center, children: [countUpcomingMaintenanceNode, upcomingMaintenanceNode])
 
         let backgroundInset = ASOverlayLayoutSpec(child: backgroundNode, overlay: stack)
+        
 
         return ASStackLayoutSpec(direction: .horizontal, spacing: 5, justifyContent: .start, alignItems: .center, children: [backgroundInset, upcomingMaintenanceDescription])
     }
