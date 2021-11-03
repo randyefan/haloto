@@ -23,7 +23,7 @@
 		618802ED2727C5F3003F4C6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618802EC2727C5F3003F4C6F /* SceneDelegate.swift */; };
 		618802F42727C5F4003F4C6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 618802F32727C5F4003F4C6F /* Assets.xcassets */; };
 		618802F72727C5F4003F4C6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 618802F52727C5F4003F4C6F /* LaunchScreen.storyboard */; };
-		61C54B3227326B4D00D520D9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C54B3127326B4D00D520D9 /* Model.swift */; };
+		61C54B3B27326C2900D520D9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C54B3A27326C2900D520D9 /* Model.swift */; };
 		61C679E8272F9D21003AFE3F /* TabBarBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C679E7272F9D21003AFE3F /* TabBarBaseController.swift */; };
 		61C679EA272F9D2F003AFE3F /* TabNavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C679E9272F9D2F003AFE3F /* TabNavigationMenu.swift */; };
 		61C679EC272F9D3A003AFE3F /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C679EB272F9D3A003AFE3F /* TabItem.swift */; };
@@ -53,7 +53,7 @@
 		618802F32727C5F4003F4C6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		618802F62727C5F4003F4C6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		618802F82727C5F4003F4C6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		61C54B3127326B4D00D520D9 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = Haloto/Models/Model.swift; sourceTree = SOURCE_ROOT; };
+		61C54B3A27326C2900D520D9 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		61C679E7272F9D21003AFE3F /* TabBarBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarBaseController.swift; sourceTree = "<group>"; };
 		61C679E9272F9D2F003AFE3F /* TabNavigationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationMenu.swift; sourceTree = "<group>"; };
 		61C679EB272F9D3A003AFE3F /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
@@ -218,12 +218,20 @@
 		618802E92727C5F3003F4C6F /* Haloto */ = {
 			isa = PBXGroup;
 			children = (
-				B7713BCA27315B81007A3824 /* Models */,
+				61C54B3927326C2900D520D9 /* Models */,
 				6128445E2727E6CB00D060AC /* Module */,
 				6128445F2727E6D000D060AC /* Vendor */,
 				618802F82727C5F4003F4C6F /* Info.plist */,
 			);
 			path = Haloto;
+			sourceTree = "<group>";
+		};
+		61C54B3927326C2900D520D9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				61C54B3A27326C2900D520D9 /* Model.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		61C679E1272F8CB8003AFE3F /* Reusable View */ = {
@@ -293,15 +301,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		B7713BCA27315B81007A3824 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				61C54B3127326B4D00D520D9 /* Model.swift */,
-			);
-			name = Models;
-			path = "/Users/gratianusmartin/Documents/Apple Developer Adacemy Projects/haloto/Haloto/Models";
-			sourceTree = "<absolute>";
 		};
 		B7D7ED492730439000960699 /* Button */ = {
 			isa = PBXGroup;
@@ -437,7 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61C54B3227326B4D00D520D9 /* Model.swift in Sources */,
+				61C54B3B27326C2900D520D9 /* Model.swift in Sources */,
 				61C679E8272F9D21003AFE3F /* TabBarBaseController.swift in Sources */,
 				612844732727EB8C00D060AC /* Extension+ObservableType.swift in Sources */,
 				618802EB2727C5F3003F4C6F /* AppDelegate.swift in Sources */,
