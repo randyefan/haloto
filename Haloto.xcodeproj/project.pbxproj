@@ -35,6 +35,8 @@
 		B7D7ED4D273045D400960699 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7D7ED4C273045D400960699 /* Colors.xcassets */; };
 		B7D7ED66273050D300960699 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7D7ED54273050BF00960699 /* Poppins-Medium.ttf */; };
 		F28F6D052732437300261BA1 /* Extension+NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F6D042732437300261BA1 /* Extension+NSAttributedString.swift */; };
+		F2F5FF7D2732D9FC00E4643C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7713BC92730E772007A3824 /* Poppins-Regular.ttf */; };
+		F2F5FF7E2732DA0000E4643C /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7713BC82730E766007A3824 /* Poppins-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -403,9 +405,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7D7ED4D273045D400960699 /* Colors.xcassets in Resources */,
+				F2F5FF7E2732DA0000E4643C /* Poppins-Bold.ttf in Resources */,
 				B7D7ED66273050D300960699 /* Poppins-Medium.ttf in Resources */,
 				618802F72727C5F4003F4C6F /* LaunchScreen.storyboard in Resources */,
 				618802F42727C5F4003F4C6F /* Assets.xcassets in Resources */,
+				F2F5FF7D2732D9FC00E4643C /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
