@@ -64,10 +64,7 @@ class HeaderListPopUpNode: ASDisplayNode {
         )
 
         let centerTitle = ASCenterLayoutSpec(centeringOptions: .XY, sizingOptions: [], child: titleNode)
-        let background = ASBackgroundLayoutSpec(child: stack, background: centerTitle)
-
-        return background
-//        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: .infinity, left: 0, bottom: 0, right: 0), child: stackHeader)
+        return ASBackgroundLayoutSpec(child: stack, background: centerTitle)
     }
 
     private func setupButton(state: PopUpListState) {

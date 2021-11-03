@@ -36,7 +36,7 @@ class SmallBlueButtonNode: ASDisplayNode {
         let node = ASButtonNode()
         node.backgroundColor = UIColor(named: "button-blue")
         node.cornerRadius = 20
-        node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 44)
+        node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 36)
         node.contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
         return node
     }()
@@ -65,7 +65,7 @@ class SmallOutlineButtonNode: ASDisplayNode {
         node.borderWidth = 2
         node.borderColor = UIColor(named: "button-blue")?.cgColor
         node.cornerRadius = 20
-        node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 44)
+        node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 46)
         node.contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
         return node
     }()
