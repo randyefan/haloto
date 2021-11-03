@@ -50,5 +50,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         window.makeKeyAndVisible()
     }
+    
+    func rootHomepageUser(scene: UIScene) {
+        guard let winScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: winScene)
+        let tabBar = TabBarBaseController(productLogin: .User)
+        window?.rootViewController = tabBar
+        window?.makeKeyAndVisible()
+    }
+    
+    func rootHomepageBengkel(scene: UIScene) {
+        guard let winScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: winScene)
+        let tabBar = TabBarBaseController(productLogin: .Bengkel)
+        window?.rootViewController = tabBar
+        window?.makeKeyAndVisible()
+    }
 }
 
