@@ -44,21 +44,21 @@ extension UIColor {
         }
     }
     
-    static var appBlue: UIColor {
+    static var blueApp: UIColor {
         get {
-            return UIColor(hexString: "7EA1D6")
+            return UIColor(hexString: "#7EA1D6")
         }
     }
     
     static var buttonYellow: UIColor {
         get {
-            return UIColor(hexString: "FFC940")
+            return UIColor(hexString: "#FFC940")
         }
     }
     
-    static var cardTextIsDefault: UIColor {
+    static var cardTextDefault: UIColor {
         get {
-            return UIColor(hexString: "858585")
+            return UIColor(hexString: "#858585")
         }
     }
 }
