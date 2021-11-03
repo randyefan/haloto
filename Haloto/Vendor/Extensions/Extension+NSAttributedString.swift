@@ -46,7 +46,7 @@ extension NSAttributedString {
             font: fontWeight.fontWeight.withSize(size),
             kerning: isTitle ? 0 : 0.5,
             color: color,
-            lineSpacing: 0,
+            lineSpacing: 16,
             alignment: alignment
         )
         let attributeString = NSMutableAttributedString(string: string, attributes: attribute)
