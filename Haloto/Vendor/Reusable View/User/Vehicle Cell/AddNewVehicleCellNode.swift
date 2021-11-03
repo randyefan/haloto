@@ -22,10 +22,7 @@ class AddNewVehicleCellNode: ASCellNode {
     
     override init() {
         addImageNode.image = UIImage(named: "add-car-placeholder")
-        textNode.attributedText = NSAttributedString(string: "add new vehicle", attributes: [
-            .font: UIFont.systemFont(ofSize: 16, weight: .medium),
-            .foregroundColor: UIColor(named: "button-blue")
-        ])
+        textNode.attributedText = .font("add new car", size: 16, fontWeight: .medium, color: UIColor.appBlue, alignment: .center, isTitle: false)
         super.init()
         automaticallyManagesSubnodes = true
         backgroundColor = .white
@@ -36,6 +33,7 @@ class AddNewVehicleCellNode: ASCellNode {
     func setShadow() {
         clipsToBounds = false
         cornerRadius = 23
+        shadowOffset = CGSize(width: 0, height: 0)
         shadowColor = UIColor.black.cgColor
         shadowOpacity = 0.10
     }

@@ -30,24 +30,13 @@ class VehicleDescriptionNode: ASDisplayNode {
     }()
 
     init(model: Vehicle) {
-        vehicle.attributedText = NSAttributedString(string: "\(model.manufacture) \(model.name)", attributes: [
-            .font: UIFont.boldSystemFont(ofSize: 20),
-            .foregroundColor: UIColor.black,
-        ])
+        vehicle.attributedText = .font("\(model.manufacture) \(model.name)", size: 20, fontWeight: .bold, color: UIColor.black, alignment: .left, isTitle: false)
 
-        vehicleDetails1.attributedText = NSAttributedString(string: "\(model.manufacturedYear) | \(model.transmissionType) | \(model.capacity) ", attributes: [
-            .font: UIFont.systemFont(ofSize: 12, weight: .regular),
-            .foregroundColor: UIColor.black,
-        ])
+        vehicleDetails1.attributedText = .font("\(model.manufacturedYear) | \(model.transmissionType) | \(model.capacity) CC", size: 12, fontWeight: .regular, color: UIColor.black, alignment: .left, isTitle: false)
 
-        vehicleDetails2.attributedText = NSAttributedString(string: "\(model.fuelType) | \(model.licensePlate)", attributes: [
-            .font: UIFont.systemFont(ofSize: 12, weight: .regular),
-            .foregroundColor: UIColor.black,
-        ])
-        isDefault.attributedText = NSAttributedString(string: model.isDefault ? "Default" : "", attributes: [
-            .font: UIFont.systemFont(ofSize: 12, weight: .medium),
-            .foregroundColor: UIColor(named: "card-text-isdefault")!,
-        ])
+        vehicleDetails2.attributedText = .font("\(model.fuelType) | \(model.licensePlate)", size: 12, fontWeight: .regular, color: UIColor.black, alignment: .left, isTitle: false)
+
+        isDefault.attributedText = .font(model.isDefault ? "Default" : "", size: 12, fontWeight: .medium, color: UIColor.cardTextIsDefault, alignment: .left, isTitle: false)
         super.init()
         automaticallyManagesSubnodes = true
     }

@@ -17,7 +17,7 @@ class VehicleCellNode: ASCellNode {
     init(model: Vehicle){
         vehicleImageNode = VehicleImageNode()
         vehicleDescriptionNode = VehicleDescriptionNode(model: model)
-        vehicleDescriptionNode.style.flexShrink = 1
+        vehicleImageNode.style.flexShrink = 1
         super.init()
         automaticallyManagesSubnodes = true
         backgroundColor = .white
@@ -30,6 +30,7 @@ class VehicleCellNode: ASCellNode {
         cornerRadius = 23
         shadowColor = UIColor.black.cgColor
         shadowOpacity = 0.10
+        shadowOffset = CGSize(width: 0, height: 0)
     }
     
     override func layout() {

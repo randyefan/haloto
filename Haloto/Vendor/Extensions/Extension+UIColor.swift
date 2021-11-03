@@ -31,4 +31,19 @@ extension UIColor {
             return UIColor(hexString: "#04D474")
         }
     }
+    static var appBlue: UIColor {
+        get {
+            return UIColor(hexString: "7EA1D6")
+        }
+    }
+    static var buttonYellow: UIColor {
+        get {
+            return UIColor(hexString: "FFC940")
+        }
+    }
+    static var cardTextIsDefault: UIColor {
+        get {
+            return UIColor(hexString: "858585")
+        }
+    }
 }
