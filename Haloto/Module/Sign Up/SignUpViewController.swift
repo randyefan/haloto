@@ -11,7 +11,9 @@ class SignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = .white
+        //LAH KOK IN IGINI CUK NGELAG?
+        
         // Do any additional setup after loading the view.
     }
     

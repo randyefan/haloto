@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B860C082732D24C007776BB /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7713BC92730E772007A3824 /* Poppins-Regular.ttf */; };
-		3B860C092732D250007776BB /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7713BC82730E766007A3824 /* Poppins-Bold.ttf */; };
 		3B860C102732D805007776BB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B860C0F2732D805007776BB /* SignUpViewController.swift */; };
+		3B860C132732E0E7007776BB /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B860C122732E0E7007776BB /* Form.swift */; };
+		3B860C162732E9C8007776BB /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B860C152732E9C8007776BB /* FormTextField.swift */; };
+		3B860C192732F29C007776BB /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B860C182732F29C007776BB /* LoginButton.swift */; };
 		3BFAED15273250D60024C8C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFAED14273250D60024C8C2 /* LoginViewController.swift */; };
 		4A98054C3BCB4172202E2944 /* Pods_Haloto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F03C20F8EBBC9AAD640B6450 /* Pods_Haloto.framework */; };
 		612844652727E8C100D060AC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844642727E8C100D060AC /* Constant.swift */; };
@@ -43,6 +44,9 @@
 
 /* Begin PBXFileReference section */
 		3B860C0F2732D805007776BB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3B860C122732E0E7007776BB /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
+		3B860C152732E9C8007776BB /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
+		3B860C182732F29C007776BB /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		3BFAED14273250D60024C8C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		612844642727E8C100D060AC /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		6128446A2727EA1700D060AC /* CommonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
@@ -104,6 +108,40 @@
 				3B860C0F2732D805007776BB /* SignUpViewController.swift */,
 			);
 			path = "Sign Up";
+			sourceTree = "<group>";
+		};
+		3B860C112732E0B9007776BB /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				3B860C122732E0E7007776BB /* Form.swift */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		3B860C142732E9AA007776BB /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				3B860C152732E9C8007776BB /* FormTextField.swift */,
+			);
+			path = UITextField;
+			sourceTree = "<group>";
+		};
+		3B860C172732F264007776BB /* SnapKit Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				3B860C1A2732F2A0007776BB /* Button */,
+				3B860C142732E9AA007776BB /* UITextField */,
+				3B860C112732E0B9007776BB /* Form */,
+			);
+			path = "SnapKit Reusable";
+			sourceTree = "<group>";
+		};
+		3B860C1A2732F2A0007776BB /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				3B860C182732F29C007776BB /* LoginButton.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 		3BFAED13273250C80024C8C2 /* Login */ = {
@@ -263,6 +301,7 @@
 		61C679E1272F8CB8003AFE3F /* Reusable View */ = {
 			isa = PBXGroup;
 			children = (
+				3B860C172732F264007776BB /* SnapKit Reusable */,
 				B7D7ED492730439000960699 /* Button */,
 				61C679E6272F9B1B003AFE3F /* Tab Bar */,
 				61C679E3272F8CD7003AFE3F /* Pop Up */,
@@ -482,10 +521,13 @@
 				61F8ACCF272D547E00B24015 /* ImagePickerHelper.swift in Sources */,
 				3BFAED15273250D60024C8C2 /* LoginViewController.swift in Sources */,
 				612844782727EBF300D060AC /* Extension+Result.swift in Sources */,
+				3B860C132732E0E7007776BB /* Form.swift in Sources */,
 				B7713BC727306A70007A3824 /* ReusableSmallButtonNode.swift in Sources */,
 				61C679EF272FAC4F003AFE3F /* Enum.swift in Sources */,
+				3B860C162732E9C8007776BB /* FormTextField.swift in Sources */,
 				61C679EA272F9D2F003AFE3F /* TabNavigationMenu.swift in Sources */,
 				61C679EC272F9D3A003AFE3F /* TabItem.swift in Sources */,
+				3B860C192732F29C007776BB /* LoginButton.swift in Sources */,
 				612844652727E8C100D060AC /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 
 import SnapKit
 import UIKit
-
+//TODO: Handle typing and get the value of log in
 class LoginViewController: UIViewController {
     private lazy var iconImageView: UIImageView = {
         let temp = UIImageView()
@@ -22,26 +22,23 @@ class LoginViewController: UIViewController {
         return temp
     }()
 
-    private lazy var loginInfoLabel: UILabel = {
-        let temp = UILabel()
-        temp.attributedText = .font("Phone Number", size: 11, fontWeight: .medium, color: UIColor(named: "button-blue") ?? UIColor.black, alignment: .left, isTitle: true)
+    private lazy var lineView: UIView = {
+        let temp = UIView()
+        temp.backgroundColor = UIColor(named: "button-blue")
         return temp
     }()
 
-    private lazy var loginInfoTextField: UITextField = {
-        let temp = UITextField()
-        temp.placeholder = "Phone Number"
-        temp.cornerRadius = 5
-        temp.borderColor = UIColor.gray
-        temp.borderWidth = 2
-        temp.borderStyle = .bezel
+    private lazy var loginButton: LoginButton = {
+        let temp = LoginButton()
+        temp.setTitle(title: "Login")
+        //TODO: add selector function
+//        temp.addTarget(temp, action: #selector(), for: .normal)
         return temp
     }()
 
-    private lazy var loginStack: UIStackView = {
-        let temp = UIStackView(arrangedSubviews: [loginInfoLabel, loginInfoTextField])
-        temp.axis = .vertical
-        temp.spacing = 8
+    private lazy var formStack: Form = {
+        let temp = Form()
+        temp.setText(textTitle: "Phone Number", placeHolder: "Phone Number")
         return temp
     }()
 
@@ -50,17 +47,16 @@ class LoginViewController: UIViewController {
         temp.axis = .vertical
         return temp
     }()
-    
+
     private lazy var dontHaveAccountLabel: UILabel = {
         let temp = UILabel()
         temp.attributedText = .font("Don't have an account?", size: 18, fontWeight: .bold, color: UIColor(named: "button-blue") ?? UIColor.black, alignment: .left, isTitle: true)
         return temp
     }()
-    
+
     private lazy var signUpButton: UIButton = {
         let temp = UIButton()
-        //TODO: Tambahin title underline
-        temp.setAttributedTitle(.font("Sign Up", size: 18, fontWeight: .bold, color: UIColor(named: "button-blue") ?? UIColor.black, alignment: .left, isTitle: true), for: .normal)
+        temp.setAttributedTitle(.font("Sign Up", size: 18, fontWeight: .bold, color: UIColor(named: "button-blue") ?? UIColor.black, alignment: .left, underline: true, isTitle: true), for: .normal)
         temp.addTarget(self, action: #selector(signUpButtonIsPressed), for: .touchUpInside)
         return temp
     }()
@@ -69,12 +65,6 @@ class LoginViewController: UIViewController {
         let temp = UIStackView(arrangedSubviews: [dontHaveAccountLabel, signUpButton])
         temp.axis = .horizontal
         temp.spacing = 4
-        return temp
-    }()
-
-    private lazy var formStack: UIStackView = {
-        let temp = UIStackView(arrangedSubviews: [loginStack])
-        temp.axis = .vertical
         return temp
     }()
 
@@ -89,18 +79,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         setupView()
-        // Do any additional setup after loading the view.
     }
-
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-     }
-     */
 }
 
 private extension LoginViewController {
@@ -110,6 +89,8 @@ private extension LoginViewController {
         loginView.addSubview(titleStack)
         loginView.addSubview(formStack)
         loginView.addSubview(signUpStack)
+        loginView.addSubview(loginButton)
+        loginView.addSubview(lineView)
         iconImageView.snp.makeConstraints { make in
             make.height.equalTo(170)
             make.width.equalTo(170)
@@ -126,19 +107,28 @@ private extension LoginViewController {
             make.centerX.equalTo(self.view.snp.centerX)
         }
         titleStack.snp.makeConstraints { make in
-            make.bottom.equalTo(formStack.snp.top).offset(-50)
-            make.centerX.equalTo(self.view.snp.centerX)
-            make.top.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.centerY.equalTo(self.view.snp.centerY).offset(-32)
         }
         signUpStack.snp.makeConstraints { make in
             make.bottom.equalTo(loginView.snp.bottom)
             make.centerX.equalToSuperview()
         }
+        loginButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(formStack.snp.bottom).offset(16)
+            make.bottom.equalTo(lineView.snp.top).offset(-21)
+        }
+        lineView.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.height.equalTo(0.5)
+            make.bottom.equalTo(signUpStack.snp.top).offset(-21)
+        }
     }
-    
+
     @objc
-    func signUpButtonIsPressed(){
+    func signUpButtonIsPressed() {
         let vc = SignUpViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
