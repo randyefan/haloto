@@ -26,28 +26,48 @@ public enum fontWeight {
 }
 
 extension NSAttributedString {
-    internal class func setFont(font: UIFont, kerning: Double = 0, color: UIColor, lineSpacing: CGFloat? = nil, alignment: NSTextAlignment) -> [NSAttributedString.Key: Any] {
+    internal class func setFont(
+        font: UIFont,
+        kerning: Double = 0,
+        color: UIColor,
+        lineSpacing: CGFloat? = nil,
+        alignment: NSTextAlignment,
+        underline: Bool
+    ) -> [NSAttributedString.Key: Any] {
         let paragraphStyle = NSMutableParagraphStyle()
         if let lineSpacing = lineSpacing {
             paragraphStyle.lineSpacing = lineSpacing
         }
         paragraphStyle.alignment = alignment
 
-        let attribute = [.font: font,
+        var attribute = [.font: font,
                 .kern: kerning,
                 .foregroundColor: color,
                 .paragraphStyle: paragraphStyle] as [NSAttributedString.Key: Any]
 
+        if underline {
+            attribute[.underlineColor] = color
+            attribute[.underlineStyle] = NSUnderlineStyle.thick.rawValue
+        }
+
         return attribute
     }
 
-    public class func font(_ string: String, size: CGFloat, fontWeight: fontWeight = .regular, color: UIColor = .black, alignment: NSTextAlignment = .left, isTitle: Bool = false) -> NSAttributedString {
+    public class func font(
+        _ string: String,
+        size: CGFloat,
+        fontWeight: fontWeight = .regular,
+        color: UIColor = .black,
+        alignment: NSTextAlignment = .left,
+        underline: Bool = false,
+        isTitle: Bool = false) -> NSAttributedString {
         let attribute = NSAttributedString.setFont(
             font: fontWeight.fontWeight.withSize(size),
             kerning: isTitle ? 0 : 0.5,
             color: color,
             lineSpacing: 16,
-            alignment: alignment
+            alignment: alignment,
+            underline: underline
         )
         let attributeString = NSMutableAttributedString(string: string, attributes: attribute)
         return attributeString
