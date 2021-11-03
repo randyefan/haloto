@@ -8,7 +8,7 @@
 import UIKit
 import AsyncDisplayKit
 
-class TestingViewController: ASDKViewController<ASDisplayNode> {
+class TestingMaintenanceViewController: ASDKViewController<ASDisplayNode> {
     
     // MARK: - Initializer (Required)
     

@@ -35,17 +35,11 @@ class MaintenanceHistoryDescription: ASCellNode{
         timeBadgeNode?.image = UIImage(named: "timeBadge")
         dateNode.attributedText = NSAttributedString(string: "2 Aug 2021",
                                                      attributes: [.font: UIFont.systemFont(ofSize: 12, weight: .light)])
-        
-        dateNode.attributedText = NSAttributedString(string: "2 Aug 2021",
-                                                     attributes: [.font: UIFont.systemFont(ofSize: 12)])
-        
+                
         locationBadgeNode = ASImageNode()
         locationBadgeNode?.image = UIImage(named: "locationBadge")
         workshopNameNode.attributedText = NSAttributedString(string: "Bengkel Gembira",
                                                              attributes: [.font: UIFont.systemFont(ofSize: 12, weight: .light)])
-        
-        workshopNameNode.attributedText = NSAttributedString(string: "Bengkel Gembira",
-                                                             attributes: [.font: UIFont.systemFont(ofSize: 12)])
         
         super.init()
         automaticallyManagesSubnodes = true
