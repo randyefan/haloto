@@ -37,4 +37,10 @@ extension UIColor {
             return UIColor(hexString: "#E0E0E0")
         }
     }
+    
+    static var blueApp: UIColor {
+        get {
+            return UIColor(hexString: "#7EA1D6")
+        }
+    }
 }
