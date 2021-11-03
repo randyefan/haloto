@@ -15,6 +15,7 @@ struct Vehicle: Codable {
     var capacity: Int
     var transmissionType: String
     var licensePlate: String
+    var isDefault: Bool
 }
 
 struct UpcomingMaintenance: Codable {
@@ -70,10 +71,11 @@ struct ProfileWorkshop: Codable {
     var businessHours: String
     var profileDescription: String
     var profileRating: Int
-    var Speciality: [Speciality] 
+    var Speciality: [Speciality]
 }
 
 struct Speciality: Codable {
     var specialityID: Int
     var specialityName: String
 }
+
