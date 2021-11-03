@@ -9,45 +9,53 @@ import AsyncDisplayKit
 import UIKit
 
 class SmallYellowButtonNode: ASDisplayNode {
-    let buttonNode: ASButtonNode = {
+    private let buttonNode: ASButtonNode = {
         let node = ASButtonNode()
-        node.backgroundColor = UIColor(named: "button-yellow")
+        node.backgroundColor = UIColor.buttonYellow
         node.cornerRadius = 20
-        node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 44)
-        node.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 36)
+        node.contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
         return node
     }()
 
-    init(title: String) {
-        buttonNode.setTitle(title, with: UIFont(name: "Poppins-Medium.ttf", size: 11), with: UIColor(named: "button-title-dark"), for: .normal)
+
+    init(title: String, target: Any, function: Selector) {
+        buttonNode.titleNode.attributedText = .font(title, size: 11, fontWeight: .medium)
+        buttonNode.addTarget(target, action: function, forControlEvents: .touchUpInside)
         super.init()
         automaticallyManagesSubnodes = true
     }
 
-    override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
-        ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: buttonNode)
+    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        ASWrapperLayoutSpec(layoutElement: buttonNode)
     }
 }
 
 class SmallBlueButtonNode: ASDisplayNode {
     let buttonNode: ASButtonNode = {
         let node = ASButtonNode()
-        node.backgroundColor = UIColor(named: "button-blue")
+        node.backgroundColor = UIColor.appBlue
         node.cornerRadius = 20
-        node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 44)
-        node.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
-
+        node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 36)
+        node.contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
         return node
     }()
 
-    init(title: String) {
-        buttonNode.setTitle(title, with: UIFont(name: "Poppins-Medium.ttf", size: 11), with: UIColor(named: "button-title-light"), for: .normal)
+
+    init(title: String, target: Any, function: Selector) {
+        buttonNode.titleNode.attributedText = .font(
+            title,
+            size: 11,
+            fontWeight: .medium,
+            color: UIColor.white
+        )
+        buttonNode.addTarget(target, action: function, forControlEvents: .touchUpInside)
         super.init()
         automaticallyManagesSubnodes = true
     }
 
-    override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
-        ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: buttonNode)
+    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        ASWrapperLayoutSpec(layoutElement: buttonNode)
     }
 }
 
@@ -55,20 +63,26 @@ class SmallOutlineButtonNode: ASDisplayNode {
     let buttonNode: ASButtonNode = {
         let node = ASButtonNode()
         node.borderWidth = 2
-        node.borderColor = UIColor(named: "button-blue")?.cgColor
+        node.borderColor = UIColor.appBlue.cgColor
         node.cornerRadius = 20
-        node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 44)
-        node.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 46)
+        node.contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
         return node
     }()
 
-    init(title: String) {
-        buttonNode.setTitle(title, with: UIFont(name: "Poppins-Medium.ttf", size: 11), with: UIColor(named: "button-blue"), for: .normal)
+    init(title: String, target: Any, function: Selector) {
+        buttonNode.titleNode.attributedText = .font(
+            title,
+            size: 11,
+            fontWeight: .medium,
+            color: UIColor.appBlue
+        )
+        buttonNode.addTarget(target, action: function, forControlEvents: .touchUpInside)
         super.init()
         automaticallyManagesSubnodes = true
     }
 
-    override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
-        ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: buttonNode)
+    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        ASWrapperLayoutSpec(layoutElement: buttonNode)
     }
 }
