@@ -5,13 +5,12 @@
 //  Created by Gratianus Martin on 11/3/21.
 //
 
-import Foundation
 import AsyncDisplayKit
+import Foundation
 import UIKit
 
 class AddNewVehicleCellNode: ASCellNode {
-    
-    private let addImageNode : ASImageNode = {
+    private let addImageNode: ASImageNode = {
         let node = ASImageNode()
         return node
     }()
@@ -21,13 +20,12 @@ class AddNewVehicleCellNode: ASCellNode {
         return node
     }()
     
-    override init(){
+    override init() {
         addImageNode.image = UIImage(named: "add-car-placeholder")
-        textNode.attributedText = NSAttributedString(string: "add new vehicle", attributes:[
-                                                            .font : UIFont.systemFont(ofSize: 16, weight: .medium),
-                                                            .foregroundColor : UIColor(named: "button-blue")
-                                                        ]
-                                                    )
+        textNode.attributedText = NSAttributedString(string: "add new vehicle", attributes: [
+            .font: UIFont.systemFont(ofSize: 16, weight: .medium),
+            .foregroundColor: UIColor(named: "button-blue")
+        ])
         super.init()
         automaticallyManagesSubnodes = true
         backgroundColor = .white
