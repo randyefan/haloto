@@ -18,6 +18,7 @@ class VehicleImageNode: ASDisplayNode {
 
     override init() {
         imageNode.image = UIImage(named: "vehicle-image-placeholder")
+
         super.init()
         automaticallyManagesSubnodes = true
     }
