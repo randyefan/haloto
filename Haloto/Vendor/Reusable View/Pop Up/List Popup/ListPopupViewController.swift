@@ -43,7 +43,7 @@ internal class ListPopupViewController: ASDKViewController<ASDisplayNode> {
             )
 
             return ASInsetLayoutSpec(
-                insets: UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12),
+                insets: UIEdgeInsets(top: .infinity, left: 12, bottom: 0, right: 12),
                 child: topStack)
         }
     }
