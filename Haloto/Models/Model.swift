@@ -78,3 +78,4 @@ struct Speciality: Codable {
     var specialityID: Int
     var specialityName: String
 }
+
