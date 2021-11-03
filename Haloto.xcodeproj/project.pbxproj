@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A98054C3BCB4172202E2944 /* Pods_Haloto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F03C20F8EBBC9AAD640B6450 /* Pods_Haloto.framework */; };
+		611726DD2731598F00FC2445 /* HeaderListPopUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611726DC2731598F00FC2445 /* HeaderListPopUpNode.swift */; };
 		612844652727E8C100D060AC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844642727E8C100D060AC /* Constant.swift */; };
 		6128446B2727EA1700D060AC /* CommonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128446A2727EA1700D060AC /* CommonHelper.swift */; };
 		6128446D2727EAAF00D060AC /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128446C2727EAAF00D060AC /* Extension+UIView.swift */; };
@@ -19,11 +20,17 @@
 		6128447A2727EC5300D060AC /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844792727EC5300D060AC /* NetworkProvider.swift */; };
 		6128447D2727EEBF00D060AC /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128447C2727EEBF00D060AC /* ExampleViewController.swift */; };
 		6128449E2727F89600D060AC /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128449D2727F89600D060AC /* Extension+UIViewController.swift */; };
+		6134E6A72732CFEF002E7526 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7713BC82730E766007A3824 /* Poppins-Bold.ttf */; };
+		6134E6A82732CFF1002E7526 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7713BC92730E772007A3824 /* Poppins-Regular.ttf */; };
+		6134E6AB2732D3FB002E7526 /* CellContentListPopUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6134E6AA2732D3FB002E7526 /* CellContentListPopUpNode.swift */; };
+		6134E6AF2732D420002E7526 /* CellSelectedListPopUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6134E6AE2732D420002E7526 /* CellSelectedListPopUpNode.swift */; };
+		6172733B27312EB900DF8F5E /* ListPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172733A27312EB900DF8F5E /* ListPopupViewController.swift */; };
+		6172733E2731303D00DF8F5E /* ListPopUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172733D2731303D00DF8F5E /* ListPopUpNode.swift */; };
+		617F6ED72732726E002EBD85 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F6ED62732726E002EBD85 /* Model.swift */; };
 		618802EB2727C5F3003F4C6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618802EA2727C5F3003F4C6F /* AppDelegate.swift */; };
 		618802ED2727C5F3003F4C6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618802EC2727C5F3003F4C6F /* SceneDelegate.swift */; };
 		618802F42727C5F4003F4C6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 618802F32727C5F4003F4C6F /* Assets.xcassets */; };
 		618802F72727C5F4003F4C6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 618802F52727C5F4003F4C6F /* LaunchScreen.storyboard */; };
-		61C54B3B27326C2900D520D9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C54B3A27326C2900D520D9 /* Model.swift */; };
 		61C679E8272F9D21003AFE3F /* TabBarBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C679E7272F9D21003AFE3F /* TabBarBaseController.swift */; };
 		61C679EA272F9D2F003AFE3F /* TabNavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C679E9272F9D2F003AFE3F /* TabNavigationMenu.swift */; };
 		61C679EC272F9D3A003AFE3F /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C679EB272F9D3A003AFE3F /* TabItem.swift */; };
@@ -36,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		611726DC2731598F00FC2445 /* HeaderListPopUpNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderListPopUpNode.swift; sourceTree = "<group>"; };
 		612844642727E8C100D060AC /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		6128446A2727EA1700D060AC /* CommonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
 		6128446C2727EAAF00D060AC /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
@@ -47,13 +55,17 @@
 		612844792727EC5300D060AC /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		6128447C2727EEBF00D060AC /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		6128449D2727F89600D060AC /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		6134E6AA2732D3FB002E7526 /* CellContentListPopUpNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellContentListPopUpNode.swift; sourceTree = "<group>"; };
+		6134E6AE2732D420002E7526 /* CellSelectedListPopUpNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSelectedListPopUpNode.swift; sourceTree = "<group>"; };
+		6172733A27312EB900DF8F5E /* ListPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPopupViewController.swift; sourceTree = "<group>"; };
+		6172733D2731303D00DF8F5E /* ListPopUpNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPopUpNode.swift; sourceTree = "<group>"; };
+		617F6ED62732726E002EBD85 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		618802E72727C5F3003F4C6F /* Haloto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Haloto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		618802EA2727C5F3003F4C6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		618802EC2727C5F3003F4C6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		618802F32727C5F4003F4C6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		618802F62727C5F4003F4C6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		618802F82727C5F4003F4C6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		61C54B3A27326C2900D520D9 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		61C679E7272F9D21003AFE3F /* TabBarBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarBaseController.swift; sourceTree = "<group>"; };
 		61C679E9272F9D2F003AFE3F /* TabNavigationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationMenu.swift; sourceTree = "<group>"; };
 		61C679EB272F9D3A003AFE3F /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
@@ -197,6 +209,42 @@
 			path = Example;
 			sourceTree = "<group>";
 		};
+		6134E6A92732D3D6002E7526 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6134E6AA2732D3FB002E7526 /* CellContentListPopUpNode.swift */,
+				6134E6AE2732D420002E7526 /* CellSelectedListPopUpNode.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6172733927312E7A00DF8F5E /* List Popup */ = {
+			isa = PBXGroup;
+			children = (
+				6134E6A92732D3D6002E7526 /* Cell */,
+				6172733C27312FCF00DF8F5E /* Header */,
+				6172733A27312EB900DF8F5E /* ListPopupViewController.swift */,
+				6172733D2731303D00DF8F5E /* ListPopUpNode.swift */,
+			);
+			path = "List Popup";
+			sourceTree = "<group>";
+		};
+		6172733C27312FCF00DF8F5E /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				611726DC2731598F00FC2445 /* HeaderListPopUpNode.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		617F6ED527327261002EBD85 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				617F6ED62732726E002EBD85 /* Model.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		618802DE2727C5F3003F4C6F = {
 			isa = PBXGroup;
 			children = (
@@ -218,20 +266,12 @@
 		618802E92727C5F3003F4C6F /* Haloto */ = {
 			isa = PBXGroup;
 			children = (
-				61C54B3927326C2900D520D9 /* Models */,
+				617F6ED527327261002EBD85 /* Models */,
 				6128445E2727E6CB00D060AC /* Module */,
 				6128445F2727E6D000D060AC /* Vendor */,
 				618802F82727C5F4003F4C6F /* Info.plist */,
 			);
 			path = Haloto;
-			sourceTree = "<group>";
-		};
-		61C54B3927326C2900D520D9 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				61C54B3A27326C2900D520D9 /* Model.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		61C679E1272F8CB8003AFE3F /* Reusable View */ = {
@@ -257,6 +297,7 @@
 		61C679E3272F8CD7003AFE3F /* Pop Up */ = {
 			isa = PBXGroup;
 			children = (
+				6172733927312E7A00DF8F5E /* List Popup */,
 			);
 			path = "Pop Up";
 			sourceTree = "<group>";
@@ -382,6 +423,8 @@
 			files = (
 				B7D7ED4D273045D400960699 /* Colors.xcassets in Resources */,
 				B7D7ED66273050D300960699 /* Poppins-Medium.ttf in Resources */,
+				6134E6A72732CFEF002E7526 /* Poppins-Bold.ttf in Resources */,
+				6134E6A82732CFF1002E7526 /* Poppins-Regular.ttf in Resources */,
 				618802F72727C5F4003F4C6F /* LaunchScreen.storyboard in Resources */,
 				618802F42727C5F4003F4C6F /* Assets.xcassets in Resources */,
 			);
@@ -436,7 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61C54B3B27326C2900D520D9 /* Model.swift in Sources */,
+				6134E6AB2732D3FB002E7526 /* CellContentListPopUpNode.swift in Sources */,
 				61C679E8272F9D21003AFE3F /* TabBarBaseController.swift in Sources */,
 				612844732727EB8C00D060AC /* Extension+ObservableType.swift in Sources */,
 				618802EB2727C5F3003F4C6F /* AppDelegate.swift in Sources */,
@@ -445,16 +488,21 @@
 				6128446F2727EB3D00D060AC /* Extension+String.swift in Sources */,
 				6128447D2727EEBF00D060AC /* ExampleViewController.swift in Sources */,
 				6128446D2727EAAF00D060AC /* Extension+UIView.swift in Sources */,
+				6172733E2731303D00DF8F5E /* ListPopUpNode.swift in Sources */,
 				612844762727EBCE00D060AC /* NetworkError.swift in Sources */,
+				611726DD2731598F00FC2445 /* HeaderListPopUpNode.swift in Sources */,
 				6128449E2727F89600D060AC /* Extension+UIViewController.swift in Sources */,
 				F28F6D052732437300261BA1 /* Extension+NSAttributedString.swift in Sources */,
 				6128447A2727EC5300D060AC /* NetworkProvider.swift in Sources */,
+				6172733B27312EB900DF8F5E /* ListPopupViewController.swift in Sources */,
+				617F6ED72732726E002EBD85 /* Model.swift in Sources */,
 				6128446B2727EA1700D060AC /* CommonHelper.swift in Sources */,
 				61F8ACCF272D547E00B24015 /* ImagePickerHelper.swift in Sources */,
 				612844782727EBF300D060AC /* Extension+Result.swift in Sources */,
 				B7713BC727306A70007A3824 /* ReusableSmallButtonNode.swift in Sources */,
 				61C679EF272FAC4F003AFE3F /* Enum.swift in Sources */,
 				61C679EA272F9D2F003AFE3F /* TabNavigationMenu.swift in Sources */,
+				6134E6AF2732D420002E7526 /* CellSelectedListPopUpNode.swift in Sources */,
 				61C679EC272F9D3A003AFE3F /* TabItem.swift in Sources */,
 				612844652727E8C100D060AC /* Constant.swift in Sources */,
 			);

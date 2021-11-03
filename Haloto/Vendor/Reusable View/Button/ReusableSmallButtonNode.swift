@@ -20,8 +20,9 @@ class SmallYellowButtonNode: ASDisplayNode {
     }()
     
     
-    init(title: String){
-        buttonNode.setTitle(title, with: UIFont.init(name: "Poppins-Medium.ttf", size: 11), with: UIColor(named: "button-title-dark"), for: .normal)
+    init(title: String, target: Any, function: Selector){
+        buttonNode.setTitle(title, with: .none, with: .black, for: .normal)
+        buttonNode.addTarget(target, action: function, forControlEvents: .touchUpInside)
         super.init()
         automaticallyManagesSubnodes = true
     }
@@ -44,8 +45,9 @@ class SmallBlueButtonNode: ASDisplayNode {
     }()
     
     
-    init(title: String){
+    init(title: String, target: Any, function: Selector){
         buttonNode.setTitle(title, with: UIFont.init(name: "Poppins-Medium.ttf", size: 11), with: UIColor(named: "button-title-light"), for: .normal)
+        buttonNode.addTarget(target, action: function, forControlEvents: .touchUpInside)
         super.init()
         automaticallyManagesSubnodes = true
     }
@@ -68,8 +70,9 @@ class SmallOutlineButtonNode: ASDisplayNode {
     }()
     
     
-    init(title: String){
+    init(title: String, target: Any, function: Selector){
         buttonNode.setTitle(title, with: UIFont.init(name: "Poppins-Medium.ttf", size: 11), with: UIColor(named: "button-blue"), for: .normal)
+        buttonNode.addTarget(target, action: function, forControlEvents: .touchUpInside)
         super.init()
         automaticallyManagesSubnodes = true
     }
