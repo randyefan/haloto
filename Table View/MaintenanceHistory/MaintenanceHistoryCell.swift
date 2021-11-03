@@ -7,27 +7,28 @@
 
 import AsyncDisplayKit
 
-class MaintenanceHistoryCell: ASCellNode{
-    
-    private let maintenanceHistoryImage: ASImageNode?
-    
+class MaintenanceHistoryCell: ASCellNode {
+    private let maintenanceHistoryImage: ASImageNode = {
+       let node = ASImageNode()
+        node.style.preferredSize = CGSize(width: 48, height: 48)
+        node.cornerRadius = 25
+        return node
+    }()
+
     private let descriptionNode: MaintenanceHistoryDescription
-    
-    override init() {
-        maintenanceHistoryImage = ASImageNode()
-        maintenanceHistoryImage?.image = UIImage(named: "struckImage")
-        maintenanceHistoryImage?.style.preferredSize = CGSize(width: 48, height: 48)
-        maintenanceHistoryImage?.cornerRadius = 25
-        
-        descriptionNode = MaintenanceHistoryDescription()
-        
+
+    init(model: MaintenanceHistory) {
+        maintenanceHistoryImage.image = UIImage(named: model.maintenanceHistoryImage ?? "")
+
+        descriptionNode = MaintenanceHistoryDescription(model: model)
+
         super.init()
         automaticallyManagesSubnodes = true
         backgroundColor = .white
         setShadow()
     }
-    
-    func setShadow(){
+
+    func setShadow() {
         clipsToBounds = false
         cornerRadius = 8
         shadowColor = UIColor.black.cgColor
@@ -35,15 +36,15 @@ class MaintenanceHistoryCell: ASCellNode{
         shadowOffset.height = 2
         shadowRadius = 4
     }
-    
+
     override func layout() {
         super.layout()
         layer.shadowPath = UIBezierPath(rect: bounds).cgPath
     }
-    
-    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        let stack = ASStackLayoutSpec(direction: .horizontal, spacing: 8, justifyContent: .start, alignItems: .start, children: [maintenanceHistoryImage, descriptionNode].compactMap({$0}))
-        
+
+    override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
+        let stack = ASStackLayoutSpec(direction: .horizontal, spacing: 8, justifyContent: .start, alignItems: .start, children: [maintenanceHistoryImage, descriptionNode].compactMap { $0 })
+
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 20, left: 5, bottom: 20, right: .infinity), child: stack)
     }
 }
