@@ -11,7 +11,7 @@ import UIKit
 class SmallYellowButtonNode: ASDisplayNode {
     private let buttonNode: ASButtonNode = {
         let node = ASButtonNode()
-        node.backgroundColor = UIColor(named: "button-yellow")
+        node.backgroundColor = UIColor.buttonYellow
         node.cornerRadius = 20
         node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 36)
         node.contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
@@ -34,7 +34,7 @@ class SmallYellowButtonNode: ASDisplayNode {
 class SmallBlueButtonNode: ASDisplayNode {
     let buttonNode: ASButtonNode = {
         let node = ASButtonNode()
-        node.backgroundColor = UIColor(named: "button-blue")
+        node.backgroundColor = UIColor.appBlue
         node.cornerRadius = 20
         node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 36)
         node.contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
@@ -47,7 +47,7 @@ class SmallBlueButtonNode: ASDisplayNode {
             title,
             size: 11,
             fontWeight: .medium,
-            color: UIColor(named: "button-title-light")!
+            color: UIColor.white
         )
         buttonNode.addTarget(target, action: function, forControlEvents: .touchUpInside)
         super.init()
@@ -63,7 +63,7 @@ class SmallOutlineButtonNode: ASDisplayNode {
     let buttonNode: ASButtonNode = {
         let node = ASButtonNode()
         node.borderWidth = 2
-        node.borderColor = UIColor(named: "button-blue")?.cgColor
+        node.borderColor = UIColor.appBlue.cgColor
         node.cornerRadius = 20
         node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 46)
         node.contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
@@ -75,7 +75,7 @@ class SmallOutlineButtonNode: ASDisplayNode {
             title,
             size: 11,
             fontWeight: .medium,
-            color: UIColor(named: "button-blue")!
+            color: UIColor.appBlue
         )
         buttonNode.addTarget(target, action: function, forControlEvents: .touchUpInside)
         super.init()
