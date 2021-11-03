@@ -31,4 +31,10 @@ extension UIColor {
             return UIColor(hexString: "#04D474")
         }
     }
+    
+    static var backgroundUpcomingMaintenanceCell: UIColor {
+        get {
+            return UIColor(hexString: "#7EA1D6")
+        }
+    }
 }

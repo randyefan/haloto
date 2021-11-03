@@ -21,31 +21,19 @@ class UpcomingMaintenanceCell: ASCellNode {
 
     private let backgroundNode: ASDisplayNode = {
         let node = ASDisplayNode()
+        node.style.preferredSize = CGSize(width: 84, height: 78)
+        node.backgroundColor = UIColor.backgroundUpcomingMaintenanceCell
         return node
     }()
 
     let upcomingMaintenanceDescription: UpcomingMaintenanceDescription
 
-    override init() {
-        countUpcomingMaintenanceNode.attributedText = NSAttributedString(string: "3",
-                                                                         attributes: [
-                                                                             .font: UIFont.systemFont(ofSize: 45, weight: .semibold),
-                                                                             .foregroundColor: UIColor.white,
-                                                                         ])
+    init(model: UpcomingMaintenance) {
+        countUpcomingMaintenanceNode.attributedText = .font("\(model.components.count)", size: 45, fontWeight: .bold, color: UIColor.white, alignment: .right, isTitle: false)
 
-        upcomingMaintenanceNode.attributedText = NSAttributedString(string: "Components",
-                                                                    attributes: [
-                                                                        .font: UIFont.systemFont(ofSize: 9, weight: .regular),
-                                                                        .foregroundColor: UIColor.white,
-                                                                    ])
+        upcomingMaintenanceNode.attributedText = .font("Components", size: 9, fontWeight: .regular, color: UIColor.white, alignment: .right, isTitle: false)
 
-        backgroundNode.style.preferredSize = CGSize(width: 84, height: 78)
-        backgroundNode.backgroundColor = UIColor(red: 126 / 255.0,
-                                                 green: 161 / 255.0,
-                                                 blue: 214 / 255.0,
-                                                 alpha: 1.0)
-
-        upcomingMaintenanceDescription = UpcomingMaintenanceDescription()
+        upcomingMaintenanceDescription = UpcomingMaintenanceDescription(model: model)
         upcomingMaintenanceDescription.style.width = ASDimension(unit: .fraction, value: 1)
         upcomingMaintenanceDescription.style.flexShrink = 1
 
@@ -68,7 +56,6 @@ class UpcomingMaintenanceCell: ASCellNode {
         let stack = ASStackLayoutSpec(direction: .vertical, spacing: -5, justifyContent: .center, alignItems: .center, children: [countUpcomingMaintenanceNode, upcomingMaintenanceNode])
 
         let backgroundInset = ASOverlayLayoutSpec(child: backgroundNode, overlay: stack)
-        
 
         return ASStackLayoutSpec(direction: .horizontal, spacing: 5, justifyContent: .start, alignItems: .center, children: [backgroundInset, upcomingMaintenanceDescription])
     }

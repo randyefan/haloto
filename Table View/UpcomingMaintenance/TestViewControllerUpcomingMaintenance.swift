@@ -12,12 +12,13 @@ class TestViewControllerUpcomingMaintenance: ASDKViewController<ASDisplayNode> {
     
     // MARK: - Initializer (Required)
     
+    
     override init() {
         super.init(node: ASDisplayNode())
         node.automaticallyManagesSubnodes = true
         node.backgroundColor = .white
         
-        let upcoming = UpcomingMaintenanceCell()
+        let upcoming = UpcomingMaintenanceCell(model: sampleUpcomingMaintenance )
 
         node.layoutSpecBlock = { _, _ in
             return ASInsetLayoutSpec(
@@ -38,4 +39,14 @@ class TestViewControllerUpcomingMaintenance: ASDKViewController<ASDisplayNode> {
         node.backgroundColor = .blue
     }
 }
+
+let sampleUpcomingMaintenance : UpcomingMaintenance =
+    UpcomingMaintenance(components: [Component(name: "Accu",
+                                               lastReplacementOdometer: 20000,
+                                               lastReplacementDate: "1 Jan 2020",
+                                               lifetimeOdometer: 0,
+                                               lifetimeDate: "1 Jan 2019")],
+                        nextServiceOdometer: 40000,
+                        nextServiceDate: "1 Jan 2021")
+
 
