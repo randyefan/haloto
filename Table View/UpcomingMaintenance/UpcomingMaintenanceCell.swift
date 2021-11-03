@@ -77,7 +77,7 @@ class UpcomingMaintenanceCell: ASCellNode {
 
         return ASStackLayoutSpec(
             direction: .horizontal,
-            spacing: 8,
+            spacing: 12,
             justifyContent: .start,
             alignItems: .center,
             children: [backgroundInset, upcomingMaintenanceDescription]
