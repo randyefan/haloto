@@ -44,7 +44,7 @@ class SmallBlueButtonNode: ASDisplayNode {
     }()
     
     
-    init(title: String){
+    init(title: String) {
         buttonNode.setTitle(title, with: UIFont.init(name: "Poppins-Medium.ttf", size: 11), with: UIColor(named: "button-title-light"), for: .normal)
         super.init()
         automaticallyManagesSubnodes = true
