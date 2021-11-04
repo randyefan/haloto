@@ -23,15 +23,27 @@ class UpcomingMaintenanceCell: ASCellNode {
         let node = ASDisplayNode()
         node.style.preferredSize = CGSize(width: 84, height: 78)
         node.backgroundColor = UIColor.backgroundUpcomingMaintenanceCell
+        node.layer.cornerRadius = 8
+        node.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
         return node
     }()
 
     let upcomingMaintenanceDescription: UpcomingMaintenanceDescription
 
     init(model: UpcomingMaintenance) {
-        countUpcomingMaintenanceNode.attributedText = .font("\(model.components.count)", size: 45, fontWeight: .bold, color: UIColor.white, alignment: .right, isTitle: false)
+        countUpcomingMaintenanceNode.attributedText = .font(
+            "\(model.components.count)",
+            size: 45,
+            fontWeight: .bold,
+            color: UIColor.white
+        )
 
-        upcomingMaintenanceNode.attributedText = .font("Components", size: 9, fontWeight: .regular, color: UIColor.white, alignment: .right, isTitle: false)
+        upcomingMaintenanceNode.attributedText = .font(
+            "Components",
+            size: 9,
+            fontWeight: .regular,
+            color: UIColor.white
+        )
 
         upcomingMaintenanceDescription = UpcomingMaintenanceDescription(model: model)
         upcomingMaintenanceDescription.style.width = ASDimension(unit: .fraction, value: 1)
@@ -53,10 +65,22 @@ class UpcomingMaintenanceCell: ASCellNode {
     }
 
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
-        let stack = ASStackLayoutSpec(direction: .vertical, spacing: -5, justifyContent: .center, alignItems: .center, children: [countUpcomingMaintenanceNode, upcomingMaintenanceNode])
+        let stack = ASStackLayoutSpec(
+            direction: .vertical,
+            spacing: -12,
+            justifyContent: .center,
+            alignItems: .center,
+            children: [countUpcomingMaintenanceNode, upcomingMaintenanceNode]
+        )
 
         let backgroundInset = ASOverlayLayoutSpec(child: backgroundNode, overlay: stack)
 
-        return ASStackLayoutSpec(direction: .horizontal, spacing: 5, justifyContent: .start, alignItems: .center, children: [backgroundInset, upcomingMaintenanceDescription])
+        return ASStackLayoutSpec(
+            direction: .horizontal,
+            spacing: 12,
+            justifyContent: .start,
+            alignItems: .center,
+            children: [backgroundInset, upcomingMaintenanceDescription]
+        )
     }
 }
