@@ -9,80 +9,102 @@ import AsyncDisplayKit
 import UIKit
 
 class SmallYellowButtonNode: ASDisplayNode {
-    private let buttonNode: ASButtonNode = {
-        let node = ASButtonNode()
+    private let buttonNode: ASDisplayNode = {
+        let node = ASDisplayNode()
         node.backgroundColor = UIColor.buttonYellow
         node.cornerRadius = 20
         node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 36)
-        node.contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
         return node
     }()
 
+    private let titleNode: ASTextNode2 = {
+        let node = ASTextNode2()
+        return node
+    }()
 
-    init(title: String, target: Any, function: Selector) {
-        buttonNode.titleNode.attributedText = .font(title, size: 11, fontWeight: .medium)
-        buttonNode.addTarget(target, action: function, forControlEvents: .touchUpInside)
+    init(title: String, function: (() -> Void)?) {
+        titleNode.attributedText = .font(title, size: 11, fontWeight: .medium)
+        buttonNode.view.onTap(action: function)
         super.init()
         automaticallyManagesSubnodes = true
     }
 
-    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        ASWrapperLayoutSpec(layoutElement: buttonNode)
+    override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
+        let titleInset = ASInsetLayoutSpec(insets: UIEdgeInsets(
+            top: .infinity,
+            left: .infinity,
+            bottom: .infinity,
+            right: .infinity
+        ),
+        child: titleNode)
+        return ASOverlayLayoutSpec(child: buttonNode, overlay: titleInset)
     }
 }
 
 class SmallBlueButtonNode: ASDisplayNode {
-    let buttonNode: ASButtonNode = {
-        let node = ASButtonNode()
+    private let buttonNode: ASDisplayNode = {
+        let node = ASDisplayNode()
         node.backgroundColor = UIColor.blueApp
         node.cornerRadius = 20
         node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 36)
-        node.contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
         return node
     }()
 
+    private let titleNode: ASTextNode2 = {
+        let node = ASTextNode2()
+        return node
+    }()
 
-    init(title: String, target: Any, function: Selector) {
-        buttonNode.titleNode.attributedText = .font(
-            title,
-            size: 11,
-            fontWeight: .medium,
-            color: UIColor.white
-        )
-        buttonNode.addTarget(target, action: function, forControlEvents: .touchUpInside)
+    init(title: String, function: (() -> Void)?) {
+        titleNode.attributedText = .font(title, size: 11, fontWeight: .medium, color: UIColor.white)
+        buttonNode.view.onTap(action: function)
         super.init()
         automaticallyManagesSubnodes = true
     }
 
-    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        ASWrapperLayoutSpec(layoutElement: buttonNode)
+    override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
+        let titleInset = ASInsetLayoutSpec(insets: UIEdgeInsets(
+            top: .infinity,
+            left: .infinity,
+            bottom: .infinity,
+            right: .infinity
+        ),
+        child: titleNode)
+        return ASOverlayLayoutSpec(child: buttonNode, overlay: titleInset)
     }
 }
 
 class SmallOutlineButtonNode: ASDisplayNode {
-    let buttonNode: ASButtonNode = {
-        let node = ASButtonNode()
+    let buttonNode: ASDisplayNode = {
+        let node = ASDisplayNode()
+        node.backgroundColor = UIColor.white
         node.borderWidth = 2
         node.borderColor = UIColor.blueApp.cgColor
         node.cornerRadius = 20
-        node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 46)
-        node.contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
+        node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 36)
         return node
     }()
 
-    init(title: String, target: Any, function: Selector) {
-        buttonNode.titleNode.attributedText = .font(
-            title,
-            size: 11,
-            fontWeight: .medium,
-            color: UIColor.blueApp
-        )
-        buttonNode.addTarget(target, action: function, forControlEvents: .touchUpInside)
+    private let titleNode: ASTextNode2 = {
+        let node = ASTextNode2()
+        return node
+    }()
+
+    init(title: String, function: (() -> Void)?) {
+        titleNode.attributedText = .font(title, size: 11, fontWeight: .medium , color: UIColor.blueApp)
+        buttonNode.view.onTap(action: function)
         super.init()
         automaticallyManagesSubnodes = true
     }
 
-    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        ASWrapperLayoutSpec(layoutElement: buttonNode)
+    override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
+        let titleInset = ASInsetLayoutSpec(insets: UIEdgeInsets(
+            top: .infinity,
+            left: .infinity,
+            bottom: .infinity,
+            right: .infinity
+        ),
+        child: titleNode)
+        return ASOverlayLayoutSpec(child: buttonNode, overlay: titleInset)
     }
 }

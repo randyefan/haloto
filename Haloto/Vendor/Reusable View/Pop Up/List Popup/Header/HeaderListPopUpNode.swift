@@ -77,20 +77,15 @@ class HeaderListPopUpNode: ASDisplayNode {
     private func setupButton(state: PopUpListState) {
         switch state {
         case .model, .manufacturer:
-            yellowButton = SmallYellowButtonNode(title: "Confirm", target: self, function: #selector(tapButtonRight))
-            imageBackNode.view.onTap {
-                self.delegate?.didTapLeft()
-            }
-            
+            yellowButton = SmallYellowButtonNode(title: "Confirm", function: {
+                print("yellow tapped")
+            })
             yellowButton?.style.height = ASDimensionMake(36)
             blueOutlineButton = nil
         default:
-            blueOutlineButton = SmallOutlineButtonNode(title: "Add", target: self, function: #selector(tapButtonRight))
-            
-            imageBackNode.view.onTap {
-                self.delegate?.didTapLeft()
-            }
-            
+            blueOutlineButton = SmallOutlineButtonNode(title: "Add", function: {
+                print("blueOutline tapped")
+            })
             blueOutlineButton?.style.height = ASDimensionMake(36)
             yellowButton = nil
         }
