@@ -7,6 +7,7 @@
 
 import AsyncDisplayKit
 import UIKit
+import RxSwift
 
 class FilterMaintenanceCell: ASCellNode {
     private let filterName: ASTextNode2 = {
@@ -21,17 +22,23 @@ class FilterMaintenanceCell: ASCellNode {
         node.backgroundColor = UIColor.backgroundUpcomingMaintenanceCell
         return node
     }()
+    
+    private let model: ComponentList
 
     var buttonDeleteMaintenance: ButtonDeleteFilterMaintenance!
+    
+    var delegateButtonFilter: ButtonDeleteFilterDelegate?
 
-    init(model: Component) {
+    init(model: ComponentList) {
         filterName.attributedText = .font(
-            model.name,
+            model.componentListName ?? "",
             size: 11,
             fontWeight: .medium,
             color: UIColor.white,
             alignment: .center
         )
+        
+        self.model = model
         super.init()
         buttonDeleteMaintenance = ButtonDeleteFilterMaintenance(target: self, function: #selector(delete))
         automaticallyManagesSubnodes = true
@@ -61,5 +68,7 @@ class FilterMaintenanceCell: ASCellNode {
         )
     }
 
-    @objc func delete() {}
+    @objc func delete() {
+        delegateButtonFilter?.didTapDelete(model: self.model)
+    }
 }
