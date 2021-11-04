@@ -34,7 +34,7 @@ class SmallYellowButtonNode: ASDisplayNode {
 class SmallBlueButtonNode: ASDisplayNode {
     let buttonNode: ASButtonNode = {
         let node = ASButtonNode()
-        node.backgroundColor = UIColor.appBlue
+        node.backgroundColor = UIColor.blueApp
         node.cornerRadius = 20
         node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 36)
         node.contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
@@ -63,7 +63,7 @@ class SmallOutlineButtonNode: ASDisplayNode {
     let buttonNode: ASButtonNode = {
         let node = ASButtonNode()
         node.borderWidth = 2
-        node.borderColor = UIColor.appBlue.cgColor
+        node.borderColor = UIColor.blueApp.cgColor
         node.cornerRadius = 20
         node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 46)
         node.contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
@@ -75,7 +75,7 @@ class SmallOutlineButtonNode: ASDisplayNode {
             title,
             size: 11,
             fontWeight: .medium,
-            color: UIColor.appBlue
+            color: UIColor.blueApp
         )
         buttonNode.addTarget(target, action: function, forControlEvents: .touchUpInside)
         super.init()
