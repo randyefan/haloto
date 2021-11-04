@@ -10,6 +10,11 @@ import AsyncDisplayKit
 import RxSwift
 import UIKit
 
+protocol HeaderListPopUpNodeDelegate {
+    func didTapRight()
+    func didTapLeft()
+}
+
 class HeaderListPopUpNode: ASDisplayNode {
     // MARK: - Variable
     private let imageBackNode: ASDisplayNode = {
@@ -27,6 +32,8 @@ class HeaderListPopUpNode: ASDisplayNode {
 
     private var yellowButton: SmallYellowButtonNode?
     private var blueOutlineButton: SmallOutlineButtonNode?
+    
+    var delegate: HeaderListPopUpNodeDelegate?
 
     // MARK: - Initializer
     init(state: PopUpListState) {
@@ -45,11 +52,11 @@ class HeaderListPopUpNode: ASDisplayNode {
 
     // MARK: - Selector Function
     @objc func tapButtonRight() {
-        print("tapped")
+        delegate?.didTapRight()
     }
 
     @objc func tapButtonLeft() {
-        print("tapped")
+        delegate?.didTapLeft()
     }
 
 
@@ -71,10 +78,19 @@ class HeaderListPopUpNode: ASDisplayNode {
         switch state {
         case .model, .manufacturer:
             yellowButton = SmallYellowButtonNode(title: "Confirm", target: self, function: #selector(tapButtonRight))
+            imageBackNode.view.onTap {
+                self.delegate?.didTapLeft()
+            }
+            
             yellowButton?.style.height = ASDimensionMake(36)
             blueOutlineButton = nil
         default:
             blueOutlineButton = SmallOutlineButtonNode(title: "Add", target: self, function: #selector(tapButtonRight))
+            
+            imageBackNode.view.onTap {
+                self.delegate?.didTapLeft()
+            }
+            
             blueOutlineButton?.style.height = ASDimensionMake(36)
             yellowButton = nil
         }

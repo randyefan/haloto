@@ -26,7 +26,7 @@ class CellSelectedListPopUpNode: ASCellNode {
         
         super.init()
         automaticallyManagesSubnodes = true
-        backgroundColor = .blueApp
+        titleNode.backgroundColor = .blueApp
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {

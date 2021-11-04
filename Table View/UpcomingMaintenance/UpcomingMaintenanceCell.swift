@@ -32,7 +32,7 @@ class UpcomingMaintenanceCell: ASCellNode {
 
     init(model: UpcomingMaintenance) {
         countUpcomingMaintenanceNode.attributedText = .font(
-            "\(model.components.count)",
+            "\(String(describing: model.components?.count))",
             size: 45,
             fontWeight: .bold,
             color: UIColor.white
