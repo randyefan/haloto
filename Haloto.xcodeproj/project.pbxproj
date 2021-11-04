@@ -28,6 +28,7 @@
 		6134E6A82732CFF1002E7526 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7713BC92730E772007A3824 /* Poppins-Regular.ttf */; };
 		6134E6AB2732D3FB002E7526 /* CellContentListPopUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6134E6AA2732D3FB002E7526 /* CellContentListPopUpNode.swift */; };
 		6134E6AF2732D420002E7526 /* CellSelectedListPopUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6134E6AE2732D420002E7526 /* CellSelectedListPopUpNode.swift */; };
+		6134E6B12733067F002E7526 /* Extension+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6134E6B02733067F002E7526 /* Extension+CGFloat.swift */; };
 		6172733B27312EB900DF8F5E /* ListPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172733A27312EB900DF8F5E /* ListPopupViewController.swift */; };
 		617F6ED72732726E002EBD85 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F6ED62732726E002EBD85 /* Model.swift */; };
 		618802EB2727C5F3003F4C6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618802EA2727C5F3003F4C6F /* AppDelegate.swift */; };
@@ -71,6 +72,7 @@
 		6128449D2727F89600D060AC /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		6134E6AA2732D3FB002E7526 /* CellContentListPopUpNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellContentListPopUpNode.swift; sourceTree = "<group>"; };
 		6134E6AE2732D420002E7526 /* CellSelectedListPopUpNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSelectedListPopUpNode.swift; sourceTree = "<group>"; };
+		6134E6B02733067F002E7526 /* Extension+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CGFloat.swift"; sourceTree = "<group>"; };
 		6172733A27312EB900DF8F5E /* ListPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPopupViewController.swift; sourceTree = "<group>"; };
 		617F6ED62732726E002EBD85 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		618802E72727C5F3003F4C6F /* Haloto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Haloto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +224,7 @@
 				612844772727EBF300D060AC /* Extension+Result.swift */,
 				6128449D2727F89600D060AC /* Extension+UIViewController.swift */,
 				F28F6D042732437300261BA1 /* Extension+NSAttributedString.swift */,
+				6134E6B02733067F002E7526 /* Extension+CGFloat.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				B7713BD32731944B007A3824 /* VehicleDescriptionNode.swift in Sources */,
 				B7713BD7273234F2007A3824 /* AddNewVehicleCellNode.swift in Sources */,
 				61F8ACCF272D547E00B24015 /* ImagePickerHelper.swift in Sources */,
+				6134E6B12733067F002E7526 /* Extension+CGFloat.swift in Sources */,
 				612844782727EBF300D060AC /* Extension+Result.swift in Sources */,
 				B7713BC727306A70007A3824 /* ReusableSmallButtonNode.swift in Sources */,
 				61C679EF272FAC4F003AFE3F /* Enum.swift in Sources */,
