@@ -8,8 +8,17 @@
 import Alamofire
 import AsyncDisplayKit
 import Foundation
+import RxSwift
+
+protocol ProfileBackgroundCardDelegate {
+    func didTapEdit()
+}
 
 class ProfileBackgroundCard: ASDisplayNode {
+    
+    //MARK: - Delegate
+    var delegate: ProfileBackgroundCardDelegate?
+    
     private let backgroundCard: ASImageNode = {
         let node = ASImageNode()
         node.style.height = ASDimension(unit: .points, value: 132)
@@ -24,11 +33,12 @@ class ProfileBackgroundCard: ASDisplayNode {
         return node
     }()
 
-    override init() {
+    init(target: Any, selector: Selector) {
         editButton.image = UIImage.editImage
         backgroundCard.image = UIImage.backgroundProfile
         backgroundCard.contentMode = .scaleToFill
         super.init()
+        editButton.addTarget(target, action: selector, forControlEvents: .touchUpInside)
         automaticallyManagesSubnodes = true
     }
 
@@ -42,5 +52,10 @@ class ProfileBackgroundCard: ASDisplayNode {
         )
 
         return ASOverlayLayoutSpec(child: backgroundCard, overlay: editButtonInset)
+    }
+    
+    //MARK: - Delegate Function
+    @objc func didTapEdit(){
+        delegate?.didTapEdit()
     }
 }
