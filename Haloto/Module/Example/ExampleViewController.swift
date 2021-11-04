@@ -37,7 +37,7 @@ class ExampleViewController: ASDKViewController<ASDisplayNode> {
         //let b = SmallYellowButtonNode(title: "asdasdasdasd")
         let c = AddNewVehicleCellNode()
         let d = ProfileInfoNode(profile: profile)
-        let e = ProfileBackgroundCard(target: self, selector: #selector(didTapEdit))
+        let e = ProfileBackgroundCard()
 
         node.layoutSpecBlock = { _,_ in
             return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 50, left: 10, bottom: .infinity, right: 10),

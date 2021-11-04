@@ -33,12 +33,14 @@ class ProfileBackgroundCard: ASDisplayNode {
         return node
     }()
 
-    init(target: Any, selector: Selector) {
+    override init() {
         editButton.image = UIImage.editImage
         backgroundCard.image = UIImage.backgroundProfile
         backgroundCard.contentMode = .scaleToFill
         super.init()
-        editButton.addTarget(target, action: selector, forControlEvents: .touchUpInside)
+        editButton.view.onTap {
+            self.delegate?.didTapEdit()
+        }
         automaticallyManagesSubnodes = true
     }
 
@@ -52,10 +54,5 @@ class ProfileBackgroundCard: ASDisplayNode {
         )
 
         return ASOverlayLayoutSpec(child: backgroundCard, overlay: editButtonInset)
-    }
-    
-    //MARK: - Delegate Function
-    @objc func didTapEdit(){
-        delegate?.didTapEdit()
     }
 }
