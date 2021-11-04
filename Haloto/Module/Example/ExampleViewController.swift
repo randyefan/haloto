@@ -1,47 +1,25 @@
-//
-//  ExampleViewController.swift
-//  Haloto
-//
-//  Created by Randy Efan Jayaputra on 26/10/21.
-//
-
 import UIKit
 import AsyncDisplayKit
 
+
 class ExampleViewController: ASDKViewController<ASDisplayNode> {
-    
-    let vehicle = Vehicle(
-        name: "BRIO",
-        fuelType: "Petrol",
-        manufacture: "HONDA",
-        manufacturedYear: "2015",
-        capacity: 1100,
-        transmissionType: "Automatic",
-        licensePlate: "A 1232 RE",
-        isDefault: true
-    )
-    
-    let profile = Profile(profilePicture: "profile-image-placeholder",
-                          profileName: "Bowo Santoso",
-                          profileEmail: "bowo@santosocompany.com",
-                          profilePhone: "087774584922",
-                          authorizationToken: ""
-    )
-    
+
     // MARK: - Initializer (Required)
-    
+
+
     override init() {
         super.init(node: ASDisplayNode())
         node.automaticallyManagesSubnodes = true
-        let vehicleCell = VehicleCellNode(model: vehicle)
-        //let b = SmallYellowButtonNode(title: "asdasdasdasd")
-        let c = AddNewVehicleCellNode()
-        let d = ProfileInfoNode(profile: profile)
-        let e = ProfileBackgroundCard()
+        node.backgroundColor = .white
 
-        node.layoutSpecBlock = { _,_ in
-            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 50, left: 10, bottom: .infinity, right: 10),
-                                     child: e)
+        let upcoming = UpcomingMaintenanceCell(model: sampleUpcomingMaintenance)
+        let stickyChatNode = StickyChatNode()
+
+        node.layoutSpecBlock = { _, _ in
+            return ASInsetLayoutSpec(
+                insets: UIEdgeInsets(top: .infinity, left: 0, bottom: 0, right: 0),
+                child: stickyChatNode
+            )
         }
     }
     
@@ -53,14 +31,16 @@ class ExampleViewController: ASDKViewController<ASDisplayNode> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        node.backgroundColor = .blue
+        node.backgroundColor = .blueApp
     }
 }
 
-extension ExampleViewController: ProfileBackgroundCardDelegate{
-    @objc func didTapEdit() {
-        print("edit tapped")
-    }
-    
-    
-}
+let sampleUpcomingMaintenance: UpcomingMaintenance =
+    UpcomingMaintenance(components: [Component(name: "Accu",
+    lastReplacementOdometer: 20000,
+    lastReplacementDate: "1 Jan 2020",
+    lifetimeOdometer: 0,
+    lifetimeDate: "1 Jan 2019")],
+    nextServiceOdometer: 40000,
+    nextServiceDate: "1 Jan 2021")
+
