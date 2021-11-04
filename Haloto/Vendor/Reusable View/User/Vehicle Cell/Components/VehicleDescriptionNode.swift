@@ -31,22 +31,22 @@ class VehicleDescriptionNode: ASDisplayNode {
 
     init(model: Vehicle) {
         vehicle.attributedText = .font(
-            "\(model.manufacture) \(model.name)",
+            "\(model.manufacture ?? "") \(model.name ?? "")",
             size: 20, fontWeight: .bold
         )
 
         vehicleDetails1.attributedText = .font(
-            "\(model.manufacturedYear) | \(model.transmissionType) | \(model.capacity) CC",
+            "\(model.manufacturedYear ?? "") | \(model.transmissionType ?? "") | \(model.capacity ?? 0) CC",
             size: 12
         )
 
         vehicleDetails2.attributedText = .font(
-            "\(model.fuelType) | \(model.licensePlate)",
+            "\(model.fuelType ?? "") | \(model.licensePlate ?? "")",
             size: 12
         )
 
         isDefault.attributedText = .font(
-            model.isDefault ? "Default" : "",
+            model.isDefault ?? false ? "Default" : "",
             size: 12,
             fontWeight: .medium,
             color: UIColor.cardTextDefault

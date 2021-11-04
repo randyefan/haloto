@@ -7,6 +7,10 @@
 
 import AsyncDisplayKit
 
+protocol ButtonDeleteFilterDelegate {
+    func didTapDelete(model: ComponentList)
+}
+
 class ButtonDeleteFilterMaintenance: ASCellNode {
     private let deleteButton: ASImageNode = {
         let node = ASImageNode()

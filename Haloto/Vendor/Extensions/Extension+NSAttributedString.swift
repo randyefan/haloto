@@ -41,9 +41,9 @@ extension NSAttributedString {
         paragraphStyle.alignment = alignment
 
         var attribute = [.font: font,
-                .kern: kerning,
-                .foregroundColor: color,
-                .paragraphStyle: paragraphStyle] as [NSAttributedString.Key: Any]
+                         .kern: kerning,
+                         .foregroundColor: color,
+                         .paragraphStyle: paragraphStyle] as [NSAttributedString.Key: Any]
 
         if underline {
             attribute[.underlineColor] = color
@@ -60,7 +60,8 @@ extension NSAttributedString {
         color: UIColor = .black,
         alignment: NSTextAlignment = .left,
         underline: Bool = false,
-        isTitle: Bool = false) -> NSAttributedString {
+        isTitle: Bool = false
+    ) -> NSAttributedString {
         let attribute = NSAttributedString.setFont(
             font: fontWeight.fontWeight.withSize(size),
             kerning: isTitle ? 0 : 0.5,
@@ -71,5 +72,45 @@ extension NSAttributedString {
         )
         let attributeString = NSMutableAttributedString(string: string, attributes: attribute)
         return attributeString
+    }
+
+    public class func fontWithAttachment(
+        _ string: String,
+        size: CGFloat,
+        fontWeight: fontWeight = .regular,
+        color: UIColor = .black,
+        alignment: NSTextAlignment = .left,
+        underline: Bool = false,
+        isTitle: Bool = false,
+        prefixAttachment: NSTextAttachment? = nil,
+        suffixAttachment: NSTextAttachment? = nil
+    )
+        -> NSMutableAttributedString?
+    {
+        let out = NSMutableAttributedString()
+
+        if let attach = prefixAttachment {
+            let stringAttachment = NSAttributedString(attachment: attach)
+            out.append(stringAttachment)
+        }
+
+        let attribute = NSAttributedString.setFont(
+            font: fontWeight.fontWeight.withSize(size),
+            kerning: isTitle ? 0 : 0.5,
+            color: color,
+            lineSpacing: 16,
+            alignment: alignment,
+            underline: underline
+        )
+
+        let stringAttribute = NSAttributedString(string: string, attributes: attribute)
+        out.append(stringAttribute)
+
+        if let attach = suffixAttachment {
+            let stringAttachment = NSAttributedString(attachment: attach)
+            out.append(stringAttachment)
+        }
+
+        return out
     }
 }

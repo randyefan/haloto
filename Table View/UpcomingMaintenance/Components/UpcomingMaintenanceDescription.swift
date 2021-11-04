@@ -27,19 +27,19 @@ class UpcomingMaintenanceDescription: ASCellNode {
 
     init(model: UpcomingMaintenance) {
         titleNode.attributedText = .font(
-            "\(model.nextServiceOdometer) KM Service",
+            "\(String(describing: model.nextServiceOdometer)) KM Service",
             size: 14,
             fontWeight: .medium
         )
 
         subTitleNode.attributedText = .font(
-            "Check \(model.components.first?.name ?? "") and \(model.components.count - 1) other",
+            "Check \(model.components?.first?.name ?? "") and \(model.components?.count ?? 0 - 1) other",
             size: 12,
             color: UIColor.lightGray
         )
 
         dateNode.attributedText = .font(
-            model.nextServiceDate,
+            model.nextServiceDate ?? "",
             size: 11,
             fontWeight: .medium
         )
