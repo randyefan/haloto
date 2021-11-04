@@ -9,6 +9,7 @@ import Alamofire
 import AsyncDisplayKit
 import Foundation
 import RxSwift
+import UIKit
 
 protocol ProfileBackgroundCardDelegate {
     func didTapEdit()
@@ -28,7 +29,7 @@ class ProfileBackgroundCard: ASDisplayNode {
 
     private let editButton: ASImageNode = {
         let node = ASImageNode()
-        node.style.preferredSize = CGSize(width: 15, height: 15)
+        node.style.preferredSize = CGSize(width: 16, height: 16)
         node.style.flexShrink = 1
         return node
     }()
@@ -46,13 +47,12 @@ class ProfileBackgroundCard: ASDisplayNode {
 
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
         let editButtonInset = ASInsetLayoutSpec(
-            insets: UIEdgeInsets(top: 13,
+            insets: UIEdgeInsets(top: 12,
                                  left: .infinity,
                                  bottom: .infinity,
-                                 right: 13),
+                                 right: 12),
             child: editButton
         )
-
         return ASOverlayLayoutSpec(child: backgroundCard, overlay: editButtonInset)
     }
 }

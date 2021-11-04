@@ -13,7 +13,6 @@ class UserProfileViewController: ASDKViewController<ASDisplayNode> {
     // MARK: - Initializer (Required)
     override init() {
         super.init(node: ASDisplayNode())
-        let a = ASTextNode2()
         node.automaticallyManagesSubnodes = true
         node.layoutSpecBlock = { _, _ in
             return ASLayoutSpec()

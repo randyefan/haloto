@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class ProfileInfoNode: ASDisplayNode {
+    // MARK: - Components
+
     private let profilePicture: ASNetworkImageNode = {
         let node = ASNetworkImageNode()
         node.style.preferredSize = CGSize(width: 88, height: 88)
@@ -35,6 +37,8 @@ class ProfileInfoNode: ASDisplayNode {
         node.maximumNumberOfLines = 0
         return node
     }()
+
+    // MARK: - Init (Required)
 
     init(profile: Profile) {
         profilePicture.image = UIImage(named: profile.profilePicture)
@@ -69,6 +73,13 @@ class ProfileInfoNode: ASDisplayNode {
         super.init()
         automaticallyManagesSubnodes = true
     }
+
+    override func layout() {
+        super.layout()
+        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+    }
+
+    // MARK: - layoutSpecThatFits
 
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
         return ASStackLayoutSpec(
