@@ -17,33 +17,48 @@ enum PopUpListState: String {
 
 internal class ListPopupViewController: ASDKViewController<ASDisplayNode> {
     // MARK: - Variable
+    
     private let headerNode: HeaderListPopUpNode
     private var searchNode: ASEditableTextNode?
     private let tableNode: ASTableNode = {
         let node = ASTableNode()
         return node
     }()
+    
+    var manufacturer: [Manufacturer]?
+    var model: [Model]?
+    var component: [ComponentList]?
+    
+    var state: PopUpListState
 
     // MARK: - Initializer
     init(state: PopUpListState) {
+        
         headerNode = HeaderListPopUpNode(state: state)
+        self.state = state
 
         super.init(node: ASDisplayNode())
-        setupSearchNode(state: state)
         node.automaticallyManagesSubnodes = true
+        node.automaticallyRelayoutOnSafeAreaChanges = true
+        
+        setupSearchNode()
+        setupTableFunction()
+        
+        tableNode.style.flexGrow = 1
+        
         node.layoutSpecBlock = { [weak self] _, _ in
             guard let self = self else { return ASLayoutSpec() }
 
             let topStack = ASStackLayoutSpec(
                 direction: .vertical,
                 spacing: 16,
-                justifyContent: .start,
+                justifyContent: .spaceBetween,
                 alignItems: .stretch,
                 children: [self.headerNode, self.searchNode, self.tableNode].compactMap { $0 }
             )
-
+            
             return ASInsetLayoutSpec(
-                insets: UIEdgeInsets(top: .infinity, left: 12, bottom: 0, right: 12),
+                insets: UIEdgeInsets(top: .topSafeArea, left: 12, bottom: 0, right: 12),
                 child: topStack)
         }
     }
@@ -53,13 +68,16 @@ internal class ListPopupViewController: ASDKViewController<ASDisplayNode> {
     }
 
     // MARK: - View Controller Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.node.backgroundColor = .white
         self.navigationController?.navigationBar.isHidden = true
     }
 
-    private func setupSearchNode(state: PopUpListState) {
+    // MARK: - Functionality
+    
+    private func setupSearchNode() {
         switch state {
         case .model, .manufacturer:
             searchNode = ASEditableTextNode()
@@ -74,6 +92,57 @@ internal class ListPopupViewController: ASDKViewController<ASDisplayNode> {
                 isTitle: false)
         default:
             searchNode = nil
+        }
+    }
+    
+    private func setupTableFunction() {
+        tableNode.delegate = self
+        tableNode.dataSource = self
+        tableNode.view.showsVerticalScrollIndicator = false
+        
+        switch state {
+        case .manufacturer, .model:
+            tableNode.allowsMultipleSelection = false
+        case .replaced, .service:
+            tableNode.allowsMultipleSelection = true
+        }
+    }
+}
+
+// MARK: - Extension for Table Data Source & Delegate
+
+extension ListPopupViewController: ASTableDataSource, ASTableDelegate {
+    func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
+        switch state {
+        case .replaced:
+            guard let component = component else { return 0 }
+            return component.count
+        case .manufacturer:
+            guard let manufacturer = manufacturer else { return 0 }
+            return manufacturer.count
+        case .model:
+            guard let model = model else { return 0 }
+            return model.count
+        case .service:
+            guard let component = component else { return 0 }
+            return component.count
+        }
+    }
+    
+    func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
+        switch state {
+        case .replaced:
+            let data = component?[indexPath.row].componentListName ?? ""
+            return CellContentListPopUpNode(model: data)
+        case .manufacturer:
+            let data = manufacturer?[indexPath.row].name ?? ""
+            return CellContentListPopUpNode(model: data)
+        case .model:
+            let data = model?[indexPath.row].name ?? ""
+            return CellSelectedListPopUpNode(title: data)
+        case .service:
+            let data = component?[indexPath.row].componentListName ?? ""
+            return CellContentListPopUpNode(model: data)
         }
     }
 }
