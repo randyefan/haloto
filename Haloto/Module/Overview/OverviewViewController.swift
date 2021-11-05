@@ -10,6 +10,14 @@ import AsyncDisplayKit
 
 class OverviewViewController: ASDKViewController<ASDisplayNode> {
     let modelVehicle = sampleVehicle
+    
+    private let scrollView: ASScrollNode = {
+        let scrollNode = ASScrollNode()
+        scrollNode.automaticallyManagesContentSize = true
+        scrollNode.automaticallyManagesSubnodes = true
+        return scrollNode
+    }()
+    
     private let collectionNode: ASCollectionNode = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
@@ -22,8 +30,7 @@ class OverviewViewController: ASDKViewController<ASDisplayNode> {
     
     // MARK: - Initializer (Required)
     override init() {
-        super.init(node: ASDisplayNode())
-        node.automaticallyManagesSubnodes = true
+        super.init(node: scrollView)
         node.layoutSpecBlock = { [weak self] _, _ in
             guard let self = self else { return ASLayoutSpec() }
             return ASInsetLayoutSpec(
