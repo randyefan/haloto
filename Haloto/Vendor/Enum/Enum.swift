@@ -23,3 +23,23 @@ enum ButtonState {
     case BlueOutlined
     case notSelectable
 }
+
+enum PopUpListState: String {
+    case model = "Model"
+    case manufacturer = "Manufacturer"
+    case service = "Service"
+    case replaced = "Replaced"
+}
+
+enum ReusableConsultPopUpState {
+    case request
+    case accepted
+    case declined
+    case afterService
+}
+
+enum TimerType {
+    case full
+    case short
+    case digits
+}
