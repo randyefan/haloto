@@ -9,8 +9,6 @@ import SnapKit
 import UIKit
 
 class FormTextField: UITextField {
-    
-    
     let padding = UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 10)
 
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -24,7 +22,7 @@ class FormTextField: UITextField {
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
-    
+
     lazy var innerShadow: CALayer = {
         let innerShadow = CALayer()
         layer.addSublayer(innerShadow)
@@ -34,7 +32,7 @@ class FormTextField: UITextField {
     override func layoutSubviews() {
         super.layoutSubviews()
         applyDesign()
-        setupTextField()
+        setFont()
     }
 
     func applyDesign() {
@@ -55,10 +53,8 @@ class FormTextField: UITextField {
         innerShadow.shadowRadius = 5
         innerShadow.cornerRadius = 5
     }
-
-    func setupTextField() {
-        snp.makeConstraints { make in
-            make.height.equalTo(44)
-        }
+    
+    func setFont(){
+        self.font = UIFont(name: "Poppins-Regular", size: 12)
     }
 }

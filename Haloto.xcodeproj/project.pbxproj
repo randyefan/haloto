@@ -11,6 +11,11 @@
 		3B860C132732E0E7007776BB /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B860C122732E0E7007776BB /* Form.swift */; };
 		3B860C162732E9C8007776BB /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B860C152732E9C8007776BB /* FormTextField.swift */; };
 		3B860C192732F29C007776BB /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B860C182732F29C007776BB /* LoginButton.swift */; };
+		3BAC159627338E8800D52067 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC159527338E8800D52067 /* LoginViewModel.swift */; };
+		3BAC15992733932E00D52067 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC15982733932E00D52067 /* OTPViewController.swift */; };
+		3BAC159B2733A54A00D52067 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC159A2733A54A00D52067 /* OTPViewModel.swift */; };
+		3BAC159D2733A55800D52067 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC159C2733A55800D52067 /* SignUpViewModel.swift */; };
+		3BB652262734FAFE0003E861 /* FormCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB652252734FAFE0003E861 /* FormCard.swift */; };
 		3BFAED15273250D60024C8C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFAED14273250D60024C8C2 /* LoginViewController.swift */; };
 		4A98054C3BCB4172202E2944 /* Pods_Haloto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F03C20F8EBBC9AAD640B6450 /* Pods_Haloto.framework */; };
 		612844652727E8C100D060AC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844642727E8C100D060AC /* Constant.swift */; };
@@ -47,6 +52,11 @@
 		3B860C122732E0E7007776BB /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		3B860C152732E9C8007776BB /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		3B860C182732F29C007776BB /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		3BAC159527338E8800D52067 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		3BAC15982733932E00D52067 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
+		3BAC159A2733A54A00D52067 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
+		3BAC159C2733A55800D52067 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		3BB652252734FAFE0003E861 /* FormCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCard.swift; sourceTree = "<group>"; };
 		3BFAED14273250D60024C8C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		612844642727E8C100D060AC /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		6128446A2727EA1700D060AC /* CommonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
@@ -106,16 +116,17 @@
 			isa = PBXGroup;
 			children = (
 				3B860C0F2732D805007776BB /* SignUpViewController.swift */,
+				3BAC159C2733A55800D52067 /* SignUpViewModel.swift */,
 			);
 			path = "Sign Up";
 			sourceTree = "<group>";
 		};
-		3B860C112732E0B9007776BB /* Form */ = {
+		3B860C112732E0B9007776BB /* Single Form */ = {
 			isa = PBXGroup;
 			children = (
 				3B860C122732E0E7007776BB /* Form.swift */,
 			);
-			path = Form;
+			path = "Single Form";
 			sourceTree = "<group>";
 		};
 		3B860C142732E9AA007776BB /* UITextField */ = {
@@ -129,9 +140,10 @@
 		3B860C172732F264007776BB /* SnapKit Reusable */ = {
 			isa = PBXGroup;
 			children = (
+				3BB652242734FAE20003E861 /* Form Card */,
 				3B860C1A2732F2A0007776BB /* Button */,
 				3B860C142732E9AA007776BB /* UITextField */,
-				3B860C112732E0B9007776BB /* Form */,
+				3B860C112732E0B9007776BB /* Single Form */,
 			);
 			path = "SnapKit Reusable";
 			sourceTree = "<group>";
@@ -144,10 +156,28 @@
 			path = Button;
 			sourceTree = "<group>";
 		};
+		3BAC15972733932300D52067 /* OTP */ = {
+			isa = PBXGroup;
+			children = (
+				3BAC15982733932E00D52067 /* OTPViewController.swift */,
+				3BAC159A2733A54A00D52067 /* OTPViewModel.swift */,
+			);
+			path = OTP;
+			sourceTree = "<group>";
+		};
+		3BB652242734FAE20003E861 /* Form Card */ = {
+			isa = PBXGroup;
+			children = (
+				3BB652252734FAFE0003E861 /* FormCard.swift */,
+			);
+			path = "Form Card";
+			sourceTree = "<group>";
+		};
 		3BFAED13273250C80024C8C2 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				3BFAED14273250D60024C8C2 /* LoginViewController.swift */,
+				3BAC159527338E8800D52067 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -155,6 +185,7 @@
 		6128445E2727E6CB00D060AC /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				3BAC15972733932300D52067 /* OTP */,
 				3B860C0C2732D7E1007776BB /* Sign Up */,
 				3BFAED13273250C80024C8C2 /* Login */,
 				6128447B2727EE8100D060AC /* Example */,
@@ -511,17 +542,22 @@
 				612844712727EB6C00D060AC /* Extension+UIColor.swift in Sources */,
 				6128446F2727EB3D00D060AC /* Extension+String.swift in Sources */,
 				6128447D2727EEBF00D060AC /* ExampleViewController.swift in Sources */,
+				3BAC159627338E8800D52067 /* LoginViewModel.swift in Sources */,
 				3B860C102732D805007776BB /* SignUpViewController.swift in Sources */,
 				6128446D2727EAAF00D060AC /* Extension+UIView.swift in Sources */,
 				612844762727EBCE00D060AC /* NetworkError.swift in Sources */,
+				3BAC15992733932E00D52067 /* OTPViewController.swift in Sources */,
 				6128449E2727F89600D060AC /* Extension+UIViewController.swift in Sources */,
 				F28F6D052732437300261BA1 /* Extension+NSAttributedString.swift in Sources */,
 				6128447A2727EC5300D060AC /* NetworkProvider.swift in Sources */,
 				6128446B2727EA1700D060AC /* CommonHelper.swift in Sources */,
 				61F8ACCF272D547E00B24015 /* ImagePickerHelper.swift in Sources */,
 				3BFAED15273250D60024C8C2 /* LoginViewController.swift in Sources */,
+				3BAC159B2733A54A00D52067 /* OTPViewModel.swift in Sources */,
 				612844782727EBF300D060AC /* Extension+Result.swift in Sources */,
 				3B860C132732E0E7007776BB /* Form.swift in Sources */,
+				3BB652262734FAFE0003E861 /* FormCard.swift in Sources */,
+				3BAC159D2733A55800D52067 /* SignUpViewModel.swift in Sources */,
 				B7713BC727306A70007A3824 /* ReusableSmallButtonNode.swift in Sources */,
 				61C679EF272FAC4F003AFE3F /* Enum.swift in Sources */,
 				3B860C162732E9C8007776BB /* FormTextField.swift in Sources */,

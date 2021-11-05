@@ -43,6 +43,10 @@ class Form: UIView {
         loginInfoLabel.attributedText = .font("\(textTitle)", size: 11, fontWeight: .medium, color: UIColor(named: "button-blue") ?? UIColor.black, alignment: .left, isTitle: true)
         loginInfoTextField.attributedPlaceholder = .font("\(placeHolder)", size: 12, fontWeight: .regular, color: UIColor(hexString: "B6B6B6"), alignment: .left, underline: false, isTitle: false)
     }
+    
+    func setKeyboardType(keyboardType: UIKeyboardType){
+        loginInfoTextField.keyboardType = .numberPad
+    }
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -68,4 +72,6 @@ fileprivate extension Form{
             make.width.equalToSuperview()
         }
     }
+    
+  
 }
