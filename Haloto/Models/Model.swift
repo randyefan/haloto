@@ -18,6 +18,12 @@ struct Vehicle: Codable {
     var isDefault: Bool?
 }
 
+let sampleVehicle: [Vehicle] = [
+    Vehicle(name: "Brio", fuelType: "Bensin", manufacture: "HONDA", manufacturedYear: "2020", capacity: 1500, transmissionType: "Matic", licensePlate: "B 1234 AX", isDefault: true),
+    Vehicle(name: "Brio", fuelType: "Bensin", manufacture: "HONDA", manufacturedYear: "2020", capacity: 1500, transmissionType: "Matic", licensePlate: "B 1234 AX", isDefault: true),
+    Vehicle(name: "Brio", fuelType: "Bensin", manufacture: "HONDA", manufacturedYear: "2020", capacity: 1500, transmissionType: "Matic", licensePlate: "B 1234 AX", isDefault: true)
+]
+
 struct UpcomingMaintenance: Codable {
     var components: [Component]?
     var nextServiceOdometer: Int?
