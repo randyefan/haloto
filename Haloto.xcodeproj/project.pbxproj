@@ -33,6 +33,13 @@
 		6134E6B12733067F002E7526 /* Extension+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6134E6B02733067F002E7526 /* Extension+CGFloat.swift */; };
 		6172733B27312EB900DF8F5E /* ListPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172733A27312EB900DF8F5E /* ListPopupViewController.swift */; };
 		617F6ED72732726E002EBD85 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F6ED62732726E002EBD85 /* Model.swift */; };
+		618546A02734DAAC00675BB0 /* FilterMaintenanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6185469D2734DAAC00675BB0 /* FilterMaintenanceCell.swift */; };
+		618546A12734DAAC00675BB0 /* ButtonDeleteFilterMaintenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6185469F2734DAAC00675BB0 /* ButtonDeleteFilterMaintenance.swift */; };
+		618546AC2734DAB800675BB0 /* MaintenanceHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618546A42734DAB800675BB0 /* MaintenanceHistoryCell.swift */; };
+		618546AD2734DAB800675BB0 /* MaintenanceHistoryDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618546A62734DAB800675BB0 /* MaintenanceHistoryDescription.swift */; };
+		618546AE2734DAB800675BB0 /* UpcomingMaintenanceDescriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618546A92734DAB800675BB0 /* UpcomingMaintenanceDescriptions.swift */; };
+		618546AF2734DAB800675BB0 /* UpcomingMaintenanceDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618546AA2734DAB800675BB0 /* UpcomingMaintenanceDescription.swift */; };
+		618546B02734DAB800675BB0 /* UpcomingMaintenanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618546AB2734DAB800675BB0 /* UpcomingMaintenanceCell.swift */; };
 		618802EB2727C5F3003F4C6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618802EA2727C5F3003F4C6F /* AppDelegate.swift */; };
 		618802ED2727C5F3003F4C6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618802EC2727C5F3003F4C6F /* SceneDelegate.swift */; };
 		618802F42727C5F4003F4C6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 618802F32727C5F4003F4C6F /* Assets.xcassets */; };
@@ -84,6 +91,13 @@
 		6134E6B02733067F002E7526 /* Extension+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CGFloat.swift"; sourceTree = "<group>"; };
 		6172733A27312EB900DF8F5E /* ListPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPopupViewController.swift; sourceTree = "<group>"; };
 		617F6ED62732726E002EBD85 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		6185469D2734DAAC00675BB0 /* FilterMaintenanceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterMaintenanceCell.swift; sourceTree = "<group>"; };
+		6185469F2734DAAC00675BB0 /* ButtonDeleteFilterMaintenance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonDeleteFilterMaintenance.swift; sourceTree = "<group>"; };
+		618546A42734DAB800675BB0 /* MaintenanceHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaintenanceHistoryCell.swift; sourceTree = "<group>"; };
+		618546A62734DAB800675BB0 /* MaintenanceHistoryDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaintenanceHistoryDescription.swift; sourceTree = "<group>"; };
+		618546A92734DAB800675BB0 /* UpcomingMaintenanceDescriptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingMaintenanceDescriptions.swift; sourceTree = "<group>"; };
+		618546AA2734DAB800675BB0 /* UpcomingMaintenanceDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingMaintenanceDescription.swift; sourceTree = "<group>"; };
+		618546AB2734DAB800675BB0 /* UpcomingMaintenanceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingMaintenanceCell.swift; sourceTree = "<group>"; };
 		618802E72727C5F3003F4C6F /* Haloto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Haloto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		618802EA2727C5F3003F4C6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		618802EC2727C5F3003F4C6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -340,6 +354,75 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		6185469B2734DAAC00675BB0 /* Collection View */ = {
+			isa = PBXGroup;
+			children = (
+				6185469C2734DAAC00675BB0 /* FilterMaintenancePage */,
+			);
+			path = "Collection View";
+			sourceTree = "<group>";
+		};
+		6185469C2734DAAC00675BB0 /* FilterMaintenancePage */ = {
+			isa = PBXGroup;
+			children = (
+				6185469D2734DAAC00675BB0 /* FilterMaintenanceCell.swift */,
+				6185469E2734DAAC00675BB0 /* Components */,
+			);
+			path = FilterMaintenancePage;
+			sourceTree = "<group>";
+		};
+		6185469E2734DAAC00675BB0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6185469F2734DAAC00675BB0 /* ButtonDeleteFilterMaintenance.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		618546A22734DAB800675BB0 /* Table View */ = {
+			isa = PBXGroup;
+			children = (
+				618546A32734DAB800675BB0 /* MaintenanceHistory */,
+				618546A72734DAB800675BB0 /* UpcomingMaintenance */,
+			);
+			path = "Table View";
+			sourceTree = "<group>";
+		};
+		618546A32734DAB800675BB0 /* MaintenanceHistory */ = {
+			isa = PBXGroup;
+			children = (
+				618546A42734DAB800675BB0 /* MaintenanceHistoryCell.swift */,
+				618546A52734DAB800675BB0 /* Components */,
+			);
+			path = MaintenanceHistory;
+			sourceTree = "<group>";
+		};
+		618546A52734DAB800675BB0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				618546A62734DAB800675BB0 /* MaintenanceHistoryDescription.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		618546A72734DAB800675BB0 /* UpcomingMaintenance */ = {
+			isa = PBXGroup;
+			children = (
+				618546A82734DAB800675BB0 /* Components */,
+				618546AB2734DAB800675BB0 /* UpcomingMaintenanceCell.swift */,
+			);
+			path = UpcomingMaintenance;
+			sourceTree = "<group>";
+		};
+		618546A82734DAB800675BB0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				618546A92734DAB800675BB0 /* UpcomingMaintenanceDescriptions.swift */,
+				618546AA2734DAB800675BB0 /* UpcomingMaintenanceDescription.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		618802DE2727C5F3003F4C6F = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +455,8 @@
 		61C679E1272F8CB8003AFE3F /* Reusable View */ = {
 			isa = PBXGroup;
 			children = (
+				618546A22734DAB800675BB0 /* Table View */,
+				6185469B2734DAAC00675BB0 /* Collection View */,
 				F2F5FF81273378EE00E4643C /* Sticky Chat */,
 				21512EBF2730320000DB482F /* Node */,
 				B7713BCD27319331007A3824 /* User */,
@@ -653,6 +738,7 @@
 			files = (
 				B7DD6DCF27339C82007F087B /* Extension+UIImage.swift in Sources */,
 				21C9C73E273381F3003DE1D0 /* FilterMaintenanceCell.swift in Sources */,
+				618546A12734DAAC00675BB0 /* ButtonDeleteFilterMaintenance.swift in Sources */,
 				6134E6AB2732D3FB002E7526 /* CellContentListPopUpNode.swift in Sources */,
 				B7DD6DF42733D8F0007F087B /* ProfileBackgroundCard.swift in Sources */,
 				61C679E8272F9D21003AFE3F /* TabBarBaseController.swift in Sources */,
@@ -660,12 +746,15 @@
 				B7DD6DC927339585007F087B /* ProfileInfoNode.swift in Sources */,
 				618802EB2727C5F3003F4C6F /* AppDelegate.swift in Sources */,
 				618802ED2727C5F3003F4C6F /* SceneDelegate.swift in Sources */,
+				618546AC2734DAB800675BB0 /* MaintenanceHistoryCell.swift in Sources */,
 				B7713BD52731A317007A3824 /* VehicleImageNode.swift in Sources */,
 				B7713BD027319358007A3824 /* ReusableVehicleCell.swift in Sources */,
 				612844712727EB6C00D060AC /* Extension+UIColor.swift in Sources */,
 				6128446F2727EB3D00D060AC /* Extension+String.swift in Sources */,
 				6128447D2727EEBF00D060AC /* ExampleViewController.swift in Sources */,
 				6128446D2727EAAF00D060AC /* Extension+UIView.swift in Sources */,
+				618546AD2734DAB800675BB0 /* MaintenanceHistoryDescription.swift in Sources */,
+				618546A02734DAAC00675BB0 /* FilterMaintenanceCell.swift in Sources */,
 				612844762727EBCE00D060AC /* NetworkError.swift in Sources */,
 				611726DD2731598F00FC2445 /* HeaderListPopUpNode.swift in Sources */,
 				6128449E2727F89600D060AC /* Extension+UIViewController.swift in Sources */,
@@ -675,6 +764,7 @@
 				B7DD6DF6273435DA007F087B /* ProfileFinalNode.swift in Sources */,
 				F28F6D052732437300261BA1 /* Extension+NSAttributedString.swift in Sources */,
 				6128447A2727EC5300D060AC /* NetworkProvider.swift in Sources */,
+				618546AE2734DAB800675BB0 /* UpcomingMaintenanceDescriptions.swift in Sources */,
 				21512EB4272FAF6C00DB482F /* MaintenanceHistoryCell.swift in Sources */,
 				6172733B27312EB900DF8F5E /* ListPopupViewController.swift in Sources */,
 				617F6ED72732726E002EBD85 /* Model.swift in Sources */,
@@ -684,8 +774,10 @@
 				21C9C7422733918F003DE1D0 /* ButtonDeleteFilterMaintenance.swift in Sources */,
 				61F8ACCF272D547E00B24015 /* ImagePickerHelper.swift in Sources */,
 				6134E6B12733067F002E7526 /* Extension+CGFloat.swift in Sources */,
+				618546B02734DAB800675BB0 /* UpcomingMaintenanceCell.swift in Sources */,
 				612844782727EBF300D060AC /* Extension+Result.swift in Sources */,
 				B7713BC727306A70007A3824 /* ReusableSmallButtonNode.swift in Sources */,
+				618546AF2734DAB800675BB0 /* UpcomingMaintenanceDescription.swift in Sources */,
 				61C679EF272FAC4F003AFE3F /* Enum.swift in Sources */,
 				61C679EA272F9D2F003AFE3F /* TabNavigationMenu.swift in Sources */,
 				6134E6AF2732D420002E7526 /* CellSelectedListPopUpNode.swift in Sources */,
