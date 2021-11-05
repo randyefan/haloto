@@ -41,10 +41,12 @@ class ProfileInfoNode: ASDisplayNode {
     // MARK: - Init (Required)
 
     init(profile: Profile) {
-        profilePicture.image = UIImage(named: profile.profilePicture ?? "")
+        if let profilePict = profile.profilePicture {
+            profilePicture.image = UIImage(named: profilePict)
+        }
 
         profileName.attributedText = .font(
-            profile.profileName ?? "No Name",
+            profile.profileName ?? "",
             size: 16,
             fontWeight: .bold,
             color: .white,
@@ -55,7 +57,7 @@ class ProfileInfoNode: ASDisplayNode {
         emailAttachment.image = UIImage.emailImage.withTintColor(UIColor.white)
         emailAttachment.bounds = CGRect(x: 0, y: -5, width: 20, height: 16)
         profileEmail.attributedText = .fontWithAttachment(
-            " \(profile.profileEmail)",
+            " \(profile.profileEmail ?? "")",
             size: 12, color: UIColor.white,
             alignment: .center,
             prefixAttachment: emailAttachment
@@ -65,7 +67,7 @@ class ProfileInfoNode: ASDisplayNode {
         phoneAttachment.image = UIImage.phoneImage.withTintColor(UIColor.white)
         phoneAttachment.bounds = CGRect(x: 0, y: -5, width: 20, height: 16)
         profilePhone.attributedText = .fontWithAttachment(
-            " \(profile.profilePhone)",
+            " \(profile.profilePhone ?? "")",
             size: 12, color: UIColor.white,
             alignment: .center,
             prefixAttachment: phoneAttachment
