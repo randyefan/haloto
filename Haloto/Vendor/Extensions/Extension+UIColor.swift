@@ -31,4 +31,46 @@ extension UIColor {
             return UIColor(hexString: "#04D474")
         }
     }
+
+    static var backgroundUpcomingMaintenanceCell: UIColor {
+        get {
+            return UIColor(hexString: "#7EA1D6")
+        }
+    }
+
+    static var blackApp: UIColor {
+        get {
+            return UIColor(hexString: "#616161")
+        }
+    }
+
+    static var greyApp: UIColor {
+        get {
+            return UIColor(hexString: "#E0E0E0")
+        }
+    }
+
+    static var secondaryGreyApp: UIColor {
+        get {
+            return UIColor(hexString: "#A0A0A0")
+        }
+    }
+
+    static var blueApp: UIColor {
+        get {
+            return UIColor(hexString: "#7EA1D6")
+        }
+    }
+
+    static var buttonYellow: UIColor {
+        get {
+            return UIColor(hexString: "#FFC940")
+        }
+    }
+
+    static var cardTextDefault: UIColor {
+        get {
+            return UIColor(hexString: "#858585")
+        }
+    }
 }

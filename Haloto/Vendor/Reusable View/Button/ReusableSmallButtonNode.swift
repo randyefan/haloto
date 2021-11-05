@@ -9,72 +9,102 @@ import AsyncDisplayKit
 import UIKit
 
 class SmallYellowButtonNode: ASDisplayNode {
-    
-    let buttonNode: ASButtonNode = {
-        let node = ASButtonNode()
-        node.backgroundColor = UIColor(named: "button-yellow")
+    private let buttonNode: ASDisplayNode = {
+        let node = ASDisplayNode()
+        node.backgroundColor = UIColor.buttonYellow
         node.cornerRadius = 20
-        node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 44)
-        node.contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
+        node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 36)
         return node
     }()
-    
-    
-    init(title: String){
-        buttonNode.setTitle(title, with: UIFont.init(name: "Poppins-Medium.ttf", size: 11), with: UIColor(named: "button-title-dark"), for: .normal)
+
+    private let titleNode: ASTextNode2 = {
+        let node = ASTextNode2()
+        return node
+    }()
+
+    init(title: String, function: (() -> Void)?) {
+        titleNode.attributedText = .font(title, size: 11, fontWeight: .medium)
+        buttonNode.view.onTap(action: function)
         super.init()
         automaticallyManagesSubnodes = true
     }
-    
-    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: buttonNode)
+
+    override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
+        let titleInset = ASInsetLayoutSpec(insets: UIEdgeInsets(
+            top: .infinity,
+            left: .infinity,
+            bottom: .infinity,
+            right: .infinity
+        ),
+        child: titleNode)
+        return ASOverlayLayoutSpec(child: buttonNode, overlay: titleInset)
     }
 }
 
 class SmallBlueButtonNode: ASDisplayNode {
-    
-    let buttonNode: ASButtonNode = {
-        let node = ASButtonNode()
-        node.backgroundColor = UIColor(named: "button-blue")
+    private let buttonNode: ASDisplayNode = {
+        let node = ASDisplayNode()
+        node.backgroundColor = UIColor.blueApp
         node.cornerRadius = 20
-        node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 44)
-        node.contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
-        
+        node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 36)
         return node
     }()
-    
-    
-    init(title: String){
-        buttonNode.setTitle(title, with: UIFont.init(name: "Poppins-Medium.ttf", size: 11), with: UIColor(named: "button-title-light"), for: .normal)
+
+    private let titleNode: ASTextNode2 = {
+        let node = ASTextNode2()
+        return node
+    }()
+
+    init(title: String, function: (() -> Void)?) {
+        titleNode.attributedText = .font(title, size: 11, fontWeight: .medium, color: UIColor.white)
+        buttonNode.view.onTap(action: function)
         super.init()
         automaticallyManagesSubnodes = true
     }
-    
-    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: buttonNode)
+
+    override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
+        let titleInset = ASInsetLayoutSpec(insets: UIEdgeInsets(
+            top: .infinity,
+            left: .infinity,
+            bottom: .infinity,
+            right: .infinity
+        ),
+        child: titleNode)
+        return ASOverlayLayoutSpec(child: buttonNode, overlay: titleInset)
     }
 }
 
 class SmallOutlineButtonNode: ASDisplayNode {
-    
-    let buttonNode: ASButtonNode = {
-        let node = ASButtonNode()
+    let buttonNode: ASDisplayNode = {
+        let node = ASDisplayNode()
+        node.backgroundColor = UIColor.white
         node.borderWidth = 2
-        node.borderColor = UIColor(named: "button-blue")?.cgColor
+        node.borderColor = UIColor.blueApp.cgColor
         node.cornerRadius = 20
-        node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 44)
-        node.contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
+        node.style.height = ASDimension(unit: ASDimensionUnit.points, value: 36)
         return node
     }()
-    
-    
-    init(title: String){
-        buttonNode.setTitle(title, with: UIFont.init(name: "Poppins-Medium.ttf", size: 11), with: UIColor(named: "button-blue"), for: .normal)
+
+    private let titleNode: ASTextNode2 = {
+        let node = ASTextNode2()
+        return node
+    }()
+
+    init(title: String, function: (() -> Void)?) {
+        titleNode.attributedText = .font(title, size: 11, fontWeight: .medium , color: UIColor.blueApp)
+        buttonNode.view.onTap(action: function)
         super.init()
         automaticallyManagesSubnodes = true
     }
-    
-    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: buttonNode)
+
+    override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
+        let titleInset = ASInsetLayoutSpec(insets: UIEdgeInsets(
+            top: .infinity,
+            left: .infinity,
+            bottom: .infinity,
+            right: .infinity
+        ),
+        child: titleNode)
+        return ASOverlayLayoutSpec(child: buttonNode, overlay: titleInset)
     }
 }

@@ -11,3 +11,8 @@ enum ProductLogin {
     case User
     case Bengkel
 }
+
+enum TextFieldState {
+    case Editable
+    case notEditable
+}
