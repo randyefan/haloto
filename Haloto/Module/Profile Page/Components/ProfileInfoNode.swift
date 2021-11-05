@@ -41,10 +41,10 @@ class ProfileInfoNode: ASDisplayNode {
     // MARK: - Init (Required)
 
     init(profile: Profile) {
-        profilePicture.image = UIImage(named: profile.profilePicture)
+        profilePicture.image = UIImage(named: profile.profilePicture ?? "")
 
         profileName.attributedText = .font(
-            profile.profileName,
+            profile.profileName ?? "No Name",
             size: 16,
             fontWeight: .bold,
             color: .white,

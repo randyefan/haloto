@@ -30,8 +30,8 @@ class HeaderListPopUpNode: ASDisplayNode {
         return node
     }()
 
-    private var yellowButton: SmallYellowButtonNode?
-    private var blueOutlineButton: SmallOutlineButtonNode?
+    private var yellowButton: SmallButtonNode?
+    private var blueOutlineButton: SmallButtonNode?
     
     var delegate: HeaderListPopUpNodeDelegate?
 
@@ -77,17 +77,17 @@ class HeaderListPopUpNode: ASDisplayNode {
     private func setupButton(state: PopUpListState) {
         switch state {
         case .model, .manufacturer:
-            yellowButton = SmallYellowButtonNode(title: "Confirm", function: {
+            yellowButton = SmallButtonNode(title: "Confirm", function: {
                 print("yellow tapped")
             })
             yellowButton?.style.height = ASDimensionMake(36)
             blueOutlineButton = nil
         default:
-            blueOutlineButton = SmallOutlineButtonNode(title: "Add", function: {
+            blueOutlineButton = SmallButtonNode(title: "Add", buttonState: .BlueOutlined, function: {
                 print("blueOutline tapped")
             })
             blueOutlineButton?.style.height = ASDimensionMake(36)
-            yellowButton = nil
+            blueOutlineButton = nil
         }
 
     }

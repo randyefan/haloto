@@ -24,4 +24,8 @@ extension UIImage {
     static var backgroundProfile: UIImage {
         return UIImage(named: "profile-background") ?? UIImage.remove
     }
+    
+    static var chevronDown: UIImage {
+        return UIImage(named: "chevron-down") ?? UIImage.remove
+    }
 }
