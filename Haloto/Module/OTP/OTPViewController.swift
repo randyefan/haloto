@@ -34,8 +34,8 @@ class OTPViewController: UIViewController {
         return temp
     }()
 
-    private lazy var otpStack: Form = {
-        let temp = Form()
+    private lazy var otpStack: FormField = {
+        let temp = FormField()
         temp.setText(textTitle: "OTP", placeHolder: "OTP")
         return temp
     }()

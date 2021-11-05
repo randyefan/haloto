@@ -33,21 +33,21 @@ class SignUpViewController: UIViewController {
         return temp
     }()
 
-    private lazy var phoneNumberStack: Form = {
-        let temp = Form()
+    private lazy var phoneNumberStack: FormField = {
+        let temp = FormField()
         temp.setText(textTitle: "Phone Number", placeHolder: "Phone Number")
         temp.setKeyboardType(keyboardType: .numberPad)
         return temp
     }()
     
-    private lazy var nameStack: Form = {
-        let temp = Form()
+    private lazy var nameStack: FormField = {
+        let temp = FormField()
         temp.setText(textTitle: "Name", placeHolder: "Full Name")
         return temp
     }()
     
-    private lazy var emailStack: Form = {
-        let temp = Form()
+    private lazy var emailStack: FormField = {
+        let temp = FormField()
         temp.setText(textTitle: "Email", placeHolder: "Email")
         return temp
     }()

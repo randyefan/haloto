@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class Form: UIView {
+class FormField: UIView {
     
     
     override init(frame: CGRect){
@@ -59,7 +59,7 @@ class Form: UIView {
 }
 
 
-fileprivate extension Form{
+fileprivate extension FormField{
     func setupView(){
         addSubview(loginStack)
         

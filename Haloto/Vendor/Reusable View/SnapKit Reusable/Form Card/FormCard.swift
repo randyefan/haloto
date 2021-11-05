@@ -14,8 +14,8 @@ protocol FormCardDelegate: AnyObject {
 class FormCard: UIView {
     weak var delegate: FormCardDelegate?
 
-    private lazy var phoneNumberStack: Form = {
-        let temp = Form()
+    private lazy var phoneNumberStack: FormField = {
+        let temp = FormField()
         temp.setText(textTitle: "Phone Number", placeHolder: "Phone Number")
         return temp
     }()
@@ -106,8 +106,8 @@ private extension FormCard {
         }
         middleStack.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
+            make.leading.equalToSuperview().offset(33)
+            make.trailing.equalToSuperview().offset(-33)
         }
 
         signUpStack.snp.makeConstraints { make in
