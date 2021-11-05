@@ -2,26 +2,16 @@ import UIKit
 import AsyncDisplayKit
 
 
-class ExampleViewController: ASDKViewController<ASDisplayNode> {
+class ExampleViewController: ASDKViewController<ASTableNode> {
 
     // MARK: - Initializer (Required)
 
 
     override init() {
-        super.init(node: ASDisplayNode())
-        node.automaticallyManagesSubnodes = true
+        super.init(node: ASTableNode())
         node.backgroundColor = .white
-
-        let upcoming = UpcomingMaintenanceCell(model: sampleUpcomingMaintenance)
-        let stickyChatNode = StickyChatNode()
-        let workshopConsultNode = WorkshopConsultationCard()
-
-        node.layoutSpecBlock = { _, _ in
-            return ASInsetLayoutSpec(
-                insets: UIEdgeInsets(top: .infinity, left: 16, bottom: .infinity, right: 16),
-                child: workshopConsultNode
-            )
-        }
+        node.dataSource = self
+        node.delegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -32,16 +22,18 @@ class ExampleViewController: ASDKViewController<ASDisplayNode> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        node.backgroundColor = .red
+        node.view.separatorStyle = .none
     }
 }
 
-let sampleUpcomingMaintenance: UpcomingMaintenance =
-    UpcomingMaintenance(components: [Component(name: "Accu",
-    lastReplacementOdometer: 20000,
-    lastReplacementDate: "1 Jan 2020",
-    lifetimeOdometer: 0,
-    lifetimeDate: "1 Jan 2019")],
-    nextServiceOdometer: 40000,
-    nextServiceDate: "1 Jan 2021")
+
+extension ExampleViewController: ASTableDataSource, ASTableDelegate {
+    func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
+        10
+    }
+
+    func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
+        WorkshopConsultationMainCell()
+    }
+}
 

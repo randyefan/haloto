@@ -58,6 +58,7 @@
 		F20227462734F0E600AF2AF3 /* WorkshopConsultationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20227452734F0E600AF2AF3 /* WorkshopConsultationCard.swift */; };
 		F20227482734F12A00AF2AF3 /* WorkshopConsultationMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20227472734F12A00AF2AF3 /* WorkshopConsultationMainCell.swift */; };
 		F202274A2734FDEF00AF2AF3 /* Extension+CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20227492734FDEF00AF2AF3 /* Extension+CAGradientLayer.swift */; };
+		F202274C273520B100AF2AF3 /* ChipCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F202274B273520B100AF2AF3 /* ChipCellNode.swift */; };
 		F2532CD82734E31F00C34AEF /* ChipNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2532CD72734E31F00C34AEF /* ChipNode.swift */; };
 		F28F6D052732437300261BA1 /* Extension+NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F6D042732437300261BA1 /* Extension+NSAttributedString.swift */; };
 		F2F5FF7D2732D9FC00E4643C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7713BC92730E772007A3824 /* Poppins-Regular.ttf */; };
@@ -121,6 +122,7 @@
 		F20227452734F0E600AF2AF3 /* WorkshopConsultationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopConsultationCard.swift; sourceTree = "<group>"; };
 		F20227472734F12A00AF2AF3 /* WorkshopConsultationMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopConsultationMainCell.swift; sourceTree = "<group>"; };
 		F20227492734FDEF00AF2AF3 /* Extension+CAGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CAGradientLayer.swift"; sourceTree = "<group>"; };
+		F202274B273520B100AF2AF3 /* ChipCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipCellNode.swift; sourceTree = "<group>"; };
 		F2532CD72734E31F00C34AEF /* ChipNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipNode.swift; sourceTree = "<group>"; };
 		F28F6D042732437300261BA1 /* Extension+NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSAttributedString.swift"; sourceTree = "<group>"; };
 		F2F5FF82273378FF00E4643C /* StickyChatNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyChatNode.swift; sourceTree = "<group>"; };
@@ -542,6 +544,7 @@
 			isa = PBXGroup;
 			children = (
 				F2532CD72734E31F00C34AEF /* ChipNode.swift */,
+				F202274B273520B100AF2AF3 /* ChipCellNode.swift */,
 			);
 			path = "Chip Node";
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				612844732727EB8C00D060AC /* Extension+ObservableType.swift in Sources */,
 				B7DD6DC927339585007F087B /* ProfileInfoNode.swift in Sources */,
 				618802EB2727C5F3003F4C6F /* AppDelegate.swift in Sources */,
+				F202274C273520B100AF2AF3 /* ChipCellNode.swift in Sources */,
 				618546D02734DCA100675BB0 /* MaintenanceHistoryCell.swift in Sources */,
 				618546D12734DCA100675BB0 /* MaintenanceHistoryDescription.swift in Sources */,
 				618802ED2727C5F3003F4C6F /* SceneDelegate.swift in Sources */,
