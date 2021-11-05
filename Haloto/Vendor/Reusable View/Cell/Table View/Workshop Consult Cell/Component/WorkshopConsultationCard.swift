@@ -41,7 +41,7 @@ internal final class WorkshopConsultationCard: ASDisplayNode {
 
     private let overlayNode: ASDisplayNode = {
         let node = ASDisplayNode()
-        node.alpha = 0.95
+        node.alpha = 0.9
         return node
     }()
 
