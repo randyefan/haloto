@@ -16,12 +16,22 @@ internal final class ChipNode: ASDisplayNode {
 
     init(_ text: String, color: UIColor = .secondaryBlueApp) {
         super.init()
-        style.height = ASDimensionMake(22)
+        automaticallyManagesSubnodes = true
+
         backgroundColor = color
-        textNode.attributedText = .font(text.uppercased(), size: 11, fontWeight: .medium)
+        textNode.attributedText = .font(text.uppercased(), size: 11, fontWeight: .medium, alignment: .center)
+    }
+
+    override func layout() {
+        super.layout()
+        style.height = ASDimensionMake(22)
+        cornerRadius = 22 / 2
     }
 
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        ASCenterLayoutSpec(centeringOptions: .XY, sizingOptions: [], child: textNode)
+        return ASInsetLayoutSpec(
+            insets: UIEdgeInsets(top: 4, left: 12, bottom: 4, right: 12),
+            child: textNode
+        )
     }
 }
