@@ -24,11 +24,13 @@ class LoginViewController: UIViewController {
 
     private lazy var titleNameImage: UIImageView = {
         let temp = UIImageView()
-        temp.image = UIImage(named: "AppName-Blue")
+        temp.image = UIImage(named: "AppName-White")
         return temp
     }()
+    //TODO: make otp page that is the same with form type just dpending of its enum
     private lazy var formCard: FormCard = {
         let temp = FormCard()
+        temp.setupView(formType: .Login)
         return temp
     }()
 

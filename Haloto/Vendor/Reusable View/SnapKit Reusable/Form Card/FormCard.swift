@@ -10,13 +10,16 @@ protocol FormCardDelegate: AnyObject {
     func attemptRequestOTP()
     func signUpButtonIsPressed()
 }
-
+//TODO: Form card delegate to fill when the otp is done
 class FormCard: UIView {
     weak var delegate: FormCardDelegate?
+
+    private var phoneNumber: String?
 
     private lazy var phoneNumberStack: FormField = {
         let temp = FormField()
         temp.setText(textTitle: "Phone Number", placeHolder: "Phone Number")
+        temp.setKeyboardType(keyboardType: .numberPad)
         return temp
     }()
 
@@ -60,7 +63,41 @@ class FormCard: UIView {
         return temp
     }()
 
-    private lazy var middleStack: UIStackView = {
+    private lazy var otpField: OneTimePasswordTextField = {
+        let temp = OneTimePasswordTextField()
+        temp.configure(with: 4)
+        temp.didEnterLastDigit = { [weak self] otpPin in
+            print(otpPin)
+        }
+        return temp
+    }()
+
+    private lazy var titleLabel: UILabel = {
+        let temp = UILabel()
+        temp.attributedText = .font("Verification Code", size: 18, fontWeight: .bold, color: .black, alignment: .center, underline: false, isTitle: false)
+        return temp
+    }()
+
+    private lazy var subtitleLabel: UILabel = {
+        let temp = UILabel()
+        temp.attributedText = .font("Please type the verification code sent to:", size: 12, fontWeight: .regular, color: UIColor(hexString: "707070"), alignment: .center, underline: false, isTitle: false)
+        return temp
+    }()
+
+    private lazy var phoneNumberLabel: UILabel = {
+        let temp = UILabel()
+        temp.attributedText = .font("+62 812 3456 7890", size: 12, fontWeight: .regular, color: .black, alignment: .center, underline: false, isTitle: false)
+        return temp
+    }()
+
+    private lazy var otpMiddleStack: UIStackView = {
+        let temp = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel, phoneNumberLabel, otpField])
+        temp.axis = .vertical
+        temp.spacing = 20
+        return temp
+    }()
+
+    private lazy var loginMiddleStack: UIStackView = {
         let temp = UIStackView(arrangedSubviews: [phoneNumberStack, loginButton, otpLabel])
         temp.axis = .vertical
         temp.spacing = 40
@@ -73,49 +110,50 @@ class FormCard: UIView {
         return temp
     }()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupView()
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupView()
-    }
-
     override func layoutSubviews() {
         super.layoutSubviews()
         roundCorners(corners: [.topLeft, .topRight], radius: 43)
     }
 }
 
-private extension FormCard {
-    func setupView() {
+extension FormCard {
+    func setupView(formType: FormCardType) {
         backgroundColor = .white
         addSubview(upperView)
-        upperView.addSubview(middleStack)
         addSubview(lineView)
         addSubview(signUpStack)
-        phoneNumberStack.snp.makeConstraints { make in
-            make.width.equalToSuperview()
+
+        switch formType {
+        case .OTP:
+            upperView.addSubview(otpMiddleStack)
+            otpMiddleStack.snp.makeConstraints { make in
+                make.centerY.equalToSuperview()
+                make.leading.equalToSuperview().offset(33)
+                make.trailing.equalToSuperview().offset(-33)
+            }
+            otpField.snp.makeConstraints { make in
+                make.height.equalTo(40)
+            }
+        case .Login:
+            upperView.addSubview(loginMiddleStack)
+            loginMiddleStack.snp.makeConstraints { make in
+                make.centerY.equalToSuperview()
+                make.leading.equalToSuperview().offset(33)
+                make.trailing.equalToSuperview().offset(-33)
+            }
+            phoneNumberStack.snp.makeConstraints { make in
+                make.width.equalToSuperview()
+            }
         }
+
         upperView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.leading.trailing.equalToSuperview()
             make.bottom.equalTo(lineView.snp.top)
-            make.leading.trailing.equalToSuperview()
-        }
-        middleStack.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(33)
-            make.trailing.equalToSuperview().offset(-33)
         }
 
         signUpStack.snp.makeConstraints { make in
             make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
             make.centerX.equalToSuperview()
-        }
-        loginButton.snp.makeConstraints { _ in
-            
         }
         lineView.snp.makeConstraints { make in
             make.width.equalToSuperview()

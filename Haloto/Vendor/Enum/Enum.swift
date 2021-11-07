@@ -23,3 +23,8 @@ enum ButtonState {
     case BlueOutlined
     case notSelectable
 }
+
+enum FormCardType{
+    case OTP
+    case Login
+}

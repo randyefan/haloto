@@ -9,6 +9,7 @@ import SnapKit
 import UIKit
 
 class FormTextField: UITextField {
+    
     let padding = UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 10)
 
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
