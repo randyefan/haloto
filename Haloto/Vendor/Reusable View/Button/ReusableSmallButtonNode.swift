@@ -38,6 +38,10 @@ class SmallButtonNode: ASDisplayNode {
             buttonNode.borderWidth = 2
             buttonNode.borderColor = UIColor.blueApp.cgColor
             buttonNode.view.onTap(action: function)
+        case .GreyButton:
+            titleNode.attributedText = .font(title, size: 11, fontWeight: .medium)
+            buttonNode.backgroundColor = UIColor.greyApp
+            buttonNode.view.onTap(action: function)
         case .notSelectable:
             titleNode.attributedText = .font(title, size: 11, fontWeight: .medium)
             buttonNode.backgroundColor = UIColor.greyApp
