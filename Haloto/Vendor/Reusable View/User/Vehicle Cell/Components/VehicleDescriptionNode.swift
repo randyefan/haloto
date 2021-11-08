@@ -9,7 +9,7 @@ import AsyncDisplayKit
 import Foundation
 
 class VehicleDescriptionNode: ASDisplayNode {
-    private let vehicle: ASTextNode2 = {
+    private var vehicle: ASTextNode2 = {
         let node = ASTextNode2()
         return node
     }()

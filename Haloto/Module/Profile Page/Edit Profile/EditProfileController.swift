@@ -10,8 +10,10 @@ import CoreGraphics
 import UIKit
 
 class EditProfileContoller: ASDKViewController<ASDisplayNode> {
+    
     init(profile: Profile) {
         super.init(node: ASDisplayNode())
+        preferredContentSize = CGSize(width: 100, height: 100)
         node.automaticallyManagesSubnodes = true
         node.backgroundColor = .white
 
@@ -33,6 +35,7 @@ class EditProfileContoller: ASDKViewController<ASDisplayNode> {
 
         chevronDown.view.onTap {
             print("chevronDownAction")
+            self.dismiss(animated: true, completion: nil)
         }
 
         node.layoutSpecBlock = { _, _ in
@@ -55,4 +58,8 @@ extension EditProfileContoller: EditProfilePictureNodeDelegate {
     override func viewDidLoad() {
         navigationController?.navigationBar.isHidden = true
     }
+    
+    func configure() {
+            modalPresentationStyle = .custom
+        }
 }

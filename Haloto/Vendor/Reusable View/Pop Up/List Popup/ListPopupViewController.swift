@@ -35,7 +35,7 @@ internal class ListPopupViewController: ASDKViewController<ASDisplayNode> {
     private var state: PopUpListState
 
     // MARK: - Initializer
-    init(state: PopUpListState) {
+    init(state:  PopUpListState) {
         
         headerNode = HeaderListPopUpNode(state: state)
         self.state = state

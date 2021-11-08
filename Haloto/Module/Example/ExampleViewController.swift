@@ -1,25 +1,67 @@
+//
+//  ExampleViewController.swift
+//  Haloto
+//
+//  Created by Randy Efan Jayaputra on 26/10/21.
+//
+
 import UIKit
 import AsyncDisplayKit
 
+class dataDummy {
+   
+        var vehicle = Vehicle(
+            name: "BRIO",
+            fuelType: "Petrol",
+            manufacture: "HONDA",
+            manufacturedYear: "2015",
+            capacity: 1100,
+            transmissionType: "Automatic",
+            licensePlate: "A 1232 RE",
+            isDefault: true
+        )
+    
+        var profile = Profile(profilePicture: "profile-image-placeholder",
+                              profileName: "Bowo Santoso",
+                              profileEmail: "bowo@santosocompany.com",
+                              profilePhone: "087774584922",
+                              authorizationToken: ""
+        )
+}
 
 class ExampleViewController: ASDKViewController<ASDisplayNode> {
-
     // MARK: - Initializer (Required)
-
-
+    
     override init() {
         super.init(node: ASDisplayNode())
         node.automaticallyManagesSubnodes = true
-        node.backgroundColor = .white
+        let kuning = SmallButtonNode(title: "Testing", buttonState: .Yellow) {
+            print("kuning")
+        }
+        let biru = SmallButtonNode(title: "Testing", buttonState: .Blue) {
+            print("biru")
+        }
+        let outline = SmallButtonNode(title: "Testing", buttonState: .BlueOutlined) {
+            print("outline")
+        }
+        let disable = SmallButtonNode(title: "Testing", buttonState: .notSelectable) {
+            print("disable")
+        }
+        
+        let vehicleCell = VehicleCellNode(model: dataDummy().vehicle)
+        let c = AddNewVehicleCellNode()
+        let d = ProfileInfoNode(profile: dataDummy().profile)
+        let e = ProfileBackgroundCard()
+        //let f = ProfileFinalNode(profile: profile, delegate: self)
+        let g = TextFieldNode(title: "Name", placeholder: "Ex. Martin Gratianus", state: .Editable)
+        let f = TextFieldNode(title: "Email", placeholder: "martin.aisdoa@nasdi.com", state: .notEditable)
+        g.delegate = self
+        let profile = EditProfilePictureNode(profilePictureUrl: "")
 
-        let upcoming = UpcomingMaintenanceCell(model: sampleUpcomingMaintenance)
-        let stickyChatNode = StickyChatNode()
-
-        node.layoutSpecBlock = { _, _ in
-            return ASInsetLayoutSpec(
-                insets: UIEdgeInsets(top: .infinity, left: 0, bottom: 0, right: 0),
-                child: stickyChatNode
-            )
+        node.layoutSpecBlock = { _,_ in
+            let stack = ASStackLayoutSpec(direction: .vertical, spacing: 10, justifyContent: .center, alignItems: .center, children: [kuning,biru, outline, disable])
+            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 100, left: .infinity, bottom: .infinity, right: .infinity),
+                                     child: c)
         }
     }
     
@@ -31,16 +73,16 @@ class ExampleViewController: ASDKViewController<ASDisplayNode> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        node.backgroundColor = .blueApp
+        node.backgroundColor = .white
     }
 }
 
-let sampleUpcomingMaintenance: UpcomingMaintenance =
-    UpcomingMaintenance(components: [Component(name: "Accu",
-    lastReplacementOdometer: 20000,
-    lastReplacementDate: "1 Jan 2020",
-    lifetimeOdometer: 0,
-    lifetimeDate: "1 Jan 2019")],
-    nextServiceOdometer: 40000,
-    nextServiceDate: "1 Jan 2021")
-
+extension ExampleViewController: TextFieldNodeDelegate {
+    func didEndEdit(text: String) {
+        print(text)
+    }
+    
+    @objc func didTapEdit() {
+        print("edit tapped")
+    }
+}
