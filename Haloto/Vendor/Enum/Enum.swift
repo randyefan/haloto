@@ -23,3 +23,9 @@ enum ButtonState {
     case BlueOutlined
     case notSelectable
 }
+
+enum TimerType {
+    case full
+    case short
+    case digits
+}
