@@ -5,63 +5,62 @@
 //  Created by Dheo Gildas Varian on 05/11/21.
 //
 
-import UIKit
 import AsyncDisplayKit
+import UIKit
 
-class OverviewViewController: ASDKViewController<ASDisplayNode> {
-    let modelVehicle = sampleVehicle
-    
-    private let scrollView: ASScrollNode = {
-        let scrollNode = ASScrollNode()
-        scrollNode.automaticallyManagesContentSize = true
-        scrollNode.automaticallyManagesSubnodes = true
-        return scrollNode
-    }()
-    
-    private let collectionNode: ASCollectionNode = {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
-        
-        let node = ASCollectionNode(collectionViewLayout: flowLayout)
-        node.style.width = ASDimensionMakeWithFraction(1)
-        node.style.height = ASDimensionMake(280)
-        return node
-    }()
-    
+class OverviewViewController: ASDKViewController<ASScrollNode> {
     // MARK: - Initializer (Required)
+
     override init() {
-        super.init(node: scrollView)
-        node.layoutSpecBlock = { [weak self] _, _ in
-            guard let self = self else { return ASLayoutSpec() }
-            return ASInsetLayoutSpec(
-                insets: UIEdgeInsets(top: 0, left: 0, bottom: .infinity, right: 0),
-                child: self.collectionNode
-            )
+        let vehicleSection = VehicleSection()
+        let upcomingMaintenanceSection = UpcomingMaintenanceSection(model: sampleUpcoming)
+
+        super.init(node: ASScrollNode())
+        node.automaticallyManagesSubnodes = true
+        node.automaticallyManagesContentSize = true
+        node.layoutSpecBlock = { _, _ in
+            // guard let self = self else { return ASLayoutSpec() }
+            let inset = 
+            ASStackLayoutSpec(direction: .vertical, spacing: 10, justifyContent: .start, alignItems: .stretch, children: [vehicleSection, upcomingMaintenanceSection])
         }
     }
-    
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: - ViewController Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        node.backgroundColor = .blue
-        collectionNode.delegate = self
-        collectionNode.dataSource = self
-        self.navigationController?.isNavigationBarHidden = true
+        node.backgroundColor = .white
+
+        navigationController?.isNavigationBarHidden = true
     }
 }
 
-extension OverviewViewController: ASCollectionDelegate, ASCollectionDataSource{
-    func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
-        modelVehicle.count
-    }
+let sampleUpcoming: [UpcomingMaintenance] = [
+    UpcomingMaintenance(components: [Component(name: "Accu",
+                                               lastReplacementOdometer: 20000,
+                                               lastReplacementDate: "1 Jan 2020",
+                                               lifetimeOdometer: 0,
+                                               lifetimeDate: "1 Jan 2019")],
+                        nextServiceOdometer: 40000,
+                        nextServiceDate: "1 Jan 2021"),
     
-    func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
-        let data = modelVehicle[indexPath.row]
-        return VehicleCellNode(model: data)
-    }
-    
-}
+    UpcomingMaintenance(components: [Component(name: "Filter",
+                                               lastReplacementOdometer: 20000,
+                                               lastReplacementDate: "1 Jan 2020",
+                                               lifetimeOdometer: 0,
+                                               lifetimeDate: "1 Jan 2019")],
+                        nextServiceOdometer: 20000,
+                        nextServiceDate: "1 Jan 2021"),
+    UpcomingMaintenance(components: [Component(name: "Oli",
+                                               lastReplacementOdometer: 20000,
+                                               lastReplacementDate: "1 Jan 2020",
+                                               lifetimeOdometer: 0,
+                                               lifetimeDate: "1 Jan 2019")],
+                        nextServiceOdometer: 10000,
+                        nextServiceDate: "1 Jan 2021"),
+]

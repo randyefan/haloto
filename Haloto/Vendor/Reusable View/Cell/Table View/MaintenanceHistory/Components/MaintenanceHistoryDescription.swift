@@ -53,7 +53,7 @@ class MaintenanceHistoryDescription: ASCellNode {
                                                 isTitle: false)
 
         super.init()
-        automaticallyManagesSubnodes = true
+        
     }
 
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {

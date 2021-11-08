@@ -8,7 +8,7 @@
 import AsyncDisplayKit
 import UIKit
 
-class UpcomingMaintenanceCell: ASCellNode {
+class UpcomingMaintenanceCell: ASDisplayNode {
     private let countUpcomingMaintenanceNode: ASTextNode2 = {
         let node = ASTextNode2()
         return node
@@ -31,8 +31,9 @@ class UpcomingMaintenanceCell: ASCellNode {
     let upcomingMaintenanceDescription: UpcomingMaintenanceDescription
 
     init(model: UpcomingMaintenance) {
+        
         countUpcomingMaintenanceNode.attributedText = .font(
-            "\(String(describing: model.components?.count))",
+            "\(model.components?.count ?? 0)",
             size: 45,
             fontWeight: .bold,
             color: UIColor.white
@@ -46,10 +47,10 @@ class UpcomingMaintenanceCell: ASCellNode {
         )
 
         upcomingMaintenanceDescription = UpcomingMaintenanceDescription(model: model)
-        upcomingMaintenanceDescription.style.width = ASDimension(unit: .fraction, value: 1)
-        upcomingMaintenanceDescription.style.flexShrink = 1
+       
 
         super.init()
+        self.style.width = ASDimensionMakeWithFraction(1)
         automaticallyManagesSubnodes = true
         backgroundColor = .white
         setShadow()

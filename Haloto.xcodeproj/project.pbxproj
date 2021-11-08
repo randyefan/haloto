@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2153EB922734995E000F1830 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2153EB912734995E000F1830 /* OverviewViewController.swift */; };
+		2171C77527353AC2001CB1C2 /* VehicleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171C77427353AC2001CB1C2 /* VehicleSection.swift */; };
+		2171C777273543FD001CB1C2 /* UpcomingMaintenanceSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171C776273543FD001CB1C2 /* UpcomingMaintenanceSection.swift */; };
 		2F2943516D4480F7198B7355 /* Pods_Haloto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B1522FF9AE1571B3B5A470 /* Pods_Haloto.framework */; };
 		611726DD2731598F00FC2445 /* HeaderListPopUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611726DC2731598F00FC2445 /* HeaderListPopUpNode.swift */; };
 		612844652727E8C100D060AC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844642727E8C100D060AC /* Constant.swift */; };
@@ -32,7 +34,6 @@
 		618546C42734DC9300675BB0 /* FilterMaintenanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618546C12734DC9300675BB0 /* FilterMaintenanceCell.swift */; };
 		618546D02734DCA100675BB0 /* MaintenanceHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618546C82734DCA100675BB0 /* MaintenanceHistoryCell.swift */; };
 		618546D12734DCA100675BB0 /* MaintenanceHistoryDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618546CA2734DCA100675BB0 /* MaintenanceHistoryDescription.swift */; };
-		618546D22734DCA100675BB0 /* UpcomingMaintenanceDescriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618546CD2734DCA100675BB0 /* UpcomingMaintenanceDescriptions.swift */; };
 		618546D32734DCA100675BB0 /* UpcomingMaintenanceDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618546CE2734DCA100675BB0 /* UpcomingMaintenanceDescription.swift */; };
 		618546D42734DCA100675BB0 /* UpcomingMaintenanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618546CF2734DCA100675BB0 /* UpcomingMaintenanceCell.swift */; };
 		618802EB2727C5F3003F4C6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618802EA2727C5F3003F4C6F /* AppDelegate.swift */; };
@@ -64,6 +65,8 @@
 
 /* Begin PBXFileReference section */
 		2153EB912734995E000F1830 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
+		2171C77427353AC2001CB1C2 /* VehicleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleSection.swift; sourceTree = "<group>"; };
+		2171C776273543FD001CB1C2 /* UpcomingMaintenanceSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMaintenanceSection.swift; sourceTree = "<group>"; };
 		23B1522FF9AE1571B3B5A470 /* Pods_Haloto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haloto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3240DF906EE1C6F71C485CA6 /* Pods-Haloto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haloto.release.xcconfig"; path = "Target Support Files/Pods-Haloto/Pods-Haloto.release.xcconfig"; sourceTree = "<group>"; };
 		45189E7BD3538C5FCF736331 /* Pods-Haloto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haloto.debug.xcconfig"; path = "Target Support Files/Pods-Haloto/Pods-Haloto.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,7 +91,6 @@
 		618546C12734DC9300675BB0 /* FilterMaintenanceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterMaintenanceCell.swift; sourceTree = "<group>"; };
 		618546C82734DCA100675BB0 /* MaintenanceHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaintenanceHistoryCell.swift; sourceTree = "<group>"; };
 		618546CA2734DCA100675BB0 /* MaintenanceHistoryDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaintenanceHistoryDescription.swift; sourceTree = "<group>"; };
-		618546CD2734DCA100675BB0 /* UpcomingMaintenanceDescriptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingMaintenanceDescriptions.swift; sourceTree = "<group>"; };
 		618546CE2734DCA100675BB0 /* UpcomingMaintenanceDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingMaintenanceDescription.swift; sourceTree = "<group>"; };
 		618546CF2734DCA100675BB0 /* UpcomingMaintenanceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingMaintenanceCell.swift; sourceTree = "<group>"; };
 		618802E72727C5F3003F4C6F /* Haloto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Haloto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,8 +145,18 @@
 			isa = PBXGroup;
 			children = (
 				2153EB912734995E000F1830 /* OverviewViewController.swift */,
+				2171C77327353A69001CB1C2 /* Section */,
 			);
 			path = Overview;
+			sourceTree = "<group>";
+		};
+		2171C77327353A69001CB1C2 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				2171C77427353AC2001CB1C2 /* VehicleSection.swift */,
+				2171C776273543FD001CB1C2 /* UpcomingMaintenanceSection.swift */,
+			);
+			path = Section;
 			sourceTree = "<group>";
 		};
 		6128445E2727E6CB00D060AC /* Module */ = {
@@ -362,8 +374,8 @@
 		618546CB2734DCA100675BB0 /* UpcomingMaintenance */ = {
 			isa = PBXGroup;
 			children = (
-				618546CC2734DCA100675BB0 /* Components */,
 				618546CF2734DCA100675BB0 /* UpcomingMaintenanceCell.swift */,
+				618546CC2734DCA100675BB0 /* Components */,
 			);
 			path = UpcomingMaintenance;
 			sourceTree = "<group>";
@@ -371,7 +383,6 @@
 		618546CC2734DCA100675BB0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				618546CD2734DCA100675BB0 /* UpcomingMaintenanceDescriptions.swift */,
 				618546CE2734DCA100675BB0 /* UpcomingMaintenanceDescription.swift */,
 			);
 			path = Components;
@@ -681,6 +692,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2171C777273543FD001CB1C2 /* UpcomingMaintenanceSection.swift in Sources */,
 				B7DD6DCF27339C82007F087B /* Extension+UIImage.swift in Sources */,
 				6134E6AB2732D3FB002E7526 /* CellContentListPopUpNode.swift in Sources */,
 				B7DD6DF42733D8F0007F087B /* ProfileBackgroundCard.swift in Sources */,
@@ -692,7 +704,6 @@
 				618546D12734DCA100675BB0 /* MaintenanceHistoryDescription.swift in Sources */,
 				618802ED2727C5F3003F4C6F /* SceneDelegate.swift in Sources */,
 				615CDCC227351C8500967A40 /* ButtonDeleteFilterMaintenanceNode.swift in Sources */,
-				618546D22734DCA100675BB0 /* UpcomingMaintenanceDescriptions.swift in Sources */,
 				B7713BD52731A317007A3824 /* VehicleImageNode.swift in Sources */,
 				B7713BD027319358007A3824 /* ReusableVehicleCell.swift in Sources */,
 				612844712727EB6C00D060AC /* Extension+UIColor.swift in Sources */,
@@ -723,6 +734,7 @@
 				6134E6AF2732D420002E7526 /* CellSelectedListPopUpNode.swift in Sources */,
 				F2F5FF83273378FF00E4643C /* StickyChatNode.swift in Sources */,
 				618546D42734DCA100675BB0 /* UpcomingMaintenanceCell.swift in Sources */,
+				2171C77527353AC2001CB1C2 /* VehicleSection.swift in Sources */,
 				61C679EC272F9D3A003AFE3F /* TabItem.swift in Sources */,
 				612844652727E8C100D060AC /* Constant.swift in Sources */,
 			);
