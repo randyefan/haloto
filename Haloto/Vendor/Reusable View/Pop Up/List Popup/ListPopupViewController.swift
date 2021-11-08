@@ -8,13 +8,6 @@
 import UIKit
 import AsyncDisplayKit
 
-enum PopUpListState: String {
-    case model = "Model"
-    case manufacturer = "Manufacturer"
-    case service = "Service"
-    case replaced = "Replaced"
-}
-
 internal class ListPopupViewController: ASDKViewController<ASDisplayNode> {
     // MARK: - Variable
     
