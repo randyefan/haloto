@@ -44,6 +44,8 @@
 		618802ED2727C5F3003F4C6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618802EC2727C5F3003F4C6F /* SceneDelegate.swift */; };
 		618802F42727C5F4003F4C6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 618802F32727C5F4003F4C6F /* Assets.xcassets */; };
 		618802F72727C5F4003F4C6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 618802F52727C5F4003F4C6F /* LaunchScreen.storyboard */; };
+		6198AB242735B3390037A7FD /* ReusableConsultPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6198AB222735B3390037A7FD /* ReusableConsultPopUpViewController.swift */; };
+		6198AB2B2735D77D0037A7FD /* ContentConsultPopupNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6198AB2A2735D77D0037A7FD /* ContentConsultPopupNode.swift */; };
 		61C679E8272F9D21003AFE3F /* TabBarBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C679E7272F9D21003AFE3F /* TabBarBaseController.swift */; };
 		61C679EA272F9D2F003AFE3F /* TabNavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C679E9272F9D2F003AFE3F /* TabNavigationMenu.swift */; };
 		61C679EC272F9D3A003AFE3F /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C679EB272F9D3A003AFE3F /* TabItem.swift */; };
@@ -116,6 +118,8 @@
 		618802F32727C5F4003F4C6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		618802F62727C5F4003F4C6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		618802F82727C5F4003F4C6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6198AB222735B3390037A7FD /* ReusableConsultPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableConsultPopUpViewController.swift; sourceTree = "<group>"; };
+		6198AB2A2735D77D0037A7FD /* ContentConsultPopupNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentConsultPopupNode.swift; sourceTree = "<group>"; };
 		61C679E7272F9D21003AFE3F /* TabBarBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarBaseController.swift; sourceTree = "<group>"; };
 		61C679E9272F9D2F003AFE3F /* TabNavigationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationMenu.swift; sourceTree = "<group>"; };
 		61C679EB272F9D3A003AFE3F /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
@@ -299,6 +303,8 @@
 		615CDCBC2734E21D00967A40 /* Consult Popup */ = {
 			isa = PBXGroup;
 			children = (
+				6198AB262735B44A0037A7FD /* Component */,
+				6198AB222735B3390037A7FD /* ReusableConsultPopUpViewController.swift */,
 			);
 			path = "Consult Popup";
 			sourceTree = "<group>";
@@ -456,6 +462,14 @@
 				618802F82727C5F4003F4C6F /* Info.plist */,
 			);
 			path = Haloto;
+			sourceTree = "<group>";
+		};
+		6198AB262735B44A0037A7FD /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				6198AB2A2735D77D0037A7FD /* ContentConsultPopupNode.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		61C679E1272F8CB8003AFE3F /* Reusable View */ = {
@@ -787,6 +801,7 @@
 				61C679E8272F9D21003AFE3F /* TabBarBaseController.swift in Sources */,
 				612844732727EB8C00D060AC /* Extension+ObservableType.swift in Sources */,
 				B7DD6DC927339585007F087B /* ProfileInfoNode.swift in Sources */,
+				6198AB2B2735D77D0037A7FD /* ContentConsultPopupNode.swift in Sources */,
 				618802EB2727C5F3003F4C6F /* AppDelegate.swift in Sources */,
 				61D6A43D2738E6D1003A9ADD /* PaymentReviewHeader.swift in Sources */,
 				F202274C273520B100AF2AF3 /* ChipCellNode.swift in Sources */,
@@ -818,6 +833,7 @@
 				6172733B27312EB900DF8F5E /* ListPopupViewController.swift in Sources */,
 				618546D32734DCA100675BB0 /* UpcomingMaintenanceDescription.swift in Sources */,
 				F20227482734F12A00AF2AF3 /* WorkshopConsultationMainNode.swift in Sources */,
+				6198AB242735B3390037A7FD /* ReusableConsultPopUpViewController.swift in Sources */,
 				617F6ED72732726E002EBD85 /* Model.swift in Sources */,
 				F20227522735455700AF2AF3 /* ConsultViewHeader.swift in Sources */,
 				6128446B2727EA1700D060AC /* CommonHelper.swift in Sources */,

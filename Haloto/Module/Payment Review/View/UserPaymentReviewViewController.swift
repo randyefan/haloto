@@ -58,16 +58,4 @@ class UserPaymentReviewViewController: ASDKViewController<ASDisplayNode> {
         super.viewDidLoad()
         node.backgroundColor = .white
     }
-
 }
-
-#if DEBUG
-import SwiftUI
-
-@available(iOS 13, *)
-struct InfoVCPreview: PreviewProvider {
-    static var previews: some View {
-        UserPaymentReviewViewController().toPreview()
-    }
-}
-#endif
