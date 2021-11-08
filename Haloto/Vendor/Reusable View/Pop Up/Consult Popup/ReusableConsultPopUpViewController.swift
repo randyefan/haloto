@@ -48,6 +48,7 @@ class ReusableConsultPopUpViewController: ASDKViewController<ASDisplayNode> {
     // MARK: - Viewcontroller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        node.backgroundColor = .white
     }
 }
 

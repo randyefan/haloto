@@ -12,6 +12,13 @@ class ContentConsultPopupNode: ASDisplayNode {
     
     // MARK: - Node Variable
     
+    private let workshopCardNode: WorkshopConsultationCard = {
+        let node = WorkshopConsultationCard()
+        node.style.height = ASDimensionMake(133)
+        node.style.width = ASDimension(unit: .fraction, value: 1)
+        return node
+    }()
+    
     private let titleNode: ASTextNode2 = {
         let node = ASTextNode2()
         return node
@@ -183,6 +190,8 @@ class ContentConsultPopupNode: ASDisplayNode {
         
         let stack = ASStackLayoutSpec(direction: .vertical, spacing: 16, justifyContent: .end, alignItems: .center, children: [titleNode, imageInset, captionInset, buttonNode, timerNode].compactMap { $0 })
         
-        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 12, left: 18, bottom: 12, right: 18), child: stack)
+        let inset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 12, left: 18, bottom: 12, right: 18), child: stack)
+        
+        return ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .stretch, children: [workshopCardNode ,inset])
     }
 }
