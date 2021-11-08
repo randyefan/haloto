@@ -31,7 +31,6 @@ class UpcomingMaintenanceCell: ASDisplayNode {
     let upcomingMaintenanceDescription: UpcomingMaintenanceDescription
 
     init(model: UpcomingMaintenance) {
-        
         countUpcomingMaintenanceNode.attributedText = .font(
             "\(model.components?.count ?? 0)",
             size: 45,
@@ -47,10 +46,10 @@ class UpcomingMaintenanceCell: ASDisplayNode {
         )
 
         upcomingMaintenanceDescription = UpcomingMaintenanceDescription(model: model)
-       
 
         super.init()
-        self.style.width = ASDimensionMakeWithFraction(1)
+        style.width = ASDimensionMakeWithFraction(1)
+        upcomingMaintenanceDescription.style.flexGrow = 1
         automaticallyManagesSubnodes = true
         backgroundColor = .white
         setShadow()

@@ -14,14 +14,14 @@ class OverviewViewController: ASDKViewController<ASScrollNode> {
     override init() {
         let vehicleSection = VehicleSection()
         let upcomingMaintenanceSection = UpcomingMaintenanceSection(model: sampleUpcoming)
+        let maintenanceHistorySection = MaintenanceHistorySection(model: sampleMaintenanHistory)
 
         super.init(node: ASScrollNode())
         node.automaticallyManagesSubnodes = true
         node.automaticallyManagesContentSize = true
         node.layoutSpecBlock = { _, _ in
-            // guard let self = self else { return ASLayoutSpec() }
-            let inset = 
-            ASStackLayoutSpec(direction: .vertical, spacing: 10, justifyContent: .start, alignItems: .stretch, children: [vehicleSection, upcomingMaintenanceSection])
+
+            ASStackLayoutSpec(direction: .vertical, spacing: 10, justifyContent: .start, alignItems: .stretch, children: [vehicleSection, upcomingMaintenanceSection, maintenanceHistorySection])
         }
     }
 
@@ -63,4 +63,51 @@ let sampleUpcoming: [UpcomingMaintenance] = [
                                                lifetimeDate: "1 Jan 2019")],
                         nextServiceOdometer: 10000,
                         nextServiceDate: "1 Jan 2021"),
+]
+
+let sampleMaintenanHistory: [MaintenanceHistory] = [
+    MaintenanceHistory(
+        maintenanceTitle: "Check Accu Health",
+        maintenanceDate: "2 Aug 2021",
+        maintenanceOdometer: 20000,
+        workshopName: "Bengkel Gembira asdasdasdasdasdasdas",
+        components: [ComponentList(
+            componentID: 1,
+            componentListName: "Accu",
+            componentListPrice: 1000000
+        )],
+        maintenanceHistoryImage: "maintenanceHistoryImage",
+        totalCost: 1000000),
+    
+    MaintenanceHistory(
+        maintenanceTitle: "Check Filter Health",
+        maintenanceDate: "7 Jan 2021",
+        maintenanceOdometer: 20000,
+        workshopName: "Bengkel Gembira Banget",
+        components: [ComponentList(
+            componentID: 2,
+            componentListName: "Filter",
+            componentListPrice: 200000
+        )],
+        maintenanceHistoryImage: "maintenanceHistoryImage",
+        totalCost: 200000),
+    
+    MaintenanceHistory(
+        maintenanceTitle: "Check Oli Health",
+        maintenanceDate: "2 Feb 2021",
+        maintenanceOdometer: 20000,
+        workshopName: "Bengkel Gembira Aja",
+        components: [ComponentList(
+            componentID: 3,
+            componentListName: "Oli",
+            componentListPrice: 300000
+        )],
+        maintenanceHistoryImage: "maintenanceHistoryImage",
+        totalCost: 300000)
+]
+
+let sampleVehicle: [Vehicle] = [
+    Vehicle(name: "Brio", fuelType: "Bensin", manufacture: "HONDA", manufacturedYear: "2020", capacity: 1500, transmissionType: "Matic", licensePlate: "B 1234 AX", isDefault: true),
+    Vehicle(name: "Brio", fuelType: "Bensin", manufacture: "HONDA", manufacturedYear: "2020", capacity: 1500, transmissionType: "Matic", licensePlate: "B 1234 AX", isDefault: true),
+    Vehicle(name: "Brio", fuelType: "Bensin", manufacture: "HONDA", manufacturedYear: "2020", capacity: 1500, transmissionType: "Matic", licensePlate: "B 1234 AX", isDefault: true)
 ]

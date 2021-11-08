@@ -19,7 +19,7 @@ class UpcomingMaintenanceSection: ASDisplayNode {
     }()
 
     init(model: [UpcomingMaintenance]) {
-        upcomingMaintenanceNode = (0 ..< model.count).map { index in
+        upcomingMaintenanceNode = (0 ..< 3).map { index in
             let tempNode = UpcomingMaintenanceCell(model: model[index])
             return tempNode
         }
@@ -33,8 +33,6 @@ class UpcomingMaintenanceSection: ASDisplayNode {
         
         super.init()
         automaticallyManagesSubnodes = true
-        
-        
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -46,7 +44,9 @@ class UpcomingMaintenanceSection: ASDisplayNode {
             children: upcomingMaintenanceNode
         )
         
-        return ASStackLayoutSpec(direction: .vertical, spacing: 11, justifyContent: .start, alignItems: .stretch, children: [titleNode, stack])
+        let final = ASStackLayoutSpec(direction: .vertical, spacing: 11, justifyContent: .start, alignItems: .stretch, children: [titleNode, stack])
+        
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 14, left: 16, bottom: 14, right: 16), child: final)
     }
 }
 
