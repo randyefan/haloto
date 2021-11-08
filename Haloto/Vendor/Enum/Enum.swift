@@ -21,5 +21,10 @@ enum ButtonState {
     case Yellow
     case Blue
     case BlueOutlined
-    case notSelectable
+    case Disabled
+}
+
+enum StarState {
+    case active
+    case inactive
 }

@@ -43,7 +43,7 @@ internal final class WorkshopConsultationMainNode: ASDisplayNode {
     }()
 
     private let workshopCardNode: WorkshopConsultationCard
-    private let consultButon = SmallYellowButtonNode(title: "Consult Now", function: nil)
+    private let consultButon = SmallButtonNode(title: "Consult Now", buttonState: .Yellow, function: nil)
 
     private var isOpen: Bool = false
 

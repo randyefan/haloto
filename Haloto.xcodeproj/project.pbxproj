@@ -65,6 +65,9 @@
 		F202274F273539E600AF2AF3 /* ConsultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F202274E273539E600AF2AF3 /* ConsultViewController.swift */; };
 		F20227522735455700AF2AF3 /* ConsultViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20227512735455700AF2AF3 /* ConsultViewHeader.swift */; };
 		F20227542735526500AF2AF3 /* WorkshopConsultationMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20227532735526500AF2AF3 /* WorkshopConsultationMainCell.swift */; };
+		F20227562738FCB100AF2AF3 /* ConsultRatingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20227552738FCB000AF2AF3 /* ConsultRatingNode.swift */; };
+		F2022759273915B200AF2AF3 /* StarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2022758273915B200AF2AF3 /* StarNode.swift */; };
+		F202275C273976A100AF2AF3 /* ViewWrapperNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F202275B273976A100AF2AF3 /* ViewWrapperNode.swift */; };
 		F2532CD82734E31F00C34AEF /* ChipNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2532CD72734E31F00C34AEF /* ChipNode.swift */; };
 		F28F6D052732437300261BA1 /* Extension+NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F6D042732437300261BA1 /* Extension+NSAttributedString.swift */; };
 		F2F5FF7D2732D9FC00E4643C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7713BC92730E772007A3824 /* Poppins-Regular.ttf */; };
@@ -135,6 +138,9 @@
 		F202274E273539E600AF2AF3 /* ConsultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultViewController.swift; sourceTree = "<group>"; };
 		F20227512735455700AF2AF3 /* ConsultViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultViewHeader.swift; sourceTree = "<group>"; };
 		F20227532735526500AF2AF3 /* WorkshopConsultationMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopConsultationMainCell.swift; sourceTree = "<group>"; };
+		F20227552738FCB000AF2AF3 /* ConsultRatingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultRatingNode.swift; sourceTree = "<group>"; };
+		F2022758273915B200AF2AF3 /* StarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarNode.swift; sourceTree = "<group>"; };
+		F202275B273976A100AF2AF3 /* ViewWrapperNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWrapperNode.swift; sourceTree = "<group>"; };
 		F2532CD72734E31F00C34AEF /* ChipNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipNode.swift; sourceTree = "<group>"; };
 		F28F6D042732437300261BA1 /* Extension+NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSAttributedString.swift"; sourceTree = "<group>"; };
 		F2F5FF82273378FF00E4643C /* StickyChatNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyChatNode.swift; sourceTree = "<group>"; };
@@ -163,9 +169,7 @@
 		6128445E2727E6CB00D060AC /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				B7DD6DF827344EF6007F087B /* Edit Profile Page */,
 				F202274D273539D400AF2AF3 /* Consult */,
-				B7DD6DC427338FB4007F087B /* Profile Page */,
 				6128447B2727EE8100D060AC /* Example */,
 			);
 			path = Module;
@@ -418,6 +422,8 @@
 		61C679E1272F8CB8003AFE3F /* Reusable View */ = {
 			isa = PBXGroup;
 			children = (
+				F202275A2739766B00AF2AF3 /* View Wrapper */,
+				F20227572739158A00AF2AF3 /* Star */,
 				B76498282734DE9F003A90C2 /* Text Field */,
 				F2532CD62734E25200C34AEF /* Chip Node */,
 				F2F5FF81273378EE00E4643C /* Sticky Chat */,
@@ -590,8 +596,25 @@
 			isa = PBXGroup;
 			children = (
 				F20227512735455700AF2AF3 /* ConsultViewHeader.swift */,
+				F20227552738FCB000AF2AF3 /* ConsultRatingNode.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		F20227572739158A00AF2AF3 /* Star */ = {
+			isa = PBXGroup;
+			children = (
+				F2022758273915B200AF2AF3 /* StarNode.swift */,
+			);
+			path = Star;
+			sourceTree = "<group>";
+		};
+		F202275A2739766B00AF2AF3 /* View Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				F202275B273976A100AF2AF3 /* ViewWrapperNode.swift */,
+			);
+			path = "View Wrapper";
 			sourceTree = "<group>";
 		};
 		F2532CD32734DD6200C34AEF /* Recovered References */ = {
@@ -773,6 +796,7 @@
 				F20227482734F12A00AF2AF3 /* WorkshopConsultationMainNode.swift in Sources */,
 				617F6ED72732726E002EBD85 /* Model.swift in Sources */,
 				F20227522735455700AF2AF3 /* ConsultViewHeader.swift in Sources */,
+				F20227562738FCB100AF2AF3 /* ConsultRatingNode.swift in Sources */,
 				6128446B2727EA1700D060AC /* CommonHelper.swift in Sources */,
 				B7713BD32731944B007A3824 /* VehicleDescriptionNode.swift in Sources */,
 				B7713BD7273234F2007A3824 /* AddNewVehicleCellNode.swift in Sources */,
@@ -780,12 +804,14 @@
 				618546C42734DC9300675BB0 /* FilterMaintenanceCell.swift in Sources */,
 				F2532CD82734E31F00C34AEF /* ChipNode.swift in Sources */,
 				F202274F273539E600AF2AF3 /* ConsultViewController.swift in Sources */,
+				F202275C273976A100AF2AF3 /* ViewWrapperNode.swift in Sources */,
 				61F8ACCF272D547E00B24015 /* ImagePickerHelper.swift in Sources */,
 				B764982A2734DECA003A90C2 /* TextFieldNode.swift in Sources */,
 				6134E6B12733067F002E7526 /* Extension+CGFloat.swift in Sources */,
 				612844782727EBF300D060AC /* Extension+Result.swift in Sources */,
 				B7713BC727306A70007A3824 /* ReusableSmallButtonNode.swift in Sources */,
 				61C679EF272FAC4F003AFE3F /* Enum.swift in Sources */,
+				F2022759273915B200AF2AF3 /* StarNode.swift in Sources */,
 				61C679EA272F9D2F003AFE3F /* TabNavigationMenu.swift in Sources */,
 				6134E6AF2732D420002E7526 /* CellSelectedListPopUpNode.swift in Sources */,
 				F2F5FF83273378FF00E4643C /* StickyChatNode.swift in Sources */,
