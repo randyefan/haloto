@@ -62,6 +62,12 @@ extension UIColor {
         }
     }
 
+    static var secondaryBlueApp: UIColor {
+        get {
+            return UIColor(hexString: "#CCDAEF")
+        }
+    }
+
     static var buttonYellow: UIColor {
         get {
             return UIColor(hexString: "#FFC940")
