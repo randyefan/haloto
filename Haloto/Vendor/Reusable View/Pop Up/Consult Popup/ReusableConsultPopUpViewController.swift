@@ -10,6 +10,14 @@ import AsyncDisplayKit
 
 class ReusableConsultPopUpViewController: ASDKViewController<ASDisplayNode> {
     
+    let buttonXNode: ASImageNode = {
+        let node = ASImageNode()
+        node.style.width = ASDimension(unit: .points, value: 26)
+        node.style.height = ASDimension(unit: .points, value: 26)
+        node.image = UIImage(named: "x_icon")
+        return node
+    }()
+    
     let centreNode: ContentConsultPopupNode
     
     // MARK: - Initializer
@@ -22,9 +30,14 @@ class ReusableConsultPopUpViewController: ASDKViewController<ASDisplayNode> {
         node.layoutSpecBlock = { [weak self] _, _ in
             guard let self = self else { return ASLayoutSpec() }
             
+            let imageInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea, left: 8, bottom: .infinity, right: .infinity),
+                                               child: self.buttonXNode)
+            
             let inset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: .infinity, left: 18, bottom: .infinity, right: 18), child: self.centreNode)
             
-            return ASCenterLayoutSpec(centeringOptions: .XY, sizingOptions: [], child: inset)
+            let centreLayout = ASCenterLayoutSpec(centeringOptions: .XY, sizingOptions: [], child: inset)
+            
+            return ASOverlayLayoutSpec(child: centreLayout, overlay: imageInset)
         }
     }
     
