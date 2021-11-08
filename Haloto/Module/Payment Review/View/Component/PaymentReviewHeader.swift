@@ -49,6 +49,6 @@ class PaymentReviewHeader: ASDisplayNode {
         shadowOpacity = 0.12
         shadowOffset.height = 2
         shadowRadius = 4
-        layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
 }
