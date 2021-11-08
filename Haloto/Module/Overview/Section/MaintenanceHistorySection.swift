@@ -17,9 +17,11 @@ class MaintenanceHistorySection: ASDisplayNode {
         let node = ASTextNode2()
         return node
     }()
+    
+    private var buttonAdd: SmallButtonNode?
 
     init(model: [MaintenanceHistory]) {
-        maintenanHistoryNode = (0 ..< 3).map { index in
+        maintenanHistoryNode = (0 ..< model.count).map { index in
             let tempNode = MaintenanceHistoryCell(model: model[index])
             return tempNode
         }
@@ -30,6 +32,9 @@ class MaintenanceHistorySection: ASDisplayNode {
             fontWeight: .bold,
             color: UIColor.black
         )
+        
+        buttonAdd = SmallButtonNode(title: "+ Add New", buttonState: .BlueOutlined, function: {print("Button Add Tapped")})
+        buttonAdd?.style.width = ASDimensionMake(90)
         
         super.init()
         automaticallyManagesSubnodes = true
@@ -44,7 +49,9 @@ class MaintenanceHistorySection: ASDisplayNode {
             children: maintenanHistoryNode
         )
         
-        let finalStack =  ASStackLayoutSpec(direction: .vertical, spacing: 11, justifyContent: .start, alignItems: .stretch, children: [titleNode, stack])
+        let titleAndButtonStack = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .spaceBetween, alignItems: .start, children: [titleNode, buttonAdd].compactMap { $0 })
+        
+        let finalStack =  ASStackLayoutSpec(direction: .vertical, spacing: 11, justifyContent: .start, alignItems: .stretch, children: [titleAndButtonStack, stack])
         
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 14, left: 16, bottom: 14, right: 16), child: finalStack)
     }

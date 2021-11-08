@@ -33,6 +33,7 @@ class MaintenanceHistoryDescription: ASDisplayNode {
     private let workshopNameNode: ASTextNode2 = {
         let node = ASTextNode2()
         node.maximumNumberOfLines = 2
+        node.style.flexShrink = 1
         return node
     }()
 
@@ -74,7 +75,8 @@ class MaintenanceHistoryDescription: ASDisplayNode {
 
         let locationAndWorkshopStack = ASStackLayoutSpec(direction: .horizontal, spacing: 8, justifyContent: .start, alignItems: .start, children: [locationBadgeNode, workshopNameNode].compactMap { $0 })
         
-
+        locationAndWorkshopStack.style.flexShrink = 1
+        
         let stack = ASStackLayoutSpec(direction: .horizontal, spacing: 17, justifyContent: .start, alignItems: .start, children: [timeAndDateStack, locationAndWorkshopStack].compactMap { $0 })
 
         return ASStackLayoutSpec(direction: .vertical, spacing: 8, justifyContent: .start, alignItems: .start, children: [maintenanceHistoryTitle, stack])

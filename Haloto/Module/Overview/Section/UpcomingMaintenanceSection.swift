@@ -19,7 +19,7 @@ class UpcomingMaintenanceSection: ASDisplayNode {
     }()
 
     init(model: [UpcomingMaintenance]) {
-        upcomingMaintenanceNode = (0 ..< 3).map { index in
+        upcomingMaintenanceNode = (0 ..< model.count).map { index in
             let tempNode = UpcomingMaintenanceCell(model: model[index])
             return tempNode
         }
