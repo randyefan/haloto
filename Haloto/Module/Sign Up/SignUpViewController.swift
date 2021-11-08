@@ -20,12 +20,6 @@ class SignUpViewController: UIViewController {
         return temp
     }()
 
-    private lazy var lineView: UIView = {
-        let temp = UIView()
-        temp.backgroundColor = UIColor(named: "button-blue")
-        return temp
-    }()
-
     private lazy var signUpButton: LoginButton = {
         let temp = LoginButton()
         temp.setTitle(title: "Sign Up")
@@ -35,25 +29,31 @@ class SignUpViewController: UIViewController {
 
     private lazy var phoneNumberStack: FormField = {
         let temp = FormField()
-        temp.setText(textTitle: "Phone Number", placeHolder: "Phone Number")
+        temp.setText(textTitle: "Phone Number", placeHolder: "0812345678")
         temp.setKeyboardType(keyboardType: .numberPad)
         return temp
     }()
     
+    private lazy var calculateView: UIView = {
+        let temp = UIView()
+        temp.backgroundColor = .red
+        return temp
+    }()
+
     private lazy var nameStack: FormField = {
         let temp = FormField()
-        temp.setText(textTitle: "Name", placeHolder: "Full Name")
+        temp.setText(textTitle: "Name", placeHolder: "Ex. Martin Martini")
         return temp
     }()
-    
+
     private lazy var emailStack: FormField = {
         let temp = FormField()
-        temp.setText(textTitle: "Email", placeHolder: "Email")
+        temp.setText(textTitle: "Email", placeHolder: "Ex. Martin.Martini@user.id")
         return temp
     }()
-    
+
     private lazy var formStackView: UIStackView = {
-        let temp = UIStackView(arrangedSubviews: [emailStack, nameStack, phoneNumberStack])
+        let temp = UIStackView(arrangedSubviews: [nameStack, emailStack, phoneNumberStack])
         temp.axis = .vertical
         temp.spacing = 9
         return temp
@@ -63,19 +63,19 @@ class SignUpViewController: UIViewController {
         let temp = UIStackView(arrangedSubviews: [iconImageView, titleNameImage])
         temp.axis = .horizontal
         temp.alignment = .center
-        temp.spacing = 9
+        temp.spacing = 12
         return temp
     }()
 
     private lazy var alreadyHaveAnAccountLabel: UILabel = {
         let temp = UILabel()
-        temp.attributedText = .font("Already have an account?", size: 18, fontWeight: .bold, color: UIColor(named: "button-blue") ?? UIColor.black, alignment: .left, isTitle: true)
+        temp.attributedText = .font("Already have an account?", size: 11, fontWeight: .medium, color: UIColor(named: "button-blue") ?? UIColor.black, alignment: .left, isTitle: false)
         return temp
     }()
 
     private lazy var loginButton: UIButton = {
         let temp = UIButton()
-        temp.setAttributedTitle(.font("Login", size: 18, fontWeight: .bold, color: UIColor(named: "button-blue") ?? UIColor.black, alignment: .left, underline: true, isTitle: true), for: .normal)
+        temp.setAttributedTitle(.font("Login", size: 11, fontWeight: .medium, color: UIColor(named: "button-blue") ?? UIColor.black, alignment: .left, underline: true, isTitle: false), for: .normal)
         temp.addTarget(self, action: #selector(loginButtonInPressed), for: .touchUpInside)
         return temp
     }()
@@ -87,7 +87,7 @@ class SignUpViewController: UIViewController {
         return temp
     }()
 
-    private lazy var loginView: UIView = {
+    private lazy var signUpView: UIView = {
         let temp = UIView()
         temp.backgroundColor = .white
 
@@ -103,14 +103,16 @@ class SignUpViewController: UIViewController {
 
 private extension SignUpViewController {
     func setupView() {
+        setupPushViewOnKeyboardAction()
+        hideKeyboardWhenTappedAround()
         navigationController?.navigationBar.isHidden = true
-        view.addSubview(loginView)
+        view.addSubview(signUpView)
+        view.addSubview(calculateView)
         view.backgroundColor = UIColor.white
-        loginView.addSubview(titleStack)
-        loginView.addSubview(formStackView)
-        loginView.addSubview(loginStack)
-        loginView.addSubview(signUpButton)
-        loginView.addSubview(lineView)
+        signUpView.addSubview(titleStack)
+        signUpView.addSubview(formStackView)
+        signUpView.addSubview(loginStack)
+        signUpView.addSubview(signUpButton)
         iconImageView.snp.makeConstraints { make in
             make.height.equalTo(50)
             make.width.equalTo(50)
@@ -119,16 +121,16 @@ private extension SignUpViewController {
             make.height.equalTo(25)
             make.width.equalTo(108)
         }
-        loginView.snp.makeConstraints { make in
+        signUpView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+            make.bottom.equalToSuperview()
             make.leading.trailing.equalToSuperview()
         }
 
         formStackView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            make.centerX.equalTo(self.view.snp.centerX)
+            make.center.equalTo(self.view.snp.center)
         }
         titleStack.snp.makeConstraints { make in
             make.height.equalTo(50)
@@ -136,18 +138,17 @@ private extension SignUpViewController {
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(32)
         }
         loginStack.snp.makeConstraints { make in
-            make.bottom.equalTo(loginView.snp.bottom)
+            make.bottom.equalToSuperview().offset(-24)
             make.centerX.equalToSuperview()
         }
         signUpButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(formStackView.snp.bottom).offset(16)
-            make.bottom.equalTo(lineView.snp.top).offset(-21)
+
         }
-        lineView.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-            make.height.equalTo(0.5)
-            make.bottom.equalTo(loginStack.snp.top).offset(-21)
+        calculateView.snp.makeConstraints { make in
+            make.top.equalTo(signUpButton.snp.bottom)
+            make.bottom.equalToSuperview()
         }
     }
 
@@ -160,3 +161,22 @@ private extension SignUpViewController {
     }
 }
 
+extension SignUpViewController {
+    func getDifferenceViewHeight() -> CGFloat {
+        return calculateView.frame.height
+    }
+}
+
+extension SignUpViewController {
+    
+    @objc
+    override func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+                self.view.frame.origin.y += getDifferenceViewHeight() - 30
+            }
+        }
+    }
+    
+}

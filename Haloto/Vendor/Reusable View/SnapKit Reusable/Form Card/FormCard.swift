@@ -9,10 +9,16 @@ import UIKit
 protocol FormCardDelegate: AnyObject {
     func attemptRequestOTP()
     func signUpButtonIsPressed()
+    func otpIsFilled(pin: String)
 }
-//TODO: Form card delegate to fill when the otp is done
+
+// TODO: Form card delegate to fill when the otp is done
 class FormCard: UIView {
+    
+
     weak var delegate: FormCardDelegate?
+    private var formType: FormCardType?
+    private var otpPin: String?
 
     private var phoneNumber: String?
 
@@ -25,27 +31,26 @@ class FormCard: UIView {
 
     private lazy var otpLabel: UILabel = {
         let temp = UILabel()
-        temp.attributedText = .font("We will send you a One Time Password (OTP)", size: 12, fontWeight: .regular, color: UIColor(hexString: "707070"), alignment: .center, underline: false, isTitle: false)
+        temp.attributedText = .font("We will send you a One Time Password (OTP) to your phone number", size: 12, fontWeight: .regular, color: UIColor(hexString: "707070"), alignment: .center, underline: false, isTitle: false)
         temp.numberOfLines = 2
         return temp
     }()
 
     private lazy var loginButton: LoginButton = {
         let temp = LoginButton()
-        temp.setTitle(title: "Login")
-        temp.addTarget(self, action: #selector(requestOTPIsPressed), for: .touchUpInside)
+        temp.switchButton(state: .disabled)
         return temp
     }()
 
     private lazy var dontHaveAccountLabel: UILabel = {
         let temp = UILabel()
-        temp.attributedText = .font("Don't have an account?", size: 18, fontWeight: .bold, color: UIColor(named: "button-blue") ?? UIColor.black, alignment: .left, isTitle: true)
+        temp.attributedText = .font("Don't have an account?", size: 11, fontWeight: .medium, color: UIColor(named: "button-blue") ?? UIColor.black, alignment: .left, isTitle: false)
         return temp
     }()
 
     private lazy var signUpButton: UIButton = {
         let temp = UIButton()
-        temp.setAttributedTitle(.font("Sign Up", size: 18, fontWeight: .bold, color: UIColor(named: "button-blue") ?? UIColor.black, alignment: .left, underline: true, isTitle: true), for: .normal)
+        temp.setAttributedTitle(.font("Sign Up", size: 11, fontWeight: .medium, color: UIColor(named: "button-blue") ?? UIColor.black, alignment: .left, underline: true, isTitle: false), for: .normal)
         temp.addTarget(self, action: #selector(signUpButtonIsPressed), for: .touchUpInside)
         return temp
     }()
@@ -57,18 +62,9 @@ class FormCard: UIView {
         return temp
     }()
 
-    private lazy var lineView: UIView = {
-        let temp = UIView()
-        temp.backgroundColor = UIColor(named: "button-blue")
-        return temp
-    }()
-
     private lazy var otpField: OneTimePasswordTextField = {
         let temp = OneTimePasswordTextField()
         temp.configure(with: 4)
-        temp.didEnterLastDigit = { [weak self] otpPin in
-            print(otpPin)
-        }
         return temp
     }()
 
@@ -93,7 +89,7 @@ class FormCard: UIView {
     private lazy var otpMiddleStack: UIStackView = {
         let temp = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel, phoneNumberLabel, otpField])
         temp.axis = .vertical
-        temp.spacing = 20
+        temp.spacing = 10
         return temp
     }()
 
@@ -110,6 +106,12 @@ class FormCard: UIView {
         return temp
     }()
 
+    private lazy var calculateView: UIView = {
+        let temp = UIView()
+        temp.backgroundColor = .red
+        return temp
+    }()
+
     override func layoutSubviews() {
         super.layoutSubviews()
         roundCorners(corners: [.topLeft, .topRight], radius: 43)
@@ -118,22 +120,33 @@ class FormCard: UIView {
 
 extension FormCard {
     func setupView(formType: FormCardType) {
+        otpField.otpDelegate = self
+        phoneNumberStack.delegate = self
+        self.formType = formType
         backgroundColor = .white
         addSubview(upperView)
-        addSubview(lineView)
         addSubview(signUpStack)
+        addSubview(calculateView)
 
         switch formType {
         case .OTP:
             upperView.addSubview(otpMiddleStack)
+            upperView.addSubview(loginButton)
             otpMiddleStack.snp.makeConstraints { make in
-                make.centerY.equalToSuperview()
+                make.top.equalToSuperview().offset(75)
                 make.leading.equalToSuperview().offset(33)
                 make.trailing.equalToSuperview().offset(-33)
             }
             otpField.snp.makeConstraints { make in
                 make.height.equalTo(40)
             }
+            loginButton.setTitle(title: "Verify")
+            loginButton.addTarget(self, action: #selector(verifyOTP), for: .touchUpInside)
+            loginButton.snp.makeConstraints { make in
+                make.top.equalTo(otpMiddleStack.snp.bottom).offset(28)
+                make.centerX.equalToSuperview()
+            }
+         
         case .Login:
             upperView.addSubview(loginMiddleStack)
             loginMiddleStack.snp.makeConstraints { make in
@@ -144,21 +157,22 @@ extension FormCard {
             phoneNumberStack.snp.makeConstraints { make in
                 make.width.equalToSuperview()
             }
+            loginButton.setTitle(title: "Login")
+            loginButton.addTarget(self, action: #selector(requestOTPIsPressed), for: .touchUpInside)
         }
 
         upperView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(lineView.snp.top)
+            make.bottom.equalTo(signUpStack.snp.top)
         }
 
         signUpStack.snp.makeConstraints { make in
-            make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
+            make.bottom.equalToSuperview().offset(-24)
             make.centerX.equalToSuperview()
         }
-        lineView.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-            make.height.equalTo(0.5)
-            make.bottom.equalTo(signUpStack.snp.top).offset(-20)
+        calculateView.snp.makeConstraints { make in
+            make.top.equalTo(loginButton.snp.bottom)
+            make.bottom.equalToSuperview()
         }
     }
 
@@ -171,4 +185,40 @@ extension FormCard {
     func signUpButtonIsPressed() {
         delegate?.signUpButtonIsPressed()
     }
+
+    @objc
+    func verifyOTP() {
+        guard let otp = otpPin else { return }
+        delegate?.otpIsFilled(pin: otp)
+    }
+}
+
+extension FormCard: OneTimePasswordTextFieldDelegate {
+    func didRemoveText() {
+        loginButton.switchButton(state: .disabled)
+    }
+    
+    func didEnterLastDigit(pin: String) {
+        otpPin = pin
+        loginButton.switchButton(state: .enabled)
+    }
+    
+}
+
+extension FormCard {
+    func getDifferenceViewHeight() -> CGFloat {
+        return calculateView.frame.height
+    }
+}
+
+
+extension FormCard: FormFieldDelegate{
+    func fieldDidEnterCharacter() {
+        loginButton.switchButton(state: .enabled)
+    }
+    
+    func fieldDidBecomeEmpty() {
+        loginButton.switchButton(state: .disabled)
+    }
+    
 }

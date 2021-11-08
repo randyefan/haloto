@@ -7,7 +7,7 @@
 
 import SnapKit
 import UIKit
-// TODO: Handle typing and get the value of log in
+
 class OTPViewController: UIViewController {
     private lazy var backgroundImageView: UIImageView = {
         let temp = UIImageView()
@@ -15,7 +15,7 @@ class OTPViewController: UIViewController {
         temp.contentMode = .scaleToFill
         return temp
     }()
-    
+
     private lazy var iconImageView: UIImageView = {
         let temp = UIImageView()
         temp.image = UIImage(named: "AppLogo")
@@ -27,7 +27,7 @@ class OTPViewController: UIViewController {
         temp.image = UIImage(named: "AppName-White")
         return temp
     }()
-    //TODO: make otp page that is the same with form type just dpending of its enum
+
     private lazy var formCard: FormCard = {
         let temp = FormCard()
         temp.setupView(formType: .OTP)
@@ -57,6 +57,9 @@ class OTPViewController: UIViewController {
 
 private extension OTPViewController {
     func setupView() {
+        navigationController?.navigationBar.isHidden = true
+        setupPushViewOnKeyboardAction()
+        hideKeyboardWhenTappedAround()
         view.addSubview(loginView)
         loginView.addSubview(backgroundImageView)
         loginView.addSubview(formCard)
@@ -66,7 +69,7 @@ private extension OTPViewController {
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalToSuperview()
-            make.height.equalTo((Double(self.view.frame.height)) * 0.6)
+            make.height.equalTo(Double(self.view.frame.height) * 0.6)
         }
         backgroundImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -80,19 +83,36 @@ private extension OTPViewController {
             make.height.equalTo(28)
             make.width.equalTo(125)
         }
-        
+
         loginView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
 
-
         titleStack.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
         }
- 
     }
-
 }
 
-extension OTPViewController: FormCardDelegate{
+extension OTPViewController: FormCardDelegate {
+    func otpIsFilled(pin _: String) {}
 
+    func attemptRequestOTP() {}
+
+    func signUpButtonIsPressed() {
+        let vc = SignUpViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension OTPViewController {
+    @objc
+    override func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if view.frame.origin.y == 0 {
+                view.frame.origin.y -= keyboardSize.height
+                view.frame.origin.y += formCard.getDifferenceViewHeight() - 30
+            }
+        }
+    }
+}

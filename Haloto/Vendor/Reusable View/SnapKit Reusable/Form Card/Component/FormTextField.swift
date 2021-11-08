@@ -58,4 +58,8 @@ class FormTextField: UITextField {
     func setFont(){
         self.font = UIFont(name: "Poppins-Regular", size: 12)
     }
+    
 }
+
+
+

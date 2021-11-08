@@ -180,6 +180,7 @@
 				3B860C152732E9C8007776BB /* FormTextField.swift */,
 				3B6922702735ACDF00847845 /* OneTimePasswordTextField.swift */,
 				B76498292734DECA003A90C2 /* TextFieldNode.swift */,
+				3B860C122732E0E7007776BB /* FormField.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -193,19 +194,10 @@
 			path = "Sign Up";
 			sourceTree = "<group>";
 		};
-		3B860C112732E0B9007776BB /* Single Form */ = {
-			isa = PBXGroup;
-			children = (
-				3B860C122732E0E7007776BB /* FormField.swift */,
-			);
-			path = "Single Form";
-			sourceTree = "<group>";
-		};
 		3B860C172732F264007776BB /* SnapKit Reusable */ = {
 			isa = PBXGroup;
 			children = (
 				3BB652242734FAE20003E861 /* Form Card */,
-				3B860C112732E0B9007776BB /* Single Form */,
 			);
 			path = "SnapKit Reusable";
 			sourceTree = "<group>";

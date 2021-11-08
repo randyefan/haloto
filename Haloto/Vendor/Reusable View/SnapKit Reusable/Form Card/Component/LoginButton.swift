@@ -8,8 +8,13 @@
 import UIKit
 import SnapKit
 
+enum LoginButtonState{
+    case enabled
+    case disabled
+}
+
 class LoginButton: UIButton {
-    
+
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -34,6 +39,16 @@ class LoginButton: UIButton {
         self.setAttributedTitle(.font("\(title)", size: 11, fontWeight: .medium, color: UIColor(hexString: "2D2D2D"), alignment: .center, underline: false, isTitle: false), for: .normal)
     }
 
+    func switchButton(state: LoginButtonState){
+        switch state {
+        case .enabled:
+            self.isEnabled = true
+            self.backgroundColor = UIColor(named: "button-yellow")
+        case .disabled:
+            self.isEnabled = false
+            self.backgroundColor = UIColor(named: "button-disable")
+        }
+    }
 }
 
 
@@ -47,5 +62,6 @@ fileprivate extension LoginButton{
         }
         
     }
+    
 }
 

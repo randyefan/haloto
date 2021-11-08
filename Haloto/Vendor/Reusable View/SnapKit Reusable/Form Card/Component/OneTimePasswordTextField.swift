@@ -8,8 +8,15 @@
 import SnapKit
 import UIKit
 
+protocol OneTimePasswordTextFieldDelegate: AnyObject {
+    func didEnterLastDigit(pin: String)
+    func didRemoveText()
+}
+
 class OneTimePasswordTextField: UITextField {
-    var didEnterLastDigit: ((String) -> Void)?
+    var defaultCharacter = "-"
+
+    var otpDelegate: OneTimePasswordTextFieldDelegate?
 
     private var isConfigured = false
     private var digitLabels = [UILabel]()
@@ -34,6 +41,13 @@ class OneTimePasswordTextField: UITextField {
             make.top.bottom.equalToSuperview()
             make.center.equalToSuperview()
         }
+    }
+
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        if action == #selector(UIResponderStandardEditActions.paste(_:)) {
+            return false
+        }
+        return super.canPerformAction(action, withSender: sender)
     }
 }
 
@@ -62,9 +76,9 @@ private extension OneTimePasswordTextField {
             label.textAlignment = .center
             label.font = UIFont(name: "Poppins-Bold", size: 18)
             label.layer.borderColor = UIColor.darkGray.cgColor
-            label.layer.borderWidth = 3
+            label.layer.borderWidth = 1
             label.cornerRadius = 5
-        
+            label.text = defaultCharacter
 
             label.isUserInteractionEnabled = true
 
@@ -90,12 +104,13 @@ private extension OneTimePasswordTextField {
                 let index = text.index(text.startIndex, offsetBy: i)
                 currentLabel.text = String(text[index])
             } else {
-                currentLabel.text?.removeAll()
+                currentLabel.text = defaultCharacter
+                otpDelegate?.didRemoveText()
             }
         }
 
         if text.count == digitLabels.count {
-            didEnterLastDigit?(text)
+            otpDelegate?.didEnterLastDigit(pin: text)
         }
     }
 }
