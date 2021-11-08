@@ -27,7 +27,7 @@ class PaymentTimerNode: ASDisplayNode {
         instructionPaymentNode = ASTextNode2()
         timerNode = ASTextNode2()
         
-        instructionPaymentNode.attributedText = .font("Please finish the payment in :", size: 11, fontWeight: .medium, color: .blackApp, alignment: .center)
+        instructionPaymentNode.attributedText = .font("Please finish the payment in :", size: 11, fontWeight: .medium, color: .black, alignment: .center)
         
         super.init()
         style.width = ASDimension(unit: .fraction, value: 1)

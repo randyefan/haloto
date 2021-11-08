@@ -13,7 +13,7 @@ class PaymentTotalNode: ASDisplayNode {
     
     let totalTitleNode: ASTextNode2 = {
         let node = ASTextNode2()
-        node.attributedText = .font("Total", size: 14, fontWeight: .regular, color: .blackApp, alignment: .left)
+        node.attributedText = .font("Total", size: 14, fontWeight: .regular, color: .black, alignment: .left)
         return node
     }()
     
@@ -24,7 +24,7 @@ class PaymentTotalNode: ASDisplayNode {
     
     let buttonTitleNode: ASTextNode2 = {
         let node = ASTextNode2()
-        node.attributedText = .font("PAY & CONFIRM", size: 18, fontWeight: .bold, color: .blackApp, alignment: .center)
+        node.attributedText = .font("PAY & CONFIRM", size: 18, fontWeight: .bold, color: .black, alignment: .center)
         return node
     }()
     
@@ -39,7 +39,7 @@ class PaymentTotalNode: ASDisplayNode {
     
     override init() {
         // Handle Later with data
-        totalNode.attributedText = .font("Rp. 16.500,00", size: 18, fontWeight: .bold, color: .blackApp, alignment: .right)
+        totalNode.attributedText = .font("Rp. 16.500,00", size: 18, fontWeight: .bold, color: .black, alignment: .right)
         
         super.init()
         automaticallyManagesSubnodes = true

@@ -15,7 +15,7 @@ class PaymentMethodNode: ASDisplayNode {
     
     let titleNode: ASTextNode2 = {
         let node = ASTextNode2()
-        node.attributedText = .font("Payment Method", size: 18, fontWeight: .bold, color: .blackApp, alignment: .left, isTitle: true)
+        node.attributedText = .font("Payment Method", size: 18, fontWeight: .bold, color: .black, alignment: .left, isTitle: true)
         return node
     }()
     
@@ -60,8 +60,8 @@ class PaymentMethodNode: ASDisplayNode {
     // MARK: - Initializer
     override init() {
         // Handle Later with data
-        titleAccountNode.attributedText = .font("BCA - 1234567890", size: 18, fontWeight: .bold, color: .blackApp, alignment: .left)
-        captionAccountNode.attributedText = .font("a/n Bengkel Harapan", size: 12, fontWeight: .regular, color: .blackApp, alignment: .left)
+        titleAccountNode.attributedText = .font("BCA - 1234567890", size: 18, fontWeight: .bold, color: .black, alignment: .left)
+        captionAccountNode.attributedText = .font("a/n Bengkel Harapan", size: 12, fontWeight: .regular, color: .black, alignment: .left)
         
         super.init()
         style.width = ASDimension(unit: .fraction, value: 1)

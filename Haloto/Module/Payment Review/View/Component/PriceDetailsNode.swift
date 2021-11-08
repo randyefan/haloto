@@ -14,13 +14,13 @@ class PriceDetailsNode: ASDisplayNode {
     
     let titleNode: ASTextNode2 = {
         let node = ASTextNode2()
-        node.attributedText = .font("Price Details", size: 18, fontWeight: .bold, color: .blackApp, alignment: .left, isTitle: true)
+        node.attributedText = .font("Price Details", size: 18, fontWeight: .bold, color: .black, alignment: .left, isTitle: true)
         return node
     }()
     
     let maintenanceFeeTitle: ASTextNode2 = {
         let node = ASTextNode2()
-        node.attributedText = .font("Maintenance fee", size: 12, fontWeight: .regular, color: .blackApp, alignment: .left)
+        node.attributedText = .font("Maintenance fee", size: 12, fontWeight: .regular, color: .black, alignment: .left)
         return node
     }()
     
@@ -43,7 +43,7 @@ class PriceDetailsNode: ASDisplayNode {
     
     let totalTitleNode: ASTextNode2 = {
         let node = ASTextNode2()
-        node.attributedText = .font("Total", size: 12, fontWeight: .regular, color: .blackApp, alignment: .left)
+        node.attributedText = .font("Total", size: 12, fontWeight: .regular, color: .black, alignment: .left)
         return node
     }()
     
@@ -64,16 +64,16 @@ class PriceDetailsNode: ASDisplayNode {
     override init() {
         // Handle Later to check if there is a tax
         taxNode = ASTextNode2()
-        taxNode?.attributedText = .font("Rp. 1500,00", size: 12, fontWeight: .regular, color: .blackApp, alignment: .right)
+        taxNode?.attributedText = .font("Rp. 1.500,00", size: 12, fontWeight: .regular, color: .black, alignment: .right)
         taxTitleNode = ASTextNode2()
-        taxTitleNode?.attributedText = .font("Tax 10%", size: 12, fontWeight: .regular, color: .blackApp, alignment: .left)
+        taxTitleNode?.attributedText = .font("Tax 10%", size: 12, fontWeight: .regular, color: .black, alignment: .left)
         
         super.init()
         style.width = ASDimension(unit: .fraction, value: 1)
         automaticallyManagesSubnodes = true
         
-        maintenanceFeeNode.attributedText = .font("Rp. 15.000,00", size: 12, fontWeight: .regular, color: .blackApp, alignment: .right)
-        totalNode.attributedText = .font("Rp. 16.500,00", size: 12, fontWeight: .regular, color: .blackApp, alignment: .right)
+        maintenanceFeeNode.attributedText = .font("Rp. 15.000,00", size: 12, fontWeight: .regular, color: .black, alignment: .right)
+        totalNode.attributedText = .font("Rp. 16.500,00", size: 12, fontWeight: .regular, color: .black, alignment: .right)
     }
     
     // MARK: - Layout Spec
