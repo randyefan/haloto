@@ -10,9 +10,9 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    
+
     // MARK: - Window Scene Delegate
-    
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
         createExampleModule(scene: scene)
@@ -34,22 +34,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     // MARK: - Functionality
-    
+
     // Create Example Module
     func createExampleModule(scene: UIScene) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: windowScene)
-        
-        let viewController = ExampleViewController()
+
+        let viewController = ConsultViewController()
         let navigation = UINavigationController(rootViewController: viewController)
-        
+
         window.rootViewController = navigation
-        
+
         self.window = window
         window.makeKeyAndVisible()
     }
-    
+
     func rootHomepageUser(scene: UIScene) {
         guard let winScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: winScene)
@@ -57,7 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = tabBar
         window?.makeKeyAndVisible()
     }
-    
+
     func rootHomepageBengkel(scene: UIScene) {
         guard let winScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: winScene)

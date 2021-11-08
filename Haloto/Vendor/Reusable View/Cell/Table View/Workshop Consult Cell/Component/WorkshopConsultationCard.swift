@@ -11,11 +11,14 @@ import UIKit
 internal final class WorkshopConsultationCard: ASDisplayNode {
     private let workshopNameNode: ASTextNode2 = {
         let node = ASTextNode2()
+        node.maximumNumberOfLines = 1
+        node.truncationMode = .byTruncatingTail
         return node
     }()
 
     private let workshopPriceNode: ASTextNode2 = {
         let node = ASTextNode2()
+        node.maximumNumberOfLines = 1
         return node
     }()
 
@@ -28,6 +31,7 @@ internal final class WorkshopConsultationCard: ASDisplayNode {
 
     private let ratingTextNode: ASTextNode2 = {
         let node = ASTextNode2()
+        node.maximumNumberOfLines = 1
         return node
     }()
 
@@ -50,10 +54,8 @@ internal final class WorkshopConsultationCard: ASDisplayNode {
     override init() {
         super.init()
         automaticallyManagesSubnodes = true
-        backgroundColor = .white
 
-
-        workshopNameNode.attributedText = .font("Bengkel Harapan", size: 18, fontWeight: .bold, color: .white)
+        workshopNameNode.attributedText = .font("Harapan Jaya Abadi", size: 18, fontWeight: .bold, color: .white)
         workshopPriceNode.attributedText = .font("Rp 15.000, -", size: 11, fontWeight: .medium, color: .white)
         ratingTextNode.attributedText = .font("4,3 | (50)", size: 11, fontWeight: .medium, color: .white)
         workshopSpecialityNodes = [ChipNode("engine"), ChipNode("tires"), ChipNode("brio")]
@@ -61,8 +63,8 @@ internal final class WorkshopConsultationCard: ASDisplayNode {
 
     override func layout() {
         super.layout()
-        backgroundColor = .white
         cornerRadius = 15
+        style.minHeight = ASDimensionMake(126)
 
         let CALayer = CAGradientLayer.init()
         CALayer.cornerRadius = 15
