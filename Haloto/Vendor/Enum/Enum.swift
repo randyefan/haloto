@@ -29,6 +29,11 @@ enum StarState {
     case inactive
 }
 
+enum FormCardType{
+    case OTP
+    case Login
+}
+
 enum PopUpListState: String {
     case model = "Model"
     case manufacturer = "Manufacturer"
