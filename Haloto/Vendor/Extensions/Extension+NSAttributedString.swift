@@ -41,9 +41,9 @@ extension NSAttributedString {
         paragraphStyle.alignment = alignment
 
         var attribute = [.font: font,
-                         .kern: kerning,
-                         .foregroundColor: color,
-                         .paragraphStyle: paragraphStyle] as [NSAttributedString.Key: Any]
+                .kern: kerning,
+                .foregroundColor: color,
+                .paragraphStyle: paragraphStyle] as [NSAttributedString.Key: Any]
 
         if underline {
             attribute[.underlineColor] = color
@@ -99,7 +99,7 @@ extension NSAttributedString {
             font: fontWeight.fontWeight.withSize(size),
             kerning: isTitle ? 0 : 0.5,
             color: color,
-            lineSpacing: 16,
+            lineSpacing: 0,
             alignment: alignment,
             underline: underline
         )
