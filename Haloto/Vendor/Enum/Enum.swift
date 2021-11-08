@@ -16,3 +16,10 @@ enum TextFieldState {
     case Editable
     case notEditable
 }
+
+enum ButtonState {
+    case Yellow
+    case Blue
+    case BlueOutlined
+    case notSelectable
+}
