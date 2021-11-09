@@ -61,3 +61,14 @@ class ReusableConsultPopUpViewController: ASDKViewController<ASDisplayNode> {
         }
     }
 }
+
+#if DEBUG
+ import SwiftUI
+
+ @available(iOS 13, *)
+ struct InfoVCPreview: PreviewProvider {
+     static var previews: some View {
+         ReusableConsultPopUpViewController(state: .declined).toPreview()
+     }
+ }
+ #endif
