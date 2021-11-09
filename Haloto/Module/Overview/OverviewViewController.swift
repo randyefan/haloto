@@ -70,7 +70,7 @@ let sampleMaintenanHistory: [MaintenanceHistory] = [
         maintenanceTitle: "Check Accu Health",
         maintenanceDate: "2 Aug 2021",
         maintenanceOdometer: 20000,
-        workshopName: "Bengkel Gembira asdasdasdasdasdasdas",
+        workshopName: "Bengkel Gembira",
         components: [ComponentList(
             componentID: 1,
             componentListName: "Accu",

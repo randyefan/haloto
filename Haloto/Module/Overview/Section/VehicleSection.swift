@@ -7,25 +7,21 @@
 
 import AsyncDisplayKit
 
-class VehicleSection: ASDisplayNode {
+class VehicleSection: ASDisplayNode, ASCollectionDataSource {
     let modelVehicle = sampleVehicle
 
     private let displayNode: ASDisplayNode = {
         let node = ASDisplayNode()
         node.style.preferredSize = CGSize(width: 358, height: 200)
-
         return node
     }()
 
-    private let collectionNode: ASCollectionNode = {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
-
-        let node = ASCollectionNode(collectionViewLayout: flowLayout)
-        node.style.width = ASDimensionMakeWithFraction(1)
-        node.style.height = ASDimensionMake(100)
+    private let collectionNode: ASPagerNode = {
+        let node = ASPagerNode()
         return node
     }()
+    
+    
 
     override init() {
         super.init()
@@ -35,19 +31,19 @@ class VehicleSection: ASDisplayNode {
     }
 
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
+        let insetCollection = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: collectionNode)
         let inset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: displayNode)
-        return ASOverlayLayoutSpec(child: inset, overlay: collectionNode)
-        
+        return ASOverlayLayoutSpec(child: inset, overlay: insetCollection)
     }
 }
 
-extension VehicleSection: ASCollectionDelegate, ASCollectionDataSource {
-    func collectionNode(_: ASCollectionNode, numberOfItemsInSection _: Int) -> Int {
+extension VehicleSection: ASPagerDelegate, ASPagerDataSource {
+    func numberOfPages(in _: ASPagerNode) -> Int {
         modelVehicle.count
     }
 
-    func collectionNode(_: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
-        let data = modelVehicle[indexPath.row]
+    func pagerNode(_: ASPagerNode, nodeAt index: Int) -> ASCellNode {
+        let data = modelVehicle[index]
         return VehicleCellNode(model: data)
     }
 }
