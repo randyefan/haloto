@@ -58,6 +58,7 @@
 		618802F72727C5F4003F4C6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 618802F52727C5F4003F4C6F /* LaunchScreen.storyboard */; };
 		6198AB242735B3390037A7FD /* ReusableConsultPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6198AB222735B3390037A7FD /* ReusableConsultPopUpViewController.swift */; };
 		6198AB2B2735D77D0037A7FD /* ContentConsultPopupNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6198AB2A2735D77D0037A7FD /* ContentConsultPopupNode.swift */; };
+		61B7EBB72739A0A20032AED8 /* Extension+UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B7EBB62739A0A20032AED8 /* Extension+UITabBarController.swift */; };
 		61C679E8272F9D21003AFE3F /* TabBarBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C679E7272F9D21003AFE3F /* TabBarBaseController.swift */; };
 		61C679EA272F9D2F003AFE3F /* TabNavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C679E9272F9D2F003AFE3F /* TabNavigationMenu.swift */; };
 		61C679EC272F9D3A003AFE3F /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C679EB272F9D3A003AFE3F /* TabItem.swift */; };
@@ -162,6 +163,7 @@
 		618802F82727C5F4003F4C6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6198AB222735B3390037A7FD /* ReusableConsultPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableConsultPopUpViewController.swift; sourceTree = "<group>"; };
 		6198AB2A2735D77D0037A7FD /* ContentConsultPopupNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentConsultPopupNode.swift; sourceTree = "<group>"; };
+		61B7EBB62739A0A20032AED8 /* Extension+UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITabBarController.swift"; sourceTree = "<group>"; };
 		61C679E7272F9D21003AFE3F /* TabBarBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarBaseController.swift; sourceTree = "<group>"; };
 		61C679E9272F9D2F003AFE3F /* TabNavigationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationMenu.swift; sourceTree = "<group>"; };
 		61C679EB272F9D3A003AFE3F /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				B7DD6DCE27339C82007F087B /* Extension+UIImage.swift */,
 				F20227492734FDEF00AF2AF3 /* Extension+CAGradientLayer.swift */,
 				6163AC4F27381D5A00E7756E /* Extension+Double.swift */,
+				61B7EBB62739A0A20032AED8 /* Extension+UITabBarController.swift */,
 				F202276C273A278D00AF2AF3 /* Extension+Rx.swift */,
 				F202276E273A288200AF2AF3 /* ScrollTracker.swift */,
 				F2022770273A292300AF2AF3 /* Extension+UINavbar.swift */,
@@ -1071,6 +1074,7 @@
 				3B860C162732E9C8007776BB /* FormTextField.swift in Sources */,
 				6163AC5027381D5A00E7756E /* Extension+Double.swift in Sources */,
 				6163AC56273834A100E7756E /* PaymentTotalNode.swift in Sources */,
+				61B7EBB72739A0A20032AED8 /* Extension+UITabBarController.swift in Sources */,
 				F2022759273915B200AF2AF3 /* StarNode.swift in Sources */,
 				F2022775273A2CE500AF2AF3 /* Extension+CALayer.swift in Sources */,
 				61C679EA272F9D2F003AFE3F /* TabNavigationMenu.swift in Sources */,
