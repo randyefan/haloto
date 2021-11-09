@@ -94,7 +94,7 @@ class YouCarPanModal: ASDKViewController<ASDisplayNode> {
                 children: [yourCarStack, promptStack]
             )
 
-            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea, left: 16, bottom: .infinity, right: 16), child: viewStack)
+            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea, left: 16, bottom: .bottomSafeArea, right: 16), child: viewStack)
         }
     }
 

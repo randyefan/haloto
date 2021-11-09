@@ -32,7 +32,7 @@ class EditProfileContoller: ASDKViewController<ASDisplayNode> {
         }
 
         chevronDown.view.onTap {
-            print("chevronDownAction")
+            self.dismiss(animated: true, completion: nil)
         }
 
         node.layoutSpecBlock = { _, _ in

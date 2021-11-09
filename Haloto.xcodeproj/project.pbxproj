@@ -304,6 +304,7 @@
 		6128445E2727E6CB00D060AC /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				B7DD6DC427338FB4007F087B /* Profile Page */,
 				3BAC15972733932300D52067 /* OTP */,
 				3B860C0C2732D7E1007776BB /* Sign Up */,
 				3BFAED13273250C80024C8C2 /* Login */,
@@ -715,7 +716,6 @@
 		B7713BCD27319331007A3824 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				B7DD6DC427338FB4007F087B /* Profile Page */,
 				B7713BCE27319336007A3824 /* Vehicle Cell */,
 			);
 			path = User;
@@ -765,8 +765,7 @@
 				B7DD6DC7273394AC007F087B /* Components */,
 				B7DD6DC527338FCE007F087B /* UserProfileViewController.swift */,
 			);
-			name = "Profile Page";
-			path = "../../../Module/Profile Page";
+			path = "Profile Page";
 			sourceTree = "<group>";
 		};
 		B7DD6DC7273394AC007F087B /* Components */ = {
