@@ -23,7 +23,6 @@
 		3BAC159D2733A55800D52067 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC159C2733A55800D52067 /* SignUpViewModel.swift */; };
 		3BB652262734FAFE0003E861 /* FormCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB652252734FAFE0003E861 /* FormCard.swift */; };
 		3BFAED15273250D60024C8C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFAED14273250D60024C8C2 /* LoginViewController.swift */; };
-		4A98054C3BCB4172202E2944 /* Pods_Haloto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F03C20F8EBBC9AAD640B6450 /* Pods_Haloto.framework */; };
 		611726DD2731598F00FC2445 /* HeaderListPopUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611726DC2731598F00FC2445 /* HeaderListPopUpNode.swift */; };
 		612844652727E8C100D060AC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844642727E8C100D060AC /* Constant.swift */; };
 		6128446B2727EA1700D060AC /* CommonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128446A2727EA1700D060AC /* CommonHelper.swift */; };
@@ -67,6 +66,7 @@
 		61C679EF272FAC4F003AFE3F /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C679EE272FAC4F003AFE3F /* Enum.swift */; };
 		61D6A43D2738E6D1003A9ADD /* PaymentReviewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D6A43C2738E6D1003A9ADD /* PaymentReviewHeader.swift */; };
 		61F8ACCF272D547E00B24015 /* ImagePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8ACCE272D547E00B24015 /* ImagePickerHelper.swift */; };
+		9EF6236B929EE41336D3EF62 /* Pods_Haloto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD822C9EE32CE1A38C111D4F /* Pods_Haloto.framework */; };
 		B764982A2734DECA003A90C2 /* TextFieldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76498292734DECA003A90C2 /* TextFieldNode.swift */; };
 		B764982D27350B45003A90C2 /* EditProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B764982C27350B45003A90C2 /* EditProfileController.swift */; };
 		B764982F27350BE9003A90C2 /* EditProfilePictureNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B764982E27350BE9003A90C2 /* EditProfilePictureNode.swift */; };
@@ -100,6 +100,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2153EB912734995E000F1830 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
+		2171C77427353AC2001CB1C2 /* VehicleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleSection.swift; sourceTree = "<group>"; };
+		2171C776273543FD001CB1C2 /* UpcomingMaintenanceSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMaintenanceSection.swift; sourceTree = "<group>"; };
+		217DD5E92738EDC100570989 /* MaintenanceHistorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceHistorySection.swift; sourceTree = "<group>"; };
+		23B1522FF9AE1571B3B5A470 /* Pods_Haloto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haloto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3240DF906EE1C6F71C485CA6 /* Pods-Haloto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haloto.release.xcconfig"; path = "Target Support Files/Pods-Haloto/Pods-Haloto.release.xcconfig"; sourceTree = "<group>"; };
 		3B6922702735ACDF00847845 /* OneTimePasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimePasswordTextField.swift; sourceTree = "<group>"; };
 		3B860C0F2732D805007776BB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3B860C122732E0E7007776BB /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
@@ -111,12 +117,6 @@
 		3BAC159C2733A55800D52067 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		3BB652252734FAFE0003E861 /* FormCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCard.swift; sourceTree = "<group>"; };
 		3BFAED14273250D60024C8C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		2153EB912734995E000F1830 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
-		2171C77427353AC2001CB1C2 /* VehicleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleSection.swift; sourceTree = "<group>"; };
-		2171C776273543FD001CB1C2 /* UpcomingMaintenanceSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMaintenanceSection.swift; sourceTree = "<group>"; };
-		217DD5E92738EDC100570989 /* MaintenanceHistorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceHistorySection.swift; sourceTree = "<group>"; };
-		23B1522FF9AE1571B3B5A470 /* Pods_Haloto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haloto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3240DF906EE1C6F71C485CA6 /* Pods-Haloto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haloto.release.xcconfig"; path = "Target Support Files/Pods-Haloto/Pods-Haloto.release.xcconfig"; sourceTree = "<group>"; };
 		45189E7BD3538C5FCF736331 /* Pods-Haloto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haloto.debug.xcconfig"; path = "Target Support Files/Pods-Haloto/Pods-Haloto.debug.xcconfig"; sourceTree = "<group>"; };
 		611726DC2731598F00FC2445 /* HeaderListPopUpNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderListPopUpNode.swift; sourceTree = "<group>"; };
 		612844642727E8C100D060AC /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -178,6 +178,7 @@
 		B7DD6DCE27339C82007F087B /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		B7DD6DF32733D8F0007F087B /* ProfileBackgroundCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBackgroundCard.swift; sourceTree = "<group>"; };
 		B7DD6DF5273435DA007F087B /* ProfileFinalNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFinalNode.swift; sourceTree = "<group>"; };
+		BD822C9EE32CE1A38C111D4F /* Pods_Haloto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haloto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F20227452734F0E600AF2AF3 /* WorkshopConsultationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopConsultationCard.swift; sourceTree = "<group>"; };
 		F20227472734F12A00AF2AF3 /* WorkshopConsultationMainNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopConsultationMainNode.swift; sourceTree = "<group>"; };
 		F20227492734FDEF00AF2AF3 /* Extension+CAGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CAGradientLayer.swift"; sourceTree = "<group>"; };
@@ -199,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F2943516D4480F7198B7355 /* Pods_Haloto.framework in Frameworks */,
+				9EF6236B929EE41336D3EF62 /* Pods_Haloto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +224,14 @@
 				217DD5E92738EDC100570989 /* MaintenanceHistorySection.swift */,
 			);
 			path = Section;
+			sourceTree = "<group>";
+		};
+		3A1D317520C0E52241414D4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BD822C9EE32CE1A38C111D4F /* Pods_Haloto.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		3B73F2F92737944100B9BDC0 /* Component */ = {
@@ -287,7 +297,6 @@
 				3BAC15972733932300D52067 /* OTP */,
 				3B860C0C2732D7E1007776BB /* Sign Up */,
 				3BFAED13273250C80024C8C2 /* Login */,
-				B7DD6DF827344EF6007F087B /* Edit Profile Page */,
 				6163AC4527381A4600E7756E /* Payment Review */,
 				F202274D273539D400AF2AF3 /* Consult */,
 				6128447B2727EE8100D060AC /* Example */,
@@ -547,6 +556,7 @@
 				618802E82727C5F3003F4C6F /* Products */,
 				683AB1584554E2C607A43AE9 /* Pods */,
 				F2532CD32734DD6200C34AEF /* Recovered References */,
+				3A1D317520C0E52241414D4C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -583,7 +593,6 @@
 				F202275A2739766B00AF2AF3 /* View Wrapper */,
 				F20227572739158A00AF2AF3 /* Star */,
 				3B860C172732F264007776BB /* SnapKit Reusable */,
-				B76498282734DE9F003A90C2 /* Text Field */,
 				F2532CD62734E25200C34AEF /* Chip Node */,
 				F2F5FF81273378EE00E4643C /* Sticky Chat */,
 				B7713BCD27319331007A3824 /* User */,
