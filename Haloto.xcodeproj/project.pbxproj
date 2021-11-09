@@ -17,6 +17,12 @@
 		3BAC159B2733A54A00D52067 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC159A2733A54A00D52067 /* OTPViewModel.swift */; };
 		3BAC159D2733A55800D52067 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC159C2733A55800D52067 /* SignUpViewModel.swift */; };
 		3BB652262734FAFE0003E861 /* FormCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB652252734FAFE0003E861 /* FormCard.swift */; };
+		3BC41D36273A36920008C194 /* AddNewVehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC41D35273A36920008C194 /* AddNewVehicleViewController.swift */; };
+		3BC41D39273A37E70008C194 /* SelectFieldStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC41D38273A37E70008C194 /* SelectFieldStack.swift */; };
+		3BC41D3C273A89460008C194 /* SelectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC41D3B273A89460008C194 /* SelectNode.swift */; };
+		3BC41D3E273A959D0008C194 /* FormFieldStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC41D3D273A959D0008C194 /* FormFieldStack.swift */; };
+		3BC41D40273A9A660008C194 /* EntryTextFieldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC41D3F273A9A660008C194 /* EntryTextFieldNode.swift */; };
+		3BC41D42273AD2800008C194 /* ButtonFieldStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC41D41273AD2800008C194 /* ButtonFieldStack.swift */; };
 		3BFAED15273250D60024C8C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFAED14273250D60024C8C2 /* LoginViewController.swift */; };
 		4A98054C3BCB4172202E2944 /* Pods_Haloto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F03C20F8EBBC9AAD640B6450 /* Pods_Haloto.framework */; };
 		611726DD2731598F00FC2445 /* HeaderListPopUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611726DC2731598F00FC2445 /* HeaderListPopUpNode.swift */; };
@@ -106,6 +112,12 @@
 		3BAC159A2733A54A00D52067 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		3BAC159C2733A55800D52067 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		3BB652252734FAFE0003E861 /* FormCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCard.swift; sourceTree = "<group>"; };
+		3BC41D35273A36920008C194 /* AddNewVehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewVehicleViewController.swift; sourceTree = "<group>"; };
+		3BC41D38273A37E70008C194 /* SelectFieldStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFieldStack.swift; sourceTree = "<group>"; };
+		3BC41D3B273A89460008C194 /* SelectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectNode.swift; sourceTree = "<group>"; };
+		3BC41D3D273A959D0008C194 /* FormFieldStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldStack.swift; sourceTree = "<group>"; };
+		3BC41D3F273A9A660008C194 /* EntryTextFieldNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTextFieldNode.swift; sourceTree = "<group>"; };
+		3BC41D41273AD2800008C194 /* ButtonFieldStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFieldStack.swift; sourceTree = "<group>"; };
 		3BFAED14273250D60024C8C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		611726DC2731598F00FC2445 /* HeaderListPopUpNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderListPopUpNode.swift; sourceTree = "<group>"; };
 		612844642727E8C100D060AC /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -253,6 +265,27 @@
 			path = "Form Card";
 			sourceTree = "<group>";
 		};
+		3BC41D34273A36770008C194 /* Add Vehicle */ = {
+			isa = PBXGroup;
+			children = (
+				3BC41D37273A36AB0008C194 /* Component */,
+				3BC41D35273A36920008C194 /* AddNewVehicleViewController.swift */,
+			);
+			path = "Add Vehicle";
+			sourceTree = "<group>";
+		};
+		3BC41D37273A36AB0008C194 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				3BC41D38273A37E70008C194 /* SelectFieldStack.swift */,
+				3BC41D3B273A89460008C194 /* SelectNode.swift */,
+				3BC41D3F273A9A660008C194 /* EntryTextFieldNode.swift */,
+				3BC41D3D273A959D0008C194 /* FormFieldStack.swift */,
+				3BC41D41273AD2800008C194 /* ButtonFieldStack.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		3BFAED13273250C80024C8C2 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,10 +298,10 @@
 		6128445E2727E6CB00D060AC /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				3BC41D34273A36770008C194 /* Add Vehicle */,
 				3BAC15972733932300D52067 /* OTP */,
 				3B860C0C2732D7E1007776BB /* Sign Up */,
 				3BFAED13273250C80024C8C2 /* Login */,
-				B7DD6DF827344EF6007F087B /* Edit Profile Page */,
 				6163AC4527381A4600E7756E /* Payment Review */,
 				F202274D273539D400AF2AF3 /* Consult */,
 				6128447B2727EE8100D060AC /* Example */,
@@ -566,7 +599,6 @@
 				F202275A2739766B00AF2AF3 /* View Wrapper */,
 				F20227572739158A00AF2AF3 /* Star */,
 				3B860C172732F264007776BB /* SnapKit Reusable */,
-				B76498282734DE9F003A90C2 /* Text Field */,
 				F2532CD62734E25200C34AEF /* Chip Node */,
 				F2F5FF81273378EE00E4643C /* Sticky Chat */,
 				B7713BCD27319331007A3824 /* User */,
@@ -906,6 +938,7 @@
 				618802EB2727C5F3003F4C6F /* AppDelegate.swift in Sources */,
 				61D6A43D2738E6D1003A9ADD /* PaymentReviewHeader.swift in Sources */,
 				F202274C273520B100AF2AF3 /* ChipCellNode.swift in Sources */,
+				3BC41D3C273A89460008C194 /* SelectNode.swift in Sources */,
 				618546D02734DCA100675BB0 /* MaintenanceHistoryCell.swift in Sources */,
 				6163AC4927381AC700E7756E /* UserPaymentReviewViewController.swift in Sources */,
 				618546D12734DCA100675BB0 /* MaintenanceHistoryDescription.swift in Sources */,
@@ -913,6 +946,7 @@
 				618546D22734DCA100675BB0 /* UpcomingMaintenanceDescriptions.swift in Sources */,
 				B764982D27350B45003A90C2 /* EditProfileController.swift in Sources */,
 				618546C52734DC9300675BB0 /* ButtonDeleteFilterMaintenance.swift in Sources */,
+				3BC41D39273A37E70008C194 /* SelectFieldStack.swift in Sources */,
 				B7713BD52731A317007A3824 /* VehicleImageNode.swift in Sources */,
 				B7713BD027319358007A3824 /* ReusableVehicleCell.swift in Sources */,
 				F20227462734F0E600AF2AF3 /* WorkshopConsultationCard.swift in Sources */,
@@ -932,8 +966,10 @@
 				B7DD6DC627338FCE007F087B /* UserProfileViewController.swift in Sources */,
 				6163AC5427382B1200E7756E /* PaymentMethodNode.swift in Sources */,
 				B7DD6DF6273435DA007F087B /* ProfileFinalNode.swift in Sources */,
+				3BC41D40273A9A660008C194 /* EntryTextFieldNode.swift in Sources */,
 				F28F6D052732437300261BA1 /* Extension+NSAttributedString.swift in Sources */,
 				6128447A2727EC5300D060AC /* NetworkProvider.swift in Sources */,
+				3BC41D42273AD2800008C194 /* ButtonFieldStack.swift in Sources */,
 				6172733B27312EB900DF8F5E /* ListPopupViewController.swift in Sources */,
 				618546D32734DCA100675BB0 /* UpcomingMaintenanceDescription.swift in Sources */,
 				F20227482734F12A00AF2AF3 /* WorkshopConsultationMainNode.swift in Sources */,
@@ -942,6 +978,7 @@
 				F20227522735455700AF2AF3 /* ConsultViewHeader.swift in Sources */,
 				F20227562738FCB100AF2AF3 /* ConsultRatingNode.swift in Sources */,
 				6128446B2727EA1700D060AC /* CommonHelper.swift in Sources */,
+				3BC41D3E273A959D0008C194 /* FormFieldStack.swift in Sources */,
 				B7713BD32731944B007A3824 /* VehicleDescriptionNode.swift in Sources */,
 				B7713BD7273234F2007A3824 /* AddNewVehicleCellNode.swift in Sources */,
 				B764982F27350BE9003A90C2 /* EditProfilePictureNode.swift in Sources */,
@@ -955,6 +992,7 @@
 				B764982A2734DECA003A90C2 /* TextFieldNode.swift in Sources */,
 				6134E6B12733067F002E7526 /* Extension+CGFloat.swift in Sources */,
 				6163AC4D27381CE500E7756E /* PaymentTimerNode.swift in Sources */,
+				3BC41D36273A36920008C194 /* AddNewVehicleViewController.swift in Sources */,
 				612844782727EBF300D060AC /* Extension+Result.swift in Sources */,
 				3B860C132732E0E7007776BB /* FormField.swift in Sources */,
 				3BB652262734FAFE0003E861 /* FormCard.swift in Sources */,

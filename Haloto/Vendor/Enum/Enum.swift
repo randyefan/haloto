@@ -29,7 +29,7 @@ enum StarState {
     case inactive
 }
 
-enum FormCardType{
+enum FormCardType {
     case OTP
     case Login
 }
@@ -52,4 +52,9 @@ enum TimerType {
     case full
     case short
     case digits
+}
+
+enum EntryTextFieldType {
+    case picker
+    case keyboard
 }
