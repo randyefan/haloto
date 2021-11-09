@@ -36,6 +36,7 @@ PODS:
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
   - Shimmer (1.0.2)
+  - SnapKit (5.0.1)
   - SwifterSwift (5.2.0):
     - SwifterSwift/AppKit (= 5.2.0)
     - SwifterSwift/CoreAnimation (= 5.2.0)
@@ -93,6 +94,7 @@ DEPENDENCIES:
   - RxOptional
   - RxSwift
   - Shimmer (~> 1.0)
+  - SnapKit (~> 5.0.0)
   - SwifterSwift
   - Texture
   - Toast-Swift (~> 4.0.1)
@@ -112,6 +114,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - Shimmer
+    - SnapKit
     - SwifterSwift
     - Texture
     - Toast-Swift
@@ -141,10 +144,11 @@ SPEC CHECKSUMS:
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   Texture: 2f109e937850d94d1d07232041c9c7313ccddb81
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
 
-PODFILE CHECKSUM: 63f2cd52a96776272f44394f8fa48112b02aba5a
+PODFILE CHECKSUM: f7f2ba988c737271bc39eb9fa89c6afc06b4867d
 
 COCOAPODS: 1.11.2
