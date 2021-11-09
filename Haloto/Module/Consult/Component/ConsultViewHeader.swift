@@ -80,7 +80,7 @@ internal final class ConsultViewHeader: ASDisplayNode {
             children: [titleNode, buttonStack]
         )
 
-        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea + 12, left: 20, bottom: 20, right: 20), child: finalStack)
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea, left: 20, bottom: 20, right: 20), child: finalStack)
     }
 
     override func layout() {
