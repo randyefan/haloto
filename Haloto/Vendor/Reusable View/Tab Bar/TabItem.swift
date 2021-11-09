@@ -20,31 +20,30 @@ enum TabItem: String, CaseIterable {
         case .profile:
             let vc = UIViewController()
             vc.title = ""
-            vc.view.backgroundColor = .red
+            vc.view.backgroundColor = .white
             let navigation = UINavigationController(rootViewController: vc)
             return vc
         case .overview:
             let vc = UIViewController()
             vc.title = ""
-            vc.view.backgroundColor = .red
+            vc.view.backgroundColor = .white
             let navigation = UINavigationController(rootViewController: vc)
             return navigation
         case .consult:
-            let vc = UIViewController()
+            let vc = ConsultViewController()
             vc.title = ""
-            vc.view.backgroundColor = .red
             let navigation = UINavigationController(rootViewController: vc)
             return navigation
         case .booking:
             let vc = UIViewController()
             vc.title = ""
-            vc.view.backgroundColor = .red
+            vc.view.backgroundColor = .white
             let navigation = UINavigationController(rootViewController: vc)
             return navigation
         case .account:
             let vc = UIViewController()
             vc.title = ""
-            vc.view.backgroundColor = .red
+            vc.view.backgroundColor = .white
             let navigation = UINavigationController(rootViewController: vc)
             return navigation
         }
