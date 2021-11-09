@@ -73,4 +73,10 @@ extension UIColor {
             return UIColor(hexString: "#858585")
         }
     }
+
+    public static var backgroundOverlay: UIColor {
+        get {
+            return UIColor(hexString: "#2E3137").withAlphaComponent(0.7)
+        }
+    }
 }

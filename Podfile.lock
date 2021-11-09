@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.4.3)
   - FLEX (4.6.0)
+  - InterposeKit (0.0.2)
   - Kingfisher (6.3.0)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
@@ -25,6 +26,12 @@ PODS:
   - RxCocoa (6.2.0):
     - RxRelay (= 6.2.0)
     - RxSwift (= 6.2.0)
+  - RxKeyboard (2.0.0):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxOptional (5.0.2):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
@@ -78,9 +85,12 @@ PODS:
 
 DEPENDENCIES:
   - FLEX
+  - "InterposeKit (from `git@github.com:AmbarSeptian/InterposeKit.git`, branch `ambar/0.0.2`)"
   - Kingfisher
   - Moya/RxSwift
   - RxCocoa
+  - RxKeyboard
+  - RxOptional
   - RxSwift
   - Shimmer (~> 1.0)
   - SwifterSwift
@@ -97,6 +107,8 @@ SPEC REPOS:
     - PINOperation
     - PINRemoteImage
     - RxCocoa
+    - RxKeyboard
+    - RxOptional
     - RxRelay
     - RxSwift
     - Shimmer
@@ -104,15 +116,28 @@ SPEC REPOS:
     - Texture
     - Toast-Swift
 
+EXTERNAL SOURCES:
+  InterposeKit:
+    :branch: ambar/0.0.2
+    :git: "git@github.com:AmbarSeptian/InterposeKit.git"
+
+CHECKOUT OPTIONS:
+  InterposeKit:
+    :commit: cfd8c6fe88ea902f59a2baba3edd43b219ae4218
+    :git: "git@github.com:AmbarSeptian/InterposeKit.git"
+
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   FLEX: 6223ad3d853fb6177a6ab1cda85f372a72768da8
+  InterposeKit: 8dab5fb249b37fa8d296d4183512c4e706bbdd6b
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   PINCache: 7a8fc1a691173d21dbddbf86cd515de6efa55086
   PINOperation: 00c935935f1e8cf0d1e2d6b542e75b88fc3e5e20
   PINRemoteImage: f1295b29f8c5e640e25335a1b2bd9d805171bd01
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxKeyboard: 4f5863f43b4ff0cbb2a20b94688d6b80c8a43c14
+  RxOptional: 3664964c96b69dd20c9cf78bdfe546615e26eca8
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
@@ -120,6 +145,6 @@ SPEC CHECKSUMS:
   Texture: 2f109e937850d94d1d07232041c9c7313ccddb81
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
 
-PODFILE CHECKSUM: 94dc6e14ab799a342494f74f5d93f01e1acf6b5b
+PODFILE CHECKSUM: 63f2cd52a96776272f44394f8fa48112b02aba5a
 
 COCOAPODS: 1.11.2
