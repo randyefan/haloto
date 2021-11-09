@@ -9,7 +9,7 @@ import UIKit
 import AsyncDisplayKit
 
 class UserPaymentReviewViewController: ASDKViewController<ASDisplayNode> {
-    let headerNode: PaymentReviewHeader = PaymentReviewHeader()
+    let headerNode: PaymentReviewHeader = PaymentReviewHeader(title: "Payment Page")
     let workshopCard: WorkshopConsultationCard
     let paymentTimerNode: PaymentTimerNode
     let priceDetailNode: PriceDetailsNode

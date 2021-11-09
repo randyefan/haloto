@@ -9,9 +9,10 @@ import Foundation
 import AsyncDisplayKit
 
 class PaymentReviewHeader: ASDisplayNode {
+    
+    
     private let titleNode: ASTextNode2 = {
         let node = ASTextNode2()
-        node.attributedText = .font("Payment Page", size: 18, fontWeight: .bold, color: .black, alignment: .center)
         node.style.width = ASDimension(unit: .fraction, value: 1)
         return node
     }()
@@ -23,8 +24,9 @@ class PaymentReviewHeader: ASDisplayNode {
         return node
     }()
     
-    override init() {
+    init(title: String) {
         super.init()
+        titleNode.attributedText = .font("\(title)", size: 18, fontWeight: .bold, color: .black, alignment: .center)
         style.height = ASDimension(unit: .points, value: .topSafeArea + 48)
         automaticallyManagesSubnodes = true
         setShadow()

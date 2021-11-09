@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		211C7BC7273A8AC60027A99C /* MaintenanceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C7BC6273A8AC60027A99C /* MaintenanceDetailsViewController.swift */; };
 		2153EB922734995E000F1830 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2153EB912734995E000F1830 /* OverviewViewController.swift */; };
 		2171C77527353AC2001CB1C2 /* VehicleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171C77427353AC2001CB1C2 /* VehicleSection.swift */; };
 		2171C777273543FD001CB1C2 /* UpcomingMaintenanceSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171C776273543FD001CB1C2 /* UpcomingMaintenanceSection.swift */; };
@@ -100,6 +101,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		211C7BC6273A8AC60027A99C /* MaintenanceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceDetailsViewController.swift; sourceTree = "<group>"; };
 		2153EB912734995E000F1830 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		2171C77427353AC2001CB1C2 /* VehicleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleSection.swift; sourceTree = "<group>"; };
 		2171C776273543FD001CB1C2 /* UpcomingMaintenanceSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMaintenanceSection.swift; sourceTree = "<group>"; };
@@ -207,11 +209,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		211C7BC2273A7BCF0027A99C /* MaintenanceDetails */ = {
+			isa = PBXGroup;
+			children = (
+				211C7BC6273A8AC60027A99C /* MaintenanceDetailsViewController.swift */,
+			);
+			path = MaintenanceDetails;
+			sourceTree = "<group>";
+		};
 		2153EB9027349934000F1830 /* Overview */ = {
 			isa = PBXGroup;
 			children = (
 				2153EB912734995E000F1830 /* OverviewViewController.swift */,
 				2171C77327353A69001CB1C2 /* Section */,
+				211C7BC2273A7BCF0027A99C /* MaintenanceDetails */,
 			);
 			path = Overview;
 			sourceTree = "<group>";
@@ -988,6 +999,7 @@
 				3B860C132732E0E7007776BB /* FormField.swift in Sources */,
 				3BB652262734FAFE0003E861 /* FormCard.swift in Sources */,
 				3BAC159D2733A55800D52067 /* SignUpViewModel.swift in Sources */,
+				211C7BC7273A8AC60027A99C /* MaintenanceDetailsViewController.swift in Sources */,
 				B7713BC727306A70007A3824 /* ReusableSmallButtonNode.swift in Sources */,
 				61C679EF272FAC4F003AFE3F /* Enum.swift in Sources */,
 				3B860C162732E9C8007776BB /* FormTextField.swift in Sources */,
