@@ -87,3 +87,8 @@ struct Manufacturer: Codable {
 struct Model: Codable {
     let name: String?
 }
+
+struct Payment: Codable {
+    let fee: Double?
+    let tax: Double?
+}

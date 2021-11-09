@@ -42,7 +42,7 @@ class SmallButtonNode: ASDisplayNode {
             titleNode.attributedText = .font(title, size: 11, fontWeight: .medium)
             buttonNode.backgroundColor = UIColor.greyApp
             buttonNode.view.onTap(action: function)
-        case .notSelectable:
+        case .Disabled:
             titleNode.attributedText = .font(title, size: 11, fontWeight: .medium)
             buttonNode.backgroundColor = UIColor.greyApp
         }

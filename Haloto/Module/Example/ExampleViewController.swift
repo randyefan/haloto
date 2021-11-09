@@ -2,38 +2,24 @@ import UIKit
 import AsyncDisplayKit
 
 
-class ExampleViewController: ASDKViewController<ASTableNode> {
-
-    // MARK: - Initializer (Required)
-
+class ExampleViewController: ASDKViewController<ASDisplayNode> {
 
     override init() {
-        super.init(node: ASTableNode())
+        super.init(node: ASDisplayNode())
+        node.automaticallyManagesSubnodes = true
         node.backgroundColor = .white
-        node.dataSource = self
-        node.delegate = self
+//        node.layoutSpecBlock = { _, _ in
+//            ASInsetLayoutSpec(insets: UIEdgeInsets(top: .infinity, left: 16, bottom: .infinity, right: 16), child: card)
+//
+//        }
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - ViewController Lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        node.view.separatorStyle = .none
-    }
-}
-
-
-extension ExampleViewController: ASTableDataSource, ASTableDelegate {
-    func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
-        10
-    }
-
-    func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
-        WorkshopConsultationMainCell()
     }
 }
 
