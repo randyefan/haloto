@@ -18,4 +18,7 @@ target 'Haloto' do
   pod 'Moya/RxSwift'
   pod 'SnapKit', '~> 5.0.0'
 
+  pod 'RxKeyboard'
+  pod 'RxOptional'
+  pod 'InterposeKit', :git => 'git@github.com:AmbarSeptian/InterposeKit.git', :branch =>'ambar/0.0.2'
 end

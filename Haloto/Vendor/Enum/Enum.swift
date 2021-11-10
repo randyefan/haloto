@@ -21,6 +21,7 @@ enum ButtonState {
     case Yellow
     case Blue
     case BlueOutlined
+    case GreyButton
     case Disabled
 }
 
