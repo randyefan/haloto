@@ -39,6 +39,8 @@ enum PopUpListState: String {
     case manufacturer = "Manufacturer"
     case service = "Service"
     case replaced = "Replaced"
+    case newvehicle = "Add New Vehicle"
+    case edit = "Edit"
 }
 
 enum ReusableConsultPopUpState {

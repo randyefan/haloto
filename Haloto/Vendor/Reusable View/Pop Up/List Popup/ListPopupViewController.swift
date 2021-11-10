@@ -115,6 +115,8 @@ internal class ListPopupViewController: ASDKViewController<ASDisplayNode> {
             tableNode.allowsMultipleSelection = false
         case .replaced, .service:
             tableNode.allowsMultipleSelection = true
+        default:
+            tableNode.allowsMultipleSelection = false
         }
     }
     
@@ -148,6 +150,8 @@ extension ListPopupViewController: ASTableDataSource, ASTableDelegate {
         case .service:
             guard let component = component else { return 0 }
             return component.count
+        default:
+            return 0
         }
     }
     
@@ -163,6 +167,9 @@ extension ListPopupViewController: ASTableDataSource, ASTableDelegate {
             let data = model?[indexPath.row].name ?? ""
             return CellContentListPopUpNode(model: data)
         case .service:
+            let data = component?[indexPath.row].componentListName ?? ""
+            return CellContentListPopUpNode(model: data)
+        default:
             let data = component?[indexPath.row].componentListName ?? ""
             return CellContentListPopUpNode(model: data)
         }

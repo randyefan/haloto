@@ -9,8 +9,14 @@ import AsyncDisplayKit
 import Foundation
 import UIKit
 
+protocol FormFieldStackDelegate: AnyObject{
+    func openPickerView(sender: FormFieldStack)
+}
+
 class FormFieldStack: ASDisplayNode {
+    var delegate: FormFieldStackDelegate?
     private var isPicker: Bool = false
+    private var title: String = ""
     private var text: String = ""
     private var placeholder: String = ""
     private var keyboardType: UIKeyboardType = .default
@@ -28,10 +34,12 @@ class FormFieldStack: ASDisplayNode {
     
     init(isPicker: Bool, title: String, text: String? = "" ,placeholder: String? = "", keyboardType: UIKeyboardType? = .default){
         self.isPicker = isPicker
+        self.title = title
         self.text = text ?? ""
         self.placeholder = placeholder ?? ""
         self.keyboardType = keyboardType ?? .default
         super.init()
+        textField.delegate = self
         titleLabel.attributedText = .font(title, size: 18, fontWeight: .bold)
         style.width = ASDimensionMake("100%")
         automaticallyManagesSubnodes = true
@@ -45,4 +53,12 @@ class FormFieldStack: ASDisplayNode {
         let stack = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .spaceBetween, alignItems: .center, children: [titleLabel, textField])
         return stack
     }
+}
+
+extension FormFieldStack: EntryTextFieldNodeDelegate{
+    func textFieldIsTapped() {
+        delegate?.openPickerView(sender: self)
+    }
+    
+    
 }

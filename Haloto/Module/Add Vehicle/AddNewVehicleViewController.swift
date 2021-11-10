@@ -9,8 +9,9 @@ import AsyncDisplayKit
 import UIKit
 
 class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
-    var bizCat = ["1200", "1500", "3000"]
-
+    var cc = ["1200", "1500", "3000"]
+    private var currentTextField: FormFieldStack?
+    
     private lazy var pickerView: ViewWrapperNode<UIPickerView> = {
         let wrapperNode = ViewWrapperNode<UIPickerView>(createView: {
             let picker = UIPickerView()
@@ -18,7 +19,9 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
             picker.dataSource = self
             return picker
         })
-
+        wrapperNode.style.height = ASDimensionMake(300)
+        wrapperNode.style.width = ASDimensionMake("100%")
+        wrapperNode.backgroundColor = .red
         return wrapperNode
     }()
 
@@ -52,21 +55,41 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
         return node
     }()
     
-    private lazy var buttonStack: ButtonFieldStack = {
+    private lazy var tranmissionStack: ButtonFieldStack = {
        let node = ButtonFieldStack(title: "Transmission", firstButtonText: "Matic", secondButtonText: "Manual")
        return node
     }()
 
+    private lazy var fuelTypeStack: ButtonFieldStack = {
+       let node = ButtonFieldStack(title: "Fuel Type", firstButtonText: "Diesel", secondButtonText: "Petrol")
+       return node
+    }()
+    
+    private lazy var addVehicleButton: SmallButtonNode = {
+        let node = SmallButtonNode(title: "Add Vehicle", buttonState: .Disabled, function: .none)
+        return node
+    }()
+    
+    private lazy var header: HeaderListPopUpNode = {
+        let node = HeaderListPopUpNode(state: .newvehicle)
+        node.style.width = ASDimensionMake("100%")
+        return node
+    }()
+    
+    
     override init() {
         super.init(node: ASDisplayNode())
+        manufacturedYearFormNode.delegate = self
+        ccFormNode.delegate = self
         node.automaticallyManagesSubnodes = true
         node.backgroundColor = .white
+        let stack = ASStackLayoutSpec(direction: .vertical, spacing: 16, justifyContent: .center, alignItems: .start, children: [manufacturerFormNode, modelFormNode, odometerFormNode, licensePlateFormNode, manufacturedYearFormNode, ccFormNode, tranmissionStack, fuelTypeStack])
+        let addNewVehicleStack = ASStackLayoutSpec(direction: .vertical, spacing: 32, justifyContent: .center, alignItems: .center, children: [header,stack, addVehicleButton, pickerView])
         
-        let stack = ASStackLayoutSpec(direction: .vertical, spacing: 16, justifyContent: .center, alignItems: .start, children: [manufacturerFormNode, modelFormNode, odometerFormNode, licensePlateFormNode, manufacturedYearFormNode, ccFormNode, buttonStack])
         stack.style.width = ASDimensionMake("100%")
         pickerView.isHidden = false
         node.layoutSpecBlock = { _, _ in
-            ASInsetLayoutSpec(insets: UIEdgeInsets(top: .infinity, left: 16, bottom: .infinity, right: 16), child: stack)
+            ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea, left: 16, bottom: .infinity, right: 16), child: addNewVehicleStack)
         }
     }
 
@@ -80,22 +103,22 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
     }
 }
 
-extension AddNewVehicleViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+extension AddNewVehicleViewController: UIPickerViewDelegate, UIPickerViewDataSource, ASEditableTextNodeDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return bizCat.count
+        return cc.count
     }
     
     
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return bizCat[row]
+        return cc[row]
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent _: Int) {
-        odometerFormNode.changeText(text: bizCat[row])
+        currentTextField?.changeText(text: cc[row])
         pickerView.isHidden = true
     }
 
@@ -103,4 +126,25 @@ extension AddNewVehicleViewController: UIPickerViewDelegate, UIPickerViewDataSou
         pickerView.isHidden = false
         return false
     }
+    
+    
+    
+    func editableTextNode(_ editableTextNode: ASEditableTextNode, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+            if text == "\n" {
+                        editableTextNode.resignFirstResponder()
+                        return false
+                    }
+                    return true
+        }
+    
+    
+    
+}
+
+extension AddNewVehicleViewController: FormFieldStackDelegate{
+    func openPickerView(sender: FormFieldStack) {
+        currentTextField = sender
+        pickerView.isHidden = false
+    }
+    
 }

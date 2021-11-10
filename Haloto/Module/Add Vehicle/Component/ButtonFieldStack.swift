@@ -20,12 +20,14 @@ class ButtonFieldStack: ASDisplayNode {
     }()
 
     private lazy var firstButton: SmallButtonNode = {
-        let node = SmallButtonNode(title: "firstButtonText", buttonState: .BlueOutlined, function: .none)
+        let node = SmallButtonNode(title: firstButtonText, buttonState: .BlueOutlined, function: .none)
+        node.style.width = ASDimensionMake("50%")
         return node
     }()
     
     private lazy var secondButton: SmallButtonNode = {
-        let node = SmallButtonNode(title: "secondButtonText", buttonState: .BlueOutlined, function: .none)
+        let node = SmallButtonNode(title: secondButtonText, buttonState: .BlueOutlined, function: .none)
+        node.style.width = ASDimensionMake("50%")
         return node
     }()
     
@@ -39,8 +41,10 @@ class ButtonFieldStack: ASDisplayNode {
     }
 
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
-        let buttonStack = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .center, alignItems: .center, children: [firstButton, secondButton])
+        let buttonStack = ASStackLayoutSpec(direction: .horizontal, spacing: 8, justifyContent: .center, alignItems: .center, children: [firstButton, secondButton])
+        buttonStack.style.width = ASDimensionMake("40%")
         let selectStack = ASStackLayoutSpec(direction: .horizontal, spacing: 8, justifyContent: .spaceBetween, alignItems: .center, children: [titleLabel, buttonStack])
+        selectStack.style.width = ASDimensionMake("100%")
         return selectStack
     }
 }
