@@ -58,6 +58,7 @@
 		618802F72727C5F4003F4C6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 618802F52727C5F4003F4C6F /* LaunchScreen.storyboard */; };
 		6198AB242735B3390037A7FD /* ReusableConsultPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6198AB222735B3390037A7FD /* ReusableConsultPopUpViewController.swift */; };
 		6198AB2B2735D77D0037A7FD /* ContentConsultPopupNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6198AB2A2735D77D0037A7FD /* ContentConsultPopupNode.swift */; };
+		61AD04E2273B8D860017CBCF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 61AD04E1273B8D860017CBCF /* GoogleService-Info.plist */; };
 		61B7EBB72739A0A20032AED8 /* Extension+UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B7EBB62739A0A20032AED8 /* Extension+UITabBarController.swift */; };
 		61C679E8272F9D21003AFE3F /* TabBarBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C679E7272F9D21003AFE3F /* TabBarBaseController.swift */; };
 		61C679EA272F9D2F003AFE3F /* TabNavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C679E9272F9D2F003AFE3F /* TabNavigationMenu.swift */; };
@@ -163,6 +164,7 @@
 		618802F82727C5F4003F4C6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6198AB222735B3390037A7FD /* ReusableConsultPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableConsultPopUpViewController.swift; sourceTree = "<group>"; };
 		6198AB2A2735D77D0037A7FD /* ContentConsultPopupNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentConsultPopupNode.swift; sourceTree = "<group>"; };
+		61AD04E1273B8D860017CBCF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		61B7EBB62739A0A20032AED8 /* Extension+UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITabBarController.swift"; sourceTree = "<group>"; };
 		61C679E7272F9D21003AFE3F /* TabBarBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarBaseController.swift; sourceTree = "<group>"; };
 		61C679E9272F9D2F003AFE3F /* TabNavigationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationMenu.swift; sourceTree = "<group>"; };
@@ -597,6 +599,7 @@
 				6128445E2727E6CB00D060AC /* Module */,
 				6128445F2727E6D000D060AC /* Vendor */,
 				618802F82727C5F4003F4C6F /* Info.plist */,
+				61AD04E1273B8D860017CBCF /* GoogleService-Info.plist */,
 			);
 			path = Haloto;
 			sourceTree = "<group>";
@@ -933,6 +936,7 @@
 			files = (
 				B7D7ED4D273045D400960699 /* Colors.xcassets in Resources */,
 				F2F5FF7E2732DA0000E4643C /* Poppins-Bold.ttf in Resources */,
+				61AD04E2273B8D860017CBCF /* GoogleService-Info.plist in Resources */,
 				B7D7ED66273050D300960699 /* Poppins-Medium.ttf in Resources */,
 				6134E6A72732CFEF002E7526 /* Poppins-Bold.ttf in Resources */,
 				6134E6A82732CFF1002E7526 /* Poppins-Regular.ttf in Resources */,
