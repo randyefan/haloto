@@ -92,10 +92,18 @@ private extension OTPViewController {
             make.centerX.equalToSuperview()
         }
     }
+    
+    func rootHomepageUser() {
+        let tabBar = TabBarBaseController(productLogin: .User)
+        UIApplication.shared.windows.first?.rootViewController = tabBar
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    }
 }
 
 extension OTPViewController: FormCardDelegate {
-    func otpIsFilled(pin _: String) {}
+    func otpIsFilled(pin _: String) {
+        rootHomepageUser()
+    }
 
     func attemptRequestOTP() {}
 

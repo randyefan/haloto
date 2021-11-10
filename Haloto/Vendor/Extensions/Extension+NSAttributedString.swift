@@ -58,7 +58,7 @@ extension NSAttributedString {
         size: CGFloat,
         fontWeight: fontWeight = .regular,
         color: UIColor = .black,
-        lineSpacing: CGFloat = 16,
+        lineSpacing: CGFloat = 0,
         alignment: NSTextAlignment = .left,
         underline: Bool = false,
         isTitle: Bool = false
