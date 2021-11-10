@@ -17,6 +17,7 @@
 		217AC61C273BB13B004F26C4 /* SelectFieldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217AC61B273BB13B004F26C4 /* SelectFieldNode.swift */; };
 		217DD5EA2738EDC100570989 /* MaintenanceHistorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD5E92738EDC100570989 /* MaintenanceHistorySection.swift */; };
 		2F2943516D4480F7198B7355 /* Pods_Haloto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B1522FF9AE1571B3B5A470 /* Pods_Haloto.framework */; };
+		3B09EC29273B9622001E1828 /* PickerBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B09EC28273B9622001E1828 /* PickerBottomSheetViewController.swift */; };
 		3B6922712735ACDF00847845 /* OneTimePasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6922702735ACDF00847845 /* OneTimePasswordTextField.swift */; };
 		3B860C102732D805007776BB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B860C0F2732D805007776BB /* SignUpViewController.swift */; };
 		3B860C132732E0E7007776BB /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B860C122732E0E7007776BB /* FormField.swift */; };
@@ -27,6 +28,12 @@
 		3BAC159B2733A54A00D52067 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC159A2733A54A00D52067 /* OTPViewModel.swift */; };
 		3BAC159D2733A55800D52067 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC159C2733A55800D52067 /* SignUpViewModel.swift */; };
 		3BB652262734FAFE0003E861 /* FormCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB652252734FAFE0003E861 /* FormCard.swift */; };
+		3BC41D36273A36920008C194 /* AddNewVehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC41D35273A36920008C194 /* AddNewVehicleViewController.swift */; };
+		3BC41D39273A37E70008C194 /* SelectFieldStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC41D38273A37E70008C194 /* SelectFieldStack.swift */; };
+		3BC41D3C273A89460008C194 /* SelectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC41D3B273A89460008C194 /* SelectNode.swift */; };
+		3BC41D3E273A959D0008C194 /* FormFieldStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC41D3D273A959D0008C194 /* FormFieldStack.swift */; };
+		3BC41D40273A9A660008C194 /* EntryTextFieldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC41D3F273A9A660008C194 /* EntryTextFieldNode.swift */; };
+		3BC41D42273AD2800008C194 /* ButtonFieldStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC41D41273AD2800008C194 /* ButtonFieldStack.swift */; };
 		3BFAED15273250D60024C8C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFAED14273250D60024C8C2 /* LoginViewController.swift */; };
 		611726DD2731598F00FC2445 /* HeaderListPopUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611726DC2731598F00FC2445 /* HeaderListPopUpNode.swift */; };
 		612292B3273A87FA004B3A6F /* TextFieldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612292B2273A87FA004B3A6F /* TextFieldNode.swift */; };
@@ -133,6 +140,7 @@
 		217DD5E92738EDC100570989 /* MaintenanceHistorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceHistorySection.swift; sourceTree = "<group>"; };
 		23B1522FF9AE1571B3B5A470 /* Pods_Haloto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haloto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3240DF906EE1C6F71C485CA6 /* Pods-Haloto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haloto.release.xcconfig"; path = "Target Support Files/Pods-Haloto/Pods-Haloto.release.xcconfig"; sourceTree = "<group>"; };
+		3B09EC28273B9622001E1828 /* PickerBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerBottomSheetViewController.swift; sourceTree = "<group>"; };
 		3B6922702735ACDF00847845 /* OneTimePasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimePasswordTextField.swift; sourceTree = "<group>"; };
 		3B860C0F2732D805007776BB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3B860C122732E0E7007776BB /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
@@ -143,6 +151,12 @@
 		3BAC159A2733A54A00D52067 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		3BAC159C2733A55800D52067 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		3BB652252734FAFE0003E861 /* FormCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCard.swift; sourceTree = "<group>"; };
+		3BC41D35273A36920008C194 /* AddNewVehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewVehicleViewController.swift; sourceTree = "<group>"; };
+		3BC41D38273A37E70008C194 /* SelectFieldStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFieldStack.swift; sourceTree = "<group>"; };
+		3BC41D3B273A89460008C194 /* SelectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectNode.swift; sourceTree = "<group>"; };
+		3BC41D3D273A959D0008C194 /* FormFieldStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldStack.swift; sourceTree = "<group>"; };
+		3BC41D3F273A9A660008C194 /* EntryTextFieldNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTextFieldNode.swift; sourceTree = "<group>"; };
+		3BC41D41273AD2800008C194 /* ButtonFieldStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFieldStack.swift; sourceTree = "<group>"; };
 		3BFAED14273250D60024C8C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		45189E7BD3538C5FCF736331 /* Pods-Haloto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haloto.debug.xcconfig"; path = "Target Support Files/Pods-Haloto/Pods-Haloto.debug.xcconfig"; sourceTree = "<group>"; };
 		611726DC2731598F00FC2445 /* HeaderListPopUpNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderListPopUpNode.swift; sourceTree = "<group>"; };
@@ -345,6 +359,28 @@
 			path = "Form Card";
 			sourceTree = "<group>";
 		};
+		3BC41D34273A36770008C194 /* Add Vehicle */ = {
+			isa = PBXGroup;
+			children = (
+				3BC41D37273A36AB0008C194 /* Component */,
+				3BC41D35273A36920008C194 /* AddNewVehicleViewController.swift */,
+			);
+			path = "Add Vehicle";
+			sourceTree = "<group>";
+		};
+		3BC41D37273A36AB0008C194 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				3BC41D38273A37E70008C194 /* SelectFieldStack.swift */,
+				3BC41D3B273A89460008C194 /* SelectNode.swift */,
+				3BC41D3F273A9A660008C194 /* EntryTextFieldNode.swift */,
+				3BC41D3D273A959D0008C194 /* FormFieldStack.swift */,
+				3BC41D41273AD2800008C194 /* ButtonFieldStack.swift */,
+				3B09EC28273B9622001E1828 /* PickerBottomSheetViewController.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		3BFAED13273250C80024C8C2 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +401,7 @@
 		6128445E2727E6CB00D060AC /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				3BC41D34273A36770008C194 /* Add Vehicle */,
 				B7DD6DC427338FB4007F087B /* Profile Page */,
 				2153EB9027349934000F1830 /* Overview */,
 				3BAC15972733932300D52067 /* OTP */,
@@ -1066,12 +1103,17 @@
 				618802EB2727C5F3003F4C6F /* AppDelegate.swift in Sources */,
 				61D6A43D2738E6D1003A9ADD /* PaymentReviewHeader.swift in Sources */,
 				F202274C273520B100AF2AF3 /* ChipCellNode.swift in Sources */,
+				3BC41D3C273A89460008C194 /* SelectNode.swift in Sources */,
 				618546D02734DCA100675BB0 /* MaintenanceHistoryCell.swift in Sources */,
 				6163AC4927381AC700E7756E /* UserPaymentReviewViewController.swift in Sources */,
 				217AC616273B7387004F26C4 /* TextFieldMaintenanceDetails.swift in Sources */,
 				618546D12734DCA100675BB0 /* MaintenanceHistoryDescription.swift in Sources */,
 				618802ED2727C5F3003F4C6F /* SceneDelegate.swift in Sources */,
+				618546D22734DCA100675BB0 /* UpcomingMaintenanceDescriptions.swift in Sources */,
+				3B09EC29273B9622001E1828 /* PickerBottomSheetViewController.swift in Sources */,
 				B764982D27350B45003A90C2 /* EditProfileController.swift in Sources */,
+				618546C52734DC9300675BB0 /* ButtonDeleteFilterMaintenance.swift in Sources */,
+				3BC41D39273A37E70008C194 /* SelectFieldStack.swift in Sources */,
 				F202275F273A22DB00AF2AF3 /* BottomSheetViewController.swift in Sources */,
 				615CDCC227351C8500967A40 /* ButtonDeleteFilterMaintenanceNode.swift in Sources */,
 				B7713BD52731A317007A3824 /* VehicleImageNode.swift in Sources */,
@@ -1102,9 +1144,11 @@
 				217DD5EA2738EDC100570989 /* MaintenanceHistorySection.swift in Sources */,
 				6163AC5427382B1200E7756E /* PaymentMethodNode.swift in Sources */,
 				B7DD6DF6273435DA007F087B /* ProfileFinalNode.swift in Sources */,
+				3BC41D40273A9A660008C194 /* EntryTextFieldNode.swift in Sources */,
 				F28F6D052732437300261BA1 /* Extension+NSAttributedString.swift in Sources */,
 				217AC61A273B85AC004F26C4 /* ReceiptImageCard.swift in Sources */,
 				6128447A2727EC5300D060AC /* NetworkProvider.swift in Sources */,
+				3BC41D42273AD2800008C194 /* ButtonFieldStack.swift in Sources */,
 				6172733B27312EB900DF8F5E /* ListPopupViewController.swift in Sources */,
 				F202276D273A278D00AF2AF3 /* Extension+Rx.swift in Sources */,
 				618546D32734DCA100675BB0 /* UpcomingMaintenanceDescription.swift in Sources */,
@@ -1116,6 +1160,7 @@
 				B74EE7BA27391A16002ED5A5 /* YourCarPanModal.swift in Sources */,
 				F20227562738FCB100AF2AF3 /* ConsultRatingNode.swift in Sources */,
 				6128446B2727EA1700D060AC /* CommonHelper.swift in Sources */,
+				3BC41D3E273A959D0008C194 /* FormFieldStack.swift in Sources */,
 				B7713BD32731944B007A3824 /* VehicleDescriptionNode.swift in Sources */,
 				B7713BD7273234F2007A3824 /* AddNewVehicleCellNode.swift in Sources */,
 				B764982F27350BE9003A90C2 /* EditProfilePictureNode.swift in Sources */,
@@ -1131,6 +1176,7 @@
 				3BAC159B2733A54A00D52067 /* OTPViewModel.swift in Sources */,
 				6134E6B12733067F002E7526 /* Extension+CGFloat.swift in Sources */,
 				6163AC4D27381CE500E7756E /* PaymentTimerNode.swift in Sources */,
+				3BC41D36273A36920008C194 /* AddNewVehicleViewController.swift in Sources */,
 				612844782727EBF300D060AC /* Extension+Result.swift in Sources */,
 				3B860C132732E0E7007776BB /* FormField.swift in Sources */,
 				3BB652262734FAFE0003E861 /* FormCard.swift in Sources */,

@@ -52,7 +52,6 @@ class PaymentReviewHeader: ASDisplayNode {
     }
 
     func setShadow() {
-        cornerRadius = 15
         shadowColor = UIColor.black.cgColor
         shadowOpacity = 0.12
         shadowOffset.height = 2

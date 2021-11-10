@@ -8,16 +8,15 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    
+
     private(set) static var shared: SceneDelegate?
-    
+
     var window: UIWindow?
 
     // MARK: - Window Scene Delegate
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
-        
         createExampleModule(scene: scene)
     }
 

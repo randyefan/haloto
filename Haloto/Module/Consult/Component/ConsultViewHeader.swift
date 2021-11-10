@@ -17,26 +17,14 @@ internal final class ConsultViewHeader: ASDisplayNode {
     private let chatHistoryButtoNode: ASImageNode = {
         let node = ASImageNode()
         node.image = UIImage(named: "Chat History")
-        node.style.preferredSize = CGSize(width: 30, height: 30)
-        return node
-    }()
-
-    private let chatHistoryButtonTextNode: ASTextNode2 = {
-        let node = ASTextNode2()
-        node.attributedText = .font("Chat History", size: 11, fontWeight: .medium, color: UIColor(hexString: "#B6B6B6"))
+        node.style.preferredSize = CGSize(width: 40, height: 40)
         return node
     }()
 
     private let filterButonNode: ASImageNode = {
         let node = ASImageNode()
         node.image = UIImage(named: "Filter")
-        node.style.preferredSize = CGSize(width: 30, height: 30)
-        return node
-    }()
-
-    private let filterButtonTextNode: ASTextNode2 = {
-        let node = ASTextNode2()
-        node.attributedText = .font("Filter", size: 11, fontWeight: .medium, color: UIColor(hexString: "#B6B6B6"))
+        node.style.preferredSize = CGSize(width: 40, height: 40)
         return node
     }()
 
@@ -48,28 +36,12 @@ internal final class ConsultViewHeader: ASDisplayNode {
     }
 
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        let chatHistoryButtonStack = ASStackLayoutSpec(
-            direction: .vertical,
-            spacing: 4,
-            justifyContent: .center,
-            alignItems: .center,
-            children: [chatHistoryButtoNode, chatHistoryButtonTextNode]
-        )
-
-        let filterButtonStack = ASStackLayoutSpec(
-            direction: .vertical,
-            spacing: 4,
-            justifyContent: .center,
-            alignItems: .center,
-            children: [filterButonNode, filterButtonTextNode]
-        )
-
         let buttonStack = ASStackLayoutSpec(
             direction: .horizontal,
-            spacing: 12,
+            spacing: 2,
             justifyContent: .start,
             alignItems: .stretch,
-            children: [chatHistoryButtonStack, filterButtonStack]
+            children: [chatHistoryButtoNode, filterButonNode]
         )
 
         let finalStack = ASStackLayoutSpec(
@@ -80,7 +52,7 @@ internal final class ConsultViewHeader: ASDisplayNode {
             children: [titleNode, buttonStack]
         )
 
-        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea, left: 20, bottom: 20, right: 20), child: finalStack)
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea, left: 20, bottom: 5, right: 20), child: finalStack)
     }
 
     override func layout() {

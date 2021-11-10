@@ -30,7 +30,7 @@ enum StarState {
     case inactive
 }
 
-enum FormCardType{
+enum FormCardType {
     case OTP
     case Login
 }
@@ -40,6 +40,8 @@ enum PopUpListState: String {
     case manufacturer = "Manufacturer"
     case service = "Service"
     case replaced = "Replaced"
+    case newvehicle = "Add New Vehicle"
+    case edit = "Edit"
 }
 
 enum ReusableConsultPopUpState {
@@ -58,4 +60,9 @@ enum TimerType {
 enum ReceiptCardImage {
     case beforeScan
     case afterScan
+}
+
+enum EntryTextFieldType {
+    case picker
+    case keyboard
 }
