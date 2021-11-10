@@ -8,13 +8,16 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
+    private(set) static var shared: SceneDelegate?
+    
     var window: UIWindow?
 
     // MARK: - Window Scene Delegate
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
+        
         createExampleModule(scene: scene)
     }
 
@@ -41,21 +44,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
 
-        let viewController = MaintenanceDetailsViewController()
+        let viewController = LoginViewController()
         let navigation = UINavigationController(rootViewController: viewController)
 
         window.rootViewController = navigation
 
         self.window = window
         window.makeKeyAndVisible()
-    }
-
-    func rootHomepageUser(scene: UIScene) {
-        guard let winScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: winScene)
-        let tabBar = TabBarBaseController(productLogin: .User)
-        window?.rootViewController = tabBar
-        window?.makeKeyAndVisible()
     }
 
     func rootHomepageBengkel(scene: UIScene) {

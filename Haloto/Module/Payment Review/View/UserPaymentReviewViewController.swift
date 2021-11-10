@@ -19,13 +19,15 @@ class UserPaymentReviewViewController: ASDKViewController<ASDisplayNode> {
     override init() {
         // Handle later with data
         workshopCard = WorkshopConsultationCard()
-        paymentTimerNode = PaymentTimerNode(timeout: 5800)
+        paymentTimerNode = PaymentTimerNode(timeout: 6000)
         priceDetailNode = PriceDetailsNode()
         paymentMethodeNode = PaymentMethodNode()
         paymentTotalNode = PaymentTotalNode()
         
         super.init(node: ASDisplayNode())
         node.automaticallyManagesSubnodes = true
+        
+        tapObserve()
         
         node.layoutSpecBlock = { _, _ in
             let workshopCardInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8),
@@ -54,8 +56,33 @@ class UserPaymentReviewViewController: ASDKViewController<ASDisplayNode> {
     }
     
     // MARK: - ViewController Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.hideTabBar()
         node.backgroundColor = .white
+    }
+    
+    // MARK: - Functionality
+    
+    func showPopUpRequestConsult() {
+        let vc = ReusableConsultPopUpViewController(state: .request)
+        vc.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(vc, animated: true, completion: {
+            self.navigationController?.popViewController(animated: false)
+        })
+    }
+    
+    // MARK: - Observe Tap
+    
+    func tapObserve() {
+        headerNode.xAction = {
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        paymentTotalNode.confirmAction = {
+            self.showPopUpRequestConsult()
+        }
     }
 }

@@ -101,7 +101,7 @@ class ContentConsultPopupNode: ASDisplayNode {
             
         case .declined:
             titleNode.attributedText = .font(
-                "Request Declined",
+                "Hey, Sorry...",
                 size: 18,
                 fontWeight: .bold,
                 color: .black,
@@ -112,11 +112,14 @@ class ContentConsultPopupNode: ASDisplayNode {
             
             captionNode = ASTextNode2()
             captionNode?.attributedText = .font(
-                "We are sorry to inform you that you request has been declined due to certain circumstances.",
+                "Unfortunately your chosen workshop was handling  issues elsewhere and couldn’t connect to you. Find  other workshops to connect instead!",
                 size: 12,
                 color: .black,
                 lineSpacing: 0,
                 alignment: .center)
+            
+            buttonNode = SmallButtonNode(title: "Take Me Home", buttonState: .Yellow, function: nil)
+            buttonNode?.style.width = ASDimension(unit: .points, value: 126)
             
         case .afterService:
             titleNode.attributedText = .font(
@@ -191,6 +194,10 @@ class ContentConsultPopupNode: ASDisplayNode {
         let stack = ASStackLayoutSpec(direction: .vertical, spacing: 16, justifyContent: .end, alignItems: .center, children: [titleNode, imageInset, captionInset, buttonNode, timerNode].compactMap { $0 })
         
         let inset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 12, left: 18, bottom: 12, right: 18), child: stack)
+        
+        if popUpState == .declined {
+            return ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .stretch, children: [inset])
+        }
         
         return ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .stretch, children: [workshopCardNode ,inset])
     }

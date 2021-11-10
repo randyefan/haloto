@@ -24,6 +24,7 @@ class PaymentReviewHeader: ASDisplayNode {
         return node
     }()
     
+    var xAction: (()->())?
     init(title: String) {
         super.init()
         titleNode.attributedText = .font("\(title)", size: 18, fontWeight: .bold, color: .black, alignment: .center)
@@ -42,6 +43,11 @@ class PaymentReviewHeader: ASDisplayNode {
     override func layout() {
         super.layout()
         backgroundColor = .white
+        
+        xButtonNode.view.onTap {
+            self.xAction?()
+        }
+        
         layer.shadowPath = UIBezierPath(rect: bounds).cgPath
     }
 

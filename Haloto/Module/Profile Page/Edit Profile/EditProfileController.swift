@@ -32,12 +32,12 @@ class EditProfileContoller: ASDKViewController<ASDisplayNode> {
         }
 
         chevronDown.view.onTap {
-            print("chevronDownAction")
+            self.dismiss(animated: true, completion: nil)
         }
 
         node.layoutSpecBlock = { _, _ in
             let stack = ASStackLayoutSpec(direction: .vertical, spacing: 16, justifyContent: .center, alignItems: .center, children: [chevronDown, editProfilePirctureNode, nameTextField, emailTextField, phoneTextField, saveButton])
-            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea, left: 16, bottom: .infinity, right: 16), child: stack)
+            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea, left: 16, bottom: .bottomSafeArea, right: 16), child: stack)
         }
     }
 
