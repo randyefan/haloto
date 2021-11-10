@@ -19,7 +19,7 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
             picker.dataSource = self
             return picker
         })
-        wrapperNode.style.height = ASDimensionMake(300)
+        wrapperNode.style.height = ASDimensionMake(100)
         wrapperNode.style.width = ASDimensionMake("100%")
         wrapperNode.backgroundColor = .red
         return wrapperNode
@@ -84,12 +84,12 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
         node.automaticallyManagesSubnodes = true
         node.backgroundColor = .white
         let stack = ASStackLayoutSpec(direction: .vertical, spacing: 16, justifyContent: .center, alignItems: .start, children: [manufacturerFormNode, modelFormNode, odometerFormNode, licensePlateFormNode, manufacturedYearFormNode, ccFormNode, tranmissionStack, fuelTypeStack])
-        let addNewVehicleStack = ASStackLayoutSpec(direction: .vertical, spacing: 32, justifyContent: .center, alignItems: .center, children: [header,stack, addVehicleButton, pickerView])
+        let addNewVehicleStack = ASStackLayoutSpec(direction: .vertical, spacing: 32, justifyContent: .center, alignItems: .center, children: [header,stack, addVehicleButton])
         
         stack.style.width = ASDimensionMake("100%")
         pickerView.isHidden = false
         node.layoutSpecBlock = { _, _ in
-            ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea, left: 16, bottom: .infinity, right: 16), child: addNewVehicleStack)
+            ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea, left: 16, bottom: .bottomSafeArea, right: 16), child: addNewVehicleStack)
         }
     }
 
