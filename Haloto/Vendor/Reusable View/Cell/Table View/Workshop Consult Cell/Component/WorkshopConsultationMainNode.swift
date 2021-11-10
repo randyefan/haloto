@@ -50,9 +50,9 @@ internal final class WorkshopConsultationMainNode: ASDisplayNode {
     private var consultButon: SmallButtonNode?
 
     private var isOpen: Bool = false
-    
+
     var delegate: WorkshopConsultationMainNodeDelegate?
-    
+
     override init() {
         workshopCardNode = WorkshopConsultationCard()
         workshopCardNode.style.width = ASDimensionMakeWithFraction(1)
@@ -61,7 +61,7 @@ internal final class WorkshopConsultationMainNode: ASDisplayNode {
         automaticallyManagesSubnodes = true
         specialtyListNode.delegate = self
         specialtyListNode.dataSource = self
-        
+
         consultButon = SmallButtonNode(title: "Consult Now", buttonState: .Yellow, function: {
             self.delegate?.didTapConsultNow()
         })
@@ -83,13 +83,15 @@ internal final class WorkshopConsultationMainNode: ASDisplayNode {
         backgroundColor = .white
         specialtyListNode.view.showsHorizontalScrollIndicator = false
 
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(setOpen))
-        view.addGestureRecognizer(gesture)
+        view.onTap { [weak self] in
+            guard let self = self else { return }
+            self.isOpen = !self.isOpen
+            self.setNeedsLayout()
+        }
     }
 
     @objc private func setOpen() {
-        isOpen = !isOpen
-        setNeedsLayout()
+
     }
 
     func setShadow() {
