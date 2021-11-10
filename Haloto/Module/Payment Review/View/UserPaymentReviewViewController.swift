@@ -7,6 +7,8 @@
 
 import UIKit
 import AsyncDisplayKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class UserPaymentReviewViewController: ASDKViewController<ASDisplayNode> {
     let headerNode: PaymentReviewHeader = PaymentReviewHeader()
@@ -16,10 +18,20 @@ class UserPaymentReviewViewController: ASDKViewController<ASDisplayNode> {
     let paymentMethodeNode: PaymentMethodNode
     let paymentTotalNode: PaymentTotalNode
     
+    var namaBengkel: String?
+    
+    // TODO: MIGRATION LATER (4 Var)
+    private var channelListener: ListenerRegistration?
+    private let database = Firestore.firestore()
+    private var channelReference: CollectionReference {
+        return database.collection("channels")
+    }
+    private var channel: Channel?
+    
     override init() {
         // Handle later with data
         workshopCard = WorkshopConsultationCard()
-        paymentTimerNode = PaymentTimerNode(timeout: 6000)
+        paymentTimerNode = PaymentTimerNode(timeout: 0)
         priceDetailNode = PriceDetailsNode()
         paymentMethodeNode = PaymentMethodNode()
         paymentTotalNode = PaymentTotalNode()
@@ -74,6 +86,80 @@ class UserPaymentReviewViewController: ASDKViewController<ASDisplayNode> {
         })
     }
     
+    func showPopUpAcceptedConsult() {
+        let vc = ReusableConsultPopUpViewController(state: .accepted)
+        vc.modalPresentationStyle = .fullScreen
+        vc.dismissAction = {
+            self.createChannel()
+        }
+        self.navigationController?.present(vc, animated: true, completion: nil)
+    }
+    
+    // TODO: MIGRATION LATER
+    private func navigateToChatViewController(channel: Channel) {
+        if let user = Auth.auth().currentUser {
+            let vc = ChatViewController(user: user, channel: channel)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    // TODO: MIGRATION LATER (3 Func Below)
+    private func createChannel() {
+        let channel = Channel(name: namaBengkel ?? "Bengkel")
+        channelReference.addDocument(data: channel.representation) { error in
+            if let error = error {
+                print("Error saving channel: \(error.localizedDescription)")
+            }
+        }
+        
+        self.listener()
+    }
+    
+    private func listener() {
+        channelListener = channelReference.addSnapshotListener { [weak self] querySnapshot, error in
+            guard let self = self else { return }
+            guard let snapshot = querySnapshot else {
+                print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
+                return
+            }
+            
+            var object: [Channel] = []
+            snapshot.documentChanges.forEach { change in
+                guard let channel = Channel(document: change.document) else {
+                    return
+                }
+                
+                switch change.type {
+                case .added:
+                    object.append(channel)
+                default:
+                    break
+                }
+            }
+            
+            object.sort()
+            
+            if let channel = object.last {
+                self.navigateToChatViewController(channel: channel)
+            }
+        }
+    }
+    
+    private func handleDocumentChange(_ change: DocumentChange?) {
+        guard let change = change else { return }
+        
+        guard let channel = Channel(document: change.document) else { return }
+        
+        switch change.type {
+        case .added:
+            self.channel = channel
+            AppSettings.chatId = channel.id
+            self.navigateToChatViewController(channel: channel)
+        default:
+            break
+        }
+    }
+    
     // MARK: - Observe Tap
     
     func tapObserve() {
@@ -81,8 +167,9 @@ class UserPaymentReviewViewController: ASDKViewController<ASDisplayNode> {
             self.navigationController?.popViewController(animated: true)
         }
         
+        //TODO: MIGRATION LATER
         paymentTotalNode.confirmAction = {
-            self.showPopUpRequestConsult()
+            self.showPopUpAcceptedConsult()
         }
     }
 }

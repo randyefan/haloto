@@ -41,6 +41,8 @@ class ContentConsultPopupNode: ASDisplayNode {
     var popUpState: ReusableConsultPopUpState
     var timer: Timer?
     
+    var onTapButton: (()->())?
+    
     // MARK: - Initializer
     
     init(state: ReusableConsultPopUpState, secondTimeout: Double = 0) {
@@ -145,6 +147,10 @@ class ContentConsultPopupNode: ASDisplayNode {
         super.layout()
         backgroundColor = .white
         setShadow()
+        
+        buttonNode?.view.onTap(action: {
+            self.onTapButton?()
+        })
     }
     
     // MARK: - Functionality

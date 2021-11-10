@@ -18,12 +18,16 @@ class ReusableConsultPopUpViewController: ASDKViewController<ASDisplayNode> {
         return node
     }()
     
+    let state: ReusableConsultPopUpState
+    
     let centreNode: ContentConsultPopupNode
+    
+    var dismissAction: (()->())?
     
     // MARK: - Initializer
     init(state: ReusableConsultPopUpState) {
-        centreNode = ContentConsultPopupNode(state: state, secondTimeout: 1500)
-        
+        centreNode = ContentConsultPopupNode(state: state, secondTimeout: 20000)
+        self.state = state
         super.init(node: ASDisplayNode())
         node.automaticallyManagesSubnodes = true
         
@@ -56,7 +60,24 @@ class ReusableConsultPopUpViewController: ASDKViewController<ASDisplayNode> {
     // MARK: - Tap Observe
     
     func tapObserve() {
+        centreNode.onTapButton = {
+            switch self.state {
+            case .request:
+                break
+            case .accepted:
+                self.dismissAction?()
+                self.dismiss(animated: true, completion: nil)
+            case .declined:
+                break
+            case .afterService:
+                break
+            }
+        }
+        
         buttonXNode.view.onTap {
+            if self.state == .accepted {
+                self.dismissAction?()
+            }
             self.dismiss(animated: true, completion: nil)
         }
     }

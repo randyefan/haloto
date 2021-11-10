@@ -213,6 +213,10 @@ extension FormCard {
 
 
 extension FormCard: FormFieldDelegate{
+    func fieldString(string: String?) {
+        //
+    }
+    
     func fieldDidEnterCharacter() {
         loginButton.switchButton(state: .enabled)
     }

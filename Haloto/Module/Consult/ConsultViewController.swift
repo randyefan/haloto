@@ -57,6 +57,8 @@ internal final class ConsultViewController: ASDKViewController<ASDisplayNode> {
     
     func navigateToPaymentDetail() {
         let vc = UserPaymentReviewViewController()
+        // Handle Later
+        vc.namaBengkel = "Bengkel Bagus"
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

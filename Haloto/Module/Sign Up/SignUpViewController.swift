@@ -93,10 +93,12 @@ class SignUpViewController: UIViewController {
 
         return temp
     }()
+    
+    var emailString = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        emailStack.delegate = self
         setupView()
     }
 }
@@ -153,7 +155,14 @@ private extension SignUpViewController {
     }
 
     @objc
-    func signUpButtonIsPressed() {}
+    func signUpButtonIsPressed() {
+        if self.emailString != "" {
+            AppSettings.displayName = "\(self.emailString)"
+            navigationController?.popToRootViewController(animated: true)
+        } else {
+            showToast(title: "Email can't be empty")
+        }
+    }
 
     @objc
     func loginButtonInPressed() {
@@ -179,4 +188,18 @@ extension SignUpViewController {
         }
     }
     
+}
+
+extension SignUpViewController: FormFieldDelegate {
+    func fieldString(string: String?) {
+        self.emailString = string ?? ""
+    }
+    
+    func fieldDidEnterCharacter() {
+        
+    }
+    
+    func fieldDidBecomeEmpty() {
+        
+    }
 }

@@ -85,4 +85,8 @@ extension UIColor {
             return UIColor(hexString: "#2E3137").withAlphaComponent(0.7)
         }
     }
+    
+    static var incomingMessage: UIColor {
+        return UIColor(hexString: "#E9E9EB")
+    }
 }

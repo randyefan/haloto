@@ -7,6 +7,7 @@
 
 import SnapKit
 import UIKit
+import FirebaseAuth
 
 class OTPViewController: UIViewController {
     private lazy var backgroundImageView: UIImageView = {
@@ -101,8 +102,26 @@ private extension OTPViewController {
 }
 
 extension OTPViewController: FormCardDelegate {
-    func otpIsFilled(pin _: String) {
-        rootHomepageUser()
+    func otpIsFilled(pin: String) {
+        if pin == "1379" {
+            if let _ = AppSettings.displayName {
+                return
+            } else {
+                AppSettings.displayName = "Bengkel"
+                Auth.auth().signInAnonymously()
+                
+                if let user = Auth.auth().currentUser {
+                    AppController.shared.bengkelChannel(user: user)
+                }
+            }
+        } else {
+            if let _ = AppSettings.displayName {
+                AppController.shared.userTabBar()
+                Auth.auth().signInAnonymously()
+            } else {
+                showToast(title: "You don't have registered. please sign up!")
+            }
+        }
     }
 
     func attemptRequestOTP() {}
