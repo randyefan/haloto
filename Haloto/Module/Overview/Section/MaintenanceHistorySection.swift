@@ -48,7 +48,13 @@ class MaintenanceHistorySection: ASDisplayNode {
             children: maintenanHistoryNode
         )
 
-        let titleAndButtonStack = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .spaceBetween, alignItems: .start, children: [titleNode, buttonAdd].compactMap { $0 })
+        let titleAndButtonStack = ASStackLayoutSpec(
+            direction: .horizontal,
+            spacing: 0,
+            justifyContent: .spaceBetween,
+            alignItems: .start,
+            children: [titleNode, buttonAdd].compactMap { $0 }
+        )
 
         let finalStack = ASStackLayoutSpec(direction: .vertical, spacing: 11, justifyContent: .start, alignItems: .stretch, children: [titleAndButtonStack, stack])
 

@@ -54,3 +54,8 @@ enum TimerType {
     case short
     case digits
 }
+
+enum ReceiptCardImage {
+    case beforeScan
+    case afterScan
+}
