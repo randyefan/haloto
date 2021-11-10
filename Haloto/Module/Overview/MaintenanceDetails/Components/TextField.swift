@@ -14,15 +14,11 @@ protocol TextFieldDelegate {
 class TextField: ASDisplayNode {
     var delegate: TextFieldDelegate?
 
-    private let titleNode: ASTextNode2 = {
-        let node = ASTextNode2()
-        return node
-    }()
 
     private let textFieldNode: ASEditableTextNode = {
         let node = ASEditableTextNode()
         node.style.height = ASDimension(unit: .points, value: 34)
-        node.style.width = ASDimension(unit: .fraction, value: 1)
+        node.style.flexGrow = 1
         node.cornerRadius = 6
         node.backgroundColor = UIColor.white
         node.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
@@ -32,8 +28,7 @@ class TextField: ASDisplayNode {
         return node
     }()
 
-    init(title: String, placeholder: String, state: TextFieldState) {
-        titleNode.attributedText = .font(title, size: 11, fontWeight: .medium)
+    init(placeholder: String, state: TextFieldState) {
         switch state {
         case .Editable:
             textFieldNode.backgroundColor = UIColor.white
@@ -51,14 +46,7 @@ class TextField: ASDisplayNode {
     }
 
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
-        let textFieldWrapper = ASWrapperLayoutSpec(layoutElement: textFieldNode)
-        return ASStackLayoutSpec(
-            direction: .vertical,
-            spacing: 4,
-            justifyContent: .spaceBetween,
-            alignItems: .start,
-            children: [titleNode, textFieldWrapper]
-        )
+        return ASWrapperLayoutSpec(layoutElement: textFieldNode)
     }
 }
 

@@ -10,15 +10,19 @@ import UIKit
 
 class TextFieldMaintenanceDetails: ASDisplayNode {
     
-    let titleTextField: TextField = TextField(title: "", placeholder: "Maintenance Title ex. Sudden Service", state: .Editable)
+    let titleTextField: TextField = TextField(placeholder: "Maintenance Title ex. Sudden Service", state: .Editable)
     let lineTitleNode: ASImageNode = {
         let node = ASImageNode()
         node.image = UIImage(named: "LineTextField")
         return node
-    
     }()
     
-    let dateTextField: TextField = TextField(title: "", placeholder: "Date", state: .Editable)
+    let backgroundNode: ASDisplayNode = {
+        let node = ASDisplayNode()
+        return node
+    }()
+    
+    let dateTextField: TextField = TextField(placeholder: "Date", state: .Editable)
     let lineDateNode: ASImageNode = {
         let node = ASImageNode()
         node.image = UIImage(named: "LineTextField")
@@ -32,7 +36,7 @@ class TextFieldMaintenanceDetails: ASDisplayNode {
         return node
     }()
     
-    let locationTextField: TextField = TextField(title: "", placeholder: "Location", state: .Editable)
+    let locationTextField: TextField = TextField(placeholder: "Location", state: .Editable)
     let lineLocationNode: ASImageNode = {
         let node = ASImageNode()
         node.image = UIImage(named: "LineTextField")
@@ -42,23 +46,28 @@ class TextFieldMaintenanceDetails: ASDisplayNode {
     
     
     override init() {
+        titleTextField.style.flexGrow = 1
+        dateTextField.style.flexGrow = 1
+        locationTextField.style.flexGrow = 1
         super.init()
         automaticallyManagesSubnodes = true
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        let maintenanceTitleStack =  ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: [titleTextField, lineTitleNode])
         
-        let inset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 30), child: dateTextField)
-        let iconInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: dateButtonNode)
-        let dateAndIconStack = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .start, alignItems: .start, children: [inset, iconInset])
-        let maintenanceDateStack =  ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: [dateAndIconStack, lineDateNode])
+        let maintenanceTitleStack =  ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .stretch, children: [titleTextField, lineTitleNode])
         
-        let maintenanceLocationStack =  ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: [locationTextField, lineLocationNode])
+        let dateAndIconStack = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .spaceBetween, alignItems: .center, children: [dateTextField, dateButtonNode])
+
+        let maintenanceDateStack =  ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .stretch, children: [dateAndIconStack, lineDateNode])
         
-        let finalStack = ASStackLayoutSpec(direction: .vertical, spacing: 16, justifyContent: .start, alignItems: .start, children: [maintenanceTitleStack, maintenanceDateStack, maintenanceLocationStack])
+        let inset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: maintenanceDateStack)
         
-        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: maintenanceTitleStack)
+        let maintenanceLocationStack =  ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .stretch, children: [locationTextField, lineLocationNode])
+
+        let finalStack = ASStackLayoutSpec(direction: .vertical, spacing: 16, justifyContent: .start, alignItems: .start, children: [maintenanceTitleStack, inset, maintenanceLocationStack])
+        
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: finalStack)
     }
 }
 

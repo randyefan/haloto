@@ -19,12 +19,11 @@ class MaintenanceDetailsViewController: ASDKViewController<ASDisplayNode> {
         super.init(node: ASDisplayNode())
         node.automaticallyManagesSubnodes = true
         node.layoutSpecBlock = { _, _ in
-            let headerInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: .infinity, right: 0), child: self.headerNode)
-            let inset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: self.scanImageCard)
-            let stack = ASStackLayoutSpec(direction: .vertical, spacing: 6, justifyContent: .start, alignItems: .start, children: [inset, self.textFieldMaintenance])
-            let bottomInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea + 48 + 12, left: 0, bottom: .bottomSafeArea, right: 0), child: stack)
-
-            return ASOverlayLayoutSpec(child: bottomInset, overlay: headerInset)
+            let headerInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: self.headerNode)
+            let inset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10, left: 16, bottom: 0, right: 16), child: self.scanImageCard)
+            
+            let stack = ASStackLayoutSpec(direction: .vertical, spacing: 6, justifyContent: .start, alignItems: .start, children: [headerInset, inset, self.textFieldMaintenance])
+            return stack
         }
     }
 
