@@ -16,10 +16,7 @@ class TextFieldNode: ASDisplayNode {
     
     var delegate: TextFieldNodeDelegate?
     
-    private let titleNode: ASTextNode2 = {
-        let node = ASTextNode2()
-        return node
-    }()
+    private var titleNode: ASTextNode2?
 
     private let textFieldNode: ASEditableTextNode = {
         let node = ASEditableTextNode()
@@ -31,13 +28,18 @@ class TextFieldNode: ASDisplayNode {
         node.view.cornerRadius = 6
         node.maximumLinesToDisplay = 1
         node.returnKeyType = .done
+        node.textView.font = UIFont(name: "Poppins-Regular", size: 12)
         return node
     }()
     
     
 
-    init(title: String, placeholder: String, state: TextFieldState) {
-        titleNode.attributedText = .font(title, size: 11, fontWeight: .medium)
+    init(title: String?, placeholder: String, state: TextFieldState) {
+        
+        if let title = title {
+            titleNode = ASTextNode2()
+            titleNode?.attributedText = .font(title, size: 11, fontWeight: .medium)
+        }
         switch state {
         case .Editable:
             textFieldNode.backgroundColor = UIColor.white
@@ -63,7 +65,7 @@ class TextFieldNode: ASDisplayNode {
             spacing: 4,
             justifyContent: .spaceBetween,
             alignItems: .start,
-            children: [titleNode, textFieldWrapper]
+            children: [titleNode, textFieldWrapper].compactMap{ $0 }
         )
     }
 }
