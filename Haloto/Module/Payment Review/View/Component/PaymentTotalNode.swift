@@ -35,6 +35,8 @@ class PaymentTotalNode: ASDisplayNode {
         return node
     }()
     
+    var confirmAction: (()->())?
+    
     // MARK: - Initializer
     
     override init() {
@@ -71,6 +73,10 @@ class PaymentTotalNode: ASDisplayNode {
     
     override func layout() {
         setShadow()
+        
+        buttonTitleNode.view.onTap {
+            self.confirmAction?()
+        }
     }
     
     // MARK: - Functionality

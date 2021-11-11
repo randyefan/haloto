@@ -35,7 +35,7 @@ class TabNavigationMenu: UIImageView {
             self.addSubview(itemView)
             
             itemView.translatesAutoresizingMaskIntoConstraints = false
-            itemView.backgroundColor = .white
+            itemView.backgroundColor = UIColor(hexString: "#F9F9F9")
 
             NSLayoutConstraint.activate([
                 itemView.widthAnchor.constraint(equalToConstant: itemWidth),

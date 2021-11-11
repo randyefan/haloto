@@ -7,7 +7,7 @@
 
 import AsyncDisplayKit
 
-class MaintenanceHistoryCell: ASCellNode {
+class MaintenanceHistoryCell: ASDisplayNode {
     private let maintenanceHistoryImage: ASImageNode = {
        let node = ASImageNode()
         node.style.preferredSize = CGSize(width: 48, height: 48)
@@ -21,6 +21,8 @@ class MaintenanceHistoryCell: ASCellNode {
         maintenanceHistoryImage.image = UIImage(named: model.maintenanceHistoryImage ?? "")
 
         descriptionNode = MaintenanceHistoryDescription(model: model)
+        descriptionNode.style.flexShrink = 1
+        descriptionNode.style.flexGrow = 1
 
         super.init()
         automaticallyManagesSubnodes = true

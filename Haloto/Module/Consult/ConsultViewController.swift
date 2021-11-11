@@ -49,6 +49,16 @@ internal final class ConsultViewController: ASDKViewController<ASDisplayNode> {
         collectionNode.delegate = self
         collectionNode.dataSource = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.showTabBar()
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    func navigateToPaymentDetail() {
+        let vc = UserPaymentReviewViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension ConsultViewController: ASCollectionDataSource, ASCollectionDelegate {
@@ -57,6 +67,14 @@ extension ConsultViewController: ASCollectionDataSource, ASCollectionDelegate {
     }
 
     func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
-        WorkshopConsultationMainCell()
+        let cell = WorkshopConsultationMainCell()
+        cell.delegate = self
+        return cell
+    }
+}
+
+extension ConsultViewController: WorkshopConsultationMainNodeDelegate {
+    func didTapConsultNow() {
+        navigateToPaymentDetail()
     }
 }
