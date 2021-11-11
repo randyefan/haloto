@@ -54,3 +54,9 @@ enum TimerType {
     case short
     case digits
 }
+
+enum FilterType: String {
+    case model = "Model"
+    case manufacturer = "Manufacturer"
+    case component = "Component"
+}
