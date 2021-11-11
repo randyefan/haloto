@@ -25,7 +25,10 @@ class ScrollNode: ASScrollNode {
         buttonAdd.style.height = ASDimensionMake(44)
         super.init()
         automaticallyManagesSubnodes = true
+        automaticallyManagesContentSize = true
+//        view.isScrollEnabled = true
     }
+    
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         

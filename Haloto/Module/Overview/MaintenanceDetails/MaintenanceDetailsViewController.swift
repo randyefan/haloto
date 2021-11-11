@@ -24,16 +24,16 @@ class MaintenanceDetailsViewController: ASDKViewController<ASDisplayNode> {
 
             let headerInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: self.headerNode)
 
-            let scrollNodeInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: self.scrollNode)
+            let scrollNodeInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea + 48 + 12, left: 0, bottom: .bottomSafeArea + 76, right: 0), child: self.scrollNode)
 
             let updateHistoryInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: .bottomSafeArea, right: 0), child: self.updateHistoryNode)
             
             let headerBottomStack = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .spaceBetween, alignItems: .start, children: [headerInset, updateHistoryInset])
 
-            let overlayBottom = ASOverlayLayoutSpec(child: scrollNodeInset, overlay: updateHistoryInset)
-
-            let bottomInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea + 48 + 12, left: 0, bottom: .bottomSafeArea, right: 0), child: overlayBottom)
- 
+//            let overlayBottom = ASOverlayLayoutSpec(child: scrollNodeInset, overlay: updateHistoryInset)
+//
+//            let bottomInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea + 48 + 12, left: 0, bottom: .bottomSafeArea, right: 0), child: overlayBottom)
+//
             return ASOverlayLayoutSpec(child: scrollNodeInset, overlay: headerBottomStack)
             
 //            return ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: [headerInset, scrollNodeInset, updateHistoryInset])
@@ -48,5 +48,6 @@ class MaintenanceDetailsViewController: ASDKViewController<ASDisplayNode> {
     override func viewDidLoad() {
         super.viewDidLoad()
         node.backgroundColor = .white
+        navigationController?.isNavigationBarHidden = true
     }
 }
