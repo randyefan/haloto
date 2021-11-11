@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class ButtonFieldStack: ASDisplayNode {
+    var isFilled: Bool
+    
     private var firstButtonText: String = ""
     private var secondButtonText: String = ""
 
@@ -21,24 +23,23 @@ class ButtonFieldStack: ASDisplayNode {
 
     private var firstButton: SmallButtonNode?
     private var secondButton: SmallButtonNode?
-    
+
     init(title: String, firstButtonText: String, secondButtonText: String) {
         self.firstButtonText = firstButtonText
         self.secondButtonText = secondButtonText
+        self.isFilled = false
         super.init()
         titleLabel.attributedText = .font(title, size: 18, fontWeight: .bold, color: .black)
         automaticallyManagesSubnodes = true
-        
+
         firstButton = SmallButtonNode(title: firstButtonText, buttonState: .BlueOutlined, function: {
-            self.firstButton?.setSelected(node: self.firstButton!)
-            self.secondButton?.setUnselected(node: self.secondButton!)
+            self.setFirstButtonActive()
         })
-        firstButton?.style.width = ASDimensionMake("40%")
+        firstButton?.style.width = ASDimensionMake("50%")
         secondButton = SmallButtonNode(title: secondButtonText, buttonState: .BlueOutlined, function: {
-            self.firstButton?.setUnselected(node: self.firstButton!)
-            self.secondButton?.setSelected(node: self.secondButton!)
+            self.setSecondButtonActive()
         })
-        secondButton?.style.width = ASDimensionMake("40%")
+        secondButton?.style.width = ASDimensionMake("50%")
     }
 
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
@@ -48,5 +49,17 @@ class ButtonFieldStack: ASDisplayNode {
         let selectStack = ASStackLayoutSpec(direction: .horizontal, spacing: 8, justifyContent: .spaceBetween, alignItems: .center, children: [titleLabel, buttonStack])
         selectStack.style.width = ASDimensionMake("100%")
         return selectStack
+    }
+}
+
+extension ButtonFieldStack {
+    func setFirstButtonActive() {
+        firstButton?.setSelected(node: firstButton!)
+        secondButton?.setUnselected(node: secondButton!)
+    }
+
+    func setSecondButtonActive() {
+        firstButton?.setUnselected(node: firstButton!)
+        secondButton?.setSelected(node: secondButton!)
     }
 }

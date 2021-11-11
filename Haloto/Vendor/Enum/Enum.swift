@@ -71,3 +71,9 @@ enum EntryTextFieldType {
     case picker
     case keyboard
 }
+
+
+enum NewVehicleFormType{
+    case add
+    case edit
+}

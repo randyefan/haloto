@@ -20,6 +20,7 @@ class FormFieldStack: ASDisplayNode {
     private var text: String = ""
     private var placeholder: String = ""
     private var keyboardType: UIKeyboardType = .default
+    private var options: [String] = [""]
     
     
     private lazy var titleLabel: ASTextNode2 = {
@@ -32,12 +33,13 @@ class FormFieldStack: ASDisplayNode {
         return field
     }()
     
-    init(isPicker: Bool, title: String, text: String? = "" ,placeholder: String? = "", keyboardType: UIKeyboardType? = .default){
+    init(isPicker: Bool, title: String, text: String? = "" ,placeholder: String? = "", keyboardType: UIKeyboardType? = .default, pickerOptions:[String]? = ["no data is set"]){
         self.isPicker = isPicker
         self.title = title
         self.text = text ?? ""
         self.placeholder = placeholder ?? ""
         self.keyboardType = keyboardType ?? .default
+        self.options = pickerOptions ?? ["empty"]
         super.init()
         textField.delegate = self
         titleLabel.attributedText = .font(title, size: 18, fontWeight: .bold)
@@ -60,5 +62,8 @@ extension FormFieldStack: EntryTextFieldNodeDelegate{
         delegate?.openPickerView(sender: self)
     }
     
+    func getOptions() -> [String]{
+        return options
+    }
     
 }

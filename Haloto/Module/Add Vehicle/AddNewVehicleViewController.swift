@@ -10,14 +10,19 @@ import UIKit
 
 class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
     // MARK: - Components
-
+    //TODO: Set picker default value
+    //TODO: Check if all data is filled then toast
+    
+    
     private lazy var manufacturerFormNode: SelectFieldStack = {
         let node = SelectFieldStack(title: "Manufacturer", placeholder: "Choose your vehicle manufacturer")
+        node.delegate = self
         return node
     }()
 
     private lazy var modelFormNode: SelectFieldStack = {
         let node = SelectFieldStack(title: "Model", placeholder: "Choose your vehicle model")
+        node.delegate = self
         return node
     }()
 
@@ -32,12 +37,14 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
     }()
 
     private lazy var manufacturedYearFormNode: FormFieldStack = {
-        let node = FormFieldStack(isPicker: true, title: "Manufactured Year", text: "2018")
+        // TODO: nanti pake view model set picker optionsnya bisa kan?
+        let node = FormFieldStack(isPicker: true, title: "Manufactured Year", text: manufacturedYearDefaultValue, pickerOptions: ["2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007"])
         return node
     }()
 
-    private lazy var ccFormNode: FormFieldStack = {
-        let node = FormFieldStack(isPicker: true, title: "CC", text: "1200")
+    private lazy var capacityFormNode: FormFieldStack = {
+        // TODO: nanti pake view model set picker optionsnya bisa kan?
+        let node = FormFieldStack(isPicker: true, title: "CC", text: "\(capacityDefaultValue)", pickerOptions: ["1000", "1250", "1500", "1800", "2000"])
         return node
     }()
 
@@ -62,34 +69,67 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
     // MARK: - Privates
 
     private var vehicle: Vehicle?
+    private var stackFields: [ASDisplayNode.Type]?
+    private var manufacturedYearDefaultValue = "2000"
+    private var capacityDefaultValue = 0
 
-    init(vehicle: Vehicle?) {
+    init(vehicle: Vehicle?, type: NewVehicleFormType) {
+        
         super.init(node: ASDisplayNode())
-        if let vehicle = vehicle {
-            self.vehicle = vehicle
-            manufacturerFormNode.setSelected(text: "\(vehicle.manufacture ?? "")")
-            modelFormNode.setSelected(text: "\(vehicle.name ?? "")")
-            odometerFormNode.changeText(text: "\(vehicle.odometer ?? 0)")
-            licensePlateFormNode.changeText(text: "\(vehicle.licensePlate ?? "")")
-            manufacturedYearFormNode.changeText(text: "\(vehicle.manufacturedYear ?? "")")
-            ccFormNode.changeText(text: "\(vehicle.capacity ?? 0)")
+        
+        switch type {
+        case .add:
+            print("add")
             
-//            switch vehicle.fuelType {
-//            case VehicleFuelType.petrol.rawValue:
-//                
-//            case VehicleFuelType.diesel.rawValue:
-//            }
+            addVehicleButton = SmallButtonNode(title: "Add Vehicle", buttonState: .Yellow, function: {
+                if self.checkFields(){
+                    print("create model an add it to current")
+                }else{
+                    self.showToast(title: "Please fill in all forms")
+                }
+            })
+        case .edit:
             
+            guard let currentVehicle = vehicle else { return }
+
+            self.vehicle = currentVehicle
+            manufacturedYearDefaultValue = currentVehicle.manufacturedYear ?? ""
+            capacityDefaultValue = currentVehicle.capacity ?? 0
+            manufacturerFormNode.setSelected(text: "\(currentVehicle.manufacture ?? "")")
+            modelFormNode.setSelected(text: "\(currentVehicle.name ?? "")")
+            odometerFormNode.changeText(text: "\(currentVehicle.odometer ?? 0)")
+            licensePlateFormNode.changeText(text: "\(currentVehicle.licensePlate ?? "")")
+            manufacturedYearFormNode.changeText(text: "\(manufacturedYearDefaultValue)")
+            capacityFormNode.changeText(text: "\(capacityDefaultValue)")
+
+            guard let vehicleFuel = currentVehicle.fuelType else { return }
+            guard let vehicleTranmission = currentVehicle.transmissionType else { return }
+
+            if vehicleFuel.caseInsensitiveCompare("diesel") == .orderedSame {
+                fuelTypeStack.setFirstButtonActive()
+            } else {
+                fuelTypeStack.setSecondButtonActive()
+            }
+
+            if vehicleTranmission.caseInsensitiveCompare("Automatic") == .orderedSame {
+                tranmissionStack.setFirstButtonActive()
+            } else {
+                tranmissionStack.setSecondButtonActive()
+            }
+
+            
+            addVehicleButton = SmallButtonNode(title: "Edit", buttonState: .Yellow, function: {
+                //TODO: Edit action
+                print("add edit action")
+            })
         }
+
         manufacturedYearFormNode.delegate = self
-        ccFormNode.delegate = self
+        capacityFormNode.delegate = self
         node.automaticallyManagesSubnodes = true
         node.backgroundColor = .white
-        
-        addVehicleButton = SmallButtonNode(title: "Add Vehicle", buttonState: .GreyButton, function: {
-            //TODO: add vehicle Action
-            print("add vehicle Action")
-        })
+
+ 
 
         node.layoutSpecBlock = { _, _ in
             let stack = ASStackLayoutSpec(
@@ -97,7 +137,7 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
                 spacing: 16,
                 justifyContent: .center,
                 alignItems: .start,
-                children: [self.manufacturerFormNode, self.modelFormNode, self.odometerFormNode, self.licensePlateFormNode, self.manufacturedYearFormNode, self.ccFormNode, self.tranmissionStack, self.fuelTypeStack]
+                children: [self.manufacturerFormNode, self.modelFormNode, self.odometerFormNode, self.licensePlateFormNode, self.manufacturedYearFormNode, self.capacityFormNode, self.tranmissionStack, self.fuelTypeStack]
             )
             let addNewVehicleStack = ASStackLayoutSpec(
                 direction: .vertical,
@@ -109,8 +149,9 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
 
             stack.style.width = ASDimensionMake("100%")
 
-            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea, left: 16, bottom: .bottomSafeArea, right: 16), child: addNewVehicleStack)
+            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea, left: 16, bottom: .infinity, right: 16), child: addNewVehicleStack)
         }
+        
     }
 
     @available(*, unavailable)
@@ -136,9 +177,28 @@ extension AddNewVehicleViewController: ASEditableTextNodeDelegate {
 extension AddNewVehicleViewController: FormFieldStackDelegate {
     func openPickerView(sender: FormFieldStack) {
         let vc = PickerBottomSheetViewController()
-        vc.configurePicker(sender: sender)
-        // TODO: Ini di configure pickernya nanti masukin kaya optionsnya apa aja biar bisa dirubah di dalem
+        vc.configurePicker(sender: sender, options: sender.getOptions())
         let bottomSheetVC = BottomSheetViewController(wrapping: vc)
         navigationController?.present(bottomSheetVC, animated: true, completion: nil)
+    }
+}
+
+extension AddNewVehicleViewController: SelectFieldStackDelegate {
+    func selectFieldDidTapped(_ sender: SelectFieldStack) {
+        openList(sender: sender)
+    }
+}
+
+extension AddNewVehicleViewController{
+
+    func openList(sender: SelectFieldStack){
+        //MARK: Disni nanti open list depending sender.titlenya aja Manufacturer atau Model
+        print("open list \(sender.title)")
+    }
+    
+    func checkFields() -> Bool{
+        //TODO: Thinking to change all the view into 1 type of class that has 1 variable or conform to a protocol so I can check whether each and every field is filled
+        //TODO: next idea is just to make all of the button 1 field stack with 3 types of pilihan and therefore by doing so you can check each and every single ome to validate whether it is true or not true
+        return true
     }
 }

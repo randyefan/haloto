@@ -43,7 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
 
-        let viewController = AddNewVehicleViewController(vehicle: dataDummy().vehicle)
+        let viewController = AddNewVehicleViewController(vehicle: dataDummy().vehicle, type: .add)
         let navigation = UINavigationController(rootViewController: viewController)
 
         window.rootViewController = navigation

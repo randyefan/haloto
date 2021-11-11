@@ -10,6 +10,7 @@ import UIKit
 
 class PickerBottomSheetViewController: ASDKViewController<ASDisplayNode> {
     var cc = ["1200", "1500", "3000"]
+    private var pickerOptions: [String]? = []
     private var currentTextField: FormFieldStack?
 
     private lazy var pickerView: ViewWrapperNode<UIPickerView> = {
@@ -33,8 +34,9 @@ class PickerBottomSheetViewController: ASDKViewController<ASDisplayNode> {
         }
     }
 
-    func configurePicker(sender: FormFieldStack) {
+    func configurePicker(sender: FormFieldStack, options: [String]? = ["1200", "1300", "1500"]) {
         currentTextField = sender
+        pickerOptions = options
     }
 
     @available(*, unavailable)
@@ -45,16 +47,6 @@ class PickerBottomSheetViewController: ASDKViewController<ASDisplayNode> {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-     }
-     */
 }
 
 extension PickerBottomSheetViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -63,15 +55,18 @@ extension PickerBottomSheetViewController: UIPickerViewDelegate, UIPickerViewDat
     }
 
     func pickerView(_: UIPickerView, numberOfRowsInComponent _: Int) -> Int {
-        return cc.count
+        if let count = pickerOptions?.count {
+            return count
+        }
+        return 0
     }
 
     func pickerView(_: UIPickerView, titleForRow row: Int, forComponent _: Int) -> String? {
-        return cc[row]
+        return pickerOptions?[row]
     }
 
     func pickerView(_: UIPickerView, didSelectRow row: Int, inComponent _: Int) {
-        currentTextField?.changeText(text: cc[row])
+        currentTextField?.changeText(text: pickerOptions?[row] ?? "")
         dismiss(animated: true) {}
     }
 }
