@@ -25,7 +25,7 @@ class FilterMaintenanceCell: ASCellNode {
     
     private let model: ComponentList
 
-    var buttonDeleteMaintenance: ButtonDeleteFilterMaintenance!
+    var buttonDeleteMaintenance: ButtonDeleteFilterMaintenanceNode!
     
     var delegateButtonFilter: ButtonDeleteFilterDelegate?
 
@@ -40,7 +40,7 @@ class FilterMaintenanceCell: ASCellNode {
         
         self.model = model
         super.init()
-        buttonDeleteMaintenance = ButtonDeleteFilterMaintenance(target: self, function: #selector(delete))
+        buttonDeleteMaintenance = ButtonDeleteFilterMaintenanceNode(target: self, function: #selector(delete))
         automaticallyManagesSubnodes = true
     }
 
