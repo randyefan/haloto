@@ -37,7 +37,9 @@ class MaintenanceHistorySection: ASDisplayNode {
         buttonAdd = SmallButtonNode(
             title: "+ Add New",
             buttonState: .BlueOutlined,
-            function: { print("Button Add Tapped") }
+            function: {
+                print("Button Add Tapped")
+            }
         )
         buttonAdd?.style.width = ASDimensionMake(90)
 

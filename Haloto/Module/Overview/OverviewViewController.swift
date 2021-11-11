@@ -26,10 +26,16 @@ class OverviewViewController: ASDKViewController<ASScrollNode> {
     // MARK: - Initializer (Required)
     override init() {
         modelUpcoming = listOfUpcomingMaintenanceDummy
-        modelMaintenanceHistory = listOfMaintenanceHistory
+        modelMaintenanceHistory = arrayOfListMaintenaceHistoryDummy[0]
         modelVehicle = listOfVehicleDummy
         
+        vehicleNode.modelVehicle = modelVehicle
+        upcomingMaintenanceNode = UpcomingMaintenanceSection(model: modelUpcoming ?? [])
+        maintenanceHistoryNode = MaintenanceHistorySection(model: modelMaintenanceHistory ?? [])
+        
+        
         super.init(node: ASScrollNode())
+        vehicleNode.delegate = self
         node.automaticallyManagesSubnodes = true
         node.automaticallyManagesContentSize = true
         node.layoutSpecBlock = { _, _ in
@@ -61,5 +67,13 @@ class OverviewViewController: ASDKViewController<ASScrollNode> {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+    }
+}
+
+extension OverviewViewController: VehicleSectionDelegate {
+    func changeVehicle(index: Int) {
+        modelMaintenanceHistory = arrayOfListMaintenaceHistory[index]
+        maintenanceHistoryNode = MaintenanceHistorySection(model: modelMaintenanceHistory ?? [])
+        node.setNeedsLayout()
     }
 }

@@ -8,6 +8,7 @@
 import AsyncDisplayKit
 
 class UpcomingMaintenanceSection: ASDisplayNode {
+    
     var model: [UpcomingMaintenance]?
     
     private let upcomingMaintenanceNode: [UpcomingMaintenanceCell]
@@ -45,6 +46,12 @@ class UpcomingMaintenanceSection: ASDisplayNode {
     
     func handleTap(index: Int) {
         print(index)
+        if let data = model?[index] {
+            let vc = UpcomingMaintenancePanModal(maintenance: data)
+            let bottomSheetVC = BottomSheetViewController(wrapping: vc)
+            self.closestViewController?.present(bottomSheetVC, animated: true, completion: nil)
+        }
+        
     }
 
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {

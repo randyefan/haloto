@@ -71,7 +71,7 @@ class UpcomingMaintenancePanModal: ASDKViewController<ASDisplayNode> {
 
             let withChevronStack = ASStackLayoutSpec(direction: .vertical, spacing: 32, justifyContent: .center, alignItems: .center, children: [self.chevronDown, nodeStack])
 
-            let nodeInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea, left: 16, bottom: .infinity, right: 16), child: withChevronStack)
+            let nodeInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: .bottomSafeArea, right: 16), child: nodeStack)
             return nodeInset
         }
     }

@@ -8,8 +8,14 @@
 import AsyncDisplayKit
 import Foundation
 
+protocol VehicleSectionDelegate {
+    func changeVehicle(index: Int)
+}
+
 class VehicleSection: ASDisplayNode, ASCollectionDataSource {
     var modelVehicle: [Vehicle]?
+    
+    var delegate: VehicleSectionDelegate?
 
     private let displayNode: ASDisplayNode = {
         let node = ASDisplayNode()
@@ -54,4 +60,7 @@ extension VehicleSection: ASPagerDelegate, ASPagerDataSource {
         }
         return ASCellNode()
     }
+    
+    
+    
 }

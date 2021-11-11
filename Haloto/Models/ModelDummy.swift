@@ -206,3 +206,8 @@ let maintenanceHistory3 = MaintenanceHistory(maintenanceTitle: "Service 40.000 K
                                              totalCost: 200000)
 
 let listOfMaintenanceHistory = [maintenanceHistory1, maintenanceHistory2, maintenanceHistory3]
+let listOfMaintenanceHistory2 = [maintenanceHistory1, maintenanceHistory1, maintenanceHistory1]
+let listOfMaintenanceHistory3 = [maintenanceHistory3, maintenanceHistory3, maintenanceHistory3]
+
+let arrayOfListMaintenaceHistoryDummy = [listOfMaintenanceHistory, listOfMaintenanceHistory2, listOfMaintenanceHistory3]
+
