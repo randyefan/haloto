@@ -111,3 +111,9 @@ let sampleVehicle: [Vehicle] = [
     Vehicle(name: "Brio", fuelType: "Bensin", manufacture: "HONDA", manufacturedYear: "2020", capacity: 1500, transmissionType: "Matic", licensePlate: "B 1234 AX", isDefault: true),
     Vehicle(name: "Brio", fuelType: "Bensin", manufacture: "HONDA", manufacturedYear: "2020", capacity: 1500, transmissionType: "Matic", licensePlate: "B 1234 AX", isDefault: true)
 ]
+
+let sampleComponentList: [ComponentList] = [
+    ComponentList(componentID: 1, componentListName: "Asdasd", componentListPrice: 20000),
+    ComponentList(componentID: 2, componentListName: "Asdasd", componentListPrice: 30000),
+    ComponentList(componentID: 3, componentListName: "Asdasd", componentListPrice: 40000),
+]

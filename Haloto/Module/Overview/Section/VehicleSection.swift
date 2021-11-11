@@ -20,8 +20,6 @@ class VehicleSection: ASDisplayNode, ASCollectionDataSource {
         let node = ASPagerNode()
         return node
     }()
-    
-    
 
     override init() {
         super.init()
