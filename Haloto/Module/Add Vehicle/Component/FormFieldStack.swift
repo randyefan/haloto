@@ -48,6 +48,7 @@ class FormFieldStack: ASDisplayNode {
     }
 
     func changeText(text: String){
+        self.text = text
         textField.changeText(text: text)
     }
     
@@ -65,5 +66,8 @@ extension FormFieldStack: EntryTextFieldNodeDelegate{
     func getOptions() -> [String]{
         return options
     }
-    
+
+    func getDefaultValue() -> String{
+        return text
+    }
 }

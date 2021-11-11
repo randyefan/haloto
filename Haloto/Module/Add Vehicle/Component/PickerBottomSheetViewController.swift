@@ -12,11 +12,13 @@ class PickerBottomSheetViewController: ASDKViewController<ASDisplayNode> {
     var cc = ["1200", "1500", "3000"]
     private var pickerOptions: [String]? = []
     private var currentTextField: FormFieldStack?
+    private var index = 0
 
     private lazy var pickerView: ViewWrapperNode<UIPickerView> = {
         let wrapperNode = ViewWrapperNode<UIPickerView>(createView: {
             let picker = UIPickerView()
             picker.delegate = self
+            picker.selectRow(self.index, inComponent: 0, animated: true)
             picker.dataSource = self
             return picker
         })
@@ -34,10 +36,14 @@ class PickerBottomSheetViewController: ASDKViewController<ASDisplayNode> {
         }
     }
 
-    func configurePicker(sender: FormFieldStack, options: [String]? = ["1200", "1300", "1500"]) {
+    func configurePicker(sender: FormFieldStack, options: [String]? = ["1200", "1300", "1500"], defaultValue: String?) {
         currentTextField = sender
         pickerOptions = options
+        if let defaultValue = defaultValue {
+             index = getDefaultIndex(defaultString: defaultValue)
+        }
     }
+    
 
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
@@ -68,5 +74,12 @@ extension PickerBottomSheetViewController: UIPickerViewDelegate, UIPickerViewDat
     func pickerView(_: UIPickerView, didSelectRow row: Int, inComponent _: Int) {
         currentTextField?.changeText(text: pickerOptions?[row] ?? "")
         dismiss(animated: true) {}
+    }
+}
+
+fileprivate extension PickerBottomSheetViewController{
+    func getDefaultIndex(defaultString: String) -> Int{
+        
+        return pickerOptions?.firstIndex(of: defaultString) ?? 0
     }
 }

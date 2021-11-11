@@ -37,13 +37,13 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
     }()
 
     private lazy var manufacturedYearFormNode: FormFieldStack = {
-        // TODO: nanti pake view model set picker optionsnya bisa kan?
+        // TODO: nanti pake view model set picker optionsn
         let node = FormFieldStack(isPicker: true, title: "Manufactured Year", text: manufacturedYearDefaultValue, pickerOptions: ["2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007"])
         return node
     }()
 
     private lazy var capacityFormNode: FormFieldStack = {
-        // TODO: nanti pake view model set picker optionsnya bisa kan?
+        // TODO: nanti pake view model set picker optionsn
         let node = FormFieldStack(isPicker: true, title: "CC", text: "\(capacityDefaultValue)", pickerOptions: ["1000", "1250", "1500", "1800", "2000"])
         return node
     }()
@@ -177,7 +177,8 @@ extension AddNewVehicleViewController: ASEditableTextNodeDelegate {
 extension AddNewVehicleViewController: FormFieldStackDelegate {
     func openPickerView(sender: FormFieldStack) {
         let vc = PickerBottomSheetViewController()
-        vc.configurePicker(sender: sender, options: sender.getOptions())
+        
+        vc.configurePicker(sender: sender, options: sender.getOptions(), defaultValue: sender.getDefaultValue())
         let bottomSheetVC = BottomSheetViewController(wrapping: vc)
         navigationController?.present(bottomSheetVC, animated: true, completion: nil)
     }
