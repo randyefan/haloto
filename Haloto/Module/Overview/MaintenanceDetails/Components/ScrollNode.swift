@@ -36,7 +36,9 @@ class ScrollNode: ASScrollNode {
         
         let buttonInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: .infinity, bottom: 0, right: .infinity), child: buttonAdd)
         
-        let contentStack = ASStackLayoutSpec(direction: .vertical, spacing: 16, justifyContent: .start, alignItems: .start, children: [cardInset, self.textFieldMaintenance, self.detailSelectMaintenanceHistory, buttonInset])
+        let serviceTableNodeInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: servicedTableNode)
+        
+        let contentStack = ASStackLayoutSpec(direction: .vertical, spacing: 16, justifyContent: .start, alignItems: .start, children: [cardInset, self.textFieldMaintenance, serviceTableNodeInset, buttonInset])
         
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: contentStack)
     }

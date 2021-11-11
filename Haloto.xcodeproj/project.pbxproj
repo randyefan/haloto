@@ -20,6 +20,9 @@
 		217AC61A273B85AC004F26C4 /* ReceiptImageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217AC619273B85AC004F26C4 /* ReceiptImageCard.swift */; };
 		217DD5EA2738EDC100570989 /* MaintenanceHistorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD5E92738EDC100570989 /* MaintenanceHistorySection.swift */; };
 		218CA205273CBAC100394B20 /* ScrollNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218CA204273CBAC100394B20 /* ScrollNode.swift */; };
+		218CA207273CF2DB00394B20 /* WrapperSelectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218CA206273CF2DB00394B20 /* WrapperSelectNode.swift */; };
+		218CA209273CF5EB00394B20 /* ReplacedTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218CA208273CF5EB00394B20 /* ReplacedTableNode.swift */; };
+		218CA20B273CF94500394B20 /* OtherComponentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218CA20A273CF94500394B20 /* OtherComponentCell.swift */; };
 		2F2943516D4480F7198B7355 /* Pods_Haloto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B1522FF9AE1571B3B5A470 /* Pods_Haloto.framework */; };
 		3B09EC29273B9622001E1828 /* PickerBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B09EC28273B9622001E1828 /* PickerBottomSheetViewController.swift */; };
 		3B6922712735ACDF00847845 /* OneTimePasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6922702735ACDF00847845 /* OneTimePasswordTextField.swift */; };
@@ -146,6 +149,9 @@
 		217AC619273B85AC004F26C4 /* ReceiptImageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptImageCard.swift; sourceTree = "<group>"; };
 		217DD5E92738EDC100570989 /* MaintenanceHistorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceHistorySection.swift; sourceTree = "<group>"; };
 		218CA204273CBAC100394B20 /* ScrollNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollNode.swift; sourceTree = "<group>"; };
+		218CA206273CF2DB00394B20 /* WrapperSelectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperSelectNode.swift; sourceTree = "<group>"; };
+		218CA208273CF5EB00394B20 /* ReplacedTableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplacedTableNode.swift; sourceTree = "<group>"; };
+		218CA20A273CF94500394B20 /* OtherComponentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherComponentCell.swift; sourceTree = "<group>"; };
 		23B1522FF9AE1571B3B5A470 /* Pods_Haloto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haloto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3240DF906EE1C6F71C485CA6 /* Pods-Haloto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haloto.release.xcconfig"; path = "Target Support Files/Pods-Haloto/Pods-Haloto.release.xcconfig"; sourceTree = "<group>"; };
 		3B09EC28273B9622001E1828 /* PickerBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerBottomSheetViewController.swift; sourceTree = "<group>"; };
@@ -314,12 +320,15 @@
 			isa = PBXGroup;
 			children = (
 				217AC617273B7CA6004F26C4 /* TextField.swift */,
+				218CA204273CBAC100394B20 /* ScrollNode.swift */,
+				218CA206273CF2DB00394B20 /* WrapperSelectNode.swift */,
+				218CA20A273CF94500394B20 /* OtherComponentCell.swift */,
 				217AC619273B85AC004F26C4 /* ReceiptImageCard.swift */,
 				217AC615273B7387004F26C4 /* TextFieldMaintenanceDetails.swift */,
 				21094B8D273BB3E10075E787 /* DetailSelectMaintenanceHistory.swift */,
 				21094B92273BD0AA0075E787 /* ServicedTableNode.swift */,
+				218CA208273CF5EB00394B20 /* ReplacedTableNode.swift */,
 				21094B94273BECEE0075E787 /* UpdateHistoryNode.swift */,
-				218CA204273CBAC100394B20 /* ScrollNode.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1131,6 +1140,7 @@
 				618546D12734DCA100675BB0 /* MaintenanceHistoryDescription.swift in Sources */,
 				618802ED2727C5F3003F4C6F /* SceneDelegate.swift in Sources */,
 				3B09EC29273B9622001E1828 /* PickerBottomSheetViewController.swift in Sources */,
+				218CA207273CF2DB00394B20 /* WrapperSelectNode.swift in Sources */,
 				B764982D27350B45003A90C2 /* EditProfileController.swift in Sources */,
 				3BC41D39273A37E70008C194 /* SelectFieldStack.swift in Sources */,
 				F202275F273A22DB00AF2AF3 /* BottomSheetViewController.swift in Sources */,
@@ -1158,12 +1168,14 @@
 				612844762727EBCE00D060AC /* NetworkError.swift in Sources */,
 				3BAC15992733932E00D52067 /* OTPViewController.swift in Sources */,
 				217AC618273B7CA6004F26C4 /* TextField.swift in Sources */,
+				218CA209273CF5EB00394B20 /* ReplacedTableNode.swift in Sources */,
 				F202274A2734FDEF00AF2AF3 /* Extension+CAGradientLayer.swift in Sources */,
 				611726DD2731598F00FC2445 /* HeaderListPopUpNode.swift in Sources */,
 				6128449E2727F89600D060AC /* Extension+UIViewController.swift in Sources */,
 				B7DD6DC627338FCE007F087B /* UserProfileViewController.swift in Sources */,
 				217DD5EA2738EDC100570989 /* MaintenanceHistorySection.swift in Sources */,
 				6163AC5427382B1200E7756E /* PaymentMethodNode.swift in Sources */,
+				218CA20B273CF94500394B20 /* OtherComponentCell.swift in Sources */,
 				B7DD6DF6273435DA007F087B /* ProfileFinalNode.swift in Sources */,
 				3BC41D40273A9A660008C194 /* EntryTextFieldNode.swift in Sources */,
 				F28F6D052732437300261BA1 /* Extension+NSAttributedString.swift in Sources */,
