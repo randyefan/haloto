@@ -7,6 +7,9 @@
 
 import SnapKit
 import UIKit
+import RxSwift
+import RxCocoa
+
 // TODO: Handle typing and get the value of log in
 class LoginViewController: UIViewController {
     private lazy var backgroundImageView: UIImageView = {
@@ -44,20 +47,19 @@ class LoginViewController: UIViewController {
     private lazy var loginView: UIView = {
         let temp = UIView()
         temp.backgroundColor = .white
-
         return temp
     }()
 
+    private let viewModel = LoginViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        formCard.delegate = self
         setupView()
+        bindViewModel()
     }
 }
 
 private extension LoginViewController {
-
-    
     func setupView() {
         setupPushViewOnKeyboardAction()
         hideKeyboardWhenTappedAround()
@@ -93,24 +95,36 @@ private extension LoginViewController {
             make.centerX.equalToSuperview()
         }
     }
-}
 
-extension LoginViewController: FormCardDelegate {
-    func otpIsFilled(pin _: String) {}
+    func bindViewModel() {
+        let textFieldTrigger = formCard
+            .phoneNumberStack
+            .loginInfoTextField
+            .rx.text.orEmpty.asDriver()
+        let signUpTrigger = formCard.signUpButton.rx.tap.asDriver()
+        let submit = formCard.loginButton.rx.tap.asDriver()
 
-    func attemptRequestOTP() {
-        let vc = OTPViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
+        let output = viewModel.transform(input: .init(
+            textFieldTriger: textFieldTrigger,
+            submit: submit,
+            tapSignUp: signUpTrigger)
+        )
 
-    func signUpButtonIsPressed() {
-        let vc = SignUpViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        output.OTPSent.drive(onNext: { [weak self] otpViewModel in
+            guard let self = self else { return }
+            let vc = OTPViewController(viewModel: otpViewModel)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }).disposed(by: rx.disposeBag)
+
+        output.signUpDidTap.drive(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            let vc = SignUpViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }).disposed(by: rx.disposeBag)
     }
 }
 
 extension LoginViewController {
-    
     @objc
     override func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
@@ -120,5 +134,5 @@ extension LoginViewController {
             }
         }
     }
-    
+
 }

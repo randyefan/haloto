@@ -114,7 +114,11 @@
 		F2022775273A2CE500AF2AF3 /* Extension+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2022774273A2CE500AF2AF3 /* Extension+CALayer.swift */; };
 		F2022777273A2E1100AF2AF3 /* RxSwizzlingInterpose.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2022776273A2E1100AF2AF3 /* RxSwizzlingInterpose.swift */; };
 		F2532CD82734E31F00C34AEF /* ChipNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2532CD72734E31F00C34AEF /* ChipNode.swift */; };
+		F273EF93273CC51D004721B1 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F273EF92273CC51D004721B1 /* LoginUseCase.swift */; };
+		F273EF96273CC5B3004721B1 /* WhatsappTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F273EF95273CC5B3004721B1 /* WhatsappTarget.swift */; };
 		F28F6D052732437300261BA1 /* Extension+NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F6D042732437300261BA1 /* Extension+NSAttributedString.swift */; };
+		F2EC1285273D318800B29F4A /* WhatsappModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC1284273D318800B29F4A /* WhatsappModel.swift */; };
+		F2EC1287273D3F8F00B29F4A /* OTPGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC1286273D3F8F00B29F4A /* OTPGenerator.swift */; };
 		F2F5FF7D2732D9FC00E4643C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7713BC92730E772007A3824 /* Poppins-Regular.ttf */; };
 		F2F5FF7E2732DA0000E4643C /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7713BC82730E766007A3824 /* Poppins-Bold.ttf */; };
 		F2F5FF83273378FF00E4643C /* StickyChatNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F5FF82273378FF00E4643C /* StickyChatNode.swift */; };
@@ -232,7 +236,11 @@
 		F2022774273A2CE500AF2AF3 /* Extension+CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CALayer.swift"; sourceTree = "<group>"; };
 		F2022776273A2E1100AF2AF3 /* RxSwizzlingInterpose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSwizzlingInterpose.swift; sourceTree = "<group>"; };
 		F2532CD72734E31F00C34AEF /* ChipNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipNode.swift; sourceTree = "<group>"; };
+		F273EF92273CC51D004721B1 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		F273EF95273CC5B3004721B1 /* WhatsappTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsappTarget.swift; sourceTree = "<group>"; };
 		F28F6D042732437300261BA1 /* Extension+NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSAttributedString.swift"; sourceTree = "<group>"; };
+		F2EC1284273D318800B29F4A /* WhatsappModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsappModel.swift; sourceTree = "<group>"; };
+		F2EC1286273D3F8F00B29F4A /* OTPGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPGenerator.swift; sourceTree = "<group>"; };
 		F2F5FF82273378FF00E4643C /* StickyChatNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyChatNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -327,6 +335,7 @@
 			children = (
 				3BFAED14273250D60024C8C2 /* LoginViewController.swift */,
 				3BAC159527338E8800D52067 /* LoginViewModel.swift */,
+				F273EF92273CC51D004721B1 /* LoginUseCase.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -434,6 +443,7 @@
 		612844682727E9BB00D060AC /* Network Manager */ = {
 			isa = PBXGroup;
 			children = (
+				F273EF94273CC5A5004721B1 /* Request */,
 				612844742727EBB800D060AC /* Error */,
 				612844792727EC5300D060AC /* NetworkProvider.swift */,
 			);
@@ -445,6 +455,7 @@
 			children = (
 				6128446A2727EA1700D060AC /* CommonHelper.swift */,
 				61F8ACCE272D547E00B24015 /* ImagePickerHelper.swift */,
+				F2EC1286273D3F8F00B29F4A /* OTPGenerator.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -920,6 +931,15 @@
 			path = "Chip Node";
 			sourceTree = "<group>";
 		};
+		F273EF94273CC5A5004721B1 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				F273EF95273CC5B3004721B1 /* WhatsappTarget.swift */,
+				F2EC1284273D318800B29F4A /* WhatsappModel.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		F2F5FF81273378EE00E4643C /* Sticky Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -1067,6 +1087,7 @@
 				618546D02734DCA100675BB0 /* MaintenanceHistoryCell.swift in Sources */,
 				6163AC4927381AC700E7756E /* UserPaymentReviewViewController.swift in Sources */,
 				618546D12734DCA100675BB0 /* MaintenanceHistoryDescription.swift in Sources */,
+				F2EC1287273D3F8F00B29F4A /* OTPGenerator.swift in Sources */,
 				618802ED2727C5F3003F4C6F /* SceneDelegate.swift in Sources */,
 				B764982D27350B45003A90C2 /* EditProfileController.swift in Sources */,
 				F202275F273A22DB00AF2AF3 /* BottomSheetViewController.swift in Sources */,
@@ -1079,6 +1100,7 @@
 				B7713BD027319358007A3824 /* ReusableVehicleCell.swift in Sources */,
 				F20227462734F0E600AF2AF3 /* WorkshopConsultationCard.swift in Sources */,
 				F20227542735526500AF2AF3 /* WorkshopConsultationMainCell.swift in Sources */,
+				F273EF96273CC5B3004721B1 /* WhatsappTarget.swift in Sources */,
 				612844712727EB6C00D060AC /* Extension+UIColor.swift in Sources */,
 				F2022763273A24FF00AF2AF3 /* BottomSheetPresentController.swift in Sources */,
 				6128446F2727EB3D00D060AC /* Extension+String.swift in Sources */,
@@ -1127,6 +1149,7 @@
 				3BAC159B2733A54A00D52067 /* OTPViewModel.swift in Sources */,
 				6134E6B12733067F002E7526 /* Extension+CGFloat.swift in Sources */,
 				6163AC4D27381CE500E7756E /* PaymentTimerNode.swift in Sources */,
+				F2EC1285273D318800B29F4A /* WhatsappModel.swift in Sources */,
 				612844782727EBF300D060AC /* Extension+Result.swift in Sources */,
 				3B860C132732E0E7007776BB /* FormField.swift in Sources */,
 				3BB652262734FAFE0003E861 /* FormCard.swift in Sources */,
@@ -1148,6 +1171,7 @@
 				2171C77527353AC2001CB1C2 /* VehicleSection.swift in Sources */,
 				61C679EC272F9D3A003AFE3F /* TabItem.swift in Sources */,
 				3B860C192732F29C007776BB /* LoginButton.swift in Sources */,
+				F273EF93273CC51D004721B1 /* LoginUseCase.swift in Sources */,
 				612844652727E8C100D060AC /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
