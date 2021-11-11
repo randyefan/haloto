@@ -31,6 +31,10 @@ class SelectFieldStack: ASDisplayNode {
 
         automaticallyManagesSubnodes = true
     }
+    
+    func setSelected(text: String?) {
+        selectNode.setSelected(text: text)
+    }
 
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
         let selectStack = ASStackLayoutSpec(direction: .vertical, spacing: 8, justifyContent: .start, alignItems: .start, children: [titleLabel, selectNode])

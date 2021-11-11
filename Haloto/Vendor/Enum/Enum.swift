@@ -44,6 +44,16 @@ enum PopUpListState: String {
     case edit = "Edit"
 }
 
+enum VehicleTransmision: String {
+    case matic = "Automatic"
+    case manual = "Manual"
+}
+
+enum VehicleFuelType: String {
+    case diesel = "Diesel"
+    case petrol = "Petrol"
+}
+
 enum ReusableConsultPopUpState {
     case request
     case accepted

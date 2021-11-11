@@ -9,7 +9,8 @@ import AsyncDisplayKit
 import UIKit
 
 class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
-   
+    // MARK: - Components
+
     private lazy var manufacturerFormNode: SelectFieldStack = {
         let node = SelectFieldStack(title: "Manufacturer", placeholder: "Choose your vehicle manufacturer")
         return node
@@ -50,10 +51,7 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
         return node
     }()
 
-    private lazy var addVehicleButton: SmallButtonNode = {
-        let node = SmallButtonNode(title: "Add Vehicle", buttonState: .Disabled, function: .none)
-        return node
-    }()
+    private var addVehicleButton: SmallButtonNode?
 
     private lazy var header: HeaderListPopUpNode = {
         let node = HeaderListPopUpNode(state: .newvehicle)
@@ -61,18 +59,57 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
         return node
     }()
 
-    override init() {
+    // MARK: - Privates
+
+    private var vehicle: Vehicle?
+
+    init(vehicle: Vehicle?) {
         super.init(node: ASDisplayNode())
+        if let vehicle = vehicle {
+            self.vehicle = vehicle
+            manufacturerFormNode.setSelected(text: "\(vehicle.manufacture ?? "")")
+            modelFormNode.setSelected(text: "\(vehicle.name ?? "")")
+            odometerFormNode.changeText(text: "\(vehicle.odometer ?? 0)")
+            licensePlateFormNode.changeText(text: "\(vehicle.licensePlate ?? "")")
+            manufacturedYearFormNode.changeText(text: "\(vehicle.manufacturedYear ?? "")")
+            ccFormNode.changeText(text: "\(vehicle.capacity ?? 0)")
+            
+//            switch vehicle.fuelType {
+//            case VehicleFuelType.petrol.rawValue:
+//                
+//            case VehicleFuelType.diesel.rawValue:
+//            }
+            
+        }
         manufacturedYearFormNode.delegate = self
         ccFormNode.delegate = self
         node.automaticallyManagesSubnodes = true
         node.backgroundColor = .white
-        let stack = ASStackLayoutSpec(direction: .vertical, spacing: 16, justifyContent: .center, alignItems: .start, children: [manufacturerFormNode, modelFormNode, odometerFormNode, licensePlateFormNode, manufacturedYearFormNode, ccFormNode, tranmissionStack, fuelTypeStack])
-        let addNewVehicleStack = ASStackLayoutSpec(direction: .vertical, spacing: 32, justifyContent: .center, alignItems: .center, children: [header, stack, addVehicleButton])
+        
+        addVehicleButton = SmallButtonNode(title: "Add Vehicle", buttonState: .GreyButton, function: {
+            //TODO: add vehicle Action
+            print("add vehicle Action")
+        })
 
-        stack.style.width = ASDimensionMake("100%")
         node.layoutSpecBlock = { _, _ in
-            ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea, left: 16, bottom: .bottomSafeArea, right: 16), child: addNewVehicleStack)
+            let stack = ASStackLayoutSpec(
+                direction: .vertical,
+                spacing: 16,
+                justifyContent: .center,
+                alignItems: .start,
+                children: [self.manufacturerFormNode, self.modelFormNode, self.odometerFormNode, self.licensePlateFormNode, self.manufacturedYearFormNode, self.ccFormNode, self.tranmissionStack, self.fuelTypeStack]
+            )
+            let addNewVehicleStack = ASStackLayoutSpec(
+                direction: .vertical,
+                spacing: 32,
+                justifyContent: .center,
+                alignItems: .center,
+                children: [self.header, stack, self.addVehicleButton!]
+            )
+
+            stack.style.width = ASDimensionMake("100%")
+
+            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea, left: 16, bottom: .bottomSafeArea, right: 16), child: addNewVehicleStack)
         }
     }
 
@@ -87,7 +124,6 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
 }
 
 extension AddNewVehicleViewController: ASEditableTextNodeDelegate {
-
     func editableTextNode(_ editableTextNode: ASEditableTextNode, shouldChangeTextIn _: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             editableTextNode.resignFirstResponder()
@@ -101,7 +137,7 @@ extension AddNewVehicleViewController: FormFieldStackDelegate {
     func openPickerView(sender: FormFieldStack) {
         let vc = PickerBottomSheetViewController()
         vc.configurePicker(sender: sender)
-        //TODO: Ini di configure pickernya nanti masukin kaya optionsnya apa aja biar bisa dirubah di dalem
+        // TODO: Ini di configure pickernya nanti masukin kaya optionsnya apa aja biar bisa dirubah di dalem
         let bottomSheetVC = BottomSheetViewController(wrapping: vc)
         navigationController?.present(bottomSheetVC, animated: true, completion: nil)
     }

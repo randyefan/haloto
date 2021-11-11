@@ -50,6 +50,24 @@ class SmallButtonNode: ASDisplayNode {
         automaticallyManagesSubnodes = true
     }
 
+    func setSelected(node: SmallButtonNode?) {
+        if let node = node {
+            node.buttonNode.backgroundColor = .blueApp
+            if let title = node.titleNode.attributedText {
+                node.titleNode.attributedText = .font("\(title.string)", size: 11, fontWeight: .medium, color: .white, alignment: .center)
+            }
+        }
+    }
+
+    func setUnselected(node: SmallButtonNode?) {
+        if let node = node {
+            node.buttonNode.backgroundColor = .white
+            if let title = node.titleNode.attributedText {
+                node.titleNode.attributedText = .font("\(title.string) ", size: 11, fontWeight: .medium, color: .blueApp, alignment: .center)
+            }
+        }
+    }
+
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
         let titleInset = ASInsetLayoutSpec(insets: UIEdgeInsets(
             top: .infinity,

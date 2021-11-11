@@ -15,6 +15,7 @@ struct Vehicle: Codable {
     var capacity: Int?
     var transmissionType: String?
     var licensePlate: String?
+    var odometer: Int?
     var isDefault: Bool?
 }
 

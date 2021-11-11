@@ -36,6 +36,12 @@ class SelectNode: ASDisplayNode {
         cornerRadius = 5
         super.layout()
     }
+    
+    func setSelected(text: String?){
+        if let text = text {
+            placeholderLabel.attributedText = .font(text, size: 12, fontWeight: .regular)
+        }
+    }
 
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
         let selectNode = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .spaceBetween, alignItems: .start, children: [placeholderLabel, rightChevronButton])
