@@ -8,7 +8,8 @@
 import AsyncDisplayKit
 
 class UpcomingMaintenanceSection: ASDisplayNode {
-    let model = sampleUpcoming
+    var model: [UpcomingMaintenance]?
+    
     private let upcomingMaintenanceNode: [UpcomingMaintenanceCell]
 
     private let titleNode: ASTextNode2 = {
@@ -17,6 +18,8 @@ class UpcomingMaintenanceSection: ASDisplayNode {
     }()
 
     init(model: [UpcomingMaintenance]) {
+        self.model = model
+        
         upcomingMaintenanceNode = (0 ..< model.count).map { index in
             let tempNode = UpcomingMaintenanceCell(model: model[index])
             return tempNode

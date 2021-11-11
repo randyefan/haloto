@@ -38,7 +38,8 @@ struct MaintenanceHistory: Codable {
     var maintenanceDate: String?
     var maintenanceOdometer: Int?
     var workshopName: String?
-    var components: [ComponentList]?
+    var serviced: [ComponentList]?
+    var replaced: [ComponentList]?
     var otherComponents: [OtherComponents]?
     var maintenanceHistoryImage: String?
     var totalCost: Int?
@@ -91,4 +92,13 @@ struct Model: Codable {
 struct Payment: Codable {
     let fee: Double?
     let tax: Double?
+}
+
+struct Bengkel: Codable {
+    let id: Int?
+    let namaBengkel: String?
+    let rating: Double?
+    let ratingCount: Int?
+    let speciality: [Speciality]?
+    let payment: Payment?
 }

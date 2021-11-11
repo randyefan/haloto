@@ -6,9 +6,10 @@
 //
 
 import AsyncDisplayKit
+import Foundation
 
 class VehicleSection: ASDisplayNode, ASCollectionDataSource {
-    let modelVehicle = sampleVehicle
+    var modelVehicle: [Vehicle]?
 
     private let displayNode: ASDisplayNode = {
         let node = ASDisplayNode()
@@ -23,6 +24,7 @@ class VehicleSection: ASDisplayNode, ASCollectionDataSource {
 
     override init() {
         super.init()
+        
         automaticallyManagesSubnodes = true
         collectionNode.delegate = self
         collectionNode.dataSource = self
@@ -43,11 +45,13 @@ class VehicleSection: ASDisplayNode, ASCollectionDataSource {
 
 extension VehicleSection: ASPagerDelegate, ASPagerDataSource {
     func numberOfPages(in _: ASPagerNode) -> Int {
-        modelVehicle.count
+        modelVehicle?.count ?? 0
     }
 
     func pagerNode(_: ASPagerNode, nodeAt index: Int) -> ASCellNode {
-        let data = modelVehicle[index]
-        return VehicleCellNode(model: data)
+        if let data = modelVehicle?[index] {
+            return VehicleCellNode(model: data)
+        }
+        return ASCellNode()
     }
 }
