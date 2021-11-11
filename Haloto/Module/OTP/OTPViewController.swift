@@ -104,7 +104,8 @@ extension OTPViewController: FormCardDelegate {
     func otpIsFilled(pin _: String) {
         rootHomepageUser()
     }
-
+    
+    @objc
     func attemptRequestOTP() {}
 
     func signUpButtonIsPressed() {
