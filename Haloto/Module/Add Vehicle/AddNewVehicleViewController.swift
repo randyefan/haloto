@@ -11,7 +11,9 @@ import UIKit
 class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
     // MARK: - Components
     //TODO: Check if all data is filled then toast and everything to do with data
-    
+    //TODO: If add vehicle is empty and then after each selection make sure that it is not empty and then you go and check everything if it is filled or not
+    //TODO: Harus ada delegate dari list nya sekarang, siapa yang buat listnya?
+
     
     private lazy var manufacturerFormNode: SelectFieldStack = {
         let node = SelectFieldStack(title: "Manufacturer", placeholder: "Choose your vehicle manufacturer")
