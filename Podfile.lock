@@ -1,7 +1,12 @@
 PODS:
   - Alamofire (5.4.4)
   - FLEX (4.6.0)
+<<<<<<< HEAD
   - Kingfisher (7.1.1)
+=======
+  - InterposeKit (0.0.2)
+  - Kingfisher (6.3.0)
+>>>>>>> develop
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (15.0.0):
@@ -25,6 +30,12 @@ PODS:
   - RxCocoa (6.2.0):
     - RxRelay (= 6.2.0)
     - RxSwift (= 6.2.0)
+  - RxKeyboard (2.0.0):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxOptional (5.0.2):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
@@ -79,9 +90,12 @@ PODS:
 
 DEPENDENCIES:
   - FLEX
+  - "InterposeKit (from `git@github.com:AmbarSeptian/InterposeKit.git`, branch `ambar/0.0.2`)"
   - Kingfisher
   - Moya/RxSwift
   - RxCocoa
+  - RxKeyboard
+  - RxOptional
   - RxSwift
   - Shimmer (~> 1.0)
   - SnapKit (~> 5.0.0)
@@ -99,6 +113,8 @@ SPEC REPOS:
     - PINOperation
     - PINRemoteImage
     - RxCocoa
+    - RxKeyboard
+    - RxOptional
     - RxRelay
     - RxSwift
     - Shimmer
@@ -107,15 +123,32 @@ SPEC REPOS:
     - Texture
     - Toast-Swift
 
+EXTERNAL SOURCES:
+  InterposeKit:
+    :branch: ambar/0.0.2
+    :git: "git@github.com:AmbarSeptian/InterposeKit.git"
+
+CHECKOUT OPTIONS:
+  InterposeKit:
+    :commit: cfd8c6fe88ea902f59a2baba3edd43b219ae4218
+    :git: "git@github.com:AmbarSeptian/InterposeKit.git"
+
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   FLEX: 6223ad3d853fb6177a6ab1cda85f372a72768da8
+<<<<<<< HEAD
   Kingfisher: f738f9c4a3415823b8e2985d10aa2d6a9f37bc4d
+=======
+  InterposeKit: 8dab5fb249b37fa8d296d4183512c4e706bbdd6b
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
+>>>>>>> develop
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   PINCache: 7a8fc1a691173d21dbddbf86cd515de6efa55086
   PINOperation: 00c935935f1e8cf0d1e2d6b542e75b88fc3e5e20
   PINRemoteImage: f1295b29f8c5e640e25335a1b2bd9d805171bd01
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxKeyboard: 4f5863f43b4ff0cbb2a20b94688d6b80c8a43c14
+  RxOptional: 3664964c96b69dd20c9cf78bdfe546615e26eca8
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
@@ -124,6 +157,6 @@ SPEC CHECKSUMS:
   Texture: 2e8ab2519452515f7f5a520f5a8f7e0a413abfa3
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
 
-PODFILE CHECKSUM: d266949ecd32b419bc78e010283c8cf48de19b75
+PODFILE CHECKSUM: f7f2ba988c737271bc39eb9fa89c6afc06b4867d
 
 COCOAPODS: 1.11.2

@@ -11,10 +11,12 @@ import SwiftUI
 
 class ProfileFinalNode: ASDisplayNode {
     
+    var delegate: ProfileBackgroundCardDelegate?
+    
     // MARK: - Variables
 
     private let profileInfo: ProfileInfoNode
-    private let ProfileBackground = ProfileBackgroundCard()
+    let ProfileBackground = ProfileBackgroundCard()
     private let RootView: ASDisplayNode = {
         let node = ASDisplayNode()
         node.style.height = ASDimension(unit: .points, value: 176)
@@ -23,8 +25,7 @@ class ProfileFinalNode: ASDisplayNode {
 
     // MARK: - Init (Required)
 
-    init(profile: Profile, delegate: ProfileBackgroundCardDelegate?) {
-        ProfileBackground.delegate = delegate
+    init(profile: Profile) {
         profileInfo = ProfileInfoNode(profile: profile)
         super.init()
         automaticallyManagesSubnodes = true

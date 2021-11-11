@@ -26,6 +26,7 @@ struct UpcomingMaintenance: Codable {
 
 struct Component: Codable {
     var name: String?
+    var componentImage: String?
     var lastReplacementOdometer: Int?
     var lastReplacementDate: String?
     var lifetimeOdometer: Int?

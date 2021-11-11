@@ -7,6 +7,10 @@
 
 import AsyncDisplayKit
 
+protocol WorkshopConsultationMainNodeDelegate {
+    func didTapConsultNow()
+}
+
 internal final class WorkshopConsultationMainNode: ASDisplayNode {
 
     private let workshopDescriptionNode: ASTextNode2 = {
@@ -43,9 +47,11 @@ internal final class WorkshopConsultationMainNode: ASDisplayNode {
     }()
 
     private let workshopCardNode: WorkshopConsultationCard
-    private let consultButon = SmallButtonNode(title: "Consult Now", buttonState: .Yellow, function: nil)
+    private var consultButon: SmallButtonNode?
 
     private var isOpen: Bool = false
+
+    var delegate: WorkshopConsultationMainNodeDelegate?
 
     override init() {
         workshopCardNode = WorkshopConsultationCard()
@@ -55,6 +61,10 @@ internal final class WorkshopConsultationMainNode: ASDisplayNode {
         automaticallyManagesSubnodes = true
         specialtyListNode.delegate = self
         specialtyListNode.dataSource = self
+
+        consultButon = SmallButtonNode(title: "Consult Now", buttonState: .Yellow, function: {
+            self.delegate?.didTapConsultNow()
+        })
 
         availableHours.attributedText = .font("10 am - 7 pm", size: 12)
         workshopDescriptionNode.attributedText = .font(
@@ -73,13 +83,15 @@ internal final class WorkshopConsultationMainNode: ASDisplayNode {
         backgroundColor = .white
         specialtyListNode.view.showsHorizontalScrollIndicator = false
 
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(setOpen))
-        view.addGestureRecognizer(gesture)
+        view.onTap { [weak self] in
+            guard let self = self else { return }
+            self.isOpen = !self.isOpen
+            self.setNeedsLayout()
+        }
     }
 
     @objc private func setOpen() {
-        isOpen = !isOpen
-        setNeedsLayout()
+
     }
 
     func setShadow() {
@@ -110,15 +122,18 @@ internal final class WorkshopConsultationMainNode: ASDisplayNode {
             children: [availableHoursTitleNode, availableHours]
         )
 
-        let buttonInset = ASInsetLayoutSpec(
-            insets: UIEdgeInsets(top: 0, left: 103, bottom: 0, right: 103), child: consultButon)
+        var buttonInset: ASInsetLayoutSpec?
+        if let consultButon = consultButon {
+            buttonInset = ASInsetLayoutSpec(
+                insets: UIEdgeInsets(top: 0, left: 103, bottom: 0, right: 103), child: consultButon)
+        }
 
         let openStateStack = ASStackLayoutSpec(
             direction: .vertical,
             spacing: 16,
             justifyContent: .start,
             alignItems: .stretch,
-            children: [workshopDescriptionNode, specialtyStack, availableHoursStack, buttonInset]
+            children: [workshopDescriptionNode, specialtyStack, availableHoursStack, buttonInset].compactMap({ $0 })
         )
 
         let openInset = ASInsetLayoutSpec(

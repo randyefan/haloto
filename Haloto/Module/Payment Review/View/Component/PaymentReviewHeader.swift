@@ -23,6 +23,8 @@ class PaymentReviewHeader: ASDisplayNode {
         return node
     }()
     
+    var xAction: (()->())?
+    
     override init() {
         super.init()
         style.height = ASDimension(unit: .points, value: .topSafeArea + 48)
@@ -40,11 +42,15 @@ class PaymentReviewHeader: ASDisplayNode {
     override func layout() {
         super.layout()
         backgroundColor = .white
+        
+        xButtonNode.view.onTap {
+            self.xAction?()
+        }
+        
         layer.shadowPath = UIBezierPath(rect: bounds).cgPath
     }
 
     func setShadow() {
-        cornerRadius = 15
         shadowColor = UIColor.black.cgColor
         shadowOpacity = 0.12
         shadowOffset.height = 2
