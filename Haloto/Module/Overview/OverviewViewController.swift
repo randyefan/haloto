@@ -21,12 +21,14 @@ class OverviewViewController: ASDKViewController<ASScrollNode> {
         node.automaticallyManagesContentSize = true
         node.layoutSpecBlock = { _, _ in
 
-            ASStackLayoutSpec(
+            let stack =  ASStackLayoutSpec(
                 direction: .vertical,
                 spacing: 10,
                 justifyContent: .start,
                 alignItems: .stretch,
                 children: [vehicleSection, upcomingMaintenanceSection, maintenanceHistorySection])
+            
+            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea, left: 0, bottom: 70, right: 0), child: stack)
         }
     }
 
@@ -40,8 +42,12 @@ class OverviewViewController: ASDKViewController<ASScrollNode> {
     override func viewDidLoad() {
         super.viewDidLoad()
         node.backgroundColor = .white
-
+        self.navigationController?.navigationBar.isHidden = true
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
     }
 }
 

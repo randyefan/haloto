@@ -43,7 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
 
-        let viewController = OverviewViewController()
+        let viewController = LoginViewController()
         let navigation = UINavigationController(rootViewController: viewController)
 
         window.rootViewController = navigation

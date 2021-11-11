@@ -6,7 +6,6 @@
 //
 
 import AsyncDisplayKit
-import os
 
 class UpcomingMaintenanceSection: ASDisplayNode {
     let model = sampleUpcoming
@@ -31,7 +30,18 @@ class UpcomingMaintenanceSection: ASDisplayNode {
         )
 
         super.init()
+        
+        for (index, upcoming) in upcomingMaintenanceNode.enumerated() {
+            upcoming.view.onTap {
+                self.handleTap(index: index)
+            }
+        }
+        
         automaticallyManagesSubnodes = true
+    }
+    
+    func handleTap(index: Int) {
+        print(index)
     }
 
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
