@@ -7,6 +7,7 @@
 
 import SnapKit
 import UIKit
+import RxCocoa
 
 class OTPViewController: UIViewController {
     private lazy var backgroundImageView: UIImageView = {
@@ -106,12 +107,13 @@ private extension OTPViewController {
     func bindViewModel() {
         let textFieldTrigger = formCard.otpField.rx.text.orEmpty.asDriver()
         let submit = formCard.loginButton.rx.tap.asDriver()
+        let tapResendOtp = formCard.resendOTPButton.rx.tap.asDriver()
         let signUpTrigger = formCard.signUpButton.rx.tap.asDriver()
-
 
         let output = viewModel.transform(input: .init(
             textFieldTriger: textFieldTrigger,
             submit: submit,
+            resendOtpDidTap: tapResendOtp,
             tapSignUp: signUpTrigger)
         )
 
@@ -121,8 +123,7 @@ private extension OTPViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }).disposed(by: rx.disposeBag)
 
-        output.OTPMatched.drive(onNext: { [weak self] match in
-            guard let self = self else { return }
+        output.OTPMatched.drive(onNext: { match in
             if match {
                 let tabBar = TabBarBaseController(productLogin: .User)
                 UIApplication.shared.windows.first?.rootViewController = tabBar

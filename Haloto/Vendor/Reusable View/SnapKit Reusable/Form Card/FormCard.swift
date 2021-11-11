@@ -102,10 +102,9 @@ class FormCard: UIView {
         return temp
     }()
 
-    private lazy var resendOTPButton: UIButton = {
+    internal lazy var resendOTPButton: UIButton = {
         let button = UIButton()
         button.setAttributedTitle(.font("Re-send OTP", size: 11, fontWeight: .medium, color: UIColor(named: "button-blue") ?? .black, alignment: .center), for: .normal)
-        button.addTarget(self, action: #selector(attemptRequestOTP), for: .touchUpInside)
         return button
     }()
 
@@ -164,7 +163,6 @@ extension FormCard {
                 make.width.equalToSuperview()
             }
             loginButton.setTitle(title: "Login")
-            loginButton.addTarget(self, action: #selector(requestOTPIsPressed), for: .touchUpInside)
             calculateView.snp.makeConstraints { make in
                 make.top.equalTo(loginButton.snp.bottom)
                 make.bottom.equalToSuperview()
@@ -180,28 +178,7 @@ extension FormCard {
             make.bottom.equalToSuperview().offset(-24)
             make.centerX.equalToSuperview()
         }
-    
-    }
 
-    @objc
-    func requestOTPIsPressed() {
-        delegate?.attemptRequestOTP()
-    }
-
-    @objc
-    func signUpButtonIsPressed() {
-        delegate?.signUpButtonIsPressed()
-    }
-
-    @objc
-    func attemptRequestOTP() {
-        print("requesting OTP")
-    }
-
-    @objc
-    func verifyOTP() {
-        guard let otp = otpPin else { return }
-        delegate?.otpIsFilled(pin: otp)
     }
 }
 

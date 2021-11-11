@@ -10,10 +10,10 @@ import RxCocoa
 import RxSwift
 
 internal class OTPViewModel {
-    private let OTP: String
+    private let OTP: Driver<String>
     private let phoneNumber: Driver<String>
 
-    internal init(OTP: String, phoneNumber: Driver<String>) {
+    internal init(OTP: Driver<String>, phoneNumber: Driver<String>) {
         self.OTP = OTP
         self.phoneNumber = phoneNumber
     }
@@ -21,6 +21,7 @@ internal class OTPViewModel {
     internal struct Input {
         internal let textFieldTriger: Driver<String>
         internal let submit: Driver<Void>
+        internal let resendOtpDidTap: Driver<Void>
         internal let tapSignUp: Driver<Void>
     }
 
@@ -33,9 +34,13 @@ internal class OTPViewModel {
     internal func transform(input: Input) -> Output {
         let checkOTP = input.submit.withLatestFrom(input.textFieldTriger)
             .flatMapLatest { [OTP] otpInput -> Driver<Bool> in
-            return Driver.just(OTP == otpInput)
+            return Driver.combineLatest(OTP, Driver.just(otpInput)).map { $0 == $1 }
         }
 
-        return Output(signUpDidTap: input.tapSignUp, OTPMatched: checkOTP, phoneNumber: phoneNumber)
+        return Output(
+            signUpDidTap: input.tapSignUp,
+            OTPMatched: checkOTP,
+            phoneNumber: phoneNumber
+        )
     }
 }

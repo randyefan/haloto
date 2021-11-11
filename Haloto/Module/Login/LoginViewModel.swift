@@ -29,19 +29,17 @@ internal class LoginViewModel {
 
     internal func transform(input: Input) -> Output {
         let otp = OTPGenerator.shared.getOTP()
-        let message = "Use \(otp) as OTP to log in to your Haloto account. NEVER SHARE OTP with anyone. Not even Haloto."
 
         let response = input.submit.withLatestFrom(input.textFieldTriger)
             .flatMapLatest { [useCase] phoneNumber -> Driver<WhatsappResponse> in
             useCase
-                .sendOTP(phoneNumber.replacingCharacters(in: ...phoneNumber.startIndex, with: "62"), message)
+                .sendOTP(phoneNumber.replacingCharacters(in: ...phoneNumber.startIndex, with: "62"), otp.message)
                 .compactMap(\.success)
                 .asDriverOnErrorJustComplete()
         }
 
-
         let OTPSent = response.flatMapLatest { _ -> Driver<OTPViewModel> in
-            Driver.just(OTPViewModel(OTP: otp, phoneNumber: input.textFieldTriger))
+            Driver.just(OTPViewModel(OTP: Driver.just(otp.code), phoneNumber: input.textFieldTriger))
         }
 
         return Output(signUpDidTap: input.tapSignUp, OTPSent: OTPSent)
