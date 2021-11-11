@@ -43,8 +43,16 @@ class UpcomingMaintenanceSection: ASDisplayNode {
             children: upcomingMaintenanceNode
         )
 
-        let final = ASStackLayoutSpec(direction: .vertical, spacing: 11, justifyContent: .start, alignItems: .stretch, children: [titleNode, stack])
+        let final = ASStackLayoutSpec(
+            direction: .vertical,
+            spacing: 11,
+            justifyContent: .start,
+            alignItems: .stretch,
+            children: [titleNode, stack])
 
-        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 14, left: 16, bottom: 14, right: 16), child: final)
+        return ASInsetLayoutSpec(
+            insets: UIEdgeInsets(top: 14, left: 16, bottom: 14, right: 16),
+            child: final
+        )
     }
 }

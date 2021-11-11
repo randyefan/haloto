@@ -32,7 +32,11 @@ class MaintenanceHistorySection: ASDisplayNode {
             color: UIColor.black
         )
 
-        buttonAdd = SmallButtonNode(title: "+ Add New", buttonState: .BlueOutlined, function: { print("Button Add Tapped") })
+        buttonAdd = SmallButtonNode(
+            title: "+ Add New",
+            buttonState: .BlueOutlined,
+            function: { print("Button Add Tapped") }
+        )
         buttonAdd?.style.width = ASDimensionMake(90)
 
         super.init()
@@ -48,9 +52,21 @@ class MaintenanceHistorySection: ASDisplayNode {
             children: maintenanHistoryNode
         )
 
-        let titleAndButtonStack = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .spaceBetween, alignItems: .start, children: [titleNode, buttonAdd].compactMap { $0 })
+        let titleAndButtonStack = ASStackLayoutSpec(
+            direction: .horizontal,
+            spacing: 0,
+            justifyContent: .spaceBetween,
+            alignItems: .start,
+            children: [titleNode, buttonAdd].compactMap { $0 }
+        )
 
-        let finalStack = ASStackLayoutSpec(direction: .vertical, spacing: 11, justifyContent: .start, alignItems: .stretch, children: [titleAndButtonStack, stack])
+        let finalStack = ASStackLayoutSpec(
+            direction: .vertical,
+            spacing: 11,
+            justifyContent: .start,
+            alignItems: .stretch,
+            children: [titleAndButtonStack, stack]
+        )
 
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 14, left: 16, bottom: 14, right: 16), child: finalStack)
     }

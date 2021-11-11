@@ -20,8 +20,6 @@ class VehicleSection: ASDisplayNode, ASCollectionDataSource {
         let node = ASPagerNode()
         return node
     }()
-    
-    
 
     override init() {
         super.init()
@@ -31,8 +29,14 @@ class VehicleSection: ASDisplayNode, ASCollectionDataSource {
     }
 
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
-        let insetCollection = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: collectionNode)
-        let inset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: displayNode)
+        let insetCollection = ASInsetLayoutSpec(
+            insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16),
+            child: collectionNode
+        )
+        let inset = ASInsetLayoutSpec(
+            insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
+            child: displayNode
+        )
         return ASOverlayLayoutSpec(child: inset, overlay: insetCollection)
     }
 }

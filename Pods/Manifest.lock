@@ -1,12 +1,8 @@
 PODS:
   - Alamofire (5.4.4)
   - FLEX (4.6.0)
-<<<<<<< HEAD
-  - Kingfisher (7.1.1)
-=======
   - InterposeKit (0.0.2)
-  - Kingfisher (6.3.0)
->>>>>>> develop
+  - Kingfisher (7.1.1)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (15.0.0):
@@ -136,12 +132,8 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   FLEX: 6223ad3d853fb6177a6ab1cda85f372a72768da8
-<<<<<<< HEAD
-  Kingfisher: f738f9c4a3415823b8e2985d10aa2d6a9f37bc4d
-=======
   InterposeKit: 8dab5fb249b37fa8d296d4183512c4e706bbdd6b
-  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
->>>>>>> develop
+  Kingfisher: f738f9c4a3415823b8e2985d10aa2d6a9f37bc4d
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   PINCache: 7a8fc1a691173d21dbddbf86cd515de6efa55086
   PINOperation: 00c935935f1e8cf0d1e2d6b542e75b88fc3e5e20

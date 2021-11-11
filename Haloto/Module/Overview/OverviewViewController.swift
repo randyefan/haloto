@@ -21,7 +21,12 @@ class OverviewViewController: ASDKViewController<ASScrollNode> {
         node.automaticallyManagesContentSize = true
         node.layoutSpecBlock = { _, _ in
 
-            ASStackLayoutSpec(direction: .vertical, spacing: 10, justifyContent: .start, alignItems: .stretch, children: [vehicleSection, upcomingMaintenanceSection, maintenanceHistorySection])
+            ASStackLayoutSpec(
+                direction: .vertical,
+                spacing: 10,
+                justifyContent: .start,
+                alignItems: .stretch,
+                children: [vehicleSection, upcomingMaintenanceSection, maintenanceHistorySection])
         }
     }
 
@@ -46,23 +51,23 @@ let sampleUpcoming: [UpcomingMaintenance] = [
                                                lastReplacementDate: "1 Jan 2020",
                                                lifetimeOdometer: 0,
                                                lifetimeDate: "1 Jan 2019")],
-                        nextServiceOdometer: 40000,
-                        nextServiceDate: "1 Jan 2021"),
-    
+    nextServiceOdometer: 40000,
+    nextServiceDate: "1 Jan 2021"),
+
     UpcomingMaintenance(components: [Component(name: "Filter",
                                                lastReplacementOdometer: 20000,
                                                lastReplacementDate: "1 Jan 2020",
                                                lifetimeOdometer: 0,
                                                lifetimeDate: "1 Jan 2019")],
-                        nextServiceOdometer: 20000,
-                        nextServiceDate: "1 Jan 2021"),
+    nextServiceOdometer: 20000,
+    nextServiceDate: "1 Jan 2021"),
     UpcomingMaintenance(components: [Component(name: "Oli",
                                                lastReplacementOdometer: 20000,
                                                lastReplacementDate: "1 Jan 2020",
                                                lifetimeOdometer: 0,
                                                lifetimeDate: "1 Jan 2019")],
-                        nextServiceOdometer: 10000,
-                        nextServiceDate: "1 Jan 2021"),
+    nextServiceOdometer: 10000,
+    nextServiceDate: "1 Jan 2021"),
 ]
 
 let sampleMaintenanHistory: [MaintenanceHistory] = [
@@ -74,11 +79,12 @@ let sampleMaintenanHistory: [MaintenanceHistory] = [
         components: [ComponentList(
             componentID: 1,
             componentListName: "Accu",
-            componentListPrice: 1000000
+            componentListPrice: 1_000_000
         )],
         maintenanceHistoryImage: "maintenanceHistoryImage",
-        totalCost: 1000000),
-    
+        totalCost: 1_000_000
+    ),
+
     MaintenanceHistory(
         maintenanceTitle: "Check Filter Health",
         maintenanceDate: "7 Jan 2021",
@@ -87,11 +93,12 @@ let sampleMaintenanHistory: [MaintenanceHistory] = [
         components: [ComponentList(
             componentID: 2,
             componentListName: "Filter",
-            componentListPrice: 200000
+            componentListPrice: 200_000
         )],
         maintenanceHistoryImage: "maintenanceHistoryImage",
-        totalCost: 200000),
-    
+        totalCost: 200_000
+    ),
+
     MaintenanceHistory(
         maintenanceTitle: "Check Oli Health",
         maintenanceDate: "2 Feb 2021",
@@ -100,14 +107,15 @@ let sampleMaintenanHistory: [MaintenanceHistory] = [
         components: [ComponentList(
             componentID: 3,
             componentListName: "Oli",
-            componentListPrice: 300000
+            componentListPrice: 300_000
         )],
         maintenanceHistoryImage: "maintenanceHistoryImage",
-        totalCost: 300000)
+        totalCost: 300_000
+    ),
 ]
 
 let sampleVehicle: [Vehicle] = [
     Vehicle(name: "Brio", fuelType: "Bensin", manufacture: "HONDA", manufacturedYear: "2020", capacity: 1500, transmissionType: "Matic", licensePlate: "B 1234 AX", isDefault: true),
     Vehicle(name: "Brio", fuelType: "Bensin", manufacture: "HONDA", manufacturedYear: "2020", capacity: 1500, transmissionType: "Matic", licensePlate: "B 1234 AX", isDefault: true),
-    Vehicle(name: "Brio", fuelType: "Bensin", manufacture: "HONDA", manufacturedYear: "2020", capacity: 1500, transmissionType: "Matic", licensePlate: "B 1234 AX", isDefault: true)
+    Vehicle(name: "Brio", fuelType: "Bensin", manufacture: "HONDA", manufacturedYear: "2020", capacity: 1500, transmissionType: "Matic", licensePlate: "B 1234 AX", isDefault: true),
 ]
