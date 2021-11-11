@@ -10,8 +10,7 @@ import UIKit
 
 class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
     // MARK: - Components
-    //TODO: Set picker default value
-    //TODO: Check if all data is filled then toast
+    //TODO: Check if all data is filled then toast and everything to do with data
     
     
     private lazy var manufacturerFormNode: SelectFieldStack = {
