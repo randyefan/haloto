@@ -6,21 +6,15 @@
 //
 
 import UIKit
-protocol FormCardDelegate: AnyObject {
-    func attemptRequestOTP()
-    func signUpButtonIsPressed()
-    func otpIsFilled(pin: String)
-}
 
 // TODO: Form card delegate to fill when the otp is done
 class FormCard: UIView {
-    weak var delegate: FormCardDelegate?
     private var formType: FormCardType?
     private var otpPin: String?
 
     private var phoneNumber: String?
 
-    private lazy var phoneNumberStack: FormField = {
+    internal lazy var phoneNumberStack: FormField = {
         let temp = FormField()
         temp.setText(textTitle: "Phone Number", placeHolder: "Phone Number")
         temp.setKeyboardType(keyboardType: .numberPad)
@@ -34,7 +28,7 @@ class FormCard: UIView {
         return temp
     }()
 
-    private lazy var loginButton: LoginButton = {
+    internal lazy var loginButton: LoginButton = {
         let temp = LoginButton()
         temp.switchButton(state: .disabled)
         return temp
@@ -46,10 +40,9 @@ class FormCard: UIView {
         return temp
     }()
 
-    private lazy var signUpButton: UIButton = {
+    internal lazy var signUpButton: UIButton = {
         let temp = UIButton()
         temp.setAttributedTitle(.font("Sign Up", size: 11, fontWeight: .medium, color: UIColor(named: "button-blue") ?? UIColor.black, alignment: .left, underline: true, isTitle: false), for: .normal)
-        temp.addTarget(self, action: #selector(signUpButtonIsPressed), for: .touchUpInside)
         return temp
     }()
 
@@ -60,7 +53,7 @@ class FormCard: UIView {
         return temp
     }()
 
-    private lazy var otpField: OneTimePasswordTextField = {
+    internal lazy var otpField: OneTimePasswordTextField = {
         let temp = OneTimePasswordTextField()
         temp.configure(with: 4)
         return temp
@@ -78,9 +71,8 @@ class FormCard: UIView {
         return temp
     }()
 
-    private lazy var phoneNumberLabel: UILabel = {
+    internal lazy var phoneNumberLabel: UILabel = {
         let temp = UILabel()
-        temp.attributedText = .font("+62 812 3456 7890", size: 12, fontWeight: .regular, color: .black, alignment: .center, underline: false, isTitle: false)
         return temp
     }()
 
@@ -110,10 +102,9 @@ class FormCard: UIView {
         return temp
     }()
 
-    private lazy var resendOTPButton: UIButton = {
+    internal lazy var resendOTPButton: UIButton = {
         let button = UIButton()
         button.setAttributedTitle(.font("Re-send OTP", size: 11, fontWeight: .medium, color: UIColor(named: "button-blue") ?? .black, alignment: .center), for: .normal)
-        button.addTarget(self, action: #selector(attemptRequestOTP), for: .touchUpInside)
         return button
     }()
 
@@ -147,7 +138,6 @@ extension FormCard {
                 make.height.equalTo(40)
             }
             loginButton.setTitle(title: "Verify")
-            loginButton.addTarget(self, action: #selector(verifyOTP), for: .touchUpInside)
             loginButton.snp.makeConstraints { make in
                 make.top.equalTo(otpMiddleStack.snp.bottom).offset(28)
                 make.centerX.equalToSuperview()
@@ -173,7 +163,6 @@ extension FormCard {
                 make.width.equalToSuperview()
             }
             loginButton.setTitle(title: "Login")
-            loginButton.addTarget(self, action: #selector(requestOTPIsPressed), for: .touchUpInside)
             calculateView.snp.makeConstraints { make in
                 make.top.equalTo(loginButton.snp.bottom)
                 make.bottom.equalToSuperview()
@@ -189,28 +178,7 @@ extension FormCard {
             make.bottom.equalToSuperview().offset(-24)
             make.centerX.equalToSuperview()
         }
-    
-    }
 
-    @objc
-    func requestOTPIsPressed() {
-        delegate?.attemptRequestOTP()
-    }
-
-    @objc
-    func signUpButtonIsPressed() {
-        delegate?.signUpButtonIsPressed()
-    }
-
-    @objc
-    func attemptRequestOTP() {
-        print("requesting OTP")
-    }
-
-    @objc
-    func verifyOTP() {
-        guard let otp = otpPin else { return }
-        delegate?.otpIsFilled(pin: otp)
     }
 }
 
@@ -223,6 +191,7 @@ extension FormCard: OneTimePasswordTextFieldDelegate {
         otpPin = pin
         loginButton.switchButton(state: .enabled)
     }
+
 }
 
 extension FormCard {
@@ -230,6 +199,7 @@ extension FormCard {
         return calculateView.frame.height
     }
 }
+
 
 extension FormCard: FormFieldDelegate {
     func fieldDidEnterCharacter() {
@@ -239,4 +209,5 @@ extension FormCard: FormFieldDelegate {
     func fieldDidBecomeEmpty() {
         loginButton.switchButton(state: .disabled)
     }
+
 }

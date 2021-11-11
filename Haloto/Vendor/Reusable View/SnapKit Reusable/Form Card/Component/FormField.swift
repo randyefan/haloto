@@ -8,14 +8,14 @@
 import SnapKit
 import UIKit
 
-protocol FormFieldDelegate{
+protocol FormFieldDelegate {
     func fieldDidEnterCharacter()
     func fieldDidBecomeEmpty()
 }
 
 class FormField: UIView {
     var delegate: FormFieldDelegate?
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -32,7 +32,7 @@ class FormField: UIView {
         return temp
     }()
 
-    private lazy var loginInfoTextField: FormTextField = {
+    lazy var loginInfoTextField: FormTextField = {
         let temp = FormTextField()
         return temp
     }()
@@ -78,17 +78,17 @@ fileprivate extension FormField {
 }
 
 
-extension FormField: UITextFieldDelegate{
+extension FormField: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            let userEnteredString = textField.text
-            let newString = (userEnteredString! as NSString).replacingCharacters(in: range, with: string) as NSString
-            if  newString != ""{
-                //Enabled
-                delegate?.fieldDidEnterCharacter()
-            } else {
-                //Disabled
-                delegate?.fieldDidBecomeEmpty()
-            }
-            return true
+        let userEnteredString = textField.text
+        let newString = (userEnteredString! as NSString).replacingCharacters(in: range, with: string) as NSString
+        if newString != "" {
+            //Enabled
+            delegate?.fieldDidEnterCharacter()
+        } else {
+            //Disabled
+            delegate?.fieldDidBecomeEmpty()
         }
+        return true
+    }
 }
