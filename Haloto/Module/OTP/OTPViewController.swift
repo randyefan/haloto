@@ -44,14 +44,24 @@ class OTPViewController: UIViewController {
     private lazy var loginView: UIView = {
         let temp = UIView()
         temp.backgroundColor = .white
-
         return temp
     }()
 
+    private let viewModel: OTPViewModel
+
+    init(viewModel: OTPViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        formCard.delegate = self
         setupView()
+        bindViewModel()
     }
 }
 
@@ -92,25 +102,38 @@ private extension OTPViewController {
             make.centerX.equalToSuperview()
         }
     }
-    
-    func rootHomepageUser() {
-        let tabBar = TabBarBaseController(productLogin: .User)
-        UIApplication.shared.windows.first?.rootViewController = tabBar
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
-    }
-}
 
-extension OTPViewController: FormCardDelegate {
-    func otpIsFilled(pin _: String) {
-        rootHomepageUser()
-    }
-    
-    @objc
-    func attemptRequestOTP() {}
+    func bindViewModel() {
+        let textFieldTrigger = formCard.otpField.rx.text.orEmpty.asDriver()
+        let submit = formCard.loginButton.rx.tap.asDriver()
+        let signUpTrigger = formCard.signUpButton.rx.tap.asDriver()
 
-    func signUpButtonIsPressed() {
-        let vc = SignUpViewController()
-        navigationController?.pushViewController(vc, animated: true)
+
+        let output = viewModel.transform(input: .init(
+            textFieldTriger: textFieldTrigger,
+            submit: submit,
+            tapSignUp: signUpTrigger)
+        )
+
+        output.signUpDidTap.drive(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            let vc = SignUpViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }).disposed(by: rx.disposeBag)
+
+        output.OTPMatched.drive(onNext: { [weak self] match in
+            guard let self = self else { return }
+            if match {
+                let tabBar = TabBarBaseController(productLogin: .User)
+                UIApplication.shared.windows.first?.rootViewController = tabBar
+                UIApplication.shared.windows.first?.makeKeyAndVisible()
+            }
+        }).disposed(by: rx.disposeBag)
+
+        output
+            .phoneNumber.map { NSAttributedString.font($0, size: 12, alignment: .center) }
+            .drive(formCard.phoneNumberLabel.rx.attributedText)
+            .disposed(by: rx.disposeBag)
     }
 }
 
