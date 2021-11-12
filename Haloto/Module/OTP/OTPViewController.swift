@@ -117,6 +117,10 @@ private extension OTPViewController {
             tapSignUp: signUpTrigger)
         )
 
+        output.OTPResent.drive(onNext: { _ in
+            print("HARAP DIGANTI DISINI MENJADI RESET TIMER")
+        }).disposed(by: rx.disposeBag)
+
         output.signUpDidTap.drive(onNext: { [weak self] _ in
             guard let self = self else { return }
             let vc = SignUpViewController()

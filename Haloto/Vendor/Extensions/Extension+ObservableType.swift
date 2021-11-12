@@ -17,7 +17,6 @@ extension ObservableType where Element == Response {
 
             do {
                 let value = try response.map(type, atKeyPath: keypath, using: decoder)
-                print(value)
                 return .success(value)
             } catch {
                 let moyaError = error as? MoyaError
