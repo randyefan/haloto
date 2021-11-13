@@ -62,4 +62,5 @@ class OverviewViewController: ASDKViewController<ASScrollNode> {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
     }
+    
 }

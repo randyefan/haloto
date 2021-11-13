@@ -27,6 +27,8 @@
 		218CA207273CF2DB00394B20 /* WrapperSelectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218CA206273CF2DB00394B20 /* WrapperSelectNode.swift */; };
 		218CA209273CF5EB00394B20 /* ReplacedTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218CA208273CF5EB00394B20 /* ReplacedTableNode.swift */; };
 		218CA20B273CF94500394B20 /* OtherComponentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218CA20A273CF94500394B20 /* OtherComponentCell.swift */; };
+		21FD2D95273FEDA2005404C5 /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD2D94273FEDA2005404C5 /* OverviewViewModel.swift */; };
+		21FD2D97274001D2005404C5 /* MaintenanceDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD2D96274001D2005404C5 /* MaintenanceDetailsViewModel.swift */; };
 		2F2943516D4480F7198B7355 /* Pods_Haloto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B1522FF9AE1571B3B5A470 /* Pods_Haloto.framework */; };
 		3B09EC29273B9622001E1828 /* PickerBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B09EC28273B9622001E1828 /* PickerBottomSheetViewController.swift */; };
 		3B6922712735ACDF00847845 /* OneTimePasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6922702735ACDF00847845 /* OneTimePasswordTextField.swift */; };
@@ -168,6 +170,8 @@
 		218CA206273CF2DB00394B20 /* WrapperSelectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperSelectNode.swift; sourceTree = "<group>"; };
 		218CA208273CF5EB00394B20 /* ReplacedTableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplacedTableNode.swift; sourceTree = "<group>"; };
 		218CA20A273CF94500394B20 /* OtherComponentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherComponentCell.swift; sourceTree = "<group>"; };
+		21FD2D94273FEDA2005404C5 /* OverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
+		21FD2D96274001D2005404C5 /* MaintenanceDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceDetailsViewModel.swift; sourceTree = "<group>"; };
 		23B1522FF9AE1571B3B5A470 /* Pods_Haloto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haloto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3240DF906EE1C6F71C485CA6 /* Pods-Haloto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haloto.release.xcconfig"; path = "Target Support Files/Pods-Haloto/Pods-Haloto.release.xcconfig"; sourceTree = "<group>"; };
 		3B09EC28273B9622001E1828 /* PickerBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerBottomSheetViewController.swift; sourceTree = "<group>"; };
@@ -315,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				211C7BC6273A8AC60027A99C /* MaintenanceDetailsViewController.swift */,
+				21FD2D96274001D2005404C5 /* MaintenanceDetailsViewModel.swift */,
 				217AC614273B7368004F26C4 /* Components */,
 			);
 			path = MaintenanceDetails;
@@ -324,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				2153EB912734995E000F1830 /* OverviewViewController.swift */,
+				21FD2D94273FEDA2005404C5 /* OverviewViewModel.swift */,
 				2171C77327353A69001CB1C2 /* Section */,
 				211C7BC2273A7BCF0027A99C /* MaintenanceDetails */,
 			);
@@ -354,8 +360,8 @@
 				21094B8D273BB3E10075E787 /* DetailSelectMaintenanceHistory.swift */,
 				21094B92273BD0AA0075E787 /* ServicedTableNode.swift */,
 				218CA208273CF5EB00394B20 /* ReplacedTableNode.swift */,
-				21094B94273BECEE0075E787 /* UpdateHistoryNode.swift */,
 				211A63E5273F839500D3B91B /* OtherTableNode.swift */,
+				21094B94273BECEE0075E787 /* UpdateHistoryNode.swift */,
 				212B5B85273E22BB0059F8FC /* TotalCostNode.swift */,
 			);
 			path = Components;
@@ -1263,6 +1269,7 @@
 				B7713BD32731944B007A3824 /* VehicleDescriptionNode.swift in Sources */,
 				B7713BD7273234F2007A3824 /* AddNewVehicleCellNode.swift in Sources */,
 				212B5B86273E22BB0059F8FC /* TotalCostNode.swift in Sources */,
+				21FD2D95273FEDA2005404C5 /* OverviewViewModel.swift in Sources */,
 				B764982F27350BE9003A90C2 /* EditProfilePictureNode.swift in Sources */,
 				2153EB922734995E000F1830 /* OverviewViewController.swift in Sources */,
 				613AD74C273D3F2B0024C75E /* ModelDummy.swift in Sources */,
@@ -1281,6 +1288,7 @@
 				3BC41D36273A36920008C194 /* AddNewVehicleViewController.swift in Sources */,
 				612844782727EBF300D060AC /* Extension+Result.swift in Sources */,
 				3B860C132732E0E7007776BB /* FormField.swift in Sources */,
+				21FD2D97274001D2005404C5 /* MaintenanceDetailsViewModel.swift in Sources */,
 				3BB652262734FAFE0003E861 /* FormCard.swift in Sources */,
 				3BAC159D2733A55800D52067 /* SignUpViewModel.swift in Sources */,
 				211C7BC7273A8AC60027A99C /* MaintenanceDetailsViewController.swift in Sources */,

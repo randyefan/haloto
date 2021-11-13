@@ -52,6 +52,6 @@ extension VehicleSection: ASPagerDelegate, ASPagerDataSource {
         if let data = modelVehicle?[index] {
             return VehicleCellNode(model: data)
         }
-        return ASCellNode()
+        return VehicleCellNode(model: nil)
     }
 }
