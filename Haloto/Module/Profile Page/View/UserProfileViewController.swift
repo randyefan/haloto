@@ -7,6 +7,8 @@
 
 import AsyncDisplayKit
 import Foundation
+import RxCocoa
+import RxSwift
 import UIKit
 
 class UserProfileViewController: ASDKViewController<ASDisplayNode> {
@@ -31,6 +33,11 @@ class UserProfileViewController: ASDKViewController<ASDisplayNode> {
 
     private var profile: Profile
     private var vehicle: [Vehicle?]?
+
+    // MARK: - ViewModel
+
+    private var userProfileViewModel = UserProfileViewModel()
+    private let disposeBag = DisposeBag()
 
     // MARK: - Initializer (Required)
 
@@ -75,6 +82,7 @@ class UserProfileViewController: ASDKViewController<ASDisplayNode> {
     override func viewDidLoad() {
         super.viewDidLoad()
         node.backgroundColor = .white
+        setupBindings()
     }
 
     // MARK: - Functionality
@@ -86,6 +94,10 @@ class UserProfileViewController: ASDKViewController<ASDisplayNode> {
         vehicleTableNode.view.separatorStyle = .none
         vehicleTableNode.view.showsVerticalScrollIndicator = false
     }
+
+    // MARK: - Bindings
+
+    func setupBindings() {}
 }
 
 extension UserProfileViewController: ASTableDelegate, ASTableDataSource {
@@ -117,7 +129,6 @@ extension UserProfileViewController: ASTableDelegate, ASTableDataSource {
 extension UserProfileViewController: ProfileBackgroundCardDelegate {
     func didTapEdit() {
         let vc = EditProfileContoller(profile: profile)
-
         let bottomSheetVC = BottomSheetViewController(wrapping: vc)
         navigationController?.present(bottomSheetVC, animated: true, completion: nil)
     }
