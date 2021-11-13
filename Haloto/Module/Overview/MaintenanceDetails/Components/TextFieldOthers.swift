@@ -7,7 +7,14 @@
 
 import AsyncDisplayKit
 
+//protocol OtherTextFieldDelegate {
+//    func didInputName(text: String)
+//    func didInputPrice(text: String)
+//}
+
 class TextFieldOthers: ASDisplayNode {
+    
+//    var delegate: OtherTextFieldDelegate
     
     private let textFieldNameNode: ASEditableTextNode = {
         let node = ASEditableTextNode()
@@ -20,8 +27,7 @@ class TextFieldOthers: ASDisplayNode {
         node.attributedPlaceholderText = .font("Other Expenses", size: 12)
         return node
     }()
-    
-    
+
     private let textFieldPriceNode: ASEditableTextNode = {
         let node = ASEditableTextNode()
         node.style.height = ASDimension(unit: .points, value: 34)
@@ -32,34 +38,37 @@ class TextFieldOthers: ASDisplayNode {
         node.maximumLinesToDisplay = 1
         node.returnKeyType = .done
         node.attributedPlaceholderText = .font("input price", size: 12)
-        return node
-    }()
-    
-    private let background: ASDisplayNode = {
-        let node = ASDisplayNode()
-        node.style.height = ASDimensionMake(60)
-        node.clipsToBounds = false
+        node.style.height = ASDimensionMake(50)
+        node.borderColor = UIColor.greyApp.cgColor
+        node.borderWidth = 1
         node.cornerRadius = 6
-        node.shadowColor = UIColor.black.cgColor
-        node.shadowOpacity = 0.12
-        node.shadowOffset.height = 2
-        node.shadowRadius = 4
         return node
     }()
-    
+
     override init() {
         super.init()
+//        textFieldNameNode.delegate = self
+//        textFieldPriceNode.delegate = self
         automaticallyManagesSubnodes = true
+        setDisplay()
     }
-    
-    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+
+    func setDisplay() {
+        style.height = ASDimensionMake(50)
+        borderColor = UIColor.greyApp.cgColor
+        borderWidth = 1
+        cornerRadius = 6
+    }
+
+    override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
         let stack = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .spaceBetween, alignItems: .center, children: [textFieldNameNode, textFieldPriceNode])
         
-        let insetStack = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8), child: stack)
-        
-        let inset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: background)
-        
-        return ASOverlayLayoutSpec(child: inset, overlay: insetStack)
+        let stackInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 8), child: stack)
+
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: stackInset)
     }
-    
 }
+
+//extension TextFieldOthers: ASEditableTextNodeDelegate {
+//
+//}
