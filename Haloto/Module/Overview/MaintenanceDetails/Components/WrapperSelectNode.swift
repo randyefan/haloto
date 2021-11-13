@@ -15,6 +15,7 @@ internal final class WrapperSelectNode: ASCellNode {
         selectNode = SelectNode(placeholder: placeHolder)
         super.init()
         automaticallyManagesSubnodes = true
+        style.height = ASDimensionMake(50)
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {

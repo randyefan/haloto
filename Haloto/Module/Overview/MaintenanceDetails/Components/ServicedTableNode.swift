@@ -27,11 +27,18 @@ class ServicedTableNode: ASDisplayNode {
         automaticallyManagesSubnodes = true
         servicedTableNode.dataSource = self
         servicedTableNode.delegate = self
+        servicedTableNode.style.height = ASDimensionMake(50 * CGFloat(model.count + 1))
         
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        let stack = ASStackLayoutSpec(direction: .vertical, spacing: 8, justifyContent: .start, alignItems: .stretch, children: [titleTable, servicedTableNode])
+        let stack = ASStackLayoutSpec(
+            direction: .vertical,
+            spacing: 8,
+            justifyContent: .start,
+            alignItems: .stretch,
+            children: [titleTable, servicedTableNode]
+        )
         
         return ASWrapperLayoutSpec(layoutElement: stack)
     }
@@ -39,11 +46,15 @@ class ServicedTableNode: ASDisplayNode {
 
 extension ServicedTableNode: ASTableDelegate, ASTableDataSource {
     func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
-        model.count
+        model.count + 1
     }
     
     func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
-        let data = model[indexPath.row]
-        return SelectedComponentCell(model: data)
+        if (indexPath.row == model.count) {
+            return WrapperSelectNode(placeHolder: "Choose what part you serviced", function: {print("button serviced pressed")})
+        }else {
+            let data = model[indexPath.row]
+            return SelectedComponentCell(model: data)
+        }
     }
 }

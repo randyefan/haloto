@@ -12,21 +12,30 @@ class ScrollNode: ASScrollNode {
     let scanImageCard: ReceiptImageCard
     let textFieldMaintenance: TextFieldMaintenanceDetails
     let servicedTableNode: ServicedTableNode
+    let replacedTableNode: ReplacedTableNode
     let detailSelectMaintenanceHistory: DetailSelectMaintenanceHistory
+    let otherTextField: TextFieldOthers
+    let totalcost: TotalCostNode
     let buttonAdd: SmallButtonNode
     
     override init() {
         scanImageCard = ReceiptImageCard(model: model[1], state: .beforeScan, function: { print("Scan Button Tapped")})
         textFieldMaintenance = TextFieldMaintenanceDetails()
         servicedTableNode = ServicedTableNode()
+        replacedTableNode = ReplacedTableNode()
         detailSelectMaintenanceHistory = DetailSelectMaintenanceHistory()
         buttonAdd = SmallButtonNode(title: "+ Add New", buttonState: .BlueOutlined, function: {print("Button Add New Pressed")})
-        buttonAdd.style.width = ASDimensionMake(358)
-        buttonAdd.style.height = ASDimensionMake(44)
+        totalcost = TotalCostNode(model: sampleMaintenanHistory[1])
+        otherTextField = TextFieldOthers()
         super.init()
         automaticallyManagesSubnodes = true
         automaticallyManagesContentSize = true
-//        view.isScrollEnabled = true
+        setupButton()
+    }
+    
+    func setupButton() {
+        buttonAdd.style.width = ASDimensionMake(358)
+        buttonAdd.style.height = ASDimensionMake(44)
     }
     
     
@@ -38,7 +47,13 @@ class ScrollNode: ASScrollNode {
         
         let serviceTableNodeInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: servicedTableNode)
         
-        let contentStack = ASStackLayoutSpec(direction: .vertical, spacing: 16, justifyContent: .start, alignItems: .start, children: [cardInset, self.textFieldMaintenance, serviceTableNodeInset, buttonInset])
+        let replacedTableNodeInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: replacedTableNode)
+        
+        let totalCostInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: totalcost)
+        
+        let otherTextFieldInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: otherTextField)
+        
+        let contentStack = ASStackLayoutSpec(direction: .vertical, spacing: 16, justifyContent: .start, alignItems: .start, children: [cardInset, self.textFieldMaintenance, serviceTableNodeInset, replacedTableNodeInset,otherTextFieldInset ,buttonInset, totalCostInset])
         
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: contentStack)
     }

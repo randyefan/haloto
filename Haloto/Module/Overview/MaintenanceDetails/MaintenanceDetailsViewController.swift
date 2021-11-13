@@ -30,13 +30,7 @@ class MaintenanceDetailsViewController: ASDKViewController<ASDisplayNode> {
             
             let headerBottomStack = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .spaceBetween, alignItems: .start, children: [headerInset, updateHistoryInset])
 
-//            let overlayBottom = ASOverlayLayoutSpec(child: scrollNodeInset, overlay: updateHistoryInset)
-//
-//            let bottomInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea + 48 + 12, left: 0, bottom: .bottomSafeArea, right: 0), child: overlayBottom)
-//
             return ASOverlayLayoutSpec(child: scrollNodeInset, overlay: headerBottomStack)
-            
-//            return ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: [headerInset, scrollNodeInset, updateHistoryInset])
         }
     }
 

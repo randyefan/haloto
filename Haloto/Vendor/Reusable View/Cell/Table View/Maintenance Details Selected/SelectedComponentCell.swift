@@ -22,18 +22,25 @@ class SelectedComponentCell: ASCellNode {
     
     init(model: ComponentList) {
         nameText.attributedText = .font(
-            "\(model.componentListName ?? "Radiator")",
+            "\(model.componentListName ?? "")",
             size: 12,
             fontWeight: .regular
         )
         priceNode.attributedText = .font(
-            "\(model.componentListName ?? "Rp 2000000")",
+            "\(model.componentListName ?? "")",
             size: 12,
             fontWeight: .regular
         )
         super.init()
         automaticallyManagesSubnodes = true
         setShadow()
+        setupCell()
+    }
+    
+    func setupCell() {
+        borderColor = UIColor.greyApp.cgColor
+        style.height = ASDimensionMake(50)
+        borderWidth = 0.5
     }
     
     func setShadow() {
@@ -46,12 +53,13 @@ class SelectedComponentCell: ASCellNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        let inset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 8), child: priceNode)
         let stack = ASStackLayoutSpec(
             direction: .horizontal,
             spacing: 0,
-            justifyContent: .start,
-            alignItems: .start,
-            children: [nameText, priceNode])
+            justifyContent: .spaceBetween,
+            alignItems: .center,
+            children: [nameText, inset])
         
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: stack)
     }
