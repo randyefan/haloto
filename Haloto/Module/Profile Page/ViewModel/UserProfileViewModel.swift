@@ -18,8 +18,6 @@ class UserProfileViewModel {
     private let dispose = DisposeBag()
     
     public func requestDataProfile(){
-        self.isLoading.onNext(true)
         //TODO: requestDataHere
-        self.isLoading.onNext(false)
     }
 }
