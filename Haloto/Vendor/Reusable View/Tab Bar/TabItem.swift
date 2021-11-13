@@ -10,7 +10,7 @@ import UIKit
 
 enum TabItem: String, CaseIterable {
     case profile = "Profile"
-    case overview = "Overview"
+    case overview = "Dashboard"
     case consult = "Consult"
     case booking = "Booking"
     case account = "Account"
@@ -22,9 +22,9 @@ enum TabItem: String, CaseIterable {
             vc.title = ""
             vc.view.backgroundColor = .white
             let navigation = UINavigationController(rootViewController: vc)
-            return vc
+            return navigation
         case .overview:
-            let vc = UIViewController()
+            let vc = OverviewViewController()
             vc.title = ""
             vc.view.backgroundColor = .white
             let navigation = UINavigationController(rootViewController: vc)

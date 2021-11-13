@@ -77,3 +77,9 @@ enum NewVehicleFormType{
     case add
     case edit
 }
+
+enum FilterType: String {
+    case model = "Model"
+    case manufacturer = "Manufacturer"
+    case component = "Component"
+}

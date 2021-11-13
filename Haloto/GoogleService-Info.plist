@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>639327703299-5a7i9cdors7u60966hb0urn53o7lmol0.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.639327703299-5a7i9cdors7u60966hb0urn53o7lmol0</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBEj5L0EaQ_5auN4qL-qSn8ie39UXqUuK4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>639327703299</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.sugarbaby.Haloto</string>
+	<key>PROJECT_ID</key>
+	<string>haloto-d69d2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>haloto-d69d2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:639327703299:ios:cef08edf658631b2219936</string>
+</dict>
+</plist>

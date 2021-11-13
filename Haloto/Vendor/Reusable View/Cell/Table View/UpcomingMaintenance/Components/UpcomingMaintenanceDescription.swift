@@ -7,7 +7,7 @@
 
 import AsyncDisplayKit
 
-class UpcomingMaintenanceDescription: ASCellNode {
+class UpcomingMaintenanceDescription: ASDisplayNode {
     private let titleNode: ASTextNode2 = {
         let node = ASTextNode2()
         return node
@@ -27,7 +27,7 @@ class UpcomingMaintenanceDescription: ASCellNode {
 
     init(model: UpcomingMaintenance) {
         titleNode.attributedText = .font(
-            "\(String(describing: model.nextServiceOdometer)) KM Service",
+            "\(model.nextServiceOdometer ?? 0) KM Service",
             size: 14,
             fontWeight: .medium
         )

@@ -11,7 +11,7 @@ protocol ButtonDeleteFilterDelegate {
     func didTapDelete(model: ComponentList)
 }
 
-class ButtonDeleteFilterMaintenance: ASCellNode {
+class ButtonDeleteFilterMaintenanceNode: ASCellNode {
     private let deleteButton: ASImageNode = {
         let node = ASImageNode()
         node.image = UIImage(named: "buttonDelete")
