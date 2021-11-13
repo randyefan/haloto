@@ -57,6 +57,12 @@ enum TimerType {
     case digits
 }
 
+enum FilterType: String {
+    case model = "Model"
+    case manufacturer = "Manufacturer"
+    case component = "Component"
+}
+
 enum ReceiptCardImage {
     case beforeScan
     case afterScan

@@ -28,6 +28,13 @@ extension UIImage {
     static var chevronDown: UIImage {
         return UIImage(named: "chevron-down") ?? UIImage.remove
     }
+    
+    static var chevronDownKotak: UIImage {
+        return UIImage(named: "chevron-down-kotak") ?? UIImage.remove
+    }
+    static var chevronUpKotak: UIImage {
+        return UIImage(named: "chevron-up-kotak") ?? UIImage.remove
+    }
 }
 
 extension UIImage {

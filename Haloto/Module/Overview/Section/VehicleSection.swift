@@ -6,9 +6,10 @@
 //
 
 import AsyncDisplayKit
+import Foundation
 
 class VehicleSection: ASDisplayNode, ASCollectionDataSource {
-    let modelVehicle = sampleVehicle
+    var modelVehicle: [Vehicle]?
 
     private let displayNode: ASDisplayNode = {
         let node = ASDisplayNode()
@@ -23,25 +24,34 @@ class VehicleSection: ASDisplayNode, ASCollectionDataSource {
 
     override init() {
         super.init()
+        
         automaticallyManagesSubnodes = true
         collectionNode.delegate = self
         collectionNode.dataSource = self
     }
 
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
-        let insetCollection = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: collectionNode)
-        let inset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: displayNode)
+        let insetCollection = ASInsetLayoutSpec(
+            insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16),
+            child: collectionNode
+        )
+        let inset = ASInsetLayoutSpec(
+            insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
+            child: displayNode
+        )
         return ASOverlayLayoutSpec(child: inset, overlay: insetCollection)
     }
 }
 
 extension VehicleSection: ASPagerDelegate, ASPagerDataSource {
     func numberOfPages(in _: ASPagerNode) -> Int {
-        modelVehicle.count
+        modelVehicle?.count ?? 0
     }
 
     func pagerNode(_: ASPagerNode, nodeAt index: Int) -> ASCellNode {
-        let data = modelVehicle[index]
-        return VehicleCellNode(model: data)
+        if let data = modelVehicle?[index] {
+            return VehicleCellNode(model: data)
+        }
+        return ASCellNode()
     }
 }

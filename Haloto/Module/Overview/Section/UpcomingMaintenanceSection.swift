@@ -6,10 +6,10 @@
 //
 
 import AsyncDisplayKit
-import os
 
 class UpcomingMaintenanceSection: ASDisplayNode {
-    let model = sampleUpcoming
+    var model: [UpcomingMaintenance]?
+    
     private let upcomingMaintenanceNode: [UpcomingMaintenanceCell]
 
     private let titleNode: ASTextNode2 = {
@@ -18,6 +18,8 @@ class UpcomingMaintenanceSection: ASDisplayNode {
     }()
 
     init(model: [UpcomingMaintenance]) {
+        self.model = model
+        
         upcomingMaintenanceNode = (0 ..< model.count).map { index in
             let tempNode = UpcomingMaintenanceCell(model: model[index])
             return tempNode
@@ -31,7 +33,18 @@ class UpcomingMaintenanceSection: ASDisplayNode {
         )
 
         super.init()
+        
+        for (index, upcoming) in upcomingMaintenanceNode.enumerated() {
+            upcoming.view.onTap {
+                self.handleTap(index: index)
+            }
+        }
+        
         automaticallyManagesSubnodes = true
+    }
+    
+    func handleTap(index: Int) {
+        print(index)
     }
 
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
@@ -43,8 +56,16 @@ class UpcomingMaintenanceSection: ASDisplayNode {
             children: upcomingMaintenanceNode
         )
 
-        let final = ASStackLayoutSpec(direction: .vertical, spacing: 11, justifyContent: .start, alignItems: .stretch, children: [titleNode, stack])
+        let final = ASStackLayoutSpec(
+            direction: .vertical,
+            spacing: 11,
+            justifyContent: .start,
+            alignItems: .stretch,
+            children: [titleNode, stack])
 
-        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 14, left: 16, bottom: 14, right: 16), child: final)
+        return ASInsetLayoutSpec(
+            insets: UIEdgeInsets(top: 14, left: 16, bottom: 14, right: 16),
+            child: final
+        )
     }
 }

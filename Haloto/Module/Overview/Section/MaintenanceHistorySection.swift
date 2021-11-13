@@ -8,7 +8,7 @@
 import AsyncDisplayKit
 
 class MaintenanceHistorySection: ASDisplayNode {
-    let model = sampleMaintenanHistory
+    var model: [MaintenanceHistory]?
 
     private let maintenanHistoryNode: [MaintenanceHistoryCell]
 
@@ -20,6 +20,8 @@ class MaintenanceHistorySection: ASDisplayNode {
     private var buttonAdd: SmallButtonNode?
 
     init(model: [MaintenanceHistory]) {
+        self.model = model
+        
         maintenanHistoryNode = (0 ..< model.count).map { index in
             let tempNode = MaintenanceHistoryCell(model: model[index])
             return tempNode
@@ -32,7 +34,11 @@ class MaintenanceHistorySection: ASDisplayNode {
             color: UIColor.black
         )
 
-        buttonAdd = SmallButtonNode(title: "+ Add New", buttonState: .BlueOutlined, function: { print("Button Add Tapped") })
+        buttonAdd = SmallButtonNode(
+            title: "+ Add New",
+            buttonState: .BlueOutlined,
+            function: { print("Button Add Tapped") }
+        )
         buttonAdd?.style.width = ASDimensionMake(90)
 
         super.init()
@@ -56,7 +62,13 @@ class MaintenanceHistorySection: ASDisplayNode {
             children: [titleNode, buttonAdd].compactMap { $0 }
         )
 
-        let finalStack = ASStackLayoutSpec(direction: .vertical, spacing: 11, justifyContent: .start, alignItems: .stretch, children: [titleAndButtonStack, stack])
+        let finalStack = ASStackLayoutSpec(
+            direction: .vertical,
+            spacing: 11,
+            justifyContent: .start,
+            alignItems: .stretch,
+            children: [titleAndButtonStack, stack]
+        )
 
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 14, left: 16, bottom: 14, right: 16), child: finalStack)
     }
