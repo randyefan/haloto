@@ -21,11 +21,15 @@ class SignUpViewModel {
     public let networkError: PublishSubject<NetworkError> = PublishSubject()
     public let isLoading: PublishSubject<Bool> = PublishSubject()
     
-    public var successRegister: Observable<SignUpReponse>?
+    public var successRegister: Observable<SignUpReponse>
+    
+    public let submitDidTap: PublishSubject<Bool> = PublishSubject()
 
     private let dispose = DisposeBag()
 
     init(useCase: SignUpUseCase = SignUpUseCase.live) {
+        let profileData = Observable.combineLatest(name.asObservable(), email.asObservable(), phone.asObservable())
+        
         self.useCase = useCase
         
         isFilled = Observable.combineLatest(
@@ -33,6 +37,14 @@ class SignUpViewModel {
         ) { name, email, phone in
             return name.count > 0 && email.count > 0 && phone.count > 0
         }
+        
+        successRegister = submitDidTap.withLatestFrom(profileData).flatMapLatest({ name, email, phone -> Observable<SignUpReponse> in
+            return useCase.signUp(name, email, phone)
+                .compactMap(\.success)
+                .asObservable()
+        })
+        
+        
     }
 
     public func signUpNewProfile() {

@@ -45,7 +45,7 @@ extension UserTarget: TargetType {
     internal var params: [String: Any] {
         switch self {
         case let .signUp(name, email, phone):
-            return [
+                return [
                 "fullname": name,
                 "email": email,
                 "phone": phone,
