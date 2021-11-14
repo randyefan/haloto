@@ -14,10 +14,21 @@ class UserProfileViewModel {
     //MARK: - Obersevers
     public let networkError: PublishSubject<NetworkError> = PublishSubject()
     public let profile: PublishSubject<Profile> = PublishSubject()
+    public let personalVehicle: PublishSubject<[Vehicle]> = PublishSubject()
     
     private let dispose = DisposeBag()
     
     public func requestDataProfile(){
-        //TODO: requestDataHere
+        //TODO: requestDataHere Profile
+        //self.profile.onNext("")
+    }
+    
+    public func requestPersonalVehicleData(){
+        //TODO: request Personal Vehicle
+        //self.personalVehicle.onNext("")
+    }
+    
+    public func saveNewProfileData(newProfileData: Profile){
+        //TODO: saveProfileData
     }
 }

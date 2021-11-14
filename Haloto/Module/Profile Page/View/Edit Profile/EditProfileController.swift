@@ -30,6 +30,9 @@ class EditProfileContoller: ASDKViewController<ASDisplayNode> {
 
     private var imagePicker: ImagePickerHelper!
     private var profile: Profile
+    
+    //MARK: - ViewModel
+    private var viewModel = UserProfileViewModel()
 
     init(profile: Profile) {
         self.profile = profile
@@ -56,6 +59,7 @@ class EditProfileContoller: ASDKViewController<ASDisplayNode> {
                     profilePhone: newPhoneNumber,
                     authorizationToken: ""
                 )
+                self.viewModel.saveNewProfileData(newProfileData: newProfile)
 
                 print(newProfile)
                 // TODO: Save new profile

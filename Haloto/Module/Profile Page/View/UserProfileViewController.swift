@@ -32,7 +32,7 @@ class UserProfileViewController: ASDKViewController<ASDisplayNode> {
     // MARK: - Variable
 
     private var profile: Profile
-    private var vehicle: [Vehicle?]?
+    private var personalVehicle: [Vehicle]?
 
     // MARK: - ViewModel
 
@@ -43,7 +43,7 @@ class UserProfileViewController: ASDKViewController<ASDisplayNode> {
 
     override init() {
         profile = dataDummy().profile
-        vehicle = [dataDummy().vehicle, dataDummy().vehicle, dataDummy().vehicle, dataDummy().vehicle]
+        personalVehicle = [dataDummy().vehicle, dataDummy().vehicle, dataDummy().vehicle, dataDummy().vehicle]
         profileInfo = ProfileFinalNode(profile: profile)
 
         super.init(node: ASDisplayNode())
@@ -84,6 +84,10 @@ class UserProfileViewController: ASDKViewController<ASDisplayNode> {
         node.backgroundColor = .white
         setupBindings()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //TODO: view model.requestData
+    }
 
     // MARK: - Functionality
 
@@ -97,29 +101,45 @@ class UserProfileViewController: ASDKViewController<ASDisplayNode> {
 
     // MARK: - Bindings
 
-    func setupBindings() {}
+    func setupBindings() {
+        userProfileViewModel
+            .profile
+            .asObservable()
+            .subscribe { profile in
+                self.profile = profile
+            }
+            .disposed(by: disposeBag)
+        
+        userProfileViewModel
+            .personalVehicle
+            .asObservable()
+            .subscribe { vehicles in
+                self.personalVehicle = vehicles
+            }
+            .disposed(by: disposeBag)
+    }
 }
 
 extension UserProfileViewController: ASTableDelegate, ASTableDataSource {
     func tableNode(_: ASTableNode, numberOfRowsInSection _: Int) -> Int {
-        guard let vehicle = vehicle else { return 1 }
-        return vehicle.count + 1
+        guard let personalVehicle = personalVehicle else { return 1 }
+        return personalVehicle.count + 1
     }
 
     func tableNode(_: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
-        if indexPath.row == vehicle?.count {
+        if indexPath.row == personalVehicle?.count {
             return VehicleCellNode(model: nil)
         } else {
-            return VehicleCellNode(model: vehicle?[indexPath.row] ?? nil)
+            return VehicleCellNode(model: personalVehicle?[indexPath.row] ?? nil)
         }
     }
 
     func tableNode(_: ASTableNode, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == vehicle!.count {
+        if indexPath.row == personalVehicle!.count {
             print("Add new selected")
             // TODO: Push Add new vehicle
         } else {
-            if let vehicle = vehicle?[indexPath.row] {
+            if let vehicle = personalVehicle?[indexPath.row] {
                 // TODO: Push Edit Vehicle
             }
         }
