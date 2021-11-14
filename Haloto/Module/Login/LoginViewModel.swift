@@ -28,18 +28,16 @@ internal class LoginViewModel {
     }
 
     internal func transform(input: Input) -> Output {
-        let otp = OTPGenerator.shared.getOTP()
-
         let response = input.submit.withLatestFrom(input.textFieldTriger)
-            .flatMapLatest { [useCase] phoneNumber -> Driver<WhatsappResponse> in
+            .flatMapLatest { [useCase] phone -> Driver<SignInResponse> in
             useCase
-                .sendOTP(phoneNumber.replacingCharacters(in: ...phoneNumber.startIndex, with: "62"), otp.message)
+                .login(phone)
                 .compactMap(\.success)
                 .asDriverOnErrorJustComplete()
         }
 
         let OTPSent = response.flatMapLatest { _ -> Driver<OTPViewModel> in
-            Driver.just(OTPViewModel(OTP: Driver.just(otp.code), phoneNumber: input.textFieldTriger))
+            Driver.just(OTPViewModel(phone: input.textFieldTriger))
         }
 
         return Output(signUpDidTap: input.tapSignUp, OTPSent: OTPSent)

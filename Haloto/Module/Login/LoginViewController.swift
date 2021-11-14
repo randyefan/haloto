@@ -116,11 +116,11 @@ private extension LoginViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }).disposed(by: rx.disposeBag)
 
-        output.signUpDidTap.drive(onNext: { [weak self] _ in
-            guard let self = self else { return }
-            let vc = SignUpViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
-        }).disposed(by: rx.disposeBag)
+//        output.signUpDidTap.drive(onNext: { [weak self] _ in
+//            guard let self = self else { return }
+//            let vc = SignUpViewController()
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }).disposed(by: rx.disposeBag)
     }
 }
 
