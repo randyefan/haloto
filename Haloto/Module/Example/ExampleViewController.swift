@@ -13,7 +13,7 @@ class dataDummy {
         isDefault: true
     )
 
-    var profile = Profile(profilePicture: "profile-image-placeholder",
+    var profile = Profile(profilePicture: nil,
                           profileName: "Bowo Santoso",
                           profileEmail: "bowo@santosocompany.com",
                           profilePhone: "087774584922",

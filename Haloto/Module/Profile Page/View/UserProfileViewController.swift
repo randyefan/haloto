@@ -7,6 +7,8 @@
 
 import AsyncDisplayKit
 import Foundation
+import RxCocoa
+import RxSwift
 import UIKit
 
 class UserProfileViewController: ASDKViewController<ASDisplayNode> {
@@ -30,13 +32,18 @@ class UserProfileViewController: ASDKViewController<ASDisplayNode> {
     // MARK: - Variable
 
     private var profile: Profile
-    private var vehicle: [Vehicle?]?
+    private var personalVehicle: [Vehicle]?
+
+    // MARK: - ViewModel
+
+    private var userProfileViewModel = UserProfileViewModel()
+    private let disposeBag = DisposeBag()
 
     // MARK: - Initializer (Required)
 
     override init() {
         profile = dataDummy().profile
-        vehicle = [dataDummy().vehicle, dataDummy().vehicle, dataDummy().vehicle, dataDummy().vehicle]
+        personalVehicle = [dataDummy().vehicle, dataDummy().vehicle, dataDummy().vehicle, dataDummy().vehicle]
         profileInfo = ProfileFinalNode(profile: profile)
 
         super.init(node: ASDisplayNode())
@@ -75,6 +82,11 @@ class UserProfileViewController: ASDKViewController<ASDisplayNode> {
     override func viewDidLoad() {
         super.viewDidLoad()
         node.backgroundColor = .white
+        setupBindings()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //TODO: view model.requestData
     }
 
     // MARK: - Functionality
@@ -86,28 +98,48 @@ class UserProfileViewController: ASDKViewController<ASDisplayNode> {
         vehicleTableNode.view.separatorStyle = .none
         vehicleTableNode.view.showsVerticalScrollIndicator = false
     }
+
+    // MARK: - Bindings
+
+    func setupBindings() {
+        userProfileViewModel
+            .profile
+            .asObservable()
+            .subscribe { profile in
+                self.profile = profile
+            }
+            .disposed(by: disposeBag)
+        
+        userProfileViewModel
+            .personalVehicle
+            .asObservable()
+            .subscribe { vehicles in
+                self.personalVehicle = vehicles
+            }
+            .disposed(by: disposeBag)
+    }
 }
 
 extension UserProfileViewController: ASTableDelegate, ASTableDataSource {
     func tableNode(_: ASTableNode, numberOfRowsInSection _: Int) -> Int {
-        guard let vehicle = vehicle else { return 1 }
-        return vehicle.count + 1
+        guard let personalVehicle = personalVehicle else { return 1 }
+        return personalVehicle.count + 1
     }
 
     func tableNode(_: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
-        if indexPath.row == vehicle?.count {
+        if indexPath.row == personalVehicle?.count {
             return VehicleCellNode(model: nil)
         } else {
-            return VehicleCellNode(model: vehicle?[indexPath.row] ?? nil)
+            return VehicleCellNode(model: personalVehicle?[indexPath.row] ?? nil)
         }
     }
 
     func tableNode(_: ASTableNode, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == vehicle!.count {
+        if indexPath.row == personalVehicle!.count {
             print("Add new selected")
             // TODO: Push Add new vehicle
         } else {
-            if let vehicle = vehicle?[indexPath.row] {
+            if let vehicle = personalVehicle?[indexPath.row] {
                 // TODO: Push Edit Vehicle
             }
         }
@@ -117,7 +149,6 @@ extension UserProfileViewController: ASTableDelegate, ASTableDataSource {
 extension UserProfileViewController: ProfileBackgroundCardDelegate {
     func didTapEdit() {
         let vc = EditProfileContoller(profile: profile)
-
         let bottomSheetVC = BottomSheetViewController(wrapping: vc)
         navigationController?.present(bottomSheetVC, animated: true, completion: nil)
     }
