@@ -29,7 +29,6 @@
 		6128446F2727EB3D00D060AC /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128446E2727EB3D00D060AC /* Extension+String.swift */; };
 		612844712727EB6C00D060AC /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844702727EB6C00D060AC /* Extension+UIColor.swift */; };
 		612844732727EB8C00D060AC /* Extension+ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844722727EB8C00D060AC /* Extension+ObservableType.swift */; };
-		612844762727EBCE00D060AC /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844752727EBCE00D060AC /* NetworkError.swift */; };
 		612844782727EBF300D060AC /* Extension+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844772727EBF300D060AC /* Extension+Result.swift */; };
 		6128447A2727EC5300D060AC /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844792727EC5300D060AC /* NetworkProvider.swift */; };
 		6128447D2727EEBF00D060AC /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128447C2727EEBF00D060AC /* ExampleViewController.swift */; };
@@ -120,10 +119,10 @@
 		F2022777273A2E1100AF2AF3 /* RxSwizzlingInterpose.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2022776273A2E1100AF2AF3 /* RxSwizzlingInterpose.swift */; };
 		F2532CD82734E31F00C34AEF /* ChipNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2532CD72734E31F00C34AEF /* ChipNode.swift */; };
 		F273EF93273CC51D004721B1 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F273EF92273CC51D004721B1 /* LoginUseCase.swift */; };
-		F273EF96273CC5B3004721B1 /* WhatsappTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F273EF95273CC5B3004721B1 /* WhatsappTarget.swift */; };
+		F27844B0274124E100C8EDE2 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27844AF274124E100C8EDE2 /* SignInResponse.swift */; };
+		F27844B5274134F800C8EDE2 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27844B4274134F800C8EDE2 /* NetworkError.swift */; };
+		F27844B82741359400C8EDE2 /* DefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27844B72741359400C8EDE2 /* DefaultManager.swift */; };
 		F28F6D052732437300261BA1 /* Extension+NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F6D042732437300261BA1 /* Extension+NSAttributedString.swift */; };
-		F2EC1285273D318800B29F4A /* WhatsappModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC1284273D318800B29F4A /* WhatsappModel.swift */; };
-		F2EC1287273D3F8F00B29F4A /* OTPGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EC1286273D3F8F00B29F4A /* OTPGenerator.swift */; };
 		F2F5FF7D2732D9FC00E4643C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7713BC92730E772007A3824 /* Poppins-Regular.ttf */; };
 		F2F5FF7E2732DA0000E4643C /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7713BC82730E766007A3824 /* Poppins-Bold.ttf */; };
 		F2F5FF83273378FF00E4643C /* StickyChatNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F5FF82273378FF00E4643C /* StickyChatNode.swift */; };
@@ -154,7 +153,6 @@
 		6128446E2727EB3D00D060AC /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		612844702727EB6C00D060AC /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		612844722727EB8C00D060AC /* Extension+ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ObservableType.swift"; sourceTree = "<group>"; };
-		612844752727EBCE00D060AC /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		612844772727EBF300D060AC /* Extension+Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Result.swift"; sourceTree = "<group>"; };
 		612844792727EC5300D060AC /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		6128447C2727EEBF00D060AC /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
@@ -247,10 +245,10 @@
 		F2022776273A2E1100AF2AF3 /* RxSwizzlingInterpose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSwizzlingInterpose.swift; sourceTree = "<group>"; };
 		F2532CD72734E31F00C34AEF /* ChipNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipNode.swift; sourceTree = "<group>"; };
 		F273EF92273CC51D004721B1 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
-		F273EF95273CC5B3004721B1 /* WhatsappTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsappTarget.swift; sourceTree = "<group>"; };
+		F27844AF274124E100C8EDE2 /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
+		F27844B4274134F800C8EDE2 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkError.swift; path = "Haloto/Vendor/Manager/Network Manager/Error/NetworkError.swift"; sourceTree = SOURCE_ROOT; };
+		F27844B72741359400C8EDE2 /* DefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultManager.swift; sourceTree = "<group>"; };
 		F28F6D042732437300261BA1 /* Extension+NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSAttributedString.swift"; sourceTree = "<group>"; };
-		F2EC1284273D318800B29F4A /* WhatsappModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsappModel.swift; sourceTree = "<group>"; };
-		F2EC1286273D3F8F00B29F4A /* OTPGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPGenerator.swift; sourceTree = "<group>"; };
 		F2F5FF82273378FF00E4643C /* StickyChatNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyChatNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -311,7 +309,6 @@
 			children = (
 				B7561F7327410E28005CAE51 /* UseCase */,
 				B7561F6B2740D326005CAE51 /* ViewModel */,
-				B7561F6A2740D321005CAE51 /* View */,
 			);
 			path = "Sign Up";
 			sourceTree = "<group>";
@@ -447,6 +444,7 @@
 		612844672727E9B700D060AC /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				F27844B62741354A00C8EDE2 /* Default Manager */,
 				612844682727E9BB00D060AC /* Network Manager */,
 			);
 			path = Manager;
@@ -455,10 +453,10 @@
 		612844682727E9BB00D060AC /* Network Manager */ = {
 			isa = PBXGroup;
 			children = (
+				612844792727EC5300D060AC /* NetworkProvider.swift */,
 				B7561F6E274106F8005CAE51 /* Model */,
 				F273EF94273CC5A5004721B1 /* Request */,
-				612844742727EBB800D060AC /* Error */,
-				612844792727EC5300D060AC /* NetworkProvider.swift */,
+				F27844B3274134C100C8EDE2 /* Error */,
 			);
 			path = "Network Manager";
 			sourceTree = "<group>";
@@ -468,17 +466,8 @@
 			children = (
 				6128446A2727EA1700D060AC /* CommonHelper.swift */,
 				61F8ACCE272D547E00B24015 /* ImagePickerHelper.swift */,
-				F2EC1286273D3F8F00B29F4A /* OTPGenerator.swift */,
 			);
 			path = Helper;
-			sourceTree = "<group>";
-		};
-		612844742727EBB800D060AC /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				612844752727EBCE00D060AC /* NetworkError.swift */,
-			);
-			path = Error;
 			sourceTree = "<group>";
 		};
 		6128447B2727EE8100D060AC /* Example */ = {
@@ -806,6 +795,7 @@
 			isa = PBXGroup;
 			children = (
 				B7561F6F27410724005CAE51 /* UserSignUp.swift */,
+				F27844AF274124E100C8EDE2 /* SignInResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1012,11 +1002,26 @@
 		F273EF94273CC5A5004721B1 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				F273EF95273CC5B3004721B1 /* WhatsappTarget.swift */,
-				F2EC1284273D318800B29F4A /* WhatsappModel.swift */,
 				B7561F71274107EF005CAE51 /* UserTarget.swift */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		F27844B3274134C100C8EDE2 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				F27844B4274134F800C8EDE2 /* NetworkError.swift */,
+			);
+			name = Error;
+			path = Request/Error;
+			sourceTree = "<group>";
+		};
+		F27844B62741354A00C8EDE2 /* Default Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F27844B72741359400C8EDE2 /* DefaultManager.swift */,
+			);
+			path = "Default Manager";
 			sourceTree = "<group>";
 		};
 		F2F5FF81273378EE00E4643C /* Sticky Chat */ = {
@@ -1167,7 +1172,7 @@
 				6163AC4927381AC700E7756E /* UserPaymentReviewViewController.swift in Sources */,
 				B7637F70273F8DC1001AD75F /* UserProfileViewModel.swift in Sources */,
 				618546D12734DCA100675BB0 /* MaintenanceHistoryDescription.swift in Sources */,
-				F2EC1287273D3F8F00B29F4A /* OTPGenerator.swift in Sources */,
+				F27844B0274124E100C8EDE2 /* SignInResponse.swift in Sources */,
 				618802ED2727C5F3003F4C6F /* SceneDelegate.swift in Sources */,
 				B764982D27350B45003A90C2 /* EditProfileController.swift in Sources */,
 				F202275F273A22DB00AF2AF3 /* BottomSheetViewController.swift in Sources */,
@@ -1180,7 +1185,6 @@
 				B7713BD027319358007A3824 /* ReusableVehicleCell.swift in Sources */,
 				F20227462734F0E600AF2AF3 /* WorkshopConsultationCard.swift in Sources */,
 				F20227542735526500AF2AF3 /* WorkshopConsultationMainCell.swift in Sources */,
-				F273EF96273CC5B3004721B1 /* WhatsappTarget.swift in Sources */,
 				612844712727EB6C00D060AC /* Extension+UIColor.swift in Sources */,
 				F2022763273A24FF00AF2AF3 /* BottomSheetPresentController.swift in Sources */,
 				6128446F2727EB3D00D060AC /* Extension+String.swift in Sources */,
@@ -1232,7 +1236,6 @@
 				6134E6B12733067F002E7526 /* Extension+CGFloat.swift in Sources */,
 				6163AC4D27381CE500E7756E /* PaymentTimerNode.swift in Sources */,
 				B7561F7027410724005CAE51 /* UserSignUp.swift in Sources */,
-				F2EC1285273D318800B29F4A /* WhatsappModel.swift in Sources */,
 				612844782727EBF300D060AC /* Extension+Result.swift in Sources */,
 				3B860C132732E0E7007776BB /* FormField.swift in Sources */,
 				3BB652262734FAFE0003E861 /* FormCard.swift in Sources */,
@@ -1246,7 +1249,9 @@
 				F2022775273A2CE500AF2AF3 /* Extension+CALayer.swift in Sources */,
 				B7A663CB273CC46300286E53 /* FilterNode.swift in Sources */,
 				B7561F7527410E3C005CAE51 /* SignUpUseCase.swift in Sources */,
+				F27844B82741359400C8EDE2 /* DefaultManager.swift in Sources */,
 				61C679EA272F9D2F003AFE3F /* TabNavigationMenu.swift in Sources */,
+				F27844B5274134F800C8EDE2 /* NetworkError.swift in Sources */,
 				6134E6AF2732D420002E7526 /* CellSelectedListPopUpNode.swift in Sources */,
 				612292B3273A87FA004B3A6F /* TextFieldNode.swift in Sources */,
 				F2F5FF83273378FF00E4643C /* StickyChatNode.swift in Sources */,
