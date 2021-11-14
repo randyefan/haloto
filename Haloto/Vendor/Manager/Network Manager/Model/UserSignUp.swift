@@ -20,3 +20,4 @@ struct SignUpDetail: Codable {
     var email: String
     var phone: String
 }
+
