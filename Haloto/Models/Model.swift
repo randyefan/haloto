@@ -58,7 +58,7 @@ struct OtherComponents: Codable {
 }
 
 struct Profile: Codable {
-    var profilePicture: String?
+    var profilePicture: Data?
     var profileName: String?
     var profileEmail: String?
     var profilePhone: String?
