@@ -121,22 +121,28 @@ private extension OTPViewController {
             print("HARAP DIGANTI DISINI MENJADI RESET TIMER")
         }).disposed(by: rx.disposeBag)
 
-        output.signUpDidTap.drive(onNext: { [weak self] _ in
-            guard let self = self else { return }
-            let vc = SignUpViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
-        }).disposed(by: rx.disposeBag)
+//        output.signUpDidTap.drive(onNext: { [weak self] _ in
+//            guard let self = self else { return }
+//            let vc = SignUpViewController()
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }).disposed(by: rx.disposeBag)
 
-        output.OTPMatched.drive(onNext: { match in
-            if match {
+        output.OTPMatched.drive(onNext: { token in
+            if !token.isEmpty {
                 let tabBar = TabBarBaseController(productLogin: .User)
-                UIApplication.shared.windows.first?.rootViewController = tabBar
-                UIApplication.shared.windows.first?.makeKeyAndVisible()
+                let keyWindow = UIApplication.shared.connectedScenes
+                    .filter({ $0.activationState == .foregroundActive })
+                    .compactMap({ $0 as? UIWindowScene })
+                    .first?.windows
+                    .filter({ $0.isKeyWindow }).first
+                keyWindow?.rootViewController = tabBar
+                keyWindow?.makeKeyAndVisible()
+                DefaultManager.shared.set(value: token, forKey: .AccessTokenKey)
             }
         }).disposed(by: rx.disposeBag)
 
         output
-            .phoneNumber.map { NSAttributedString.font($0, size: 12, alignment: .center) }
+            .phone.map { NSAttributedString.font($0, size: 12, alignment: .center) }
             .drive(formCard.phoneNumberLabel.rx.attributedText)
             .disposed(by: rx.disposeBag)
     }
