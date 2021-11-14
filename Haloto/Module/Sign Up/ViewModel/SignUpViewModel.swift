@@ -14,14 +14,14 @@ class SignUpViewModel {
 
     let useCase: SignUpUseCase
     
-    public let name = BehaviorSubject<String>(value: "")
-    public let email = BehaviorSubject<String>(value: "")
-    public let phone = BehaviorSubject<String>(value: "")
+    public let name = BehaviorRelay<String>(value: "")
+    public let email = BehaviorRelay<String>(value: "")
+    public let phone = BehaviorRelay<String>(value: "")
     public let isFilled: Observable<Bool>
     public let networkError: PublishSubject<NetworkError> = PublishSubject()
     public let isLoading: PublishSubject<Bool> = PublishSubject()
     
-    public var successRegister: Observable<SignUpReponse>
+    public var successRegister: Observable<SignInResponse>
     
     public let submitDidTap: PublishSubject<Bool> = PublishSubject()
 
@@ -38,7 +38,7 @@ class SignUpViewModel {
             return name.count > 0 && email.count > 0 && phone.count > 0
         }
         
-        successRegister = submitDidTap.withLatestFrom(profileData).flatMapLatest({ name, email, phone -> Observable<SignUpReponse> in
+        successRegister = submitDidTap.withLatestFrom(profileData).flatMapLatest({ name, email, phone -> Observable<SignInResponse> in
             return useCase.signUp(name, email, phone)
                 .compactMap(\.success)
                 .asObservable()

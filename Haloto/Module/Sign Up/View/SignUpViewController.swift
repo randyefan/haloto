@@ -111,7 +111,6 @@ class SignUpViewController: UIViewController {
     
     //MARK: - Setup Bindings
     private func setupBindings(){
-        
         nameStack.loginInfoTextField.rx.text
             .orEmpty
             .bind(to: viewModel.name)
@@ -134,6 +133,8 @@ class SignUpViewController: UIViewController {
         viewModel.successRegister
             .subscribe(onNext: { response in
                 print("INI RESPONSENYAAAAA \(response)")
+                self.navigateToOTP()
+                
             }).disposed(by: rx.disposeBag)
         
         signUpButton.rx.tap
@@ -142,6 +143,12 @@ class SignUpViewController: UIViewController {
             })
             .disposed(by: rx.disposeBag)
 
+    }
+    
+    func navigateToOTP(){
+        let OTPViewModel = OTPViewModel(phone: Driver.just(viewModel.phone.value))
+        let vc = OTPViewController(viewModel: OTPViewModel)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
