@@ -32,6 +32,7 @@ struct VehicleResponse: Codable {
     let name: String?
     let fuelType: String?
     let manufacturer: String?
+    let vehicleImage: String?
     let manufacturerYear: Int?
     let cc: Int?
     let transmission: VehicleTransmissionResponse?
@@ -40,10 +41,38 @@ struct VehicleResponse: Codable {
         case id, name, manufacturer, cc, transmission
         case fuelType = "fuel_type"
         case manufacturerYear = "manufacture_year"
+        case vehicleImage = "vehicle_image"
     }
 }
 
 struct VehicleTransmissionResponse: Codable {
     let id: Int?
     let type: String?
+}
+
+// MARK: - Personal Vehicle
+
+struct PersonalVehicleListResponse: Codable {
+    let status: Int?
+    let message: String?
+    let response: [PersonalVehicleResponse]?
+}
+
+struct PersonalVehicleResponse: Codable {
+    let id: Int?
+    let userId: Int?
+    let vehicleId: Int?
+    let currentOdometer: Int?
+    let licensePlate: String?
+    let isDefault: Int?
+    let type: VehicleResponse?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, type
+        case userId = "user_ID"
+        case vehicleId = "vehicle_ID"
+        case currentOdometer = "current_odometer"
+        case licensePlate = "license_plate"
+        case isDefault = "is_default"
+    }
 }

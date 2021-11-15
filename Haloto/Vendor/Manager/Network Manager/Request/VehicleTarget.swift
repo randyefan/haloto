@@ -11,6 +11,7 @@ import Moya
 internal enum VehicleTarget {
     case listOfManufacture
     case listOfVehicleFromManufacturer(manufacture: String)
+    case listOfPersonalVehicle
     case addPersonalVehicle(vehicleId: Int, currentOdometer: Int, licensePlate: String)
 }
 
@@ -25,7 +26,7 @@ extension VehicleTarget: TargetType {
             return "/manufacturer"
         case let .listOfVehicleFromManufacturer(manufacture):
             return "/\(manufacture)/model"
-        case .addPersonalVehicle:
+        case .addPersonalVehicle, .listOfPersonalVehicle:
             return "/personal-vehicle"
         }
     }
@@ -36,12 +37,14 @@ extension VehicleTarget: TargetType {
             return .get
         case .addPersonalVehicle:
             return .post
+        case .listOfPersonalVehicle:
+            return .get
         }
     }
     
     var task: Task {
         switch self {
-        case .listOfManufacture, .listOfVehicleFromManufacturer:
+        case .listOfManufacture, .listOfVehicleFromManufacturer, .listOfPersonalVehicle:
             return .requestPlain
         case .addPersonalVehicle:
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
@@ -50,10 +53,10 @@ extension VehicleTarget: TargetType {
     
     var headers: [String : String]? {
         switch self {
-        case .listOfManufacture, .listOfVehicleFromManufacturer, .addPersonalVehicle:
+        case .listOfManufacture, .listOfVehicleFromManufacturer, .addPersonalVehicle, .listOfPersonalVehicle:
             return [
-//                "Authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicGhvbmUiOiI2MjgxMjEzMDIyMDExIiwiaWF0IjoxNjM2OTQ0ODg3fQ.91jaRrAiuWtJRukSe3VOQBE1yG2TVvo_D7KrMY99VOg",
-                "Authorization" : "Bearer \(DefaultManager.shared.getString(forKey: .AccessTokenKey) ?? "")",
+                "Authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicGhvbmUiOiI2MjgxMjEzMDIyMDExIiwiaWF0IjoxNjM2OTQ0ODg3fQ.91jaRrAiuWtJRukSe3VOQBE1yG2TVvo_D7KrMY99VOg",
+//                "Authorization" : "Bearer \(DefaultManager.shared.getString(forKey: .AccessTokenKey) ?? "")",
                 "Content-Type" : "application/json"
             ]
         }
