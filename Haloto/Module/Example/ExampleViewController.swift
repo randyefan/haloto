@@ -4,16 +4,17 @@ import AsyncDisplayKit
 class dataDummy {
     var vehicle = Vehicle(
         name: "BRIO",
-        fuelType: "Petrol",
+        fuelType: VehicleFuelType.petrol.rawValue,
         manufacture: "HONDA",
         manufacturedYear: "2015",
         capacity: 1100,
-        transmissionType: "Automatic",
+        transmissionType: VehicleTransmision.matic.rawValue,
         licensePlate: "A 1232 RE",
+        odometer: 166123,
         isDefault: true
     )
 
-    var profile = Profile(profilePicture: "profile-image-placeholder",
+    var profile = Profile(profilePicture: nil,
                           profileName: "Bowo Santoso",
                           profileEmail: "bowo@santosocompany.com",
                           profilePhone: "087774584922",
@@ -38,11 +39,10 @@ class ExampleViewController: ASDKViewController<ASDisplayNode> {
         super.init(node: ASDisplayNode())
         node.automaticallyManagesSubnodes = true
         node.backgroundColor = .white
-        let selectNode = SelectFieldStack(title: "Manufacturer", placeholder: "Choose your vehicle manufacturer")
-        node.layoutSpecBlock = { _, _ in
-            ASInsetLayoutSpec(insets: UIEdgeInsets(top: .infinity, left: 16, bottom: .infinity, right: 16), child: selectNode)
-
-        }
+//        node.layoutSpecBlock = { _, _ in
+//            ASInsetLayoutSpec(insets: UIEdgeInsets(top: .infinity, left: 16, bottom: .infinity, right: 16), child: card)
+//
+//        }
     }
 
     required init?(coder: NSCoder) {

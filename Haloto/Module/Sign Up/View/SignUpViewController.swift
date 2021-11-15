@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class SignUpViewController: UIViewController {
+    
+    //MARK: - Components
     private lazy var iconImageView: UIImageView = {
         let temp = UIImageView()
         temp.image = UIImage(named: "AppLogo")
@@ -93,11 +97,58 @@ class SignUpViewController: UIViewController {
 
         return temp
     }()
+    
+    //MARK: - Variables
+    private let viewModel = SignUpViewModel()
 
+    //MARK: - ViewController LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupView()
+        setupBindings()
+    }
+    
+    //MARK: - Setup Bindings
+    private func setupBindings(){
+        nameStack.loginInfoTextField.rx.text
+            .orEmpty
+            .bind(to: viewModel.name)
+            .disposed(by: rx.disposeBag)
+        
+        emailStack.loginInfoTextField.rx.text
+            .orEmpty
+            .bind(to: viewModel.email)
+            .disposed(by: rx.disposeBag)
+        
+        phoneNumberStack.loginInfoTextField.rx.text
+            .orEmpty
+            .bind(to: viewModel.phone)
+            .disposed(by: rx.disposeBag)
+        
+        viewModel.isFilled
+            .bind(to: signUpButton.rx.isEnabled)
+            .disposed(by: rx.disposeBag)
+        
+        viewModel.successRegister
+            .subscribe(onNext: { response in
+                print("INI RESPONSENYAAAAA \(response)")
+                self.navigateToOTP()
+                
+            }).disposed(by: rx.disposeBag)
+        
+        signUpButton.rx.tap
+            .subscribe(onNext: {
+                self.viewModel.submitDidTap.onNext(true)
+            })
+            .disposed(by: rx.disposeBag)
+
+    }
+    
+    func navigateToOTP(){
+        let OTPViewModel = OTPViewModel(phone: Driver.just(viewModel.phone.value))
+        let vc = OTPViewController(viewModel: OTPViewModel)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

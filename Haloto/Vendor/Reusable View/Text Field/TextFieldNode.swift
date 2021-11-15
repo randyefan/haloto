@@ -8,14 +8,7 @@
 import AsyncDisplayKit
 import UIKit
 
-protocol TextFieldNodeDelegate {
-    func didEndEdit(text: String)
-}
-
 class TextFieldNode: ASDisplayNode {
-    
-    var delegate: TextFieldNodeDelegate?
-    
     private var titleNode: ASTextNode2?
 
     private let textFieldNode: ASEditableTextNode = {
@@ -68,6 +61,11 @@ class TextFieldNode: ASDisplayNode {
             children: [titleNode, textFieldWrapper].compactMap{ $0 }
         )
     }
+    
+    //MARK: - Funcitonality
+    func getText() -> String? {
+        return textFieldNode.textView.text ?? nil
+    }
 }
 
 extension TextFieldNode: ASEditableTextNodeDelegate {
@@ -78,8 +76,7 @@ extension TextFieldNode: ASEditableTextNodeDelegate {
                 }
                 return true
     }
+    
     func editableTextNodeDidFinishEditing(_ editableTextNode: ASEditableTextNode) {
-        let text = textFieldNode.textView.text
-        delegate?.didEndEdit(text: text ?? "")
     }
 }

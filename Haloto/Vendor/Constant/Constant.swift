@@ -8,5 +8,6 @@
 import Foundation
 
 final class Constants {
-    
+    static let SERVER_URL = "https://1190-103-119-62-33.ngrok.io"
+    static let BASE_URL = "\(SERVER_URL)/v1/api"
 }

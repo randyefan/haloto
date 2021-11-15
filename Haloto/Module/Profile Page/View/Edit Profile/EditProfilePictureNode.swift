@@ -44,9 +44,12 @@ class EditProfilePictureNode: ASDisplayNode {
         return node
     }()
 
-    init(profilePictureUrl: String) {
-        let url = URL(string: profilePictureUrl)
-        profilePictureNode.url = url
+    init(profilePictureData: Data?) {
+        if let profilePictureData = profilePictureData {
+            profilePictureNode.image = UIImage(data: profilePictureData)
+        } else {
+            profilePictureNode.image = UIImage(named: "profile-image-placeholder")
+        }
         super.init()
         overlayProfilePicture.view.onTap {
             self.delegate?.editProfilePictureAction()
@@ -64,5 +67,15 @@ class EditProfilePictureNode: ASDisplayNode {
             child: editButton
         )
         return ASOverlayLayoutSpec(child: profilePictureDarken, overlay: insetEditButton)
+    }
+
+    // MARK: - Funcitonality
+
+    func getImageData() -> Data? {
+        return profilePictureNode.image?.pngData()
+    }
+
+    func changeImage(_ image : UIImage) {
+        profilePictureNode.image = image
     }
 }

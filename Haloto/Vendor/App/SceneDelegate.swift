@@ -17,7 +17,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
-        createExampleModule(scene: scene)
+        if let token = DefaultManager.shared.getString(forKey: .AccessTokenKey) {
+            if !token.isEmpty {
+                rootHomepageUser(scene: scene)
+                return
+            }
+        }
+        loginPage(scene: scene)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -36,20 +42,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     // MARK: - Functionality
-
-    // Create Example Module
     func createExampleModule(scene: UIScene) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-
         let window = UIWindow(windowScene: windowScene)
-
-        let viewController = MaintenanceDetailsViewController(viewModel: MaintenanceDetailsViewModel())
+        let viewController = LoginViewController()
         let navigation = UINavigationController(rootViewController: viewController)
-
         window.rootViewController = navigation
-
         self.window = window
         window.makeKeyAndVisible()
+    }
+
+    func loginPage(scene: UIScene) {
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
+        let viewController = LoginViewController()
+        let navigation = UINavigationController(rootViewController: viewController)
+        window?.rootViewController = navigation
+        window?.makeKeyAndVisible()
+    }
+
+    func rootHomepageUser(scene: UIScene) {
+        guard let winScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: winScene)
+        let tabBar = TabBarBaseController(productLogin: .User)
+        window?.rootViewController = tabBar
+        window?.makeKeyAndVisible()
     }
 
     func rootHomepageBengkel(scene: UIScene) {

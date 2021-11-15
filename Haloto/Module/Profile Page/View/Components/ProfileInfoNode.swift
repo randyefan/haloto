@@ -42,7 +42,9 @@ class ProfileInfoNode: ASDisplayNode {
 
     init(profile: Profile) {
         if let profilePict = profile.profilePicture {
-            profilePicture.image = UIImage(named: profilePict)
+            profilePicture.image = UIImage(data: profilePict)
+        } else {
+            profilePicture.image = UIImage(named: "profile-image-placeholder")
         }
 
         profileName.attributedText = .font(
