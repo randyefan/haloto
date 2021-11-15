@@ -19,8 +19,8 @@ class TotalCostNode: ASDisplayNode {
         return node
     }()
     
-    init(model: MaintenanceHistory) {
-        totalCostNode.attributedText = .font("Rp \(model.totalCost ?? 0)", size: 18, fontWeight: .bold, alignment: .right)
+    override init() {
+        totalCostNode.attributedText = .font("Rp", size: 18, fontWeight: .bold, alignment: .right)
         super.init()
         automaticallyManagesSubnodes = true
     }

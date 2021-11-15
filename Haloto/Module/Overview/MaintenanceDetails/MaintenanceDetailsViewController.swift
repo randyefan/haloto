@@ -7,6 +7,7 @@
 
 import AsyncDisplayKit
 import RxSwift
+import CoreMedia
 
 class MaintenanceDetailsViewController: ASDKViewController<ASDisplayNode> {
     let headerNode = PaymentReviewHeader(title: "Maintenance Details")
@@ -53,28 +54,26 @@ class MaintenanceDetailsViewController: ASDKViewController<ASDisplayNode> {
     }
     
     func registerObserver() {
-//        viewModel.serviced.asObservable().flatMapLatest().subscribe { servicedModel in
-//            self.servicedModel = servicedModel
-//            self.scrollNode.servicedTableNode.servicedTable.reloadData()
-//        }.disposed(by: disposeBag)
-//        viewModel.serviced.bind(to: self.servicedModel).disposed(by: disposeBag)
-//        
-//        viewModel.replaced.asObservable().subscribe { replacedModel in
-//            self.replacedModel = replacedModel
-//            self.scrollNode.replacedTableNode.replacedTable.reloadData()
-//        }.disposed(by: disposeBag)
-//        
-//        viewModel.other.asObservable().subscribe { otherModel in
-//            self.otherModel = otherModel
-//            self.scrollNode.otherTable.otherTableNode.reloadData()
-//        }.disposed(by: disposeBag)
+        viewModel.serviced.asObservable().subscribe(onNext: { maintenanceHistory in
+            self.servicedModel = maintenanceHistory
+        }).disposed(by: disposeBag)
+        
+        viewModel.replaced.asObservable().subscribe(onNext: { maintenanceHistory in
+            self.servicedModel = maintenanceHistory
+        }).disposed(by: disposeBag)
+        
+        viewModel.other.asObservable().subscribe(onNext: { maintenanceHistory in
+            self.otherModel = maintenanceHistory
+        }).disposed(by: disposeBag)
     }
 }
 
 extension MaintenanceDetailsViewController: ASTableDelegate, ASTableDataSource{
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
         if tableNode == self.scrollNode.servicedTableNode.servicedTable{
-            print("serviced tapped")
+            if indexPath.row == servicedModel.count{
+                
+            }
         }else if tableNode == self.scrollNode.replacedTableNode.replacedTable{
             print("replaced tapped")
         }else if tableNode == self.scrollNode.otherTable.otherTableNode{
@@ -84,15 +83,24 @@ extension MaintenanceDetailsViewController: ASTableDelegate, ASTableDataSource{
     
     func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
         if tableNode == self.scrollNode.servicedTableNode.servicedTable{
-            servicedModel.count
+            return servicedModel.count
         }else if tableNode == self.scrollNode.replacedTableNode.replacedTable{
-            replacedModel.count
+            return replacedModel.count
         }else if tableNode == self.scrollNode.otherTable.otherTableNode{
-            otherModel.count
+            return otherModel.count
         }
+        return 0
     }
     
     func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
+        if tableNode == self.scrollNode.servicedTableNode.servicedTable{
+            if indexPath.row == servicedModel.count{
+                return WrapperSelectNode(placeHolder: "Choose what part you serviced")
+            } else {
+                let data = servicedModel[indexPath.row]
+                return SelectedComponentCell(model: data)
+            }
+        }
         return ASCellNode()
     }
 }

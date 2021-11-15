@@ -23,6 +23,7 @@ class ServicedTableNode: ASDisplayNode {
         super.init()
         automaticallyManagesSubnodes = true
 //        servicedTable.style.height = ASDimensionMake(50 * CGFloat(model.count + 1))
+        servicedTable.style.height = ASDimensionMake(100)
     }
 
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {

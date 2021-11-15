@@ -11,7 +11,7 @@ import Kingfisher
 internal final class WrapperSelectNode: ASCellNode {
     private let selectNode: SelectNode
     
-    init(placeHolder: String, function: (() -> Void)?) {
+    init(placeHolder: String) {
         selectNode = SelectNode(placeholder: placeHolder)
         super.init()
         automaticallyManagesSubnodes = true
