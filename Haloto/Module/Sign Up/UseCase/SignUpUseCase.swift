@@ -11,10 +11,10 @@ import Moya
 import Foundation
 
 internal struct SignUpUseCase {
-    internal var signUp: (_ name: String, _ email: String, _ phone: String) -> Observable<Result<SignUpReponse, NetworkError>>
+    internal var signUp: (_ name: String, _ email: String, _ phone: String) -> Observable<Result<SignInResponse, NetworkError>>
     internal static let provider = NetworkProvider<UserTarget>()
     
-    internal init(signUp: @escaping (_ name: String, _ email: String, _ phone: String) -> Observable<Result<SignUpReponse, NetworkError>>) {
+    internal init(signUp: @escaping (_ name: String, _ email: String, _ phone: String) -> Observable<Result<SignInResponse, NetworkError>>) {
         self.signUp = signUp
     }
 }
@@ -24,6 +24,6 @@ extension SignUpUseCase {
         SignUpUseCase
             .provider
             .request(.signUp(name: name, email: email, phone: phone))
-            .mapWithNetworkError(SignUpReponse.self)
+            .mapWithNetworkError(SignInResponse.self)
     }
 }
