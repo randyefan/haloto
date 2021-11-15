@@ -4,12 +4,13 @@ import AsyncDisplayKit
 class dataDummy {
     var vehicle = Vehicle(
         name: "BRIO",
-        fuelType: "Petrol",
+        fuelType: VehicleFuelType.petrol.rawValue,
         manufacture: "HONDA",
         manufacturedYear: "2015",
         capacity: 1100,
-        transmissionType: "Automatic",
+        transmissionType: VehicleTransmision.matic.rawValue,
         licensePlate: "A 1232 RE",
+        odometer: 166123,
         isDefault: true
     )
 

@@ -30,7 +30,7 @@ enum StarState {
     case inactive
 }
 
-enum FormCardType{
+enum FormCardType {
     case OTP
     case Login
 }
@@ -40,6 +40,18 @@ enum PopUpListState: String {
     case manufacturer = "Manufacturer"
     case service = "Service"
     case replaced = "Replaced"
+    case newvehicle = "Add New Vehicle"
+    case edit = "Edit"
+}
+
+enum VehicleTransmision: String {
+    case matic = "Automatic"
+    case manual = "Manual"
+}
+
+enum VehicleFuelType: String {
+    case diesel = "Diesel"
+    case petrol = "Petrol"
 }
 
 enum ReusableConsultPopUpState {
@@ -53,6 +65,17 @@ enum TimerType {
     case full
     case short
     case digits
+}
+
+enum EntryTextFieldType {
+    case picker
+    case keyboard
+}
+
+
+enum NewVehicleFormType{
+    case add
+    case edit
 }
 
 enum FilterType: String {
