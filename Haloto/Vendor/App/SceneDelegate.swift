@@ -55,7 +55,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func loginPage(scene: UIScene) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let viewController = AddNewVehicleViewController(vehicle: nil, type: .add)
+        let viewController = LoginViewController()
         let navigation = UINavigationController(rootViewController: viewController)
         window?.rootViewController = navigation
         window?.makeKeyAndVisible()
