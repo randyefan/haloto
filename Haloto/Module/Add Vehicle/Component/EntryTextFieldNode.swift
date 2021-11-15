@@ -17,7 +17,7 @@ class EntryTextFieldNode: ASDisplayNode {
     private var text: String = ""
     private var placeholder: String = ""
     private var keyboardType: UIKeyboardType = .default
-    private lazy var textField: ASEditableTextNode = {
+    lazy var textField: ASEditableTextNode = {
         let field = ASEditableTextNode()
         if isPicker {
             field.attributedText = .font(text, size: 12, fontWeight: .regular, color: .black, alignment: .center)

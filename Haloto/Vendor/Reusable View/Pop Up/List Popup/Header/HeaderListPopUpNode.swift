@@ -48,6 +48,10 @@ class HeaderListPopUpNode: ASDisplayNode {
         super.init()
         setupButton(state: state)
         automaticallyManagesSubnodes = true
+        
+        imageBackNode.view.onTap {
+            self.delegate?.didTapLeft()
+        }
     }
 
     // MARK: - Selector Function
@@ -82,6 +86,7 @@ class HeaderListPopUpNode: ASDisplayNode {
             })
             yellowButton?.style.height = ASDimensionMake(36)
             blueOutlineButton = nil
+            setNeedsLayout()
         default:
             blueOutlineButton = SmallButtonNode(title: "Add", buttonState: .BlueOutlined, function: {
                 print("blueOutline tapped")

@@ -72,7 +72,6 @@ enum EntryTextFieldType {
     case keyboard
 }
 
-
 enum NewVehicleFormType{
     case add
     case edit
@@ -87,9 +86,4 @@ enum FilterType: String {
 enum ReceiptCardImage {
     case beforeScan
     case afterScan
-}
-
-enum EntryTextFieldType {
-    case picker
-    case keyboard
 }

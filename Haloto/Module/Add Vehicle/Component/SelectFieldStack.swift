@@ -24,7 +24,7 @@ class SelectFieldStack: ASDisplayNode {
         return node
     }()
 
-    private lazy var selectNode: SelectNode = {
+    lazy var selectNode: SelectNode = {
         let node = SelectNode(placeholder: placeholderText)
         //TODO: add tap gesture recognizer
       

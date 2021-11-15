@@ -24,6 +24,11 @@ internal class ListPopupViewController: ASDKViewController<ASDisplayNode> {
     var component: [ComponentList]?
     
     private var componentsSelected: [ComponentList] = []
+    private var manufactureSelected: Manufacturer?
+    private var modelSelectedIndex: Int?
+    
+    var manufacturerSelectedClosure: ((Manufacturer) -> ())?
+    var modelSelectedClosure: ((Int) -> ())?
     
     private var state: PopUpListState
 
@@ -31,12 +36,15 @@ internal class ListPopupViewController: ASDKViewController<ASDisplayNode> {
     init(state: PopUpListState) {
         
         headerNode = HeaderListPopUpNode(state: state)
+        
         self.state = state
 
         super.init(node: ASDisplayNode())
         
         node.automaticallyManagesSubnodes = true
         node.automaticallyRelayoutOnSafeAreaChanges = true
+        
+        headerNode.delegate = self
         
         setupNode()
         setupTableFunction()
@@ -48,7 +56,7 @@ internal class ListPopupViewController: ASDKViewController<ASDisplayNode> {
 
             let topStack = ASStackLayoutSpec(
                 direction: .vertical,
-                spacing: 4,
+                spacing: 8,
                 justifyContent: .spaceBetween,
                 alignItems: .stretch,
                 children: [self.headerNode, self.searchNode, self.collectionNode, self.tableNode].compactMap { $0 }
@@ -183,6 +191,11 @@ extension ListPopupViewController: ASTableDataSource, ASTableDelegate {
                 componentsSelected.append(componentSelected)
                 updateCollectionView()
             }
+        case .manufacturer:
+            guard let manufacturer = manufacturer else { return }
+            manufactureSelected = manufacturer[indexPath.row]
+        case .model:
+            modelSelectedIndex = indexPath.row
         default:
             break
         }
@@ -237,7 +250,18 @@ extension ListPopupViewController: HeaderListPopUpNodeDelegate {
     }
     
     func didTapLeft() {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+            switch self.state {
+            case .manufacturer:
+                guard let manufacturer = self.manufactureSelected else { return }
+                self.manufacturerSelectedClosure?(manufacturer)
+            case .model:
+                guard let modelIndex = self.modelSelectedIndex else { return }
+                self.modelSelectedClosure?(modelIndex)
+            default:
+                break
+            }
+        }
     }
     
     

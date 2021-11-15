@@ -45,6 +45,9 @@
 		3BC41D40273A9A660008C194 /* EntryTextFieldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC41D3F273A9A660008C194 /* EntryTextFieldNode.swift */; };
 		3BC41D42273AD2800008C194 /* ButtonFieldStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC41D41273AD2800008C194 /* ButtonFieldStack.swift */; };
 		3BFAED15273250D60024C8C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFAED14273250D60024C8C2 /* LoginViewController.swift */; };
+		610FC8A627421FF100074AD5 /* VehicleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610FC8A527421FF100074AD5 /* VehicleList.swift */; };
+		610FC8A8274225C300074AD5 /* AddVehicleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610FC8A7274225C300074AD5 /* AddVehicleViewModel.swift */; };
+		610FC8AB274274AB00074AD5 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610FC8AA274274AB00074AD5 /* GeneralResponse.swift */; };
 		611726DD2731598F00FC2445 /* HeaderListPopUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611726DC2731598F00FC2445 /* HeaderListPopUpNode.swift */; };
 		611A1CFA2742099D006D7565 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611A1CF92742099D006D7565 /* OverviewViewController.swift */; };
 		612292B3273A87FA004B3A6F /* TextFieldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612292B2273A87FA004B3A6F /* TextFieldNode.swift */; };
@@ -85,6 +88,8 @@
 		6198AB242735B3390037A7FD /* ReusableConsultPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6198AB222735B3390037A7FD /* ReusableConsultPopUpViewController.swift */; };
 		6198AB2B2735D77D0037A7FD /* ContentConsultPopupNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6198AB2A2735D77D0037A7FD /* ContentConsultPopupNode.swift */; };
 		61AD04E2273B8D860017CBCF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 61AD04E1273B8D860017CBCF /* GoogleService-Info.plist */; };
+		61B57A8A2741FDE60026A0F2 /* AddVehicleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B57A892741FDE60026A0F2 /* AddVehicleUseCase.swift */; };
+		61B57A8C2741FF680026A0F2 /* VehicleTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B57A8B2741FF680026A0F2 /* VehicleTarget.swift */; };
 		61B7EBB72739A0A20032AED8 /* Extension+UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B7EBB62739A0A20032AED8 /* Extension+UITabBarController.swift */; };
 		61C679E8272F9D21003AFE3F /* TabBarBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C679E7272F9D21003AFE3F /* TabBarBaseController.swift */; };
 		61C679EA272F9D2F003AFE3F /* TabNavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C679E9272F9D2F003AFE3F /* TabNavigationMenu.swift */; };
@@ -97,7 +102,6 @@
 		B73C544F2741597900C73ABA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C544E2741597900C73ABA /* SignUpViewController.swift */; };
 		B74EE7BA27391A16002ED5A5 /* YourCarPanModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74EE7B927391A16002ED5A5 /* YourCarPanModal.swift */; };
 		B74EE7BD2739953E002ED5A5 /* UpcomingMaintenancePanModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74EE7BC2739953E002ED5A5 /* UpcomingMaintenancePanModal.swift */; };
-		B7561F69273FE292005CAE51 /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7561F68273FE292005CAE51 /* OverviewViewModel.swift */; };
 		B7561F6D2740D333005CAE51 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7561F6C2740D333005CAE51 /* SignUpViewModel.swift */; };
 		B7561F7027410724005CAE51 /* UserSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7561F6F27410724005CAE51 /* UserSignUp.swift */; };
 		B7561F72274107EF005CAE51 /* UserTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7561F71274107EF005CAE51 /* UserTarget.swift */; };
@@ -194,6 +198,9 @@
 		3BC41D41273AD2800008C194 /* ButtonFieldStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFieldStack.swift; sourceTree = "<group>"; };
 		3BFAED14273250D60024C8C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		45189E7BD3538C5FCF736331 /* Pods-Haloto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haloto.debug.xcconfig"; path = "Target Support Files/Pods-Haloto/Pods-Haloto.debug.xcconfig"; sourceTree = "<group>"; };
+		610FC8A527421FF100074AD5 /* VehicleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleList.swift; sourceTree = "<group>"; };
+		610FC8A7274225C300074AD5 /* AddVehicleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleViewModel.swift; sourceTree = "<group>"; };
+		610FC8AA274274AB00074AD5 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
 		611726DC2731598F00FC2445 /* HeaderListPopUpNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderListPopUpNode.swift; sourceTree = "<group>"; };
 		611A1CF92742099D006D7565 /* OverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		612292B2273A87FA004B3A6F /* TextFieldNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldNode.swift; sourceTree = "<group>"; };
@@ -234,6 +241,8 @@
 		6198AB222735B3390037A7FD /* ReusableConsultPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableConsultPopUpViewController.swift; sourceTree = "<group>"; };
 		6198AB2A2735D77D0037A7FD /* ContentConsultPopupNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentConsultPopupNode.swift; sourceTree = "<group>"; };
 		61AD04E1273B8D860017CBCF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		61B57A892741FDE60026A0F2 /* AddVehicleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleUseCase.swift; sourceTree = "<group>"; };
+		61B57A8B2741FF680026A0F2 /* VehicleTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTarget.swift; sourceTree = "<group>"; };
 		61B7EBB62739A0A20032AED8 /* Extension+UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITabBarController.swift"; sourceTree = "<group>"; };
 		61C679E7272F9D21003AFE3F /* TabBarBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarBaseController.swift; sourceTree = "<group>"; };
 		61C679E9272F9D2F003AFE3F /* TabNavigationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationMenu.swift; sourceTree = "<group>"; };
@@ -245,7 +254,6 @@
 		B73C544E2741597900C73ABA /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B74EE7B927391A16002ED5A5 /* YourCarPanModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourCarPanModal.swift; sourceTree = "<group>"; };
 		B74EE7BC2739953E002ED5A5 /* UpcomingMaintenancePanModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMaintenancePanModal.swift; sourceTree = "<group>"; };
-		B7561F68273FE292005CAE51 /* OverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
 		B7561F6C2740D333005CAE51 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		B7561F6F27410724005CAE51 /* UserSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUp.swift; sourceTree = "<group>"; };
 		B7561F71274107EF005CAE51 /* UserTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTarget.swift; sourceTree = "<group>"; };
@@ -337,7 +345,6 @@
 			isa = PBXGroup;
 			children = (
 				B7561F67273FE27F005CAE51 /* View */,
-				B7561F66273FE273005CAE51 /* ViewModel */,
 				2171C77327353A69001CB1C2 /* Section */,
 				211C7BC2273A7BCF0027A99C /* MaintenanceDetails */,
 			);
@@ -433,6 +440,8 @@
 		3BC41D34273A36770008C194 /* Add Vehicle */ = {
 			isa = PBXGroup;
 			children = (
+				61B57A882741FDC70026A0F2 /* UseCase */,
+				61B57A872741FDBF0026A0F2 /* ViewModel */,
 				3BC41D37273A36AB0008C194 /* Component */,
 				3BC41D35273A36920008C194 /* AddNewVehicleViewController.swift */,
 			);
@@ -460,6 +469,14 @@
 				F273EF92273CC51D004721B1 /* LoginUseCase.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		610FC8A92742748C00074AD5 /* General Response */ = {
+			isa = PBXGroup;
+			children = (
+				610FC8AA274274AB00074AD5 /* GeneralResponse.swift */,
+			);
+			path = "General Response";
 			sourceTree = "<group>";
 		};
 		612292B1273A87E4004B3A6F /* Text Field */ = {
@@ -776,6 +793,22 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		61B57A872741FDBF0026A0F2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				610FC8A7274225C300074AD5 /* AddVehicleViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		61B57A882741FDC70026A0F2 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				61B57A892741FDE60026A0F2 /* AddVehicleUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
 		61C679E1272F8CB8003AFE3F /* Reusable View */ = {
 			isa = PBXGroup;
 			children = (
@@ -882,14 +915,6 @@
 			path = "Upcoming Maintenance";
 			sourceTree = "<group>";
 		};
-		B7561F66273FE273005CAE51 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				B7561F68273FE292005CAE51 /* OverviewViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		B7561F67273FE27F005CAE51 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -910,8 +935,10 @@
 		B7561F6E274106F8005CAE51 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				610FC8A92742748C00074AD5 /* General Response */,
 				B7561F6F27410724005CAE51 /* UserSignUp.swift */,
 				F27844AF274124E100C8EDE2 /* SignInResponse.swift */,
+				610FC8A527421FF100074AD5 /* VehicleList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1119,6 +1146,7 @@
 			isa = PBXGroup;
 			children = (
 				B7561F71274107EF005CAE51 /* UserTarget.swift */,
+				61B57A8B2741FF680026A0F2 /* VehicleTarget.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1346,7 +1374,9 @@
 				6198AB242735B3390037A7FD /* ReusableConsultPopUpViewController.swift in Sources */,
 				617F6ED72732726E002EBD85 /* Model.swift in Sources */,
 				F20227522735455700AF2AF3 /* ConsultViewHeader.swift in Sources */,
+				61B57A8C2741FF680026A0F2 /* VehicleTarget.swift in Sources */,
 				B74EE7BA27391A16002ED5A5 /* YourCarPanModal.swift in Sources */,
+				610FC8AB274274AB00074AD5 /* GeneralResponse.swift in Sources */,
 				B7A663C8273CBF1600286E53 /* FilterWorkshopViewController.swift in Sources */,
 				F20227562738FCB100AF2AF3 /* ConsultRatingNode.swift in Sources */,
 				6128446B2727EA1700D060AC /* CommonHelper.swift in Sources */,
@@ -1364,6 +1394,7 @@
 				F202274F273539E600AF2AF3 /* ConsultViewController.swift in Sources */,
 				F202275C273976A100AF2AF3 /* ViewWrapperNode.swift in Sources */,
 				B7561F72274107EF005CAE51 /* UserTarget.swift in Sources */,
+				610FC8A627421FF100074AD5 /* VehicleList.swift in Sources */,
 				61F8ACCF272D547E00B24015 /* ImagePickerHelper.swift in Sources */,
 				3BFAED15273250D60024C8C2 /* LoginViewController.swift in Sources */,
 				218CA205273CBAC100394B20 /* ScrollNode.swift in Sources */,
@@ -1379,6 +1410,7 @@
 				211C7BC7273A8AC60027A99C /* MaintenanceDetailsViewController.swift in Sources */,
 				B7713BC727306A70007A3824 /* ReusableSmallButtonNode.swift in Sources */,
 				61C679EF272FAC4F003AFE3F /* Enum.swift in Sources */,
+				61B57A8A2741FDE60026A0F2 /* AddVehicleUseCase.swift in Sources */,
 				3B860C162732E9C8007776BB /* FormTextField.swift in Sources */,
 				6163AC5027381D5A00E7756E /* Extension+Double.swift in Sources */,
 				6163AC56273834A100E7756E /* PaymentTotalNode.swift in Sources */,
@@ -1392,6 +1424,7 @@
 				61C679EA272F9D2F003AFE3F /* TabNavigationMenu.swift in Sources */,
 				F27844B5274134F800C8EDE2 /* NetworkError.swift in Sources */,
 				6134E6AF2732D420002E7526 /* CellSelectedListPopUpNode.swift in Sources */,
+				610FC8A8274225C300074AD5 /* AddVehicleViewModel.swift in Sources */,
 				612292B3273A87FA004B3A6F /* TextFieldNode.swift in Sources */,
 				F2F5FF83273378FF00E4643C /* StickyChatNode.swift in Sources */,
 				618546D42734DCA100675BB0 /* UpcomingMaintenanceCell.swift in Sources */,
@@ -1402,7 +1435,6 @@
 				3B860C192732F29C007776BB /* LoginButton.swift in Sources */,
 				F273EF93273CC51D004721B1 /* LoginUseCase.swift in Sources */,
 				612844652727E8C100D060AC /* Constant.swift in Sources */,
-				B7561F69273FE292005CAE51 /* OverviewViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,7 +28,7 @@ class FormFieldStack: ASDisplayNode {
         return label
     }()
 
-    private lazy var textField: EntryTextFieldNode = {
+    lazy var textField: EntryTextFieldNode = {
         let field = EntryTextFieldNode(isPicker: isPicker, text: text, placeholder: placeholder, keyboardType: keyboardType)
         return field
     }()

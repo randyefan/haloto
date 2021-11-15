@@ -98,7 +98,7 @@ extension MaintenanceDetailsViewController: ASTableDelegate, ASTableDataSource{
                 return WrapperSelectNode(placeHolder: "Choose what part you serviced")
             } else {
                 let data = servicedModel[indexPath.row]
-                return SelectedComponentCell(model: data)
+//                return SelectedComponentCell(model: data)
             }
         }
         return ASCellNode()

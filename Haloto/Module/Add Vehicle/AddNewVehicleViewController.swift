@@ -7,14 +7,11 @@
 
 import AsyncDisplayKit
 import UIKit
+import RxCocoa
+import RxSwift
 
 class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
-    // MARK: - Components
-    //TODO: Check if all data is filled then toast and everything to do with data
-    //TODO: If add vehicle is empty and then after each selection make sure that it is not empty and then you go and check everything if it is filled or not
-    //TODO: Harus ada delegate dari list nya sekarang, siapa yang buat listnya?
-
-    
+    // MARK: - Components Node
     private lazy var manufacturerFormNode: SelectFieldStack = {
         let node = SelectFieldStack(title: "Manufacturer", placeholder: "Choose your vehicle manufacturer")
         node.delegate = self
@@ -67,13 +64,21 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
         return node
     }()
 
-    // MARK: - Privates
+    // MARK: - Private Variable
 
     private var vehicle: Vehicle?
     private var stackFields: [ASDisplayNode.Type]?
     private var manufacturedYearDefaultValue = "2000"
     private var capacityDefaultValue = 0
 
+    // MARK: - View Model
+    private let viewModel = AddVehicleViewModel()
+    
+    // MARK: - Variable
+    let manufacturer = PublishSubject<String>()
+    let didTapSubmit = PublishSubject<Void>()
+    
+    // MARK: - Initializer
     init(vehicle: Vehicle?, type: NewVehicleFormType) {
         
         super.init(node: ASDisplayNode())
@@ -81,10 +86,11 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
         switch type {
         case .add:
             print("add")
-            
             addVehicleButton = SmallButtonNode(title: "Add Vehicle", buttonState: .Yellow, function: {
                 if self.checkFields(){
-                    print("create model an add it to current")
+                    if self.licensePlateFormNode.textField.textField.textView.text.count != 0 && self.odometerFormNode.textField.textField.textView.text.count != 0 {
+                        self.didTapSubmit.onNext(())
+                    }
                 }else{
                     self.showToast(title: "Please fill in all forms")
                 }
@@ -125,7 +131,7 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
             })
         }
 
-        manufacturedYearFormNode.delegate = self
+
         capacityFormNode.delegate = self
         node.automaticallyManagesSubnodes = true
         node.backgroundColor = .white
@@ -160,8 +166,118 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - ViewController Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
+        registerObserver()
+    }
+    
+    // MARK: - Observer Function
+    
+    private func bind() {
+        let triggerViewDidLoad = Driver.just(())
+        let triggerCurrentOdometer = odometerFormNode.textField.textField.textView.rx.text.orEmpty.asDriver()
+        let triggerLicensePlat = licensePlateFormNode.textField.textField.textView.rx.text.orEmpty.asDriver()
+        let triggerManufacturerFilled = manufacturer.asDriver(onErrorJustReturn: "")
+        let triggerDidTapSubmit = didTapSubmit.asDriver(onErrorJustReturn: ())
+        
+        let input = AddVehicleViewModel.Input(viewDidLoad: triggerViewDidLoad,
+                                              manufacturedFilled: triggerManufacturerFilled,
+                                              currentOdometer: triggerCurrentOdometer,
+                                              licensePlate: triggerLicensePlat,
+                                              addVehicleDidTap: triggerDidTapSubmit)
+        let output = viewModel.transform(input: input)
+        
+        output.listOfManufacture.drive(onNext: { [weak self] object in
+            guard let self = self else { return }
+            if object.status == 0 {
+                self.showToast(title: object.message ?? "")
+                return
+            }
+            
+            self.viewModel.modelManufacture(responseModel: object)
+        }).disposed(by: rx.disposeBag)
+        
+        output.listOfVehicleByManufacture.drive(onNext: { [weak self] object in
+            guard let self = self else { return }
+            if object.status == 0 {
+                self.showToast(title: object.message ?? "")
+                return
+            }
+            self.viewModel.modelVehicle(responseModel: object)
+        }).disposed(by: rx.disposeBag)
+        
+        output.addVehicle.drive(onNext: { [weak self] object in
+            guard let self = self else { return }
+            if object.status == 0 {
+                self.showToast(title: object.message ?? "")
+                return
+            }
+            self.navigationController?.popViewController(animated: true)
+        }).disposed(by: rx.disposeBag)
+    }
+    
+    private func registerObserver() {
+        viewModel.vehicleSelected.asObserver().subscribe(onNext: { vehicle in
+            self.setupView(vehicle: vehicle)
+        }).disposed(by: rx.disposeBag)
+    }
+    
+    // MARK: - Popup Functionality
+    
+    private func presentPopUpList(type: PopUpListState, manufacturer: [Manufacturer]? = nil, model: [Model]? = nil) {
+        switch type {
+        case .model:
+            guard let model = model else { return }
+            let vc = ListPopupViewController(state: .model)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.model = model
+            vc.modelSelectedClosure = { index in
+                let vehicle = self.viewModel.listOfVehicle.value[index]
+                self.viewModel.vehicleSelected.onNext(vehicle)
+            }
+            self.navigationController?.present(vc, animated: true, completion: nil)
+        case .manufacturer:
+            guard let manufacturer = manufacturer else { return }
+            let vc = ListPopupViewController(state: .manufacturer)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.manufacturer = manufacturer
+            vc.manufacturerSelectedClosure = { manufacture in
+                self.manufacturerFormNode.selectNode.setSelected(text: manufacture.name?.uppercased() ?? "")
+                self.manufacturer.onNext(manufacture.name ?? "")
+                self.node.setNeedsLayout()
+            }
+            self.navigationController?.present(vc, animated: true, completion: nil)
+        default:
+            break
+        }
+    }
+    
+    // MARK: - Setup View
+    
+    func setupView(vehicle: VehicleResponse) {
+        modelFormNode.selectNode.setSelected(text: vehicle.name?.uppercased() ?? "")
+        manufacturedYearFormNode.changeText(text: "\(vehicle.manufacturerYear ?? 0)")
+        capacityFormNode.changeText(text: "\(vehicle.cc ?? 0)")
+        
+        tranmissionStack.isUserInteractionEnabled = false
+        fuelTypeStack.isUserInteractionEnabled = false
+        manufacturerFormNode.isUserInteractionEnabled = false
+        capacityFormNode.isUserInteractionEnabled = false
+        
+        if vehicle.transmission?.type == "Manual" {
+            tranmissionStack.setSecondButtonActive()
+        } else {
+            tranmissionStack.setFirstButtonActive()
+        }
+        
+        if vehicle.fuelType == "gasoline" {
+            fuelTypeStack.setSecondButtonActive()
+        } else {
+            fuelTypeStack.setFirstButtonActive()
+        }
     }
 }
 
@@ -194,13 +310,23 @@ extension AddNewVehicleViewController: SelectFieldStackDelegate {
 extension AddNewVehicleViewController{
 
     func openList(sender: SelectFieldStack){
-        //MARK: Disni nanti open list depending sender.titlenya aja Manufacturer atau Model
-        print("open list \(sender.title)")
+        if sender.title == "Manufacturer" {
+            if let manufacturer = viewModel.manufacturerObjectList.value, manufacturer.count > 0 {
+                presentPopUpList(type: .manufacturer, manufacturer: manufacturer)
+            } else {
+                self.showToast(title: "Manufacturer is Empty")
+            }
+        } else {
+            if let model = viewModel.modelVehicleObjectList.value, model.count > 0 {
+                presentPopUpList(type: .model, model: model)
+            } else {
+                self.showToast(title: "Model is Empty")
+            }
+        }
+        
     }
     
     func checkFields() -> Bool{
-        //TODO: Thinking to change all the view into 1 type of class that has 1 variable or conform to a protocol so I can check whether each and every field is filled
-        //TODO: next idea is just to make all of the button 1 field stack with 3 types of pilihan and therefore by doing so you can check each and every single ome to validate whether it is true or not true
         return true
     }
 }
