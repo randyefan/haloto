@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 struct CoreDataManager{
     static var shared = CoreDataManager()
@@ -35,21 +36,20 @@ struct CoreDataManager{
         }
     }
     
-    func setVehicle(carVehicle: CarVehicle){
+    func setVehicle(carVehicle: Vehicle){
         let context = CoreDataManager.shared.persistentContainer.viewContext
         guard let vehicleEntity = NSEntityDescription.entity(forEntityName: "CarVehicle", in: context) else { return }
         
         let vehicle = NSManagedObject(entity: vehicleEntity, insertInto: context)
-        vehicle.setValue(carVehicle.currentOdometer, forKey: "currentOdometer")
-        vehicle.setValue(carVehicle.model, forKey: "model")
-        vehicle.setValue(carVehicle.cc, forKey: "cc")
+        vehicle.setValue(carVehicle.odometer, forKey: "currentOdometer")
+        vehicle.setValue(carVehicle.name, forKey: "model")
+        vehicle.setValue("\(carVehicle.capacity ?? 0 )", forKey: "cc")
         vehicle.setValue(carVehicle.fuelType, forKey: "fuelType")
-        vehicle.setValue(carVehicle.model, forKey: "model")
         vehicle.setValue(carVehicle.licensePlate, forKey: "licensePlate")
         vehicle.setValue(carVehicle.manufacture, forKey: "manufacture")
-        vehicle.setValue(carVehicle.manufactureYear, forKey: "manufactureYear")
-        vehicle.setValue(carVehicle.transmission, forKey: "transmission")
-        vehicle.setValue(countVehicle() + 1, forKey: "id")
+        vehicle.setValue(Int(carVehicle.manufacturedYear ?? ""), forKey: "manufactureYear")
+        vehicle.setValue(carVehicle.transmissionType, forKey: "transmission")
+        vehicle.setValue("\(countVehicle() + 1 )", forKey: "id")
         do {
             try context.save()
         } catch {
@@ -98,26 +98,61 @@ struct CoreDataManager{
         }
     }
     
-    func saveMaintenanceHistory(maintenanceHistory: CarMaintenanceHistory) {
+    func saveMaintenanceHistory(maintenanceHistory: MaintenanceHistory, image: UIImage? = nil) {
         let context = CoreDataManager.shared.persistentContainer.viewContext
-        guard let vehicleEntity = NSEntityDescription.entity(forEntityName: "CarMaintenanceHistory", in: context) else { return }
-        
+        guard let maintenanceEntity = NSEntityDescription.entity(forEntityName: "CarMaintenanceHistory", in: context) else { return }
+        let maintenance = NSManagedObject(entity: maintenanceEntity, insertInto: context)
+        maintenance.setValue(maintenanceHistory.serviced, forKey: "serviced")
+        maintenance.setValue(maintenanceHistory.workshopName, forKey: "location")
+        maintenance.setValue(maintenanceHistory.maintenanceDate, forKey: "date")
+        maintenance.setValue(maintenanceHistory.maintenanceTitle, forKey: "title")
+        maintenance.setValue("\(countMaintenanceHistory() + 1 )", forKey: "id")
+        if let image = image {
+            maintenance.setValue(image.pngData() ?? Data(), forKey: "image")
+        }
+        do {
+            try context.save()
+        } catch {
+            fatalError()
+        }
     }
     
-    func updateMaintenanceHistory(maintenanceHistory: MaintenanceHistory, maintenanceId: Int) {
+    func countMaintenanceHistory() -> Int {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CarMaintenanceHistory")
+        do {
+            let maintenance = try context.fetch(fetchRequest)
+            return maintenance.count == 0 ? 0 : maintenance.count
+        } catch {
+            print("could not fetch \(error.localizedDescription)")
+            return 0
+        }
+    }
+    
+    func updateMaintenanceHistory(maintenanceHistory: MaintenanceHistory, maintenanceId: String, image: UIImage? = nil) {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CarMaintenanceHistory")
         fetchRequest.predicate = NSPredicate(format: "id == %@", maintenanceId)
         do {
-            let maintenance = try context.fetch(fetchRequest) as! [NSManagedObject]
-            if let maintenance = maintenance, maintenance.count != 0 {
-                var object = maintenance[0]
-                object.setValue(maintenanceHistory.maintenanceTitle, "title")
+            let maintenance = try context.fetch(fetchRequest)
+            if maintenance.count != 0 {
+                let object = maintenance[0]
+                object.setValue(maintenanceHistory.maintenanceTitle, forKey: "title")
+                object.setValue(maintenanceHistory.maintenanceDate, forKey: "date")
+                object.setValue(maintenanceHistory.serviced, forKey: "serviced")
+                object.setValue(maintenanceHistory.workshopName, forKey: "location")
+                if let image = image {
+                    object.setValue(image.pngData() ?? Data(), forKey: "image")
+                }
+                do {
+                    try context.save()
+                } catch {
+                    fatalError()
+                }
             }
         } catch {
             print("could not fetch \(error.localizedDescription)")
             return
         }
     }
-    
 }
