@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B09EC29273B9622001E1828 /* PickerBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B09EC28273B9622001E1828 /* PickerBottomSheetViewController.swift */; };
 		2153EB922734995E000F1830 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2153EB912734995E000F1830 /* OverviewViewController.swift */; };
 		2171C77527353AC2001CB1C2 /* VehicleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171C77427353AC2001CB1C2 /* VehicleSection.swift */; };
 		2171C777273543FD001CB1C2 /* UpcomingMaintenanceSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171C776273543FD001CB1C2 /* UpcomingMaintenanceSection.swift */; };
 		217DD5EA2738EDC100570989 /* MaintenanceHistorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD5E92738EDC100570989 /* MaintenanceHistorySection.swift */; };
 		2F2943516D4480F7198B7355 /* Pods_Haloto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B1522FF9AE1571B3B5A470 /* Pods_Haloto.framework */; };
+		3B09EC29273B9622001E1828 /* PickerBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B09EC28273B9622001E1828 /* PickerBottomSheetViewController.swift */; };
+		3B271611275EF84A00149A15 /* OnboardingLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B271610275EF84A00149A15 /* OnboardingLoginViewController.swift */; };
+		3B271613275F03EE00149A15 /* OnboardingLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B271612275F03EE00149A15 /* OnboardingLoginViewModel.swift */; };
 		3B6922712735ACDF00847845 /* OneTimePasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6922702735ACDF00847845 /* OneTimePasswordTextField.swift */; };
 		3B860C132732E0E7007776BB /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B860C122732E0E7007776BB /* FormField.swift */; };
 		3B860C162732E9C8007776BB /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B860C152732E9C8007776BB /* FormTextField.swift */; };
@@ -136,13 +138,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B09EC28273B9622001E1828 /* PickerBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerBottomSheetViewController.swift; sourceTree = "<group>"; };
 		2153EB912734995E000F1830 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		2171C77427353AC2001CB1C2 /* VehicleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleSection.swift; sourceTree = "<group>"; };
 		2171C776273543FD001CB1C2 /* UpcomingMaintenanceSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMaintenanceSection.swift; sourceTree = "<group>"; };
 		217DD5E92738EDC100570989 /* MaintenanceHistorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceHistorySection.swift; sourceTree = "<group>"; };
 		23B1522FF9AE1571B3B5A470 /* Pods_Haloto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haloto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3240DF906EE1C6F71C485CA6 /* Pods-Haloto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haloto.release.xcconfig"; path = "Target Support Files/Pods-Haloto/Pods-Haloto.release.xcconfig"; sourceTree = "<group>"; };
+		3B09EC28273B9622001E1828 /* PickerBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerBottomSheetViewController.swift; sourceTree = "<group>"; };
+		3B271610275EF84A00149A15 /* OnboardingLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginViewController.swift; sourceTree = "<group>"; };
+		3B271612275F03EE00149A15 /* OnboardingLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginViewModel.swift; sourceTree = "<group>"; };
 		3B6922702735ACDF00847845 /* OneTimePasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimePasswordTextField.swift; sourceTree = "<group>"; };
 		3B860C122732E0E7007776BB /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
 		3B860C152732E9C8007776BB /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
@@ -307,6 +311,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3B27160F275EF7F900149A15 /* Onboarding Login */ = {
+			isa = PBXGroup;
+			children = (
+				3B271610275EF84A00149A15 /* OnboardingLoginViewController.swift */,
+				3B271612275F03EE00149A15 /* OnboardingLoginViewModel.swift */,
+			);
+			path = "Onboarding Login";
+			sourceTree = "<group>";
+		};
 		3B73F2F92737944100B9BDC0 /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +392,7 @@
 		3BFAED13273250C80024C8C2 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				3B27160F275EF7F900149A15 /* Onboarding Login */,
 				3BFAED14273250D60024C8C2 /* LoginViewController.swift */,
 				3BAC159527338E8800D52067 /* LoginViewModel.swift */,
 				F273EF92273CC51D004721B1 /* LoginUseCase.swift */,
@@ -1213,10 +1227,8 @@
 				618546D12734DCA100675BB0 /* MaintenanceHistoryDescription.swift in Sources */,
 				F27844B0274124E100C8EDE2 /* SignInResponse.swift in Sources */,
 				618802ED2727C5F3003F4C6F /* SceneDelegate.swift in Sources */,
-				618546D22734DCA100675BB0 /* UpcomingMaintenanceDescriptions.swift in Sources */,
 				3B09EC29273B9622001E1828 /* PickerBottomSheetViewController.swift in Sources */,
 				B764982D27350B45003A90C2 /* EditProfileController.swift in Sources */,
-				618546C52734DC9300675BB0 /* ButtonDeleteFilterMaintenance.swift in Sources */,
 				3BC41D39273A37E70008C194 /* SelectFieldStack.swift in Sources */,
 				F202275F273A22DB00AF2AF3 /* BottomSheetViewController.swift in Sources */,
 				615CDCC227351C8500967A40 /* ButtonDeleteFilterMaintenanceNode.swift in Sources */,
@@ -1246,6 +1258,7 @@
 				217DD5EA2738EDC100570989 /* MaintenanceHistorySection.swift in Sources */,
 				6163AC5427382B1200E7756E /* PaymentMethodNode.swift in Sources */,
 				B7DD6DF6273435DA007F087B /* ProfileFinalNode.swift in Sources */,
+				3B271611275EF84A00149A15 /* OnboardingLoginViewController.swift in Sources */,
 				3BC41D40273A9A660008C194 /* EntryTextFieldNode.swift in Sources */,
 				F28F6D052732437300261BA1 /* Extension+NSAttributedString.swift in Sources */,
 				6128447A2727EC5300D060AC /* NetworkProvider.swift in Sources */,
@@ -1275,13 +1288,13 @@
 				F202275C273976A100AF2AF3 /* ViewWrapperNode.swift in Sources */,
 				B7561F72274107EF005CAE51 /* UserTarget.swift in Sources */,
 				61F8ACCF272D547E00B24015 /* ImagePickerHelper.swift in Sources */,
+				3B271613275F03EE00149A15 /* OnboardingLoginViewModel.swift in Sources */,
 				3BFAED15273250D60024C8C2 /* LoginViewController.swift in Sources */,
 				3BAC159B2733A54A00D52067 /* OTPViewModel.swift in Sources */,
 				6134E6B12733067F002E7526 /* Extension+CGFloat.swift in Sources */,
 				6163AC4D27381CE500E7756E /* PaymentTimerNode.swift in Sources */,
 				B7561F7027410724005CAE51 /* UserSignUp.swift in Sources */,
 				3BC41D36273A36920008C194 /* AddNewVehicleViewController.swift in Sources */,
-				F2EC1285273D318800B29F4A /* WhatsappModel.swift in Sources */,
 				612844782727EBF300D060AC /* Extension+Result.swift in Sources */,
 				3B860C132732E0E7007776BB /* FormField.swift in Sources */,
 				3BB652262734FAFE0003E861 /* FormCard.swift in Sources */,

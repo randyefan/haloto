@@ -13,6 +13,7 @@ enum DefaultKey: String {
     case UserDataKey
     case Language
     case LoginStatus
+    case isNotFirstLogin
 }
 
 public struct DefaultManager {

@@ -33,6 +33,7 @@ enum StarState {
 enum FormCardType {
     case OTP
     case Login
+    case empty
 }
 
 enum PopUpListState: String {

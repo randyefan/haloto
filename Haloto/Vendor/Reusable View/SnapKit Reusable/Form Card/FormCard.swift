@@ -7,7 +7,6 @@
 
 import UIKit
 
-// TODO: Form card delegate to fill when the otp is done
 class FormCard: UIView {
     private var formType: FormCardType?
     private var otpPin: String?
@@ -102,9 +101,39 @@ class FormCard: UIView {
         return temp
     }()
 
+    private lazy var onboardingTitle: UILabel = {
+        let label = UILabel()
+        label.attributedText = .font("Welcome to Haloto!", size: 18, fontWeight: .bold, color: .black, alignment: .center, underline: false, isTitle: true)
+        return label
+    }()
+
+    private lazy var onboardingSubtitle: UILabel = {
+        let label = UILabel()
+        label.attributedText = .font("Please register your current vehicle", size: 12, fontWeight: .regular, color: .black, alignment: .center, underline: false, isTitle: true)
+
+        return label
+    }()
+
+    private lazy var onboardingStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [onboardingTitle, onboardingSubtitle])
+        stack.spacing = 0
+        stack.axis = .vertical
+
+        return stack
+    }()
+
+    internal lazy var onboardingImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "Onboarding-Add")
+        imageView.contentMode = .scaleAspectFill
+
+        return imageView
+    }()
+
     internal lazy var resendOTPButton: UIButton = {
         let button = UIButton()
         button.setAttributedTitle(.font("Re-send OTP", size: 11, fontWeight: .medium, color: UIColor(named: "button-blue") ?? .black, alignment: .center), for: .normal)
+
         return button
     }()
 
@@ -112,6 +141,7 @@ class FormCard: UIView {
         super.layoutSubviews()
         roundCorners(corners: [.topLeft, .topRight], radius: 43)
     }
+    
 }
 
 extension FormCard {
@@ -121,11 +151,11 @@ extension FormCard {
         self.formType = formType
         backgroundColor = .white
         addSubview(upperView)
-        addSubview(signUpStack)
         addSubview(calculateView)
 
         switch formType {
         case .OTP:
+            addSubview(signUpStack)
             upperView.addSubview(otpMiddleStack)
             upperView.addSubview(loginButton)
             upperView.addSubview(resendOTPButton)
@@ -152,7 +182,18 @@ extension FormCard {
                 make.bottom.equalToSuperview()
             }
 
+            upperView.snp.makeConstraints { make in
+                make.top.leading.trailing.equalToSuperview()
+                make.bottom.equalTo(signUpStack.snp.top)
+            }
+            
+            signUpStack.snp.makeConstraints { make in
+                make.bottom.equalToSuperview().offset(-24)
+                make.centerX.equalToSuperview()
+            }
+
         case .Login:
+            addSubview(signUpStack)
             upperView.addSubview(loginMiddleStack)
             loginMiddleStack.snp.makeConstraints { make in
                 make.centerY.equalToSuperview()
@@ -167,17 +208,36 @@ extension FormCard {
                 make.top.equalTo(loginButton.snp.bottom)
                 make.bottom.equalToSuperview()
             }
+            upperView.snp.makeConstraints { make in
+                make.top.leading.trailing.equalToSuperview()
+                make.bottom.equalTo(signUpStack.snp.top)
+            }
+            
+            signUpStack.snp.makeConstraints { make in
+                make.bottom.equalToSuperview().offset(-24)
+                make.centerX.equalToSuperview()
+            }
+
+        case .empty:
+            upperView.addSubview(onboardingStack)
+            upperView.addSubview(onboardingImageView)
+
+            onboardingImageView.snp.makeConstraints { make in
+                make.center.equalTo(upperView).offset(24)
+                make.leading.trailing.equalToSuperview().inset(12)
+            }
+
+            onboardingStack.snp.makeConstraints { make in
+                make.bottom.equalTo(onboardingImageView.snp.top).inset(0)
+                make.width.equalToSuperview()
+            }
+            
+            upperView.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+                
+            }
         }
 
-        upperView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(signUpStack.snp.top)
-        }
-
-        signUpStack.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-24)
-            make.centerX.equalToSuperview()
-        }
 
     }
 }
@@ -191,7 +251,6 @@ extension FormCard: OneTimePasswordTextFieldDelegate {
         otpPin = pin
         loginButton.switchButton(state: .enabled)
     }
-
 }
 
 extension FormCard {
@@ -199,7 +258,6 @@ extension FormCard {
         return calculateView.frame.height
     }
 }
-
 
 extension FormCard: FormFieldDelegate {
     func fieldDidEnterCharacter() {
@@ -209,5 +267,4 @@ extension FormCard: FormFieldDelegate {
     func fieldDidBecomeEmpty() {
         loginButton.switchButton(state: .disabled)
     }
-
 }
