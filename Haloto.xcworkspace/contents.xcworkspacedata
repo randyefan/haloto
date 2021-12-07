@@ -2,6 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/dheogildasvarian/Documents/Macro/haloto/Haloto/Vendor/Core Data/CarMaintenanceHistory+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/dheogildasvarian/Documents/Macro/haloto/Haloto/Vendor/Core Data/CarMaintenanceHistory+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/dheogildasvarian/Documents/Macro/haloto/Haloto/Vendor/Core Data/CarVehicle+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/dheogildasvarian/Documents/Macro/haloto/Haloto/Vendor/Core Data/CarVehicle+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:Haloto.xcodeproj">
    </FileRef>
    <FileRef

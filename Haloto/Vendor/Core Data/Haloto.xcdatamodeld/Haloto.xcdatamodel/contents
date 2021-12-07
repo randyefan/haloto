@@ -22,7 +22,7 @@
         <relationship name="maintenanceHistory" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CarMaintenanceHistory" inverseName="vehicle" inverseEntity="CarMaintenanceHistory"/>
     </entity>
     <elements>
-        <element name="CarVehicle" positionX="-63" positionY="-18" width="128" height="179"/>
         <element name="CarMaintenanceHistory" positionX="-54" positionY="63" width="128" height="134"/>
+        <element name="CarVehicle" positionX="-63" positionY="-18" width="128" height="179"/>
     </elements>
 </model>
