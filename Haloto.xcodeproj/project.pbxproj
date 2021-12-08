@@ -30,6 +30,7 @@
 		3BC41D40273A9A660008C194 /* EntryTextFieldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC41D3F273A9A660008C194 /* EntryTextFieldNode.swift */; };
 		3BC41D42273AD2800008C194 /* ButtonFieldStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC41D41273AD2800008C194 /* ButtonFieldStack.swift */; };
 		3BFAED15273250D60024C8C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFAED14273250D60024C8C2 /* LoginViewController.swift */; };
+		610BA26C275E721D00DA2D57 /* Haloto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 610BA26A275E721D00DA2D57 /* Haloto.xcdatamodeld */; };
 		611726DD2731598F00FC2445 /* HeaderListPopUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611726DC2731598F00FC2445 /* HeaderListPopUpNode.swift */; };
 		612292B3273A87FA004B3A6F /* TextFieldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612292B2273A87FA004B3A6F /* TextFieldNode.swift */; };
 		612844652727E8C100D060AC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612844642727E8C100D060AC /* Constant.swift */; };
@@ -163,6 +164,7 @@
 		3BC41D41273AD2800008C194 /* ButtonFieldStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFieldStack.swift; sourceTree = "<group>"; };
 		3BFAED14273250D60024C8C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		45189E7BD3538C5FCF736331 /* Pods-Haloto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haloto.debug.xcconfig"; path = "Target Support Files/Pods-Haloto/Pods-Haloto.debug.xcconfig"; sourceTree = "<group>"; };
+		610BA26B275E721D00DA2D57 /* Haloto.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Haloto.xcdatamodel; sourceTree = "<group>"; };
 		611726DC2731598F00FC2445 /* HeaderListPopUpNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderListPopUpNode.swift; sourceTree = "<group>"; };
 		612292B2273A87FA004B3A6F /* TextFieldNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldNode.swift; sourceTree = "<group>"; };
 		612844642727E8C100D060AC /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -400,6 +402,14 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		610BA269275E71E700DA2D57 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				610BA26A275E721D00DA2D57 /* Haloto.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 		612292B1273A87E4004B3A6F /* Text Field */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,6 +438,7 @@
 		6128445F2727E6D000D060AC /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				610BA269275E71E700DA2D57 /* Core Data */,
 				61C679ED272FAC34003AFE3F /* Enum */,
 				61C679E1272F8CB8003AFE3F /* Reusable View */,
 				612844692727E9EB00D060AC /* Helper */,
@@ -1251,6 +1262,7 @@
 				F202276F273A288200AF2AF3 /* ScrollTracker.swift in Sources */,
 				6128446D2727EAAF00D060AC /* Extension+UIView.swift in Sources */,
 				3BAC15992733932E00D52067 /* OTPViewController.swift in Sources */,
+				610BA26C275E721D00DA2D57 /* Haloto.xcdatamodeld in Sources */,
 				F202274A2734FDEF00AF2AF3 /* Extension+CAGradientLayer.swift in Sources */,
 				611726DD2731598F00FC2445 /* HeaderListPopUpNode.swift in Sources */,
 				6128449E2727F89600D060AC /* Extension+UIViewController.swift in Sources */,
@@ -1537,6 +1549,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		610BA26A275E721D00DA2D57 /* Haloto.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				610BA26B275E721D00DA2D57 /* Haloto.xcdatamodel */,
+			);
+			currentVersion = 610BA26B275E721D00DA2D57 /* Haloto.xcdatamodel */;
+			path = Haloto.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 618802DF2727C5F3003F4C6F /* Project object */;
 }
