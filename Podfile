@@ -17,6 +17,7 @@ target 'Haloto' do
   pod 'SwifterSwift'
   pod 'Moya/RxSwift'
   pod 'SnapKit', '~> 5.0.0'
+  pod 'TPKeyboardAvoiding'
 
   pod 'RxKeyboard'
   pod 'RxOptional'

@@ -8,40 +8,38 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     private(set) static var shared: SceneDelegate?
 
     var window: UIWindow?
 
     // MARK: - Window Scene Delegate
 
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+    func scene(_ scene: UIScene, willConnectTo _: UISceneSession, options _: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
-        if let token = DefaultManager.shared.getString(forKey: .AccessTokenKey) {
-            if !token.isEmpty {
+        if let launchedBefore = DefaultManager.shared.getBool(forKey: .isNotFirstLogin) {
+            if launchedBefore {
                 rootHomepageUser(scene: scene)
                 return
             }
         }
-        loginPage(scene: scene)
+        print("scene delegate printing \(DefaultManager.shared.getBool(forKey: .isNotFirstLogin))")
+        DefaultManager.shared.set(value: true, forKey: .isNotFirstLogin)
+        onboardingLoginpage(scene: scene)
+        
     }
 
-    func sceneDidDisconnect(_ scene: UIScene) {
-    }
+    func sceneDidDisconnect(_: UIScene) {}
 
-    func sceneDidBecomeActive(_ scene: UIScene) {
-    }
+    func sceneDidBecomeActive(_: UIScene) {}
 
-    func sceneWillResignActive(_ scene: UIScene) {
-    }
+    func sceneWillResignActive(_: UIScene) {}
 
-    func sceneWillEnterForeground(_ scene: UIScene) {
-    }
+    func sceneWillEnterForeground(_: UIScene) {}
 
-    func sceneDidEnterBackground(_ scene: UIScene) {
-    }
+    func sceneDidEnterBackground(_: UIScene) {}
 
     // MARK: - Functionality
+
     func createExampleModule(scene: UIScene) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
@@ -61,6 +59,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
     }
 
+    func onboardingLoginpage(scene: UIScene) {
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
+        let viewController = OnboardingLoginViewController()
+        let navigation = UINavigationController(rootViewController: viewController)
+        window?.rootViewController = navigation
+        window?.makeKeyAndVisible()
+    }
+    
     func rootHomepageUser(scene: UIScene) {
         guard let winScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: winScene)
@@ -77,4 +84,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
     }
 }
-

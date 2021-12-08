@@ -83,6 +83,7 @@ PODS:
   - Texture/Video (3.1.0):
     - Texture/Core
   - Toast-Swift (4.0.1)
+  - TPKeyboardAvoiding (1.3.5)
 
 DEPENDENCIES:
   - FLEX
@@ -98,6 +99,7 @@ DEPENDENCIES:
   - SwifterSwift
   - Texture
   - Toast-Swift (~> 4.0.1)
+  - TPKeyboardAvoiding
 
 SPEC REPOS:
   trunk:
@@ -118,6 +120,7 @@ SPEC REPOS:
     - SwifterSwift
     - Texture
     - Toast-Swift
+    - TPKeyboardAvoiding
 
 EXTERNAL SOURCES:
   InterposeKit:
@@ -148,7 +151,8 @@ SPEC CHECKSUMS:
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   Texture: 2e8ab2519452515f7f5a520f5a8f7e0a413abfa3
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
+  TPKeyboardAvoiding: d55b3ea7b362540af8fcf36aa3ed2e87bf210cc6
 
-PODFILE CHECKSUM: f7f2ba988c737271bc39eb9fa89c6afc06b4867d
+PODFILE CHECKSUM: f89a9e084c0244b52346683ac0c95d4c8a0e51d0
 
 COCOAPODS: 1.11.2

@@ -163,6 +163,10 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.setHidesBackButton(true, animated: true)
+    }
 }
 
 extension AddNewVehicleViewController: ASEditableTextNodeDelegate {
@@ -195,7 +199,6 @@ extension AddNewVehicleViewController{
 
     func openList(sender: SelectFieldStack){
         //MARK: Disni nanti open list depending sender.titlenya aja Manufacturer atau Model
-        print("open list \(sender.title)")
     }
     
     func checkFields() -> Bool{

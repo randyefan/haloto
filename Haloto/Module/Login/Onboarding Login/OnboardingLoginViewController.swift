@@ -1,19 +1,14 @@
 //
-//  LoginViewController.swift
+//  OnboardingLoginViewController.swift
 //  Haloto
 //
-//  Created by Javier Fransiscus on 03/11/21.
+//  Created by Javier Fransiscus on 07/12/21.
 //
 
-import RxCocoa
-import RxSwift
-import SnapKit
-import TPKeyboardAvoiding
+import Foundation
 import UIKit
 
-class LoginViewController: UIViewController {
-    private let scrollView = TPKeyboardAvoidingScrollView()
-
+class OnboardingLoginViewController: UIViewController {
     private lazy var backgroundImageView: UIImageView = {
         let temp = UIImageView()
         temp.image = UIImage(named: "AppBackground")
@@ -35,14 +30,14 @@ class LoginViewController: UIViewController {
 
     private lazy var formCard: FormCard = {
         let temp = FormCard()
-        temp.setupView(formType: .Login)
+        temp.setupView(formType: .empty)
         return temp
     }()
 
     private lazy var titleStack: UIStackView = {
         let temp = UIStackView(arrangedSubviews: [titleNameImage, iconImageView])
         temp.axis = .vertical
-        temp.spacing = 10
+        temp.spacing = 12
         return temp
     }()
 
@@ -52,7 +47,13 @@ class LoginViewController: UIViewController {
         return temp
     }()
 
-    private let viewModel = LoginViewModel()
+    private lazy var buttonAddNewVehicle: UIButton = {
+        let temp = UIButton()
+
+        return temp
+    }()
+
+    private let viewModel = OnboardingLoginViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,27 +61,25 @@ class LoginViewController: UIViewController {
         bindViewModel()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    func bindViewModel() {
+        let output = viewModel.transform(input: .init(tapAddVehicle: buttonAddNewVehicle.rx.tap.asDriver()))
 
-        navigationController?.navigationBar.isHidden = true
+        output.vehicleDidTapped
+            .drive(onNext: { [weak self] in
+                guard let self = self else { return }
+                let vc = AddNewVehicleViewController(vehicle: nil, type: .add)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }).disposed(by: rx.disposeBag)
     }
 }
 
-private extension LoginViewController {
+private extension OnboardingLoginViewController {
     func setupView() {
-        view.addSubview(scrollView)
-
-        scrollView.addSubview(loginView)
-
+        view.addSubview(loginView)
         loginView.addSubview(backgroundImageView)
         loginView.addSubview(formCard)
         loginView.addSubview(titleStack)
-
-        scrollView.snp.makeConstraints { make in
-            make.top.bottom.equalTo(view.safeAreaLayoutGuide)
-            make.leading.trailing.equalToSuperview()
-        }
+        loginView.addSubview(buttonAddNewVehicle)
 
         formCard.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(16)
@@ -100,39 +99,15 @@ private extension LoginViewController {
         }
 
         loginView.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
+            make.edges.equalToSuperview()
         }
 
         titleStack.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
         }
-    }
 
-    func bindViewModel() {
-        let textFieldTrigger = formCard
-            .phoneNumberStack
-            .loginInfoTextField
-            .rx.text.orEmpty.asDriver()
-        let signUpTrigger = formCard.signUpButton.rx.tap.asDriver()
-        let submit = formCard.loginButton.rx.tap.asDriver()
-
-        let output = viewModel.transform(input: .init(
-            textFieldTriger: textFieldTrigger,
-            submit: submit,
-            tapSignUp: signUpTrigger
-        )
-        )
-
-        output.OTPSent.drive(onNext: { [weak self] otpViewModel in
-            guard let self = self else { return }
-            let vc = OTPViewController(viewModel: otpViewModel)
-            self.navigationController?.pushViewController(vc, animated: true)
-        }).disposed(by: rx.disposeBag)
-
-        output.signUpDidTap.drive(onNext: { [weak self] _ in
-            guard let self = self else { return }
-            let vc = SignUpViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
-        }).disposed(by: rx.disposeBag)
+        buttonAddNewVehicle.snp.makeConstraints { make in
+            make.edges.equalTo(formCard.onboardingImageView)
+        }
     }
 }
