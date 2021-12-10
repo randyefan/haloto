@@ -22,21 +22,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 return
             }
         }
-        print("scene delegate printing \(DefaultManager.shared.getBool(forKey: .isNotFirstLogin))")
-        DefaultManager.shared.set(value: true, forKey: .isNotFirstLogin)
         onboardingLoginpage(scene: scene)
-        
+
     }
 
-    func sceneDidDisconnect(_: UIScene) {}
+    func sceneDidDisconnect(_: UIScene) { }
 
-    func sceneDidBecomeActive(_: UIScene) {}
+    func sceneDidBecomeActive(_: UIScene) { }
 
-    func sceneWillResignActive(_: UIScene) {}
+    func sceneWillResignActive(_: UIScene) { }
 
-    func sceneWillEnterForeground(_: UIScene) {}
+    func sceneWillEnterForeground(_: UIScene) { }
 
-    func sceneDidEnterBackground(_: UIScene) {}
+    func sceneDidEnterBackground(_: UIScene) { }
 
     // MARK: - Functionality
 
@@ -67,7 +65,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = navigation
         window?.makeKeyAndVisible()
     }
-    
+
     func rootHomepageUser(scene: UIScene) {
         guard let winScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: winScene)

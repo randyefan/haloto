@@ -9,7 +9,7 @@ import AsyncDisplayKit
 import Foundation
 import UIKit
 
-protocol FormFieldStackDelegate: AnyObject{
+protocol FormFieldStackDelegate: AnyObject {
     func openPickerView(sender: FormFieldStack)
 }
 
@@ -17,12 +17,12 @@ class FormFieldStack: ASDisplayNode {
     var delegate: FormFieldStackDelegate?
     private var isPicker: Bool = false
     private var title: String = ""
-    private var text: String = ""
+    var text: String = ""
     private var placeholder: String = ""
     private var keyboardType: UIKeyboardType = .default
     private var options: [String] = [""]
-    
-    
+
+
     private lazy var titleLabel: ASTextNode2 = {
         let label = ASTextNode2()
         return label
@@ -32,8 +32,8 @@ class FormFieldStack: ASDisplayNode {
         let field = EntryTextFieldNode(isPicker: isPicker, text: text, placeholder: placeholder, keyboardType: keyboardType)
         return field
     }()
-    
-    init(isPicker: Bool, title: String, text: String? = "" ,placeholder: String? = "", keyboardType: UIKeyboardType? = .default, pickerOptions:[String]? = ["no data is set"]){
+
+    init(isPicker: Bool, title: String, text: String? = "", placeholder: String? = "", keyboardType: UIKeyboardType? = .default, pickerOptions: [String]? = ["no data is set"]) {
         self.isPicker = isPicker
         self.title = title
         self.text = text ?? ""
@@ -47,27 +47,31 @@ class FormFieldStack: ASDisplayNode {
         automaticallyManagesSubnodes = true
     }
 
-    func changeText(text: String){
+    func changeText(text: String) {
         self.text = text
         textField.changeText(text: text)
     }
-    
+
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
         let stack = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .spaceBetween, alignItems: .center, children: [titleLabel, textField])
         return stack
     }
 }
 
-extension FormFieldStack: EntryTextFieldNodeDelegate{
+extension FormFieldStack: EntryTextFieldNodeDelegate {
+    func getTextInputValue(_ input: String) {
+        self.text = input
+    }
+
     func textFieldIsTapped() {
         delegate?.openPickerView(sender: self)
     }
-    
-    func getOptions() -> [String]{
+
+    func getOptions() -> [String] {
         return options
     }
 
-    func getDefaultValue() -> String{
+    func getDefaultValue() -> String {
         return text
     }
 }

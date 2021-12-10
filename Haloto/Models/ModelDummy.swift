@@ -23,25 +23,25 @@ let vehicle12 = Vehicle(name: "Avanza", fuelType: "Petrol", manufacture: "Toyota
 let vehicle13 = Vehicle(name: "Agya", fuelType: "Petrol", manufacture: "Toyota", manufacturedYear: "2017", capacity: 1000, transmissionType: "Automatic", licensePlate: "B 1293 JL", isDefault: false)
 
 // Component Dummy
-let component1 = Component(name: "Kabel Aki", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
-let component2 = Component(name: "Dinamo Starter Mobil", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
-let component3 = Component(name: "Dinamo Starter Busi", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
-let component4 = Component(name: "Fan Belt / V-Belt", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
-let component5 = Component(name: "Klakson", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
-let component6 = Component(name: "Alternator", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
-let component7 = Component(name: "Evaporator", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
-let component8 = Component(name: "Dryer", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
-let component9 = Component(name: "Expansion Valve", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
-let component10 = Component(name: "Filter Kabin/AC", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
-let component11 = Component(name: "Kompresor", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
-let component12 = Component(name: "Kondensor", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
-let component13 = Component(name: "Kampas Rem Belakang", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
-let component14 = Component(name: "Kampas Rem Depan", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
-let component15 = Component(name: "Disc Brake Depan", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
-let component16 = Component(name: "ABS Speed Sensor", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
-let component17 = Component(name: "Booster Rem", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
-let component18 = Component(name: "Kabel Rem Tangan", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
-let component19 = Component(name: "Oli Transmisi", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate:"")
+let component1 = Component(name: "Kabel Aki", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component2 = Component(name: "Dinamo Starter Mobil", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component3 = Component(name: "Dinamo Starter Busi", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component4 = Component(name: "Fan Belt / V-Belt", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component5 = Component(name: "Klakson", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component6 = Component(name: "Alternator", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component7 = Component(name: "Evaporator", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component8 = Component(name: "Dryer", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component9 = Component(name: "Expansion Valve", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component10 = Component(name: "Filter Kabin/AC", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component11 = Component(name: "Kompresor", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component12 = Component(name: "Kondensor", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component13 = Component(name: "Kampas Rem Belakang", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component14 = Component(name: "Kampas Rem Depan", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component15 = Component(name: "Disc Brake Depan", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component16 = Component(name: "ABS Speed Sensor", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component17 = Component(name: "Booster Rem", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component18 = Component(name: "Kabel Rem Tangan", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component19 = Component(name: "Oli Transmisi", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
 
 // Upcoming Maintenance
 let upcomingMaintenance1 = UpcomingMaintenance(components: [component1, component2, component3, component4], nextServiceOdometer: 20000, nextServiceDate: "1 Jan 2022"
@@ -87,122 +87,130 @@ let freePrice = Payment(fee: 0, tax: 0)
 
 // Bengkel
 let bengkel1 = Bengkel(id: 0,
-                       namaBengkel: "Abadi",
-                       rating: 4.5,
-                       ratingCount: 700,
-                       speciality: listOfSpeciality1,
-                       payment: freePrice)
+    namaBengkel: "Abadi",
+    rating: 4.5,
+    ratingCount: 700,
+    speciality: listOfSpeciality1,
+    payment: freePrice)
 let bengkel2 = Bengkel(id: 1,
-                       namaBengkel: "Selamet Abadi",
-                       rating: 3,
-                       ratingCount: 100,
-                       speciality: listOfSpeciality2,
-                       payment: freePrice)
+    namaBengkel: "Selamet Abadi",
+    rating: 3,
+    ratingCount: 100,
+    speciality: listOfSpeciality2,
+    payment: freePrice)
 let bengkel3 = Bengkel(id: 2,
-                       namaBengkel: "Jaya Motor",
-                       rating: 4.9,
-                       ratingCount: 635,
-                       speciality: listOfSpecialty3,
-                       payment: freePrice)
+    namaBengkel: "Jaya Motor",
+    rating: 4.9,
+    ratingCount: 635,
+    speciality: listOfSpecialty3,
+    payment: freePrice)
 let bengkel4 = Bengkel(id: 3,
-                       namaBengkel: "Raja Service",
-                       rating: 3.1,
-                       ratingCount: 105,
-                       speciality: listOfSpecialty4,
-                       payment: freePrice)
+    namaBengkel: "Raja Service",
+    rating: 3.1,
+    ratingCount: 105,
+    speciality: listOfSpecialty4,
+    payment: freePrice)
 let bengkel5 = Bengkel(id: 4,
-                       namaBengkel: "Karunia Auto",
-                       rating: 4.8,
-                       ratingCount: 10,
-                       speciality: listOfSpeciality5,
-                       payment: freePrice)
+    namaBengkel: "Karunia Auto",
+    rating: 4.8,
+    ratingCount: 10,
+    speciality: listOfSpeciality5,
+    payment: freePrice)
 let bengkel6 = Bengkel(id: 5,
-                       namaBengkel: "Resmi Toyota (Auto 2000)",
-                       rating: 4.7,
-                       ratingCount: 900,
-                       speciality: [speciality11],
-                       payment: freePrice)
+    namaBengkel: "Resmi Toyota (Auto 2000)",
+    rating: 4.7,
+    ratingCount: 900,
+    speciality: [speciality11],
+    payment: freePrice)
 let bengkel7 = Bengkel(id: 6,
-                       namaBengkel: "Resmi Honda (Union)",
-                       rating: 4.9,
-                       ratingCount: 1243,
-                       speciality: [speciality12],
-                       payment: freePrice)
+    namaBengkel: "Resmi Honda (Union)",
+    rating: 4.9,
+    ratingCount: 1243,
+    speciality: [speciality12],
+    payment: freePrice)
 
 let bengkel8 = Bengkel(id: 7,
-                       namaBengkel: "Resmi Kia Mobil Indonesia",
-                       rating: 4.8,
-                       ratingCount: 986,
-                       speciality: [speciality15],
-                       payment: freePrice)
+    namaBengkel: "Resmi Kia Mobil Indonesia",
+    rating: 4.8,
+    ratingCount: 986,
+    speciality: [speciality15],
+    payment: freePrice)
 let bengkel9 = Bengkel(id: 8,
-                       namaBengkel: "Resmi Mitsubishi",
-                       rating: 4.9,
-                       ratingCount: 1243,
-                       speciality: [speciality13],
-                       payment: freePrice)
+    namaBengkel: "Resmi Mitsubishi",
+    rating: 4.9,
+    ratingCount: 1243,
+    speciality: [speciality13],
+    payment: freePrice)
 let bengkel10 = Bengkel(id: 9,
-                       namaBengkel: "Resmi Honda (Union)",
-                       rating: 4.9,
-                       ratingCount: 1243,
-                       speciality: [speciality12],
-                       payment: freePrice)
+    namaBengkel: "Resmi Honda (Union)",
+    rating: 4.9,
+    ratingCount: 1243,
+    speciality: [speciality12],
+    payment: freePrice)
 
 let listOfBengkelDummy = [bengkel1, bengkel2, bengkel3, bengkel4, bengkel5, bengkel6, bengkel7, bengkel8, bengkel9, bengkel10]
 
 // ComponentList
 let componentList1 = ComponentList(componentID: 0,
-                                   componentListName: "Oli Mesin",
-                                   componentListPrice: 325000)
+    componentListName: "Oli Mesin",
+    componentListPrice: 325000)
 let componentList2 = ComponentList(componentID: 1,
-                                   componentListName: "Filter Oli",
-                                   componentListPrice: 100000)
+    componentListName: "Filter Oli",
+    componentListPrice: 100000)
 let componentList3 = ComponentList(componentID: 2,
-                                   componentListName: "Filter Udara",
-                                   componentListPrice: 150000)
+    componentListName: "Filter Udara",
+    componentListPrice: 150000)
 let componentList4 = ComponentList(componentID: 3,
-                                   componentListName: "Minyak Rem",
-                                   componentListPrice: 50000)
+    componentListName: "Minyak Rem",
+    componentListPrice: 50000)
 let componentList5 = ComponentList(componentID: 4,
-                                   componentListName: "Filter Bahan Bakar",
-                                   componentListPrice: 70000)
+    componentListName: "Filter Bahan Bakar",
+    componentListPrice: 70000)
 let componentList6 = ComponentList(componentID: 5,
-                                   componentListName: "Coolant Mesin",
-                                   componentListPrice: 80000)
+    componentListName: "Coolant Mesin",
+    componentListPrice: 80000)
 let componentList7 = ComponentList(componentID: 6,
-                                   componentListName: "Busi",
-                                   componentListPrice: 240000)
+    componentListName: "Busi",
+    componentListPrice: 240000)
 let componentList8 = ComponentList(componentID: 7,
-                                   componentListName: "Accu",
-                                   componentListPrice: 780000)
+    componentListName: "Accu",
+    componentListPrice: 780000)
 
 // Maintenance History
 let maintenanceHistory1 = MaintenanceHistory(maintenanceTitle: "Service 20.000 Km",
-                                             maintenanceDate: "1 Jan 2020",
-                                             maintenanceOdometer: 21245,
-                                             workshopName: "Bengkel Toyota Auto 2000",
-                                             serviced: [],
-                                             replaced: [componentList1, componentList2],
-                                             otherComponents: [],
-                                             maintenanceHistoryImage: nil,
-                                             totalCost: 250000)
+    maintenanceDate: "1 Jan 2020",
+    maintenanceOdometer: 21245,
+    workshopName: "Bengkel Toyota Auto 2000",
+    serviced: [],
+    replaced: [componentList1, componentList2],
+    otherComponents: [],
+    maintenanceHistoryImage: nil,
+    totalCost: 250000)
 let maintenanceHistory2 = MaintenanceHistory(maintenanceTitle: "Service 30.000 Km",
-                                             maintenanceDate: "16 Juni 2020",
-                                             maintenanceOdometer: 31357,
-                                             workshopName: "Tunas Toyota Jakarta",
-                                             serviced: [],
-                                             replaced: [componentList1, componentList6, componentList5],
-                                             otherComponents: [],
-                                             maintenanceHistoryImage: nil,
-                                             totalCost: 475000)
+    maintenanceDate: "16 Juni 2020",
+    maintenanceOdometer: 31357,
+    workshopName: "Tunas Toyota Jakarta",
+    serviced: [],
+    replaced: [componentList1, componentList6, componentList5],
+    otherComponents: [],
+    maintenanceHistoryImage: nil,
+    totalCost: 475000)
 let maintenanceHistory3 = MaintenanceHistory(maintenanceTitle: "Service 40.000 Km",
-                                             maintenanceDate: "4 Desember 2020",
-                                             maintenanceOdometer: 49757,
-                                             workshopName: "Bengkel Toyota Auto 2000",
-                                             serviced: [],
-                                             replaced: [componentList1, componentList6, componentList7],
-                                             otherComponents: [],
-                                             maintenanceHistoryImage: nil,
-                                             totalCost: 200000)
+    maintenanceDate: "4 Desember 2020",
+    maintenanceOdometer: 49757,
+    workshopName: "Bengkel Toyota Auto 2000",
+    serviced: [],
+    replaced: [componentList1, componentList6, componentList7],
+    otherComponents: [],
+    maintenanceHistoryImage: nil,
+    totalCost: 200000)
 
 let listOfMaintenanceHistory = [maintenanceHistory1, maintenanceHistory2, maintenanceHistory3]
+
+let manufactures = [
+    Manufacturer(name: "Toyota")
+]
+
+let models = [
+    Model(name: "Avanza")
+]

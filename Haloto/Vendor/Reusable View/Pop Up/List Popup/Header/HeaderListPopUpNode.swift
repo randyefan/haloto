@@ -17,10 +17,11 @@ protocol HeaderListPopUpNodeDelegate {
 
 class HeaderListPopUpNode: ASDisplayNode {
     // MARK: - Variable
-    private let imageBackNode: ASDisplayNode = {
+    private let imageBackNode: ASImageNode = {
         let node = ASImageNode()
         node.image = UIImage(named: "x_icon")
         node.style.preferredSize = CGSize(width: 36, height: 36)
+        node.isUserInteractionEnabled = true
         return node
     }()
 
@@ -32,7 +33,7 @@ class HeaderListPopUpNode: ASDisplayNode {
 
     private var yellowButton: SmallButtonNode?
     private var blueOutlineButton: SmallButtonNode?
-    
+
     var delegate: HeaderListPopUpNodeDelegate?
 
     // MARK: - Initializer
@@ -46,8 +47,19 @@ class HeaderListPopUpNode: ASDisplayNode {
         )
 
         super.init()
-        setupButton(state: state)
+        yellowButton = SmallButtonNode(title: "Confirm", function: {
+            print("yellow tapped")
+        })
         automaticallyManagesSubnodes = true
+        setupButton(state: state)
+
+    }
+
+    override func didLoad() {
+        super.didLoad()
+
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapButtonLeft))
+        imageBackNode.view.addGestureRecognizer(tapGesture)
     }
 
     // MARK: - Selector Function
@@ -80,8 +92,6 @@ class HeaderListPopUpNode: ASDisplayNode {
             yellowButton = SmallButtonNode(title: "Confirm", function: {
                 print("yellow tapped")
             })
-            yellowButton?.style.height = ASDimensionMake(36)
-            blueOutlineButton = nil
         default:
             blueOutlineButton = SmallButtonNode(title: "Add", buttonState: .BlueOutlined, function: {
                 print("blueOutline tapped")

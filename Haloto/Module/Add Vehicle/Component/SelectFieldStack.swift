@@ -14,7 +14,7 @@ protocol SelectFieldStackDelegate: AnyObject{
 }
 
 class SelectFieldStack: ASDisplayNode {
-    private var placeholderText: String = ""
+    var placeholderText: String = ""
     var isFilled = false
     var delegate: SelectFieldStackDelegate?
     var title: String = ""
@@ -26,8 +26,6 @@ class SelectFieldStack: ASDisplayNode {
 
     private lazy var selectNode: SelectNode = {
         let node = SelectNode(placeholder: placeholderText)
-        //TODO: add tap gesture recognizer
-      
         return node
     }()
     
