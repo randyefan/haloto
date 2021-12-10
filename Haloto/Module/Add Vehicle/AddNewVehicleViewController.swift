@@ -14,7 +14,7 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
     //TODO: If add vehicle is empty and then after each selection make sure that it is not empty and then you go and check everything if it is filled or not
     //TODO: Harus ada delegate dari list nya sekarang, siapa yang buat listnya?
 
-    
+
     private lazy var manufacturerFormNode: SelectFieldStack = {
         let node = SelectFieldStack(title: "Manufacturer", placeholder: "Choose your vehicle manufacturer")
         node.delegate = self
@@ -73,26 +73,39 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
     private var stackFields: [ASDisplayNode.Type]?
     private var manufacturedYearDefaultValue = "2000"
     private var capacityDefaultValue = 0
+    private var fuelType = ""
+    private var transmission = ""
+    private var vehicleModel = ""
+    private var vehicleManufacture = ""
 
     init(vehicle: Vehicle?, type: NewVehicleFormType) {
-        
+
         super.init(node: ASDisplayNode())
-        
+
         switch type {
         case .add:
-            print("add")
-            
             addVehicleButton = SmallButtonNode(title: "Add Vehicle", buttonState: .Yellow, function: {
-                if self.checkFields(){
-                    print("create model an add it to current")
-                }else{
+                if self.checkFields() {
+                    let newVehicle = Vehicle(
+                        name: self.vehicleModel,
+                        fuelType: self.fuelTypeStack.getActiveButton(),
+                        manufacture: self.vehicleManufacture,
+                        manufacturedYear: self.manufacturedYearFormNode.text,
+                        capacity: Int(self.capacityFormNode.text),
+                        transmissionType: self.tranmissionStack.getActiveButton(),
+                        licensePlate: self.licensePlateFormNode.text,
+                        odometer: Int(self.odometerFormNode.text),
+                        isDefault: true)
+                    
+                    CoreDataManager.shared.setVehicle(carVehicle: newVehicle)
+                    DefaultManager.shared.set(value: true, forKey: .isNotFirstLogin)
+                    UIApplication.shared.keyWindow?.rootViewController = TabBarBaseController(productLogin: .User)
+                } else {
                     self.showToast(title: "Please fill in all forms")
                 }
             })
         case .edit:
-            
             guard let currentVehicle = vehicle else { return }
-
             self.vehicle = currentVehicle
             manufacturedYearDefaultValue = currentVehicle.manufacturedYear ?? ""
             capacityDefaultValue = currentVehicle.capacity ?? 0
@@ -114,11 +127,13 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
 
             if vehicleTranmission.caseInsensitiveCompare("Automatic") == .orderedSame {
                 tranmissionStack.setFirstButtonActive()
+                self.transmission = "Automatic"
             } else {
                 tranmissionStack.setSecondButtonActive()
+                self.transmission = "Manual"
             }
 
-            
+
             addVehicleButton = SmallButtonNode(title: "Edit", buttonState: .Yellow, function: {
                 //TODO: Edit action
                 print("add edit action")
@@ -130,7 +145,7 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
         node.automaticallyManagesSubnodes = true
         node.backgroundColor = .white
 
- 
+
 
         node.layoutSpecBlock = { _, _ in
             let stack = ASStackLayoutSpec(
@@ -152,7 +167,7 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
 
             return ASInsetLayoutSpec(insets: UIEdgeInsets(top: .topSafeArea, left: 16, bottom: .infinity, right: 16), child: addNewVehicleStack)
         }
-        
+
     }
 
     @available(*, unavailable)
@@ -163,7 +178,7 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
@@ -182,7 +197,7 @@ extension AddNewVehicleViewController: ASEditableTextNodeDelegate {
 extension AddNewVehicleViewController: FormFieldStackDelegate {
     func openPickerView(sender: FormFieldStack) {
         let vc = PickerBottomSheetViewController()
-        
+
         vc.configurePicker(sender: sender, options: sender.getOptions(), defaultValue: sender.getDefaultValue())
         let bottomSheetVC = BottomSheetViewController(wrapping: vc)
         navigationController?.present(bottomSheetVC, animated: true, completion: nil)
@@ -195,15 +210,31 @@ extension AddNewVehicleViewController: SelectFieldStackDelegate {
     }
 }
 
-extension AddNewVehicleViewController{
-
-    func openList(sender: SelectFieldStack){
-        //MARK: Disni nanti open list depending sender.titlenya aja Manufacturer atau Model
+extension AddNewVehicleViewController {
+    func openList(sender: SelectFieldStack) {
+        let vc = ListPopupViewController(state: .init(rawValue: sender.title)!)
+        vc.delegate = self
+        vc.modalPresentationStyle = .fullScreen
+        vc.manufacturer = manufactures
+        vc.model = models
+        self.present(vc, animated: true, completion: nil)
     }
-    
-    func checkFields() -> Bool{
+
+    func checkFields() -> Bool {
         //TODO: Thinking to change all the view into 1 type of class that has 1 variable or conform to a protocol so I can check whether each and every field is filled
         //TODO: next idea is just to make all of the button 1 field stack with 3 types of pilihan and therefore by doing so you can check each and every single ome to validate whether it is true or not true
         return true
+    }
+}
+
+extension AddNewVehicleViewController: ListPopViewDelegate {
+    func setSelectedModel(_ model: Model) {
+        self.modelFormNode.setSelected(text: model.name)
+        self.vehicleModel = model.name ?? ""
+    }
+    
+    func setSelectedManufacturer(_ manufacturer: Manufacturer) {
+        self.manufacturerFormNode.setSelected(text: manufacturer.name)
+        self.vehicleManufacture = manufacturer.name ?? ""
     }
 }

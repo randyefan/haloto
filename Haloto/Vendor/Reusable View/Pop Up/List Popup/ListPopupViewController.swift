@@ -8,9 +8,14 @@
 import UIKit
 import AsyncDisplayKit
 
+protocol ListPopViewDelegate {
+    func setSelectedManufacturer(_ manufacturer: Manufacturer)
+    func setSelectedModel(_ model: Model)
+}
+
 internal class ListPopupViewController: ASDKViewController<ASDisplayNode> {
     // MARK: - Variable
-    
+
     private let headerNode: HeaderListPopUpNode
     private var collectionNode: ASCollectionNode?
     private var searchNode: ASEditableTextNode?
@@ -18,31 +23,34 @@ internal class ListPopupViewController: ASDKViewController<ASDisplayNode> {
         let node = ASTableNode()
         return node
     }()
-    
+
     var manufacturer: [Manufacturer]?
     var model: [Model]?
     var component: [ComponentList]?
-    
+
     private var componentsSelected: [ComponentList] = []
-    
+    private var selectedManufacturer: Manufacturer?
+    private var selectedModel: Model?
+
     private var state: PopUpListState
+    var delegate: ListPopViewDelegate?
 
     // MARK: - Initializer
     init(state: PopUpListState) {
-        
+
         headerNode = HeaderListPopUpNode(state: state)
         self.state = state
 
         super.init(node: ASDisplayNode())
-        
+
         node.automaticallyManagesSubnodes = true
         node.automaticallyRelayoutOnSafeAreaChanges = true
-        
+
         setupNode()
         setupTableFunction()
-        
+
         tableNode.style.flexGrow = 1
-        
+
         node.layoutSpecBlock = { [weak self] _, _ in
             guard let self = self else { return ASLayoutSpec() }
 
@@ -53,7 +61,7 @@ internal class ListPopupViewController: ASDKViewController<ASDisplayNode> {
                 alignItems: .stretch,
                 children: [self.headerNode, self.searchNode, self.collectionNode, self.tableNode].compactMap { $0 }
             )
-            
+
             return ASInsetLayoutSpec(
                 insets: UIEdgeInsets(top: .topSafeArea, left: 12, bottom: 0, right: 12),
                 child: topStack)
@@ -65,7 +73,7 @@ internal class ListPopupViewController: ASDKViewController<ASDisplayNode> {
     }
 
     // MARK: - View Controller Lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.node.backgroundColor = .white
@@ -73,10 +81,10 @@ internal class ListPopupViewController: ASDKViewController<ASDisplayNode> {
     }
 
     // MARK: - Functionality
-    
+
     private func setupNode() {
         headerNode.delegate = self
-        
+
         switch state {
         case .model, .manufacturer:
             searchNode = ASEditableTextNode()
@@ -94,9 +102,9 @@ internal class ListPopupViewController: ASDKViewController<ASDisplayNode> {
             flowLayout.minimumLineSpacing = 1
             flowLayout.minimumInteritemSpacing = 1
             flowLayout.scrollDirection = .horizontal
-            
+
             collectionNode = ASCollectionNode(collectionViewLayout: flowLayout)
-            
+
             collectionNode?.delegate = self
             collectionNode?.dataSource = self
             collectionNode?.showsHorizontalScrollIndicator = false
@@ -104,12 +112,12 @@ internal class ListPopupViewController: ASDKViewController<ASDisplayNode> {
             collectionNode?.view.backgroundColor = .clear
         }
     }
-    
+
     private func setupTableFunction() {
         tableNode.delegate = self
         tableNode.dataSource = self
         tableNode.view.showsVerticalScrollIndicator = false
-        
+
         switch state {
         case .manufacturer, .model:
             tableNode.allowsMultipleSelection = false
@@ -119,10 +127,10 @@ internal class ListPopupViewController: ASDKViewController<ASDisplayNode> {
             tableNode.allowsMultipleSelection = false
         }
     }
-    
+
     private func updateCollectionView() {
         collectionNode?.reloadData()
-        
+
         if componentsSelected.count > 0 {
             collectionNode?.style.height = ASDimension(unit: .points, value: 46)
             collectionNode?.setNeedsLayout()
@@ -154,7 +162,7 @@ extension ListPopupViewController: ASTableDataSource, ASTableDelegate {
             return 0
         }
     }
-    
+
     func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
         switch state {
         case .replaced:
@@ -174,7 +182,7 @@ extension ListPopupViewController: ASTableDataSource, ASTableDelegate {
             return CellContentListPopUpNode(model: data)
         }
     }
-    
+
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
         switch state {
         case .service, .replaced:
@@ -183,11 +191,19 @@ extension ListPopupViewController: ASTableDataSource, ASTableDelegate {
                 componentsSelected.append(componentSelected)
                 updateCollectionView()
             }
+        case .manufacturer:
+            self.selectedManufacturer = manufacturer![indexPath.row]
+            delegate?.setSelectedManufacturer(selectedManufacturer!)
+            self.dismiss(animated: true, completion: nil)
+        case .model:
+            self.selectedModel = model![indexPath.row]
+            delegate?.setSelectedModel(selectedModel!)
+            self.dismiss(animated: true, completion: nil)
         default:
             break
         }
     }
-    
+
     func tableNode(_ tableNode: ASTableNode, didDeselectRowAt indexPath: IndexPath) {
         switch state {
         case .service, .replaced:
@@ -206,7 +222,7 @@ extension ListPopupViewController: ASCollectionDelegate, ASCollectionDataSource 
     func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
         componentsSelected.count
     }
-    
+
     func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
         let component = componentsSelected[indexPath.row]
         let filterNode = FilterMaintenanceCell(model: component)
@@ -220,25 +236,22 @@ extension ListPopupViewController: ASCollectionDelegate, ASCollectionDataSource 
 extension ListPopupViewController: ButtonDeleteFilterDelegate {
     func didTapDelete(model: ComponentList) {
         componentsSelected = componentsSelected.filter({ $0.componentID != model.componentID })
-        
+
         if let cellRow = component?.firstIndex(where: { $0.componentID == model.componentID }) {
             tableNode.cellForRow(at: IndexPath(row: cellRow, section: 0))?.isSelected = false
         }
-        
+
         updateCollectionView()
     }
 }
 
 // MARK: - Extension for HeaderListPopUpNodeDelegate
-
 extension ListPopupViewController: HeaderListPopUpNodeDelegate {
     func didTapRight() {
         self.dismiss(animated: true, completion: nil)
     }
-    
+
     func didTapLeft() {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
 }

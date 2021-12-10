@@ -7,8 +7,10 @@
 
 import AsyncDisplayKit
 import Foundation
+
 protocol EntryTextFieldNodeDelegate: AnyObject {
     func textFieldIsTapped()
+    func getTextInputValue(_ input: String)
 }
 
 class EntryTextFieldNode: ASDisplayNode {
@@ -50,7 +52,7 @@ class EntryTextFieldNode: ASDisplayNode {
         self.keyboardType = keyboardType
         super.init()
 
-        if isPicker{
+        if isPicker {
             textField.textView.isEditable = false
             textField.textView.isSelectable = false
         }
@@ -58,6 +60,7 @@ class EntryTextFieldNode: ASDisplayNode {
             self.delegate?.textFieldIsTapped()
         }
         automaticallyManagesSubnodes = true
+        self.textField.delegate = self
     }
 
     func changeText(text: String) {
@@ -69,10 +72,11 @@ class EntryTextFieldNode: ASDisplayNode {
     }
 }
 
-extension EntryTextFieldNode: ASEditableTextNodeDelegate{
+extension EntryTextFieldNode: ASEditableTextNodeDelegate {
     func editableTextNode(_ editableTextNode: ASEditableTextNode, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        delegate?.getTextInputValue(textField.textView.text)
         let newText = (textField.textView.text as NSString).replacingCharacters(in: range, with: text)
         let numberOfChars = newText.count
-         return numberOfChars < 8;
+        return numberOfChars < 8;
     }
 }

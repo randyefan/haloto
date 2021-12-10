@@ -11,6 +11,7 @@ import UIKit
 
 class ButtonFieldStack: ASDisplayNode {
     var isFilled: Bool
+    var flag: Int = 0
     
     private var firstButtonText: String = ""
     private var secondButtonText: String = ""
@@ -56,10 +57,20 @@ extension ButtonFieldStack {
     func setFirstButtonActive() {
         firstButton?.setSelected(node: firstButton!)
         secondButton?.setUnselected(node: secondButton!)
+        flag = 0
     }
 
     func setSecondButtonActive() {
         firstButton?.setUnselected(node: firstButton!)
         secondButton?.setSelected(node: secondButton!)
+        flag = 1
+    }
+    
+    func getActiveButton() -> String {
+        if flag == 0 {
+            return firstButtonText
+        } else {
+            return secondButtonText
+        }
     }
 }
