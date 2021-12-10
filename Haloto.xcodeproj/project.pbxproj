@@ -10,6 +10,7 @@
 		2153EB922734995E000F1830 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2153EB912734995E000F1830 /* OverviewViewController.swift */; };
 		2171C77527353AC2001CB1C2 /* VehicleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171C77427353AC2001CB1C2 /* VehicleSection.swift */; };
 		2171C777273543FD001CB1C2 /* UpcomingMaintenanceSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171C776273543FD001CB1C2 /* UpcomingMaintenanceSection.swift */; };
+		217948FC275F6A5C0025FF3E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217948FB275F6A5C0025FF3E /* CoreDataManager.swift */; };
 		217DD5EA2738EDC100570989 /* MaintenanceHistorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217DD5E92738EDC100570989 /* MaintenanceHistorySection.swift */; };
 		2F2943516D4480F7198B7355 /* Pods_Haloto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B1522FF9AE1571B3B5A470 /* Pods_Haloto.framework */; };
 		3B09EC29273B9622001E1828 /* PickerBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B09EC28273B9622001E1828 /* PickerBottomSheetViewController.swift */; };
@@ -99,6 +100,10 @@
 		B7A663CB273CC46300286E53 /* FilterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A663CA273CC46300286E53 /* FilterNode.swift */; };
 		B7D7ED4D273045D400960699 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7D7ED4C273045D400960699 /* Colors.xcassets */; };
 		B7D7ED66273050D300960699 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7D7ED54273050BF00960699 /* Poppins-Medium.ttf */; };
+		B7DAFAF7276313A5001DA6B3 /* CarVehicle+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DAFAF3276313A5001DA6B3 /* CarVehicle+CoreDataClass.swift */; };
+		B7DAFAF8276313A5001DA6B3 /* CarVehicle+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DAFAF4276313A5001DA6B3 /* CarVehicle+CoreDataProperties.swift */; };
+		B7DAFAF9276313A5001DA6B3 /* CarMaintenanceHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DAFAF5276313A5001DA6B3 /* CarMaintenanceHistory+CoreDataProperties.swift */; };
+		B7DAFAFA276313A5001DA6B3 /* CarMaintenanceHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DAFAF6276313A5001DA6B3 /* CarMaintenanceHistory+CoreDataClass.swift */; };
 		B7DD6DC627338FCE007F087B /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DD6DC527338FCE007F087B /* UserProfileViewController.swift */; };
 		B7DD6DC927339585007F087B /* ProfileInfoNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DD6DC827339585007F087B /* ProfileInfoNode.swift */; };
 		B7DD6DCF27339C82007F087B /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DD6DCE27339C82007F087B /* Extension+UIImage.swift */; };
@@ -142,6 +147,7 @@
 		2153EB912734995E000F1830 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		2171C77427353AC2001CB1C2 /* VehicleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleSection.swift; sourceTree = "<group>"; };
 		2171C776273543FD001CB1C2 /* UpcomingMaintenanceSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMaintenanceSection.swift; sourceTree = "<group>"; };
+		217948FB275F6A5C0025FF3E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		217DD5E92738EDC100570989 /* MaintenanceHistorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceHistorySection.swift; sourceTree = "<group>"; };
 		23B1522FF9AE1571B3B5A470 /* Pods_Haloto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haloto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3240DF906EE1C6F71C485CA6 /* Pods-Haloto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haloto.release.xcconfig"; path = "Target Support Files/Pods-Haloto/Pods-Haloto.release.xcconfig"; sourceTree = "<group>"; };
@@ -234,6 +240,10 @@
 		B7A663CA273CC46300286E53 /* FilterNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterNode.swift; sourceTree = "<group>"; };
 		B7D7ED4C273045D400960699 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		B7D7ED54273050BF00960699 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		B7DAFAF3276313A5001DA6B3 /* CarVehicle+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CarVehicle+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B7DAFAF4276313A5001DA6B3 /* CarVehicle+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CarVehicle+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B7DAFAF5276313A5001DA6B3 /* CarMaintenanceHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CarMaintenanceHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B7DAFAF6276313A5001DA6B3 /* CarMaintenanceHistory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CarMaintenanceHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B7DD6DC527338FCE007F087B /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		B7DD6DC827339585007F087B /* ProfileInfoNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoNode.swift; sourceTree = "<group>"; };
 		B7DD6DCE27339C82007F087B /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
@@ -405,7 +415,12 @@
 		610BA269275E71E700DA2D57 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				B7DAFAF6276313A5001DA6B3 /* CarMaintenanceHistory+CoreDataClass.swift */,
+				B7DAFAF5276313A5001DA6B3 /* CarMaintenanceHistory+CoreDataProperties.swift */,
+				B7DAFAF3276313A5001DA6B3 /* CarVehicle+CoreDataClass.swift */,
+				B7DAFAF4276313A5001DA6B3 /* CarVehicle+CoreDataProperties.swift */,
 				610BA26A275E721D00DA2D57 /* Haloto.xcdatamodeld */,
+				217948FB275F6A5C0025FF3E /* CoreDataManager.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -1233,6 +1248,7 @@
 				F202274C273520B100AF2AF3 /* ChipCellNode.swift in Sources */,
 				3BC41D3C273A89460008C194 /* SelectNode.swift in Sources */,
 				618546D02734DCA100675BB0 /* MaintenanceHistoryCell.swift in Sources */,
+				B7DAFAFA276313A5001DA6B3 /* CarMaintenanceHistory+CoreDataClass.swift in Sources */,
 				6163AC4927381AC700E7756E /* UserPaymentReviewViewController.swift in Sources */,
 				B7637F70273F8DC1001AD75F /* UserProfileViewModel.swift in Sources */,
 				618546D12734DCA100675BB0 /* MaintenanceHistoryDescription.swift in Sources */,
@@ -1249,6 +1265,7 @@
 				F2022769273A259900AF2AF3 /* UIApplication+BottomSheet.swift in Sources */,
 				F2022771273A292300AF2AF3 /* Extension+UINavbar.swift in Sources */,
 				B7713BD027319358007A3824 /* ReusableVehicleCell.swift in Sources */,
+				217948FC275F6A5C0025FF3E /* CoreDataManager.swift in Sources */,
 				F20227462734F0E600AF2AF3 /* WorkshopConsultationCard.swift in Sources */,
 				F20227542735526500AF2AF3 /* WorkshopConsultationMainCell.swift in Sources */,
 				612844712727EB6C00D060AC /* Extension+UIColor.swift in Sources */,
@@ -1312,12 +1329,15 @@
 				3BB652262734FAFE0003E861 /* FormCard.swift in Sources */,
 				B7713BC727306A70007A3824 /* ReusableSmallButtonNode.swift in Sources */,
 				61C679EF272FAC4F003AFE3F /* Enum.swift in Sources */,
+				B7DAFAF8276313A5001DA6B3 /* CarVehicle+CoreDataProperties.swift in Sources */,
 				3B860C162732E9C8007776BB /* FormTextField.swift in Sources */,
 				6163AC5027381D5A00E7756E /* Extension+Double.swift in Sources */,
 				6163AC56273834A100E7756E /* PaymentTotalNode.swift in Sources */,
 				61B7EBB72739A0A20032AED8 /* Extension+UITabBarController.swift in Sources */,
 				F2022759273915B200AF2AF3 /* StarNode.swift in Sources */,
 				F2022775273A2CE500AF2AF3 /* Extension+CALayer.swift in Sources */,
+				B7DAFAF7276313A5001DA6B3 /* CarVehicle+CoreDataClass.swift in Sources */,
+				B7DAFAF9276313A5001DA6B3 /* CarMaintenanceHistory+CoreDataProperties.swift in Sources */,
 				B7A663CB273CC46300286E53 /* FilterNode.swift in Sources */,
 				B7561F7527410E3C005CAE51 /* SignUpUseCase.swift in Sources */,
 				F27844B82741359400C8EDE2 /* DefaultManager.swift in Sources */,
