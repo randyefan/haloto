@@ -21,6 +21,8 @@ internal final class ConsultViewController: ASDKViewController<ASDisplayNode> {
     }()
 
     private let headerNode = ConsultViewHeader()
+    
+    private let holdFeature = HoldFeaturePopup()
 
 
     override init() {
@@ -28,14 +30,8 @@ internal final class ConsultViewController: ASDKViewController<ASDisplayNode> {
         node.automaticallyManagesSubnodes = true
         node.layoutSpecBlock = { [weak self] _, _ in
             guard let self = self else { return ASLayoutSpec() }
+            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: .infinity, left: .infinity, bottom: .infinity, right: .infinity), child: self.holdFeature)
 
-            return ASStackLayoutSpec(
-                direction: .vertical,
-                spacing: 8,
-                justifyContent: .start,
-                alignItems: .stretch,
-                children: [self.headerNode, self.collectionNode]
-            )
         }
     }
 

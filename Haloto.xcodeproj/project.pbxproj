@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21271D3F275DD47E00AFE967 /* HoldFeaturePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21271D3E275DD47E00AFE967 /* HoldFeaturePopup.swift */; };
 		2153EB922734995E000F1830 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2153EB912734995E000F1830 /* OverviewViewController.swift */; };
 		2171C77527353AC2001CB1C2 /* VehicleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171C77427353AC2001CB1C2 /* VehicleSection.swift */; };
 		2171C777273543FD001CB1C2 /* UpcomingMaintenanceSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171C776273543FD001CB1C2 /* UpcomingMaintenanceSection.swift */; };
@@ -144,6 +145,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21271D3E275DD47E00AFE967 /* HoldFeaturePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldFeaturePopup.swift; sourceTree = "<group>"; };
 		2153EB912734995E000F1830 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		2171C77427353AC2001CB1C2 /* VehicleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleSection.swift; sourceTree = "<group>"; };
 		2171C776273543FD001CB1C2 /* UpcomingMaintenanceSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMaintenanceSection.swift; sourceTree = "<group>"; };
@@ -295,6 +297,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21271D3B275DD3B000AFE967 /* Hold Feature Popup */ = {
+			isa = PBXGroup;
+			children = (
+				21271D3E275DD47E00AFE967 /* HoldFeaturePopup.swift */,
+			);
+			path = "Hold Feature Popup";
+			sourceTree = "<group>";
+		};
 		2153EB9027349934000F1830 /* Overview */ = {
 			isa = PBXGroup;
 			children = (
@@ -771,6 +781,7 @@
 		61C679E3272F8CD7003AFE3F /* Pop Up */ = {
 			isa = PBXGroup;
 			children = (
+				21271D3B275DD3B000AFE967 /* Hold Feature Popup */,
 				615CDCBC2734E21D00967A40 /* Consult Popup */,
 				6172733927312E7A00DF8F5E /* List Popup */,
 			);
@@ -1239,6 +1250,7 @@
 				3B6922712735ACDF00847845 /* OneTimePasswordTextField.swift in Sources */,
 				61C679E8272F9D21003AFE3F /* TabBarBaseController.swift in Sources */,
 				612844732727EB8C00D060AC /* Extension+ObservableType.swift in Sources */,
+				21271D3F275DD47E00AFE967 /* HoldFeaturePopup.swift in Sources */,
 				F2022777273A2E1100AF2AF3 /* RxSwizzlingInterpose.swift in Sources */,
 				F2022761273A24CB00AF2AF3 /* BottomSheetPresentationAnimator.swift in Sources */,
 				B7DD6DC927339585007F087B /* ProfileInfoNode.swift in Sources */,
