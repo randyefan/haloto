@@ -11,7 +11,7 @@ import UIKit
 enum TabItem: String, CaseIterable {
     case profile = "Profile"
     case overview = "Dashboard"
-    case consult = "Consult"
+    case consult = "Emergency"
     case booking = "Booking"
     case account = "Account"
     

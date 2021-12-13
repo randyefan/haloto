@@ -31,7 +31,7 @@ class TabBarBaseController: UITabBarController {
     private func loadTabBar() {
         switch productLogin {
         case .User:
-            let tabItems: [TabItem] = [.overview, .consult, .booking, .profile]
+            let tabItems: [TabItem] = [.overview, .consult]
             self.setupCustomTabBar(tabItems) { (controllers) in
                 self.viewControllers = controllers
             }
