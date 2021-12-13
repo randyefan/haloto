@@ -35,6 +35,15 @@ class OverviewViewController: ASDKViewController<ASScrollNode> {
         maintenanceHistoryNode?.action = {
             
         }
+        
+        upcomingMaintenanceNode?.action = { index in
+            if let modelUpcoming = modelUpcoming {
+                let vc = UpcomingMaintenancePanModal(maintenance: modelUpcoming[index])
+                let bottomSheet = BottomSheetViewController(wrapping: vc)
+                self.navigationController?.present(bottomSheet, animated: true, completion: nil)
+            }
+        }
+        
         node.automaticallyManagesSubnodes = true
         node.automaticallyManagesContentSize = true
         node.layoutSpecBlock = { _, _ in

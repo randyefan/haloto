@@ -16,6 +16,8 @@ class UpcomingMaintenanceSection: ASDisplayNode {
         let node = ASTextNode2()
         return node
     }()
+    
+    var action: ((Int) -> ())?
 
     init(model: [UpcomingMaintenance]) {
         self.model = model
@@ -44,7 +46,7 @@ class UpcomingMaintenanceSection: ASDisplayNode {
     }
     
     func handleTap(index: Int) {
-        print(index)
+        self.action?(index)
     }
 
     override func layoutSpecThatFits(_: ASSizeRange) -> ASLayoutSpec {
