@@ -29,14 +29,14 @@ class VehicleDescriptionNode: ASDisplayNode {
         return node
     }()
 
-    init(model: Vehicle) {
+    init(model: CarVehicle) {
         vehicle.attributedText = .font(
-            "\(model.manufacture ?? "") \(model.name ?? "")",
+            "\(model.manufacture ?? "") \(model.model ?? "")",
             size: 20, fontWeight: .bold
         )
 
         vehicleDetails1.attributedText = .font(
-            "\(model.manufacturedYear ?? "") | \(model.transmissionType ?? "") | \(model.capacity ?? 0) CC",
+            "\(model.manufactureYear) | \(model.transmission ?? "") | \(model.cc ?? "1000") CC",
             size: 12
         )
 
@@ -46,7 +46,7 @@ class VehicleDescriptionNode: ASDisplayNode {
         )
 
         isDefault.attributedText = .font(
-            model.isDefault ?? false ? "Default" : "",
+            "",
             size: 12,
             fontWeight: .medium,
             color: UIColor.cardTextDefault

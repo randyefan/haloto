@@ -9,7 +9,7 @@ import AsyncDisplayKit
 import Foundation
 
 class VehicleSection: ASDisplayNode, ASCollectionDataSource {
-    var modelVehicle: [Vehicle]?
+    var modelVehicle: [CarVehicle]?
 
     private let displayNode: ASDisplayNode = {
         let node = ASDisplayNode()

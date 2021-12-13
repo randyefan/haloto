@@ -8,7 +8,7 @@
 import AsyncDisplayKit
 
 class MaintenanceHistorySection: ASDisplayNode {
-    var model: [MaintenanceHistory]?
+    var model: [CarMaintenanceHistory]?
 
     private let maintenanHistoryNode: [MaintenanceHistoryCell]
 
@@ -18,8 +18,9 @@ class MaintenanceHistorySection: ASDisplayNode {
     }()
 
     private var buttonAdd: SmallButtonNode?
+    var action: (() -> ())?
 
-    init(model: [MaintenanceHistory]) {
+    init(model: [CarMaintenanceHistory]) {
         self.model = model
         
         maintenanHistoryNode = (0 ..< model.count).map { index in
@@ -37,7 +38,9 @@ class MaintenanceHistorySection: ASDisplayNode {
         buttonAdd = SmallButtonNode(
             title: "+ Add New",
             buttonState: .BlueOutlined,
-            function: { print("Button Add Tapped") }
+            function: {
+                
+            }
         )
         buttonAdd?.style.width = ASDimensionMake(90)
 

@@ -18,18 +18,23 @@ class OverviewViewController: ASDKViewController<ASScrollNode> {
     var upcomingMaintenanceNode: UpcomingMaintenanceSection?
     var maintenanceHistoryNode: MaintenanceHistorySection?
     
-    // MARK: - Variable Model
-    var modelUpcoming: [UpcomingMaintenance]?
-    var modelMaintenanceHistory: [MaintenanceHistory]?
-    var modelVehicle: [Vehicle]?
-    
     // MARK: - Initializer (Required)
     override init() {
-        modelUpcoming = listOfUpcomingMaintenanceDummy
-        modelMaintenanceHistory = listOfMaintenanceHistory
-        modelVehicle = listOfVehicleDummy
+        let vehicle = CoreDataManager.shared.getPersonalVehicleList()
+        vehicleNode.modelVehicle = vehicle
+        
+        let modelUpcoming = CoreDataManager.shared.generateUpcamingMaintenance(vehicleId: vehicle?[0].id ?? "0")
+        upcomingMaintenanceNode = UpcomingMaintenanceSection(model: modelUpcoming ?? [])
+        
+        if let model = vehicle {
+            let maintenanceHistory = CoreDataManager.shared.getMaintenanceHistory(vehicle: model[0])
+            maintenanceHistoryNode = MaintenanceHistorySection(model: maintenanceHistory ?? [])
+        }
         
         super.init(node: ASScrollNode())
+        maintenanceHistoryNode?.action = {
+            
+        }
         node.automaticallyManagesSubnodes = true
         node.automaticallyManagesContentSize = true
         node.layoutSpecBlock = { _, _ in

@@ -37,30 +37,30 @@ class MaintenanceHistoryDescription: ASDisplayNode {
         return node
     }()
 
-    init(model: MaintenanceHistory) {
+    init(model: CarMaintenanceHistory) {
         maintenanceHistoryTitle.attributedText = .font(
-            "\(model.maintenanceTitle ?? "")",
+            "\(model.title ?? "")",
             size: 13,
             fontWeight: .medium
         )
 
         timeBadgeNode.image = UIImage(named: "timeBadge")
         dateNode.attributedText = .font(
-            "\(model.maintenanceDate ?? "")",
+            "\(model.date ?? Date())",
             size: 12,
             fontWeight: .regular,
             color: UIColor.lightGray
         )
 
         locationBadgeNode.image = UIImage(named: "locationBadge")
-        workshopNameNode.attributedText = .font("\(model.workshopName ?? "")",
+        workshopNameNode.attributedText = .font("\(model.location ?? "")",
                                                 size: 12,
                                                 fontWeight: .regular,
                                                 color: UIColor.black,
                                                 alignment: .left,
                                                 isTitle: false)
         workshopNameNode.attributedText = .font(
-            "\(model.workshopName ?? "")",
+            "\(model.location ?? "")",
             size: 12,
             fontWeight: .regular,
             color: UIColor.lightGray

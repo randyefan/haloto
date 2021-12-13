@@ -31,7 +31,7 @@ class YouCarPanModal: ASDKViewController<ASDisplayNode> {
         return node
     }()
 
-    private var vehicleCardNode: VehicleCellNode
+//    private var vehicleCardNode: VehicleCellNode
     private let promptNode: ASTextNode2 = {
         let node = ASTextNode2()
         node.attributedText = .font(
@@ -51,7 +51,7 @@ class YouCarPanModal: ASDKViewController<ASDisplayNode> {
 
     init(vehicle: Vehicle) {
         self.vehicle = vehicle
-        vehicleCardNode = VehicleCellNode(model: vehicle)
+//        vehicleCardNode = VehicleCellNode(model: vehicle)
         super.init(node: ASDisplayNode())
         node.automaticallyManagesSubnodes = true
         node.automaticallyRelayoutOnSafeAreaChanges = true
@@ -65,7 +65,7 @@ class YouCarPanModal: ASDKViewController<ASDisplayNode> {
                 spacing: 16,
                 justifyContent: .center,
                 alignItems: .center,
-                children: [self.chevronDown, self.titleNode, self.vehicleCardNode]
+                children: [self.chevronDown, self.titleNode]
             )
 
             let buttonStack = ASStackLayoutSpec(

@@ -130,7 +130,8 @@ extension UserProfileViewController: ASTableDelegate, ASTableDataSource {
         if indexPath.row == personalVehicle?.count {
             return VehicleCellNode(model: nil)
         } else {
-            return VehicleCellNode(model: personalVehicle?[indexPath.row] ?? nil)
+            return ASCellNode()
+//            return VehicleCellNode(model: personalVehicle?[indexPath.row] ?? nil)
         }
     }
 

@@ -17,8 +17,10 @@ class MaintenanceHistoryCell: ASDisplayNode {
 
     private let descriptionNode: MaintenanceHistoryDescription
 
-    init(model: MaintenanceHistory) {
-        maintenanceHistoryImage.image = UIImage(named: model.maintenanceHistoryImage ?? "")
+    init(model: CarMaintenanceHistory) {
+        if let data = model.image {
+            maintenanceHistoryImage.image = UIImage(data: data)
+        }
 
         descriptionNode = MaintenanceHistoryDescription(model: model)
         descriptionNode.style.flexShrink = 1

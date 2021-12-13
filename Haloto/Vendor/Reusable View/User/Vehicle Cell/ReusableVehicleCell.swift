@@ -27,7 +27,7 @@ class VehicleCellNode: ASCellNode {
         return node
     }()
 
-    init(model: Vehicle?) {
+    init(model: CarVehicle?) {
         super.init()
         automaticallyManagesSubnodes = true
         selectionStyle = .none

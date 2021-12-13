@@ -81,7 +81,22 @@ struct CoreDataManager{
         }
     }
     
-    func generateUpcamingMaintenance(vehicleId: Int) -> [UpcomingMaintenance]? {
+    func generateUpcamingMaintenance(vehicleId: String) -> [UpcomingMaintenance]? {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CarVehicle")
+        fetchRequest.predicate = NSPredicate(format: "id == %@", vehicleId)
+        do {
+            let vehicle = try context.fetch(fetchRequest)
+            
+            if let newVehicle = vehicle as? [CarVehicle], vehicle.count != 0 {
+                let odometer = newVehicle.first?.currentOdometer ?? 0
+                return listOfUpcomingMaintenanceDummy.filter({ $0.nextServiceOdometer! > odometer })
+            }
+        } catch {
+            print("fail")
+            return nil
+        }
+        
         return nil
     }
     
