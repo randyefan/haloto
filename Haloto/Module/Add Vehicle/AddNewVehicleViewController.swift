@@ -39,13 +39,13 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
 
     private lazy var manufacturedYearFormNode: FormFieldStack = {
         // TODO: nanti pake view model set picker optionsn
-        let node = FormFieldStack(isPicker: true, title: "Manufactured Year", text: manufacturedYearDefaultValue, pickerOptions: ["2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007"])
+        let node = FormFieldStack(isPicker: true, title: "Manufactured Year", text: manufacturedYearDefaultValue, pickerOptions: ["2011", "2012", "2013", "2014"])
         return node
     }()
 
     private lazy var capacityFormNode: FormFieldStack = {
         // TODO: nanti pake view model set picker optionsn
-        let node = FormFieldStack(isPicker: true, title: "CC", text: "\(capacityDefaultValue)", pickerOptions: ["1000", "1250", "1500", "1800", "2000"])
+        let node = FormFieldStack(isPicker: true, title: "CC", text: "\(capacityDefaultValue)", pickerOptions: ["1300", "1500"])
         return node
     }()
 

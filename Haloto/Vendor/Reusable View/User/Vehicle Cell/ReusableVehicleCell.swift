@@ -43,6 +43,7 @@ class VehicleCellNode: ASCellNode {
             addImageNode = ASImageNode()
             backgroundNode = ASImageNode()
             addImageNode?.image = UIImage(named: "add-car-placeholder")
+            addImageNode?.contentMode = .scaleAspectFit
             textNode.attributedText = .font(
                 "add new car",
                 size: 16,

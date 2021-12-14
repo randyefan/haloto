@@ -33,7 +33,7 @@ class UpcomingMaintenanceDescription: ASDisplayNode {
         )
 
         subTitleNode.attributedText = .font(
-            "Check \(model.components?.first?.name ?? "") and \(model.components?.count ?? 0 - 1) other",
+            "Replace \(model.components?.first?.name ?? "") and \(model.components?.count ?? 0 - 1) other",
             size: 12,
             color: UIColor.lightGray
         )
