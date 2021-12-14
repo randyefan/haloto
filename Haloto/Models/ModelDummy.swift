@@ -23,32 +23,46 @@ let vehicle12 = Vehicle(name: "Avanza", fuelType: "Petrol", manufacture: "Toyota
 let vehicle13 = Vehicle(name: "Agya", fuelType: "Petrol", manufacture: "Toyota", manufacturedYear: "2017", capacity: 1000, transmissionType: "Automatic", licensePlate: "B 1293 JL", isDefault: false)
 
 // Component Dummy
-let component1 = Component(name: "Kabel Aki", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
-let component2 = Component(name: "Dinamo Starter Mobil", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
-let component3 = Component(name: "Dinamo Starter Busi", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
-let component4 = Component(name: "Fan Belt / V-Belt", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
-let component5 = Component(name: "Klakson", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
-let component6 = Component(name: "Alternator", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
-let component7 = Component(name: "Evaporator", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
-let component8 = Component(name: "Dryer", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
-let component9 = Component(name: "Expansion Valve", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
-let component10 = Component(name: "Filter Kabin/AC", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
-let component11 = Component(name: "Kompresor", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
-let component12 = Component(name: "Kondensor", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
-let component13 = Component(name: "Kampas Rem Belakang", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
-let component14 = Component(name: "Kampas Rem Depan", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
-let component15 = Component(name: "Disc Brake Depan", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
-let component16 = Component(name: "ABS Speed Sensor", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
-let component17 = Component(name: "Booster Rem", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
-let component18 = Component(name: "Kabel Rem Tangan", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
-let component19 = Component(name: "Oli Transmisi", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component1 = Component(name: "Celah katup", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component2 = Component(name: "Drive belt", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component3 = Component(name: "Oli mesin", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component4 = Component(name: "Filter oli mesin", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component5 = Component(name: "Sistem pendingin dan pemanas", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component6 = Component(name: "Cairan pendingin mesin", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component7 = Component(name: "Pipa exhaust dan mounting", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component8 = Component(name: "Busi", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component9 = Component(name: "Baterai", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component10 = Component(name: "Filter bahan bakar", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component11 = Component(name: "Filter pembersih udara", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component12 = Component(name: "Tutup tangki bahan bakar, saluran bahan bakar, sambungannya dan katup kontrol pengapan bahan bakar", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component13 = Component(name: "Charcoal canister", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component14 = Component(name: "Pedal kopling", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component15 = Component(name: "Pedal rem dan rem parkir", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component16 = Component(name: "Kanvas dan tromol rem", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component17 = Component(name: "Pad dan piringan rem", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component18 = Component(name: "Minyak rem", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component19 = Component(name: "Minyak kopling", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component20 = Component(name: "Pipa-pipa dan selang-selang rem", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component21 = Component(name: "Roda kemudi, persambungan dan steering gear box", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component22 = Component(name: "Kelurusan roda depan", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component23 = Component(name: "Suspension ball joint dan penutup debu", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component24 = Component(name: "Minyak transmisi manual", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component25 = Component(name: "Minyak transmisi otomatis", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component26 = Component(name: "Oli gigi diferensial", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component27 = Component(name: "Suspensi ban depan dan belakang", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component28 = Component(name: "Ban dan tekanan pemompaan", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component29 = Component(name: "Lampu, kalkson, wiper dan washer", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+let component30 = Component(name: "Jumlah refrigerant untuk AC", componentImage: "", lastReplacementDate: "", lifetimeOdometer: 20000, lifetimeDate: "")
+
 
 // Upcoming Maintenance
-let upcomingMaintenance1 = UpcomingMaintenance(components: [component1, component2, component3, component4], nextServiceOdometer: 20000, nextServiceDate: "1 Jan 2022"
+let upcomingMaintenance1 = UpcomingMaintenance(components: [component3, component4, component8], nextServiceOdometer: 20000, nextServiceDate: "1 Jan 2022"
 )
-let upcomingMaintenance2 = UpcomingMaintenance(components: [component5, component6, component7], nextServiceOdometer: 30000, nextServiceDate: "15 Juni 2022"
+let upcomingMaintenance2 = UpcomingMaintenance(components: [component3, component4], nextServiceOdometer: 30000, nextServiceDate: "15 Juni 2022"
 )
-let upcomingMaintenance3 = UpcomingMaintenance(components: [component7, component8, component9, component10], nextServiceOdometer: 40000, nextServiceDate: "11 Jan 2023"
+let upcomingMaintenance3 = UpcomingMaintenance(components: [component3, component4, component8, component11, component18, component19, component24, component26], nextServiceOdometer: 40000, nextServiceDate: "11 Jan 2023"
+)
+let upcomingMaintenance4 = UpcomingMaintenance(components: [component3, component4], nextServiceOdometer: 50000, nextServiceDate: "24 Jan 2022"
 )
 
 // List of Vehicle Dummy
@@ -212,5 +226,5 @@ let manufactures = [
 ]
 
 let models = [
-    Model(name: "Avanza")
+    Model(name: "Avanza Gen 2")
 ]
