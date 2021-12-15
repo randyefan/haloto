@@ -101,7 +101,7 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
                     DefaultManager.shared.set(value: true, forKey: .isNotFirstLogin)
                     UIApplication.shared.keyWindow?.rootViewController = TabBarBaseController(productLogin: .User)
                 } else {
-                    self.showToast(title: "Please fill in all forms")
+//                    self.showToast(title: "Please fill in all forms")
                 }
             })
         case .edit:
@@ -177,6 +177,7 @@ class AddNewVehicleViewController: ASDKViewController<ASDisplayNode> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
     }
 
     override func viewWillAppear(_ animated: Bool) {

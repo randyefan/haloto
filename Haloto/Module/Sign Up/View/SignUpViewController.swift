@@ -154,8 +154,8 @@ class SignUpViewController: UIViewController {
 
 private extension SignUpViewController {
     func setupView() {
-        setupPushViewOnKeyboardAction()
-        hideKeyboardWhenTappedAround()
+//        setupPushViewOnKeyboardAction()
+//        hideKeyboardWhenTappedAround()
         navigationController?.navigationBar.isHidden = true
         view.addSubview(signUpView)
         view.addSubview(calculateView)
@@ -220,14 +220,14 @@ extension SignUpViewController {
 
 extension SignUpViewController {
     
-    @objc
-    override func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height
-                self.view.frame.origin.y += getDifferenceViewHeight() - 30
-            }
-        }
-    }
+//    @objc
+//    override func keyboardWillShow(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//            if view.frame.origin.y == 0 {
+//                self.view.frame.origin.y -= keyboardSize.height
+//                self.view.frame.origin.y += getDifferenceViewHeight() - 30
+//            }
+//        }
+//    }
     
 }

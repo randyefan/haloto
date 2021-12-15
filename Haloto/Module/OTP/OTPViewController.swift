@@ -69,8 +69,8 @@ class OTPViewController: UIViewController {
 private extension OTPViewController {
     func setupView() {
         navigationController?.navigationBar.isHidden = true
-        setupPushViewOnKeyboardAction()
-        hideKeyboardWhenTappedAround()
+//        setupPushViewOnKeyboardAction()
+//        hideKeyboardWhenTappedAround()
         view.addSubview(loginView)
         loginView.addSubview(backgroundImageView)
         loginView.addSubview(formCard)
@@ -149,13 +149,13 @@ private extension OTPViewController {
 }
 
 extension OTPViewController {
-    @objc
-    override func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if view.frame.origin.y == 0 {
-                view.frame.origin.y -= keyboardSize.height
-                view.frame.origin.y += formCard.getDifferenceViewHeight() - 30
-            }
-        }
-    }
+//    @objc
+//    override func keyboardWillShow(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//            if view.frame.origin.y == 0 {
+//                view.frame.origin.y -= keyboardSize.height
+//                view.frame.origin.y += formCard.getDifferenceViewHeight() - 30
+//            }
+//        }
+//    }
 }

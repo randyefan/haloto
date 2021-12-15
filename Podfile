@@ -10,9 +10,9 @@ target 'Haloto' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Moya/RxSwift'
-  pod 'FLEX'
   pod 'Shimmer', '~> 1.0'
   pod 'Kingfisher'
+  pod 'FLEX', :configurations => ['Debug']
   pod 'Toast-Swift', '~> 4.0.1'
   pod 'SwifterSwift'
   pod 'Moya/RxSwift'
