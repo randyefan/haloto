@@ -2,13 +2,8 @@
 # Haloto
 
 
+https://user-images.githubusercontent.com/53168317/149815758-26f16f7f-c5cd-4e9a-a35a-34bbe5c0c91c.mp4
 
-
-## Demo
-
-
-
-## Documentation
 
 ## Authors
 - [Feby Eliana - Project Manager](https://www.linkedin.com/in/febyeliana/)
